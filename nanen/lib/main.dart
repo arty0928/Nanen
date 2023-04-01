@@ -26,43 +26,8 @@ class AppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Text(".appable/"),
-        leading: const Icon(Icons.ondemand_video_rounded),
-        // floatingActionButton :FloatingActionButton(child: const Icon(Icons.add_shopping_cart_rounded),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: [
-            Text(
-              "heading",
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            Text(
-              "Sub-heading",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            Text(
-              "paragraph",
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Elevated Button"),
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text("Outlined Button"),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Image(image: AssetImage("assets/images/books.png")),
-            ),
-          ],
-        ),
-      ),
+      appBar: AppBar(title: const Text("나는_")),
+      body: const Center(child: Text("Home page")),
     );
   }
 }
