@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nanen/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:nanen/src/utils/theme/theme.dart';
 
 void main() {
@@ -11,11 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.dartTheme,
       themeMode: ThemeMode.system,
-      home: const AppHome(),
+      home: SplashScreen(),
     );
   }
 }
