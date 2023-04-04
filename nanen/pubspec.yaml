@@ -15,6 +15,8 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_native_splash: ^2.2.19
   get: ^4.6.5
+  liquid_swipe: ^3.1.0
+  smooth_page_indicator: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +40,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/splash_images/
+    - assets/images/on_boarding_images/
 
   # fonts:
   #   - family: Schyler
