@@ -10,8 +10,8 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-    var brightness = mediaQuery.platformBrightness;
     var height = mediaQuery.size.height;
+    var brightness = mediaQuery.platformBrightness;
 
     final isDarkMode = brightness == Brightness.dark;
 

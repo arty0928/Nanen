@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants/colors.dart';
+import '../../../constants/sizes.dart';
+
 class TOutlinedButtonTheme {
   TOutlinedButtonTheme._();
 
   // Light Theme
-  static const lightOutlinedButtonTheme = OutlinedButtonThemeData();
+  static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      shape: const RoundedRectangleBorder(),
+      foregroundColor: tWhiteColor,
+      side: const BorderSide(color: tWhiteColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
+    ),
+  );
 
   // Dark Theme
-  static const darkOutlinedButtonTheme = OutlinedButtonThemeData();
+  static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      elevation: 0,
+      shape: const RoundedRectangleBorder(),
+      foregroundColor: tSeconddaryColor,
+      side: const BorderSide(color: tSeconddaryColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
+    ),
+  );
 }
