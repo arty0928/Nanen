@@ -7,6 +7,7 @@ import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/constants/sizes.dart';
 import 'package:nanen/src/constants/text_strings.dart';
+import 'package:nanen/src/features/authentication/screens/login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -63,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () => Get.to(() => const LoginScreen()),
                             child: Text(tLogin.toUpperCase())),
                       ),
                       const SizedBox(width: 10.0),
