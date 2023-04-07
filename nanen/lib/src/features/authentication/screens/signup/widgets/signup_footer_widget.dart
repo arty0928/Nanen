@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/image_strings.dart';
-import '../../../../constants/sizes.dart';
-import '../../../../constants/text_strings.dart';
+import '../../../../../constants/image_strings.dart';
+import '../../../../../constants/sizes.dart';
+import '../../../../../constants/text_strings.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+class SignUpFooterWidget extends StatelessWidget {
+  const SignUpFooterWidget({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text("OR"),
         const SizedBox(
@@ -43,23 +42,17 @@ class LoginFooterWidget extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: tFormHeight - 20,
-        ),
         TextButton(
-          onPressed: () {},
-          child: Text.rich(
-            TextSpan(
-                text: tDontHaveAnAccount,
+            onPressed: () {},
+            child: Text.rich(TextSpan(children: [
+              TextSpan(
+                text: tAlreadyHaveAnAccount,
                 style: Theme.of(context).textTheme.bodyLarge,
-                children: const [
-                  TextSpan(
-                    text: tSignup,
-                    style: TextStyle(color: Colors.blue),
-                  )
-                ]),
-          ),
-        ),
+              ),
+              TextSpan(
+                text: tLogin.toUpperCase(),
+              ),
+            ])))
       ],
     );
   }

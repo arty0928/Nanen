@@ -8,6 +8,7 @@ import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/constants/sizes.dart';
 import 'package:nanen/src/constants/text_strings.dart';
 import 'package:nanen/src/features/authentication/screens/login/login_screen.dart';
+import 'package:nanen/src/features/authentication/screens/signup/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -70,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
                       const SizedBox(width: 10.0),
                       Expanded(
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => Get.to(() => const SignUpScreen()),
                             child: Text(tSignup.toUpperCase())),
                       ),
                     ],
