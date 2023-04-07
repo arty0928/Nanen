@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+import '../../forget_password/forget_password_options/forget_password_modal_bottom_sheet.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -39,13 +40,21 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: tFormHeight - 30,
+            height: tFormHeight - 20,
           ),
+
+          // -- Forget Password BTN
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-                onPressed: () {}, child: const Text(tForgetPassword)),
+                onPressed: () {
+                  //밑에서 모달창이 올라옴
+                  ForgetPasswordScreen.buildShowModalBottomSheet(context);
+                },
+                child: const Text(tForgetPassword)),
           ),
+
+          // --Login BTN
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(

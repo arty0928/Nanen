@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/common_widgets/form/form_header_widget.dart';
+import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/constants/sizes.dart';
+import 'package:nanen/src/constants/text_strings.dart';
 
 import 'widgets/login_footer_widget.dart';
 import 'widgets/login_form_widget.dart';
-import 'widgets/login_header_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -16,12 +18,15 @@ class LoginScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(tDefaultSize),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: const Column(
               children: [
-                LoginHeaderWidget(size: size),
-                const LoginForm(),
-                const LoginFooterWidget(),
+                FormHeaderWidget(
+                  image: tWelcomeScreenImage,
+                  title: tLoginTitle,
+                  subTitle: tLoginSubTitle,
+                ),
+                LoginForm(),
+                LoginFooterWidget(),
               ],
             ),
           ),
