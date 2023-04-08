@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1098987290110",
+    "project_id": "flutter-login-app-8b654",
+    "storage_bucket": "flutter-login-app-8b654.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098987290110:android:ac49f11b17282b610794af",
+        "android_client_info": {
+          "package_name": "com.example.nanen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098987290110-45bmrkmoe1f27hq9gsu60h2m96i07iig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv6kwTg0XQcrkZtJH9VVE1OjYPSnLc5j0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098987290110-45bmrkmoe1f27hq9gsu60h2m96i07iig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
