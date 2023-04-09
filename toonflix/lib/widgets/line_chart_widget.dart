@@ -1,0 +1,1 @@
+class LineChartWidget extends StatelessWidget {}
