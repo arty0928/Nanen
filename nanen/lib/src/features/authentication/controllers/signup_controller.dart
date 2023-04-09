@@ -11,9 +11,17 @@ class SignUpController extends GetxController {
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
 
-  //Call
+  /// This func will be used to register user with [EMAIL] & [Password]
   void registerUser(String email, String password) {
-    AuthenticationRepository.instance
-        .createUserWithEmailAndPassword(email, password);
+    String? error = AuthenticationRepository.instance
+        .createUserWithEmailAndPassword(email, password) as String?;
+    if (error != null) {
+      Get.showSnackbar(GetSnackBar(message: error.toString()));
+    }
+  }
+
+  //Get phoneNo from user (Screen) and pass it to Auth Repository for Firebase Authentication
+  void phoneAuthentication(String phoneNo) {
+    AuthenticationRepository.instance.phoneAuthentication(phoneNo);
   }
 }

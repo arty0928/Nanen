@@ -67,8 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1098987290110',
     projectId: 'flutter-login-app-8b654',
     storageBucket: 'flutter-login-app-8b654.appspot.com',
-    iosClientId:
-        '1098987290110-hnhkvoa4d27vmi7o68u52d27fnq04b0g.apps.googleusercontent.com',
+    androidClientId: '1098987290110-chaj8o3r9mnikh20ev2c8ldkj7in99rn.apps.googleusercontent.com',
+    iosClientId: '1098987290110-hnhkvoa4d27vmi7o68u52d27fnq04b0g.apps.googleusercontent.com',
     iosBundleId: 'com.example.nanen',
   );
 
@@ -78,8 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1098987290110',
     projectId: 'flutter-login-app-8b654',
     storageBucket: 'flutter-login-app-8b654.appspot.com',
-    iosClientId:
-        '1098987290110-sbt5cu6r1aeis9njqrn6avstmjh3cik6.apps.googleusercontent.com',
+    androidClientId: '1098987290110-chaj8o3r9mnikh20ev2c8ldkj7in99rn.apps.googleusercontent.com',
+    iosClientId: '1098987290110-sbt5cu6r1aeis9njqrn6avstmjh3cik6.apps.googleusercontent.com',
     iosBundleId: 'com.example.nanen.RunnerTests',
   );
 }
