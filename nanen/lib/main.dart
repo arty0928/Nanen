@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanen/firebase_options.dart';
-import 'package:nanen/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:nanen/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:nanen/src/utils/theme/theme.dart';
 

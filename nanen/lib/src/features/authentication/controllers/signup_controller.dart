@@ -11,12 +11,14 @@ class SignUpController extends GetxController {
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
 
-  /// This func will be used to register user with [EMAIL] & [Password]
+  //Call this Function from Design & it will do the rest
   void registerUser(String email, String password) {
     String? error = AuthenticationRepository.instance
         .createUserWithEmailAndPassword(email, password) as String?;
     if (error != null) {
-      Get.showSnackbar(GetSnackBar(message: error.toString()));
+      Get.showSnackbar(GetSnackBar(
+        message: error.toString(),
+      ));
     }
   }
 
