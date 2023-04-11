@@ -74,3 +74,26 @@ const String tDashboardBannerTitle2 = "JAVA";
 const String tDashboardBannerSubTitle = "10 Lessons";
 const String tDashboardButton = "View All";
 const String tDashboardTopCourses = "Top Courses";
+
+// -- Profile screen - Text
+const String tProfile = "Profile";
+const String tEditProfile = "Edit Profile";
+const String tLogoutDialogHeading = "Logout";
+const String tProfileHeading = "Coding with T";
+const String tProfileSubHeading = "superAdmin@coding.com";
+
+// -- Menu
+const String tMenu5 = "tLogout";
+const String tMenu1 = "Settings";
+const String tMenu2 = "Information";
+const String tMenu3 = "Billing Details";
+const String tMenu4 = "User Management";
+
+DateTime today = DateTime.now();
+String formattedDate =
+    "${today.year.toString().padLeft(4, '0')}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}";
+
+// --Update Profile Screen - Text
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+String tJoinedAt = formattedDate;
