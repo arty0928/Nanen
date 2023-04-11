@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:nanen/src/features/authentication/screens/welcome/welcome.dart';
 import 'package:nanen/src/features/core/screens/dashboard/dashboard.dart';
+import 'package:nanen/src/repository/authentication_repository/exceptions/login_email_password_failure.dart';
 import 'package:nanen/src/repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -75,11 +76,20 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<void> loginUserWithEmailAndPassword(
+  Future<String?> loginWithEmailAndPassword(
       String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } catch (_) {}
+    } on FirebaseAuthException catch (e) {
+      final ex = LogInWithEmailAndPasswordFailure.code(e.code);
+      print('login error');
+      return ex.message;
+    } catch (_) {
+      const ex = LogInWithEmailAndPasswordFailure();
+      print('login error111');
+      return ex.message;
+    }
+    return null;
   }
 
   Future<void> logout() async => await _auth.signOut();

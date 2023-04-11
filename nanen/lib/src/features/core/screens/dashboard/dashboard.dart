@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/sizes.dart';
 import 'package:nanen/src/constants/text_strings.dart';
 
-import 'widgets/dashboard_appbar.dart';
+import 'widgets/dashboard_appBar.dart';
+import 'widgets/dashboard_categories.dart';
+import 'widgets/dashboard_searchBox.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -39,13 +41,13 @@ class Dashboard extends StatelessWidget {
                 ),
 
                 //Search Box
-                // DashboardSearchBox(txtThem: txtTheme),
+                DashboardSearchBox(txtThem: txtTheme),
                 const SizedBox(
                   height: tDashboardPadding,
                 ),
 
                 //Categories
-                // DashboardCategories(txtTheme:txtTheme),
+                DashboardCategories(txtTheme: txtTheme),
                 const SizedBox(
                   height: tDashboardPadding,
                 ),
