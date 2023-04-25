@@ -63,7 +63,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           children: [
                             AppLargeText(text: texts[index]),
                             const AppText(
-                              text: "If you have!",
+                              text: "If you have~!",
                               size: 30,
                             ),
                             const SizedBox(
