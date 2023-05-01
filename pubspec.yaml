@@ -1,0 +1,70 @@
+name: nanen
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0-362.0.dev <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  line_awesome_flutter : ^2.0.0
+  google_fonts: ^4.0.3
+  flutter_native_splash: ^2.2.19
+  get: ^4.6.5
+  liquid_swipe: ^3.1.0
+  smooth_page_indicator: ^1.0.1
+  flutter_otp_text_field: ^1.1.1
+  firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#f7f6f1"
+  color_dark: "#272727"
+  image: assets/images/mini.jpg
+  image_dark: assets/images/mini.jpg
+  android: true
+  ios: true
+
+  android_12:
+    image: assets/images/mini.jpg
+    icon_background_color: "#f7f6f1"
+    image_dark: assets/images/mini.jpg
+    icon_background_color_dark: "#272727"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logo/
+    - assets/images/
+    - assets/images/splash_images/
+    - assets/images/on_boarding_images/
+    - assets/images/welcome_images/
+    - assets/images/forget_password/
+    - assets/
+    - assets/images/dashboard/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
