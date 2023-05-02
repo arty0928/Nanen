@@ -11,16 +11,25 @@ dependencies:
   flutter:
     sdk: flutter
 
+  ## STATE MANAGEMENT
+  get: ^4.6.5
+
+  ## ONBOARDING PACKAGE
+  liquid_swipe: ^3.1.0
+  smooth_page_indicator: ^1.0.1
+
   cupertino_icons: ^1.0.2
   line_awesome_flutter : ^2.0.0
   google_fonts: ^4.0.3
   flutter_native_splash: ^2.2.19
-  get: ^4.6.5
-  liquid_swipe: ^3.1.0
-  smooth_page_indicator: ^1.0.1
+  
   flutter_otp_text_field: ^1.1.1
+  
+  ## FIREBASE PACKAGES
   firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
+  cloud_firestore : ^4.2.0
+
 
 dev_dependencies:
   flutter_test:
