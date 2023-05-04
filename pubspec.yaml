@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   percent_indicator: ^4.0.1
   carousel_slider: ^4.2.1
+  google_fonts: ^4.0.3
   get:
 
 dev_dependencies:

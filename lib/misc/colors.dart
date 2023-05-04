@@ -12,4 +12,9 @@ class AppColors {
   static Color oranges = const Color(0xffFF815E);
   static Color purple = const Color(0xff613FE5);
   static Color softPurple = const Color(0xffD0C3FF);
+
+  static Color calmC = const Color(0xff264653);
+  static Color activeC = const Color(0xff2A9D8F);
+  static Color creativeC = const Color(0xffF4A261);
+  static Color peopleC = const Color(0xffE76F51);
 }

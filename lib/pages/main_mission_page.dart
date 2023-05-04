@@ -23,10 +23,10 @@ class _WelcomePageState extends State<WelcomePage> {
   ];
 
   List texts = [
-    'Active Detail comments',
-    'Calm Detail comments',
-    'Creative Detail comments',
-    'People Detail comments',
+    'Active Design 화면입니다',
+    'Calm Design 화면입니다',
+    'Creative Design 화면입니다',
+    'People Design 화면입니다',
   ];
 
   final CarouselController carouselController = CarouselController();
@@ -63,7 +63,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           children: [
                             AppLargeText(text: texts[index]),
                             const AppText(
-                              text: "If you have~!",
+                              text: "화면 구성은 추후의",
                               size: 30,
                             ),
                             const SizedBox(
@@ -72,8 +72,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             SizedBox(
                               width: 250,
                               child: AppText(
-                                text:
-                                    "This is extra space. Use it to express another information",
+                                text: "세부 디자인 과정을 통해 완성됩니다.",
                                 color: AppColors.textColor2,
                                 size: 14,
                               ),

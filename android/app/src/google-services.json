@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1029211322341",
+    "project_id": "nanuen-db",
+    "storage_bucket": "nanuen-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029211322341:android:6506308c8a128dac94610c",
+        "android_client_info": {
+          "package_name": "com.example.nanen_mission"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029211322341-71q9r3aijnh7nj7sktmb8cg6cu7heb4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvrGkAH6l3BWodLjfvlLdUA2cDOewUo08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029211322341-71q9r3aijnh7nj7sktmb8cg6cu7heb4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

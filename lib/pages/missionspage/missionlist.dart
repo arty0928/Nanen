@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 
-class MissionList extends StatelessWidget {
+class MissionList extends StatefulWidget {
   const MissionList({super.key});
+
+  @override
+  State<MissionList> createState() => _MissionListState();
+}
+
+class _MissionListState extends State<MissionList> {
+  List missiontexts = [
+    '20분 산책하기',
+    '마트가서 장보기',
+    '달 사진 찍어보기',
+    '좋아하는 음식 포장해오기',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 5; i++)
           Container(
-            height: 100,
+            height: 90,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -36,13 +48,14 @@ class MissionList extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(children: [
                   Text(
-                    // index에 맞게 변경
-                    '20분 산책하기',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    // mission index에 맞게 변경
+                    missiontexts[i - 1],
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   )
                 ]),
               )
