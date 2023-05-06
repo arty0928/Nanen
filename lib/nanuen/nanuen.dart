@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:naneun/pages/home_page.dart';
+
+import '../pages/calendar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      // home: const HomePage(),
+      home: const CalendarPage(),
       theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }

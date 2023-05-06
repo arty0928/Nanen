@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:naneun/graph/linechart.dart';
-import 'package:naneun/graph/pricePoints.dart';
-import 'package:naneun/util/doctor_card.dart';
+import '../graph/linechart.dart';
+import '../graph/pricePoints.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,11 +15,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.deepPurple[100],
       body: SafeArea(
-        // top: false,
-        // bottom: false,
-        // right: false,
-        // left: false,
-        // maintainBottomViewPadding: false,
         child: Column(
           children: [
             //app bar
@@ -38,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'AIë¥? ?™œ?š©?•œ ë§ˆìŒê±´ê°• ê¸°ë¡ ?•± ?„œë¹„ìŠ¤',
+                                'AIë¥¼ í™œìš©í•œ ë§ˆìŒê±´ê°• ê¸°ë¡ ì•± ì„œë¹„ìŠ¤',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 18),
                               ),
@@ -139,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: const Center(
                             child: Text(
-                          '?˜¤?Š˜?˜ ë¯¸ì…˜',
+                          'ì˜¤ëŠ˜ì˜ ë¯¸ì…˜',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -285,38 +279,39 @@ class _HomePageState extends State<HomePage> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'ëª…ìƒ ?¬ë¦¬ì—?´?„°',
+                'ëª…ìƒ í¬ë¦¬ì—ì´í„°',
                 textAlign: TextAlign.left,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-                child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: const [
-                DoctorCard(
-                  doctorImagePath: 'lib/images/emindyoga.jpg',
-                  rating: '4.8',
-                  doctorName: '?—?¼ë¦? mind yoga',
-                  doctorProfession: 'Yoga',
-                ),
-                DoctorCard(
-                  doctorImagePath: 'lib/images/yangbro.jpg',
-                  rating: '',
-                  doctorName: '?–‘ë¸Œë¡œ?˜ ? •?‹ ?„¸ê³?',
-                  doctorProfession: 'Doctor',
-                ),
-                DoctorCard(
-                  doctorImagePath: 'lib/images/brainrich.jpg',
-                  rating: '4.9',
-                  doctorName: '? •?‹ ê³¼ì˜?‚¬ ?‡Œë¶???“¤',
-                  doctorProfession: 'Doctor',
-                ),
-              ],
-            ))
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // Expanded(
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: const [
+            //       DoctorCard(
+            //         doctorImagePath: 'lib/images/emindyoga.jpg',
+            //         rating: '4.8',
+            //         doctorName: 'ì—ì¼ë¦° mind yoga',
+            //         doctorProfession: 'Yoga',
+            //       ),
+            //       DoctorCard(
+            //         doctorImagePath: 'lib/images/yangbro.jpg',
+            //         rating: '',
+            //         doctorName: 'ì–‘ë¸Œë¡œì˜ ì •ì‹ ì„¸ê³„',
+            //         doctorProfession: 'Doctor',
+            //       ),
+            //       DoctorCard(
+            //         doctorImagePath: 'lib/images/brainrich.jpg',
+            //         rating: '4.9',
+            //         doctorName: 'ì •ì‹ ê³¼ì˜ì‚¬ ë‡Œë¶€ìë“¤',
+            //         doctorProfession: 'Doctor',
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
