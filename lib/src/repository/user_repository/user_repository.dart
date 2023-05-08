@@ -27,4 +27,24 @@ class UserRepository extends GetxController {
       print("ERROR - $error");
     });
   }
+
+  Future<void> updateUser(UserModel user) async {
+    await _db
+        .collection("Users")
+        .doc(user.id)
+        .update(user.toJson())
+        .whenComplete(
+          () => Get.snackbar("Success", "Your account has been updated",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.green.withOpacity(0.1),
+              colorText: Colors.green),
+        )
+        .catchError((error, stackTrace) {
+      Get.snackbar("Error", "Something went wrong. Try again",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.redAccent.withOpacity(0.1),
+          colorText: Colors.red);
+      print("ERROR - $error");
+    });
+  }
 }

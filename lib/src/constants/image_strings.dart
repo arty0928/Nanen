@@ -31,3 +31,9 @@ const String tTopCourseImage2 = "assets/images/dashboard/dash-01.jpg";
 
 // -- Profile Images
 const String tProfileImage = "assets/images/profile/profile-pic.png";
+
+// -- Mission Images
+const String activeBackgroundImage = "assets/images/mission/Active.JPG";
+const String calmBckgroundImage = "assets/images/mission/Calm.JPG";
+const String creativeBckgroundImage = "assets/images/mission/Creative.JPG";
+const String peopleBckgroundImage = "assets/images/mission/People.JPG";

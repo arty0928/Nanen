@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanen/src/features/authentication/controllers/signup_controller.dart';
 import 'package:nanen/src/features/authentication/models/user_model.dart';
-import 'package:nanen/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';

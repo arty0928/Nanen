@@ -1,6 +1,8 @@
 /* -- App Text Strings -- */
 
 // -- GLOBAL Texts
+import 'package:flutter/material.dart';
+
 const String tNext = "Next";
 const String tLogin = "Login";
 const String tEmail = "E-Mail";
@@ -92,3 +94,50 @@ const String tMenu3 = "User Management";
 const String tDelete = "Delete";
 const String tJoined = "Joined";
 const String tJoinedAt = "31 October 2022";
+
+// -- 김동진
+class AppLargeText extends StatelessWidget {
+  final double size;
+  final String text;
+  final Color color;
+
+  const AppLargeText(
+      {Key? key, this.size = 30, required this.text, this.color = Colors.black})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+class AppText extends StatelessWidget {
+  final double size;
+  final String text;
+  final Color color;
+
+  const AppText(
+      {Key? key,
+      this.size = 16,
+      required this.text,
+      this.color = Colors.black54})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+      ),
+    );
+  }
+}
