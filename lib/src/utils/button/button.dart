@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import '../../features/core/screens/misson/widgets/progress.dart';
 
 final ButtonStyle buttonPrimary = ElevatedButton.styleFrom(
   minimumSize: const Size(327, 50),
@@ -37,10 +38,10 @@ class ResponsiveButton extends StatelessWidget {
           ElevatedButton(
             style: buttonPrimary,
             onPressed: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const ProgressPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProgressPage()));
             },
             child: const Text('Show detail missions'),
           )

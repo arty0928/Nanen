@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:nanen_mission/widget/app_text.dart';
 
 import 'package:nanen/src/constants/colors.dart';
+import 'package:nanen/src/constants/image_strings.dart';
+import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 import '../../../../constants/text_strings.dart';
 import "../../../../utils/button/button.dart";
 
@@ -17,17 +19,17 @@ class MissionHomePage extends StatefulWidget {
 
 class _MissionHomePageState extends State<MissionHomePage> {
   List images = [
-    "Active.JPG",
-    "Calm.JPG",
-    "Creative.JPG",
-    "People.JPG",
+    tActiveBackgroundImage,
+    tCalmBckgroundImage,
+    tCreativeBckgroundImage,
+    tPeopleBckgroundImage
   ];
 
   List texts = [
-    'Active Design 화면입니다',
-    'Calm Design 화면입니다',
-    'Creative Design 화면입니다',
-    'People Design 화면입니다',
+    tActiveText,
+    tCalmText,
+    tCreativeText,
+    tPeopleText,
   ];
 
   final CarouselController carouselController = CarouselController();
@@ -49,7 +51,7 @@ class _MissionHomePageState extends State<MissionHomePage> {
               height: double.maxFinite,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/" + images[index]),
+                  image: AssetImage(images[index]),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:nanen/src/features/authentication/screens/welcome/welcome.dart';
+import 'package:nanen/src/features/core/screens/Home/home_page.dart';
 
 class FadeInAnimationController extends GetxController {
   static FadeInAnimationController get find => Get.find();
@@ -12,7 +12,7 @@ class FadeInAnimationController extends GetxController {
     await Future.delayed(const Duration(microseconds: 3000));
     animate.value = false;
     await Future.delayed(const Duration(microseconds: 2000));
-    Get.offAll(() => const WelcomeScreen());
+    Get.offAll(() => const HomePage());
   }
 
   Future startAnimation() async {
