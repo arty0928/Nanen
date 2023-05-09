@@ -1,6 +1,8 @@
 /* -- App Text Strings -- */
 
 // -- GLOBAL Texts
+import 'package:flutter/material.dart';
+
 const String tNext = "Next";
 const String tLogin = "Login";
 const String tEmail = "E-Mail";
@@ -65,15 +67,11 @@ const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "Verification";
 const String tOtpMessage = "Enter the verification code sent at";
 
-// -- Dashboard Screen - Text
-const String tDashboardTitle = "Hey, Coding with T";
-const String tDashboardHeading = "Explore Courses";
-const String tDashboardSearch = "Search...";
-const String tDashboardBannerTitle1 = "Android for Beginners";
-const String tDashboardBannerTitle2 = "JAVA";
-const String tDashboardBannerSubTitle = "10 Lessons";
-const String tDashboardButton = "View All";
-const String tDashboardTopCourses = "Top Courses";
+// -- Home - Text
+const String tActiveText = "Active Design 화면입니다.";
+const String tCalmText = "Calme Design 화면입니다.";
+const String tCreativeText = "Creative Design 화면입니다.";
+const String tPeopleText = "People Design 화면입니다.";
 
 // -- Profile Screen - Text
 const String tProfile = "Profile";
@@ -81,6 +79,12 @@ const String tEditProfile = "Edit Profile";
 const String tLogoutDialogHeading = " Logout";
 const String tProfileHeading = "Coding with T";
 const String tProfileSubHeading = "superAdmin@coding.com";
+
+// -- Update Profile Screen - Text
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+const String tJoinedAt = "31 October 2022";
+
 // -- Menu
 const String tMenu5 = "tLogout";
 const String tMenu1 = "Settings";
@@ -88,7 +92,49 @@ const String tMenu4 = "Information";
 const String tMenu2 = "Billing Details";
 const String tMenu3 = "User Management";
 
-// -- Update Profile Screen - Text
-const String tDelete = "Delete";
-const String tJoined = "Joined";
-const String tJoinedAt = "31 October 2022";
+// -- 김동진
+class AppLargeText extends StatelessWidget {
+  final double size;
+  final String text;
+  final Color color;
+
+  const AppLargeText(
+      {Key? key, this.size = 30, required this.text, this.color = Colors.black})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+class AppText extends StatelessWidget {
+  final double size;
+  final String text;
+  final Color color;
+
+  const AppText(
+      {Key? key,
+      this.size = 16,
+      required this.text,
+      this.color = Colors.black54})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+      ),
+    );
+  }
+}

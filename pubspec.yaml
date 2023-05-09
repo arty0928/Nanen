@@ -24,11 +24,16 @@ dependencies:
   flutter_native_splash: ^2.2.19
   
   flutter_otp_text_field: ^1.1.1
-  
-  ## FIREBASE PACKAGES
+
   firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
-  cloud_firestore : ^4.2.0
+  cloud_firestore: ^4.2.0
+
+
+  percent_indicator: ^4.0.1
+  carousel_slider: ^4.2.1
+  fl_chart: ^0.62.0
+  collection: ^1.17.1
 
 
 dev_dependencies:
@@ -62,6 +67,10 @@ flutter:
     - assets/images/forget_password/
     - assets/
     - assets/images/dashboard/
+    - assets/images/home/
+    - assets/images/mission/
+
+
 
   # fonts:
   #   - family: Schyler
