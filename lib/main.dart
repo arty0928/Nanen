@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanen/src/utils/theme/theme.dart';
 
+import 'src/features/core/screens/mainPage.dart';
 import 'src/features/core/screens/misson/mission_main.dart';
 
 void main() {
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         // home: const OnBoardingScreen(),
         // home: const SplashScreen(),
         // home: const CircularProgressIndicator(),
-        home: const MissionHomePage());
+        // home: const MissionHomePage());
+        home: const MainPage());
   }
 }
 

@@ -33,11 +33,6 @@ class _MissionHomePageState extends State<MissionHomePage> {
   ];
 
   final CarouselController carouselController = CarouselController();
-  // This is for main
-  int currentIndex = 0;
-
-  // This is for bottom bar
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -115,39 +110,6 @@ class _MissionHomePageState extends State<MissionHomePage> {
               ),
             );
           }),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        iconSize: 30,
-
-        // type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.deepPurple.shade200,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.task),
-            label: 'Mission',
-            backgroundColor: Colors.deepPurple.shade200,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.calendar_today),
-            label: 'Calendar',
-            backgroundColor: Colors.deepPurple.shade200,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.person),
-            label: 'My Page',
-            backgroundColor: Colors.deepPurple.shade200,
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
     );
   }
 }

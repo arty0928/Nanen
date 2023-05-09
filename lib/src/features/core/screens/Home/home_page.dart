@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/image_strings.dart';
 
 import '../../../../utils/nav_foot_bar/nav_foot_bar.dart';
+import '../../../user/mypage/mypage.dart';
+import '../calendar/calendar_main.dart';
+import '../misson/mission_main.dart';
 import 'widgets/graph/doctor_card.dart';
 import 'widgets/graph/linechart.dart';
 import 'widgets/graph/pricepoint.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: const navFootBar(),
+      // bottomSheet: const navFootBar(),
       backgroundColor: Colors.deepPurple[100],
       body: Column(
         children: [
@@ -68,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           const SizedBox(
-            height: 25,
+            height: 5,
           ),
 
           //card -> how do you feel?
@@ -181,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                     width: 70,
                     decoration: BoxDecoration(
                       image: const DecorationImage(
-                        image: AssetImage('lib/images/active.png'),
+                        image: AssetImage(tActiveImage),
                       ),
                       color: Colors.deepPurple[200],
                       borderRadius: BorderRadius.circular(12),
@@ -203,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                     width: 70,
                     decoration: BoxDecoration(
                       image: const DecorationImage(
-                        image: AssetImage('lib/images/creative.png'),
+                        image: AssetImage(tCreativeImage),
                       ),
                       color: Colors.deepPurple[200],
                       borderRadius: BorderRadius.circular(12),
@@ -225,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                     width: 70,
                     decoration: BoxDecoration(
                       image: const DecorationImage(
-                        image: AssetImage('lib/images/people.png'),
+                        image: AssetImage(tPeopleImage),
                       ),
                       color: Colors.deepPurple[200],
                       borderRadius: BorderRadius.circular(12),
@@ -247,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                     width: 70,
                     decoration: BoxDecoration(
                       image: const DecorationImage(
-                        image: AssetImage('lib/images/calm.png'),
+                        image: AssetImage(tCalmImage),
                       ),
                       color: Colors.deepPurple[200],
                       borderRadius: BorderRadius.circular(12),
@@ -266,54 +265,54 @@ class _HomePageState extends State<HomePage> {
           // Container(
           //   child: LineChartWidget(pricePoints),
           // ),
-          const SizedBox(
-            height: 20,
-          ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
 
-          Container(
-            child: LineChartWidget(pricePoints),
-          ),
+          // Container(
+          //   child: LineChartWidget(pricePoints),
+          // ),
 
-          const SizedBox(
-            height: 20,
-          ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
 
           //Youtuber
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              '紐낆긽 ?겕由ъ뿉?씠?꽣',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-              child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: const [
-              DoctorCard(
-                doctorImagePath: 'lib/images/emindyoga.jpg',
-                rating: '4.8',
-                doctorName: '?뿉?씪由? mind yoga',
-                doctorProfession: 'Yoga',
-              ),
-              DoctorCard(
-                doctorImagePath: 'lib/images/yangbro.jpg',
-                rating: '',
-                doctorName: '?뼇釉뚮줈?쓽 ?젙?떊?꽭怨?',
-                doctorProfession: 'Doctor',
-              ),
-              DoctorCard(
-                doctorImagePath: 'lib/images/brainrich.jpg',
-                rating: '4.9',
-                doctorName: '?젙?떊怨쇱쓽?궗 ?뇤遺??옄?뱾',
-                doctorProfession: 'Doctor',
-              ),
-            ],
-          ))
+          //   const Padding(
+          //     padding: EdgeInsets.symmetric(horizontal: 20),
+          //     child: Text(
+          //       '紐낆긽 ?겕由ъ뿉?씠?꽣',
+          //       textAlign: TextAlign.left,
+          //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          //     ),
+          //   ),
+          //   const SizedBox(
+          //     height: 20,
+          //   ),
+          //   Expanded(
+          //       child: ListView(
+          //     scrollDirection: Axis.horizontal,
+          //     children: const [
+          //       DoctorCard(
+          //         doctorImagePath: 'lib/images/emindyoga.jpg',
+          //         rating: '4.8',
+          //         doctorName: '?뿉?씪由? mind yoga',
+          //         doctorProfession: 'Yoga',
+          //       ),
+          //       DoctorCard(
+          //         doctorImagePath: 'lib/images/yangbro.jpg',
+          //         rating: '',
+          //         doctorName: '?뼇釉뚮줈?쓽 ?젙?떊?꽭怨?',
+          //         doctorProfession: 'Doctor',
+          //       ),
+          //       DoctorCard(
+          //         doctorImagePath: 'lib/images/brainrich.jpg',
+          //         rating: '4.9',
+          //         doctorName: '?젙?떊怨쇱쓽?궗 ?뇤遺??옄?뱾',
+          //         doctorProfession: 'Doctor',
+          //       ),
+          //     ],
+          //   ))
         ],
       ),
     );

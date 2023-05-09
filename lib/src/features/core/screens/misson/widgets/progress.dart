@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import 'mission_list.dart';
@@ -11,9 +12,18 @@ class ProgressPage extends StatefulWidget {
 }
 
 class _ProgressPageState extends State<ProgressPage> {
+  int selectedIndex = 0;
+
+  void onClicked(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: NavFootBar(selectedIndex: 1, onClicked: onClicked),
       body: Column(
         children: [
           Stack(
