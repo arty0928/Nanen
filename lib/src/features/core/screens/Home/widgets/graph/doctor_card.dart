@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/colors.dart';
 
 class DoctorCard extends StatelessWidget {
   final String doctorImagePath;
@@ -17,59 +18,65 @@ class DoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 25.0),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.deepPurple[200],
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            children: [
-              //picture
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  doctorImagePath,
-                  height: 100,
-                ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              decoration: BoxDecoration(
+                color: tPrimaryColor,
+                borderRadius: BorderRadius.circular(10),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-
-              //rating
-              Row(
+              child: Column(
                 children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[700],
-                  ),
-                  const Text(
-                    '4.9',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                  //picture
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      doctorImagePath,
+                      height: 100,
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  //rating
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Icon(
+                        Icons.star,
+                        color: tAccentColor,
+                      ),
+                      const SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        rating,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //doctor name
+                  Text(
+                    doctorName,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+
+                  //doctor title
+                  Text(doctorProfession),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-
-              //doctor name
-              Text(
-                doctorName,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-
-              //doctor title
-              Text(doctorProfession),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
