@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/image_strings.dart';
 
-import '../../../../utils/nav_foot_bar/nav_foot_bar.dart';
-import '../../../user/mypage/mypage.dart';
-import '../calendar/calendar_main.dart';
-import '../misson/mission_main.dart';
-import 'widgets/graph/doctor_card.dart';
-import 'widgets/graph/linechart.dart';
-import 'widgets/graph/pricepoint.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
