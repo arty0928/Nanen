@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:nanen/src/utils/theme/theme.dart';
 
 import 'src/features/core/screens/mainPage.dart';
-import 'src/features/core/screens/misson/mission_main.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();

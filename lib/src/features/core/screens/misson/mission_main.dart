@@ -5,9 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 import '../../../../constants/text_strings.dart';
 import "../../../../utils/button/button.dart";
+import '../../../user/mypage/mypage.dart';
 
 class MissionHomePage extends StatefulWidget {
   const MissionHomePage({Key? key}) : super(key: key);
@@ -18,11 +18,11 @@ class MissionHomePage extends StatefulWidget {
 }
 
 class _MissionHomePageState extends State<MissionHomePage> {
-  List images = [
-    tActiveBackgroundImage,
-    tCalmBckgroundImage,
-    tCreativeBckgroundImage,
-    tPeopleBckgroundImage
+  List backgroundColor = [
+    tWhiteColor,
+    tPrimaryColor,
+    tSeconddaryColor,
+    tAccentColor
   ];
 
   List texts = [
@@ -37,18 +37,16 @@ class _MissionHomePageState extends State<MissionHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CostumedAppBar(bartitle: 'Mission'),
       body: PageView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: images.length,
+          itemCount: backgroundColor.length,
           itemBuilder: (_, index) {
             return Container(
               width: double.maxFinite,
               height: double.maxFinite,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(images[index]),
-                  fit: BoxFit.cover,
-                ),
+                color: backgroundColor[index],
               ),
               child: Container(
                 margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
@@ -76,7 +74,7 @@ class _MissionHomePageState extends State<MissionHomePage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 280,
+                              height: 180,
                             ),
                           ],
                         ),

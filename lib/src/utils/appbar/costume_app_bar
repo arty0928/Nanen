@@ -1,21 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:nanen/src/constants/colors.dart';
-
-class MyPage extends StatelessWidget {
-  const MyPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: tWhiteColor,
-      appBar: CostumedAppBar(
-        bartitle: 'MyPage',
-      ),
-      body: Text("this is mypage"),
-    );
-  }
-}
 
 class CostumedAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String bartitle;

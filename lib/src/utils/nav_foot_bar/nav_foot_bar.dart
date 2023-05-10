@@ -6,6 +6,7 @@ class NavFootBar extends StatelessWidget {
   final selectedIndex;
   ValueChanged<int> onClicked;
   NavFootBar({
+    super.key,
     this.selectedIndex,
     required this.onClicked,
   });

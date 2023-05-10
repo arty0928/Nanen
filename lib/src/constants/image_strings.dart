@@ -30,9 +30,9 @@ const String tPeopleImage = "assets/images/home/people.png";
 const String tBaekjoonImage = "assets/images/home/baekjoon.png";
 const String tBrainrichImage = "assets/images/home/brainrich.jpg";
 const String tCocoImage = "assets/images/home/coco.jpg";
-const String tEmindyogaImage = "assets/images/emindyoga.jpg";
-const String tJpaImage = "assets/images/JPA.png";
-const String tYangbroImage = "assets/images/yangbro.jpg";
+const String tEmindyogaImage = "assets/images/home/emindyoga.jpg";
+const String tJpaImage = "assets/images/home/JPA.png";
+const String tYangbroImage = "assets/images/home/yangbro.jpg";
 
 // -- Profile Images
 const String tProfileImage = "assets/images/profile/profile-pic.png";
