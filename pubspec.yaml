@@ -29,6 +29,7 @@ dependencies:
   carousel_slider: ^4.2.1
   fl_chart: ^0.62.0
   collection: ^1.17.1
+  cached_network_image: ^3.2.3
 
 
 dev_dependencies:
@@ -64,6 +65,8 @@ flutter:
     - assets/images/dashboard/
     - assets/images/home/
     - assets/images/mission/
+    - assets/images/profile/
+
 
 
 

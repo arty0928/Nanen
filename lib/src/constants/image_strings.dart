@@ -35,7 +35,7 @@ const String tJpaImage = "assets/images/home/JPA.png";
 const String tYangbroImage = "assets/images/home/yangbro.jpg";
 
 // -- Profile Images
-const String tProfileImage = "assets/images/profile/profile-pic.png";
+const String tProfileImage = "assets/images/profile/profile-pic.jpg";
 
 // -- Mission Images
 const String tActiveBackgroundImage = "assets/images/mission/active.jpg";
