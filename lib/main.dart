@@ -4,12 +4,7 @@ import 'package:nanen/src/utils/theme/theme.dart';
 
 import 'src/features/core/screens/mainPage.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-  //     .then((value) => Get.put(AuthenticationRepository()));
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

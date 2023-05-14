@@ -4,7 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:nanen_mission/widget/app_text.dart';
 
 import 'package:nanen/src/constants/colors.dart';
-import 'package:nanen/src/constants/image_strings.dart';
 import '../../../../constants/text_strings.dart';
 import "../../../../utils/button/button.dart";
 import '../../../user/mypage/mypage.dart';
@@ -37,7 +36,7 @@ class _MissionHomePageState extends State<MissionHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CostumedAppBar(bartitle: 'Mission'),
+      appBar: const CostumedAppBar(bartitle: 'Mission'),
       body: PageView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: backgroundColor.length,

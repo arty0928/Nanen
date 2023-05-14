@@ -52,7 +52,6 @@ class AvatarWidget extends StatelessWidget {
           height: size,
           child: CachedNetworkImage(
             imageUrl: thumbPath,
-            fit: BoxFit.cover,
           ),
         ),
       ),
