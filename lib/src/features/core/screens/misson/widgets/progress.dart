@@ -30,7 +30,7 @@ class _ProgressPageState extends State<ProgressPage> {
             children: [
               Container(
                 width: double.maxFinite,
-                height: 150,
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.deepPurple.shade200,
                 ),

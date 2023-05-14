@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
 
-  List screens = [HomePage(), MissionHomePage(), CalendarPage(), MyPage()];
+  List screens = [const HomePage(), const MissionHomePage(), const CalendarPage(), const MyPage()];
 
   void onClicked(int index) {
     setState(() {
