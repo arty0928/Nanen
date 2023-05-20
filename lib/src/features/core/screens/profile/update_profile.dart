@@ -6,6 +6,7 @@ import 'package:nanen/src/constants/sizes.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../constants/text_strings.dart';
+import '../../../user/mypage/mypage.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
   const UpdateProfileScreen({super.key});
@@ -13,43 +14,119 @@ class UpdateProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          leading: IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(LineAwesomeIcons.angle_left)),
-          title: Text(tProfile,
-              style: Theme.of(context).textTheme.headlineMedium)),
+      appBar: const CostumedAppBar(
+        bartitle: 'MyPage > Edit Profile',
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
           child: Column(
             children: [
-              Stack(
-                children: [
-                  SizedBox(
-                    width: 120,
-                    height: 120,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: const Image(image: AssetImage(tProfileImage))),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: tPrimaryColor),
-                      child: const Icon(
-                        LineAwesomeIcons.camera,
-                        size: 20,
-                        color: Colors.black,
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //Profile
+                    Stack(
+                      children: [
+                        SizedBox(
+                          width: 120,
+                          height: 120,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: const Image(
+                                  image: AssetImage(tProfileImage))),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            width: 35,
+                            height: 35,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(100),
+                                color: tPrimaryColor),
+                            child: const Icon(
+                              LineAwesomeIcons.camera,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+
+                    //number
+                    const Expanded(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 10),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'Eunseopark',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    '237',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Text('active')
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    '237',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Text('calm')
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    '237',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Text('creative')
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    '237',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Text('people')
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -57,11 +134,6 @@ class UpdateProfileScreen extends StatelessWidget {
               Form(
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                          label: Text(tFullName),
-                          prefixIcon: Icon(Icons.person_outline_rounded)),
-                    ),
                     TextFormField(
                       decoration: const InputDecoration(
                           label: Text(tFullName),
