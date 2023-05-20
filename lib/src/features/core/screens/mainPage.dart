@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/user/mypage/widget/tabBarView.dart';
 import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 
 import '../../user/mypage/mypage.dart';
@@ -16,7 +17,12 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
 
-  List screens = [const HomePage(), const MissionHomePage(), const CalendarPage(), const MyPage()];
+  List screens = [
+    const HomePage(),
+    const MissionHomePage(),
+    const CalendarPage(),
+    Mypage(),
+  ];
 
   void onClicked(int index) {
     setState(() {
