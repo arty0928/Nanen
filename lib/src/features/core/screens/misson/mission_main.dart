@@ -4,9 +4,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:nanen_mission/widget/app_text.dart';
 
 import 'package:nanen/src/constants/colors.dart';
+import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 import '../../../../constants/text_strings.dart';
 import "../../../../utils/button/button.dart";
-import '../../../user/mypage/mypage.dart';
 
 class MissionHomePage extends StatefulWidget {
   const MissionHomePage({Key? key}) : super(key: key);

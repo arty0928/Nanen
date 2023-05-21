@@ -1,180 +1,165 @@
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:nanen/src/constants/colors.dart';
+import 'package:nanen/src/features/user/mypage/widget/accountTab.dart';
+import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
+import 'package:nanen/src/utils/chart/graph/myBarGraph.dart';
 
-import '../../core/screens/profile/widget/avatar_widget.dart';
+import 'widget/editProfileBtn.dart';
 
-// class MyPage extends StatefulWidget {
-//   const MyPage({super.key});
+class Mypage extends StatefulWidget {
+  const Mypage({super.key});
 
-//   @override
-//   State<MyPage> createState() => _MyPageState();
-// }
+  @override
+  State<Mypage> createState() => _MypageState();
+}
 
-// class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
-//   late TabController tabController;
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-//     tabController = TabController(length: 4, vsync: this);
-//   }
-
-//   Widget _tabMission() {
-//     return TabBar(
-//         controller: tabController,
-//         indicatorColor: tSeconddaryColor,
-//         indicatorWeight: 1.5,
-//         tabs: const [
-//           Tab(
-//             icon: Icon(
-//               Icons.grid_3x3_outlined,
-//               color: tPrimaryColor,
-//             ),
-//           ),
-//           Tab(
-//             icon: Icon(
-//               Icons.person_2_outlined,
-//               color: tPrimaryColor,
-//             ),
-//           ),
-//           Tab(
-//             icon: Icon(
-//               Icons.grid_3x3_outlined,
-//               color: tPrimaryColor,
-//             ),
-//           ),
-//           Tab(
-//             icon: Icon(
-//               Icons.grid_3x3_outlined,
-//               color: tPrimaryColor,
-//             ),
-//           )
-//         ]);
-//   }
-
-//   Widget _tabView(viewColor, itemCount) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 18),
-//       child: GridView.builder(
-//           physics: NeverScrollableScrollPhysics(),
-//           shrinkWrap: true,
-//           itemCount: itemCount,
-//           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 3,
-//             childAspectRatio: 1,
-//             mainAxisSpacing: 1,
-//             crossAxisSpacing: 1,
-//           ),
-//           itemBuilder: (BuildContext context, index) {
-//             return Container(color: viewColor);
-//           }),
-//     );
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         backgroundColor: tWhiteColor,
-//         appBar: const CostumedAppBar(
-//           bartitle: 'MyPage',
-//         ),
-//         body: SingleChildScrollView(
-//           child: Column(
-//             children: [
-//               const Padding(
-//                 padding: EdgeInsets.all(10),
-//               ),
-//               _information(),
-//               _EditButton(),
-//               // _tabMission(),
-//               _missionChart(),
-//               const SizedBox(
-//                 height: 15,
-//               ),
-//               // _tabView(),
-
-//               TabBar(
-//                   controller: tabController,
-//                   indicatorColor: tSeconddaryColor,
-//                   indicatorWeight: 1.5,
-//                   tabs: const [
-//                     Tab(
-//                       icon: Icon(
-//                         Icons.grid_3x3_outlined,
-//                         color: tPrimaryColor,
-//                       ),
-//                     ),
-//                     Tab(
-//                       icon: Icon(
-//                         Icons.person_2_outlined,
-//                         color: tPrimaryColor,
-//                       ),
-//                     ),
-//                     Tab(
-//                       icon: Icon(
-//                         Icons.grid_3x3_outlined,
-//                         color: tPrimaryColor,
-//                       ),
-//                     ),
-//                     Tab(
-//                       icon: Icon(
-//                         Icons.grid_3x3_outlined,
-//                         color: tPrimaryColor,
-//                       ),
-//                     )
-//                   ]),
-//               TabBarView(
-//                 children: [
-//                   _tabView(tPrimaryColor, 10),
-//                   _tabView(tPrimaryColor, 10),
-//                   _tabView(tPrimaryColor, 10),
-//                   _tabView(tPrimaryColor, 10)
-//                 ],
-//               )
-//             ],
-//           ),
-//         ));
-//   }
-// }
-
-class CostumedAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String bartitle;
-
-  const CostumedAppBar({
-    super.key,
-    required this.bartitle,
-  });
+class _MypageState extends State<Mypage> {
+  List<double> dataSummary = [40.40, 60.50, 80.42, 19.50];
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: tSeconddaryColor,
-      elevation: 0,
-      title: Text(
-        bartitle,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-          color: tWhiteColor,
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: const CostumedAppBar(
+          bartitle: 'MyPage',
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //Profile
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: Colors.grey[300], shape: BoxShape.circle),
+                  ),
+
+                  //number
+                  const Expanded(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 25, vertical: 10),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Eunseopark',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  '237',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text('active')
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  '237',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text('calm')
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  '237',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text('creative')
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  '237',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text('people')
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const EditProfileBtn(),
+            const TabBar(
+              indicatorColor: tSeconddaryColor,
+              indicatorWeight: 2,
+              tabs: [
+                Tab(
+                  icon: Icon(
+                    Icons.sports,
+                    color: tPrimaryColor,
+                  ),
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.face,
+                    color: tPrimaryColor,
+                  ),
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.movie_creation_rounded,
+                    color: tPrimaryColor,
+                  ),
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.people,
+                    color: tPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+                height: 200, child: MyBarGraph(weeklySummary: dataSummary)),
+            const SizedBox(
+              height: 20,
+            ),
+            const Expanded(
+              child: TabBarView(
+                children: [
+                  AccountTab(tabColor: tAccentColor, itemCount: 10),
+                  AccountTab(tabColor: tPrimaryColor, itemCount: 5),
+                  AccountTab(tabColor: tDarkColor, itemCount: 4),
+                  AccountTab(tabColor: tAccentColor, itemCount: 8),
+                ],
+              ),
+            )
+          ],
         ),
       ),
-      actions: [
-        GestureDetector(
-          onTap: () {},
-          child: const Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Icon(
-              LineAwesomeIcons.cog,
-              size: 25.0,
-              color: tWhiteColor,
-            ),
-          ),
-        )
-      ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -4,7 +4,7 @@ import '../../../../constants/colors.dart';
 import '../../../core/screens/profile/update_profile.dart';
 
 class EditProfileBtn extends StatelessWidget {
-  const EditProfileBtn({Key? key});
+  const EditProfileBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,8 @@ class EditProfileBtn extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UpdateProfileScreen()),
+            MaterialPageRoute(
+                builder: (context) => const UpdateProfileScreen()),
           );
         },
         child: Row(

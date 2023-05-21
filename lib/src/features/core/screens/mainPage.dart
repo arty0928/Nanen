@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/features/user/mypage/widget/tabBarView.dart';
 import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 
 import '../../user/mypage/mypage.dart';
@@ -21,7 +20,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const MissionHomePage(),
     const CalendarPage(),
-    Mypage(),
+    const Mypage(),
   ];
 
   void onClicked(int index) {

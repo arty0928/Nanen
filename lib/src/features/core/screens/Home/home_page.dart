@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/features/user/mypage/mypage.dart';
+import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
 import '../../../../constants/colors.dart';
 import 'widgets/graph/doctor_card.dart';
