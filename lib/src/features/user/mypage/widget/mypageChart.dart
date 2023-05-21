@@ -1,59 +1,31 @@
-import 'package:flutter/material.dart';
+class IndividualBar {
+  final int x;
+  final double y;
 
-import '../../../../constants/colors.dart';
+  IndividualBar({required this.x, required this.y});
+}
 
-class MyPageChart extends StatelessWidget {
-  const MyPageChart({super.key});
+class BarData {
+  final double active;
+  final double calm;
+  final double creative;
+  final double people;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 18,
-      ),
-      child: Column(
-        children: [
-          // const Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     Text(
-          //       'calm',
-          //       style: TextStyle(
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 13,
-          //           color: tDarkColor),
-          //     ),
-          //     Text(
-          //       'active',
-          //       style: TextStyle(
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 13,
-          //           color: tDarkColor),
-          //     ),
-          //     Text(
-          //       'people',
-          //       style: TextStyle(
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 13,
-          //           color: tDarkColor),
-          //     ),
-          //     Text(
-          //       'creative',
-          //       style: TextStyle(
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 13,
-          //           color: tDarkColor),
-          //     ),
-          //   ],
-          // ),
-          const SizedBox(height: 10),
-          Container(
-            width: 410,
-            height: 200,
-            color: tPrimaryColor,
-          ),
-        ],
-      ),
-    );
+  BarData({
+    required this.active,
+    required this.calm,
+    required this.creative,
+    required this.people,
+  });
+  List<IndividualBar> barData = [];
+
+  //initialize bar Data
+  void initializeBarData() {
+    barData = [
+      IndividualBar(x: 0, y: active),
+      IndividualBar(x: 1, y: calm),
+      IndividualBar(x: 2, y: creative),
+      IndividualBar(x: 3, y: people),
+    ];
   }
 }
