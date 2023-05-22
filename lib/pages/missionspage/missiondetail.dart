@@ -8,8 +8,15 @@ class MissionDetail extends StatelessWidget {
 
   MissionDetail(this.idx, {Key? key}) : super(key: key);
 
+  List missionCategory = [
+    'Active',
+    'Calm',
+    'Creative',
+    'People',
+  ];
+
   List missiontexts = [
-    '20분 산책하기',
+    '30분 산책하기',
     '마트가서 장보기',
     '달 사진 찍어보기',
     '좋아하는 음식 포장해오기',
@@ -62,6 +69,7 @@ class MissionDetail extends StatelessWidget {
                   left: 160,
                   top: 90,
                   child: Text(
+                    // text 변경 필요
                     'Active',
                     style: TextStyle(
                       fontSize: 35,

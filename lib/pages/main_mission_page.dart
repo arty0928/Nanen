@@ -5,6 +5,7 @@ import 'package:nanen_mission/widget/app_text.dart';
 
 import '../misc/colors.dart';
 import '../widget/responsive_button.dart';
+import 'calendar/calendar_widget.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 280,
+                              height: 250,
                             ),
                           ],
                         ),
@@ -129,7 +130,17 @@ class _WelcomePageState extends State<WelcomePage> {
             backgroundColor: Colors.deepPurple.shade200,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.calendar_today),
+            //icon: const Icon(Icons.person),
+            icon: IconButton(
+              icon: const Icon(Icons.calendar_today),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CalendarWidget()),
+                );
+              },
+            ),
             label: 'Calendar',
             backgroundColor: Colors.deepPurple.shade200,
           ),

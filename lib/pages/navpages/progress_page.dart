@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-
 import '../missionspage/missionlist.dart';
 
 class ProgressPage extends StatefulWidget {
-  const ProgressPage({super.key});
+  const ProgressPage({
+    super.key,
+  });
 
   @override
   State<ProgressPage> createState() => _ProgressPageState();
 }
 
 class _ProgressPageState extends State<ProgressPage> {
+  List category = [
+    'Active',
+    'Creative',
+    'Calm',
+    'People',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

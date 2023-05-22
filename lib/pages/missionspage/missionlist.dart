@@ -10,8 +10,8 @@ class MissionList extends StatefulWidget {
 }
 
 class _MissionListState extends State<MissionList> {
-  List missiontexts = [
-    '20분 산책하기',
+  List activemissiontexts = [
+    '30분 산책하기',
     '마트가서 장보기',
     '달 사진 찍어보기',
     '좋아하는 음식 포장해오기',
@@ -60,7 +60,7 @@ class _MissionListState extends State<MissionList> {
                   child: Row(children: [
                     Text(
                       // mission index에 맞게 변경
-                      missiontexts[i - 1],
+                      activemissiontexts[i - 1],
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                     )
