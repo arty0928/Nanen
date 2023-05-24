@@ -36,7 +36,8 @@ dependencies:
   collection: ^1.17.1
   cached_network_image: ^3.2.3
   syncfusion_flutter_charts: ^21.2.5
-
+  masonry_grid: ^1.0.0
+  flutter_staggered_grid_view: ^0.6.2
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,12 @@ flutter:
     - assets/images/home/
     - assets/images/mission/
     - assets/images/profile/
+    # - assets/images/tabbarview/
+    # - assets/images/tabbarview/active
+    # - assets/images/tabbarview/calm
+
+
+
 
 
 

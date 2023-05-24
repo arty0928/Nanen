@@ -42,3 +42,12 @@ const String tActiveBackgroundImage = "assets/images/mission/active.jpg";
 const String tCalmBckgroundImage = "assets/images/mission/calm.jpg";
 const String tCreativeBckgroundImage = "assets/images/mission/creative.jpg";
 const String tPeopleBckgroundImage = "assets/images/mission/people.jpg";
+
+// -- tabbarview
+const String tCalm1Image1 = "assets/images/mission/calm1.jpg";
+const String tCalm1Image2 = "assets/images/mission/calm2.jpg";
+const String tCalm1Image3 = "assets/images/mission/calm3.jpg";
+const String tActiveImage1 = "assets/images/mission/active1.jpg";
+const String tActiveImage2 = "assets/images/mission/active2.jpg";
+const String tActiveImage3 = "assets/images/mission/active3.jpg";
+// C:\Users\82109\Projects\newNanen\Nanen\assets\images\mission\active1.jpg

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/user/settings/update_profile.dart';
 
 import '../../../../constants/colors.dart';
-import '../../../core/screens/profile/update_profile.dart';
 
 class EditProfileBtn extends StatelessWidget {
   const EditProfileBtn({super.key});
@@ -9,7 +9,7 @@ class EditProfileBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: GestureDetector(
         onTap: () {
           Navigator.push(

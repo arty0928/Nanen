@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const MissionHomePage(),
     const CalendarPage(),
-    const Mypage(),
+    const MyPage(),
   ];
 
   void onClicked(int index) {
