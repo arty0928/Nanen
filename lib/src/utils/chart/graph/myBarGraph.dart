@@ -20,6 +20,7 @@ class MyBarGraph extends StatelessWidget {
     myBarData.initializeBarData();
 
     return BarChart(BarChartData(
+      backgroundColor: Colors.grey.withOpacity(0.1),
       maxY: 100,
       minY: 0,
       gridData: FlGridData(show: false),
@@ -42,7 +43,7 @@ class MyBarGraph extends StatelessWidget {
               BarChartRodData(
                 toY: data.y,
                 color: tSeconddaryColor,
-                width: 50,
+                width: 35,
                 borderRadius: BorderRadius.circular(4),
                 backDrawRodData: BackgroundBarChartRodData(
                     show: true, toY: 100, color: tWhiteColor),
@@ -92,5 +93,5 @@ Widget getBottomTitles(double value, TitleMeta meta) {
       );
       break;
   }
-  return SideTitleWidget(child: text, axisSide: meta.axisSide);
+  return SideTitleWidget(axisSide: meta.axisSide, child: text);
 }

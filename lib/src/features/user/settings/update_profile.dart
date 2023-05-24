@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/features/user/mypage/widget/category.dart';
+import 'package:nanen/src/features/user/settings/widget/settingCategory.dart';
+import 'package:nanen/src/features/user/mypage/top/mypageTop.dart';
 import 'package:nanen/src/features/user/mypage/widget/editProfileBtn.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
@@ -206,100 +207,24 @@ class UpdateProfileScreen extends StatelessWidget {
 //     );
 //   }
 // }
-    return Scaffold(
-      appBar: const CostumedAppBar(
+    return const Scaffold(
+      appBar: CostumedAppBar(
         bartitle: 'MyPage',
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                //Profile
-                Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.grey[300], shape: BoxShape.circle),
-                ),
-
-                //number
-                const Expanded(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Eunseopark',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                '237',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18),
-                              ),
-                              Text('active')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                '237',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18),
-                              ),
-                              Text('calm')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                '237',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18),
-                              ),
-                              Text('creative')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                '237',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18),
-                              ),
-                              Text('people')
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            mypageTop(),
+            EditProfileBtn(),
+            SizedBox(
+              height: 8,
             ),
-          ),
-          const EditProfileBtn(),
-          const SizedBox(
-            height: 8,
-          ),
 
-          // 감정온도
-          const MyPageCategory(),
-        ],
+            // 감정온도
+            MyPageCategory(),
+          ],
+        ),
       ),
     );
   }
