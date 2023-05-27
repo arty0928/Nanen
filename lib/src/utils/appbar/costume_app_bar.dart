@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:nanen/src/features/user/settings/update_profile.dart';
 
 import '../../constants/colors.dart';
 
@@ -26,7 +27,13 @@ class CostumedAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const UpdateProfileScreen()),
+            );
+          },
           child: const Padding(
             padding: EdgeInsets.all(15.0),
             child: Icon(

@@ -209,7 +209,7 @@ class UpdateProfileScreen extends StatelessWidget {
 // }
     return const Scaffold(
       appBar: CostumedAppBar(
-        bartitle: 'MyPage',
+        bartitle: 'Settings',
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),

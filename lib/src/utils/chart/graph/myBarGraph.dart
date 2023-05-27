@@ -4,11 +4,12 @@ import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/features/user/mypage/widget/mypageChart.dart';
 
 class MyBarGraph extends StatelessWidget {
-  final List weeklySummary;
-  const MyBarGraph({super.key, required this.weeklySummary});
+  const MyBarGraph({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List weeklySummary = [40.40, 60.50, 80.42, 19.50];
+
     //initialize bar data
     BarData myBarData = BarData(
       active: weeklySummary[0],

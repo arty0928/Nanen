@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
+import 'package:nanen/src/features/core/screens/survey/survey.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
+import 'package:nanen/src/utils/chart/graph/myBarGraph.dart';
 
 import 'widgets/graph/doctor_card.dart';
-import 'widgets/graph/linechart.dart';
-import 'widgets/graph/pricepoint.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var timezone = DateTime.now().timeZoneName;
+    var day = DateTime.now().day;
+
     return Scaffold(
       appBar: const CostumedAppBar(bartitle: '나는'),
       backgroundColor: Colors.deepPurple[100],
@@ -19,8 +22,10 @@ class HomePage extends StatelessWidget {
         //Floating action button on Scaffold
         onPressed: () {
           //code to execute on button press
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SurveyPage()));
         },
-        child: Icon(Icons.send), //icon inside button
+        child: const Icon(Icons.question_mark_outlined), //icon inside button
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -66,9 +71,9 @@ class HomePage extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      const Text(
-                        'THURSDAY',
-                        style: TextStyle(
+                      Text(
+                        timezone,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
@@ -76,9 +81,9 @@ class HomePage extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      const Text(
-                        '28',
-                        style: TextStyle(
+                      Text(
+                        day.toString(),
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                         ),
@@ -225,7 +230,7 @@ class HomePage extends StatelessWidget {
             ),
 
             //Graph
-            LineChartWidget(pricePoints),
+            const SizedBox(height: 200, child: MyBarGraph()),
 
             const SizedBox(
               height: 20,
