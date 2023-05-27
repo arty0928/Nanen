@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
-<<<<<<< HEAD
-=======
-import '../../../../constants/colors.dart';
 import 'widgets/graph/doctor_card.dart';
 import 'widgets/graph/linechart.dart';
 import 'widgets/graph/pricepoint.dart';
 
->>>>>>> 6b771f5354dec7c66aa3eb513c57eeb74035b60a
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -18,6 +15,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: const CostumedAppBar(bartitle: '나는'),
       backgroundColor: Colors.deepPurple[100],
+      floatingActionButton: FloatingActionButton(
+        //Floating action button on Scaffold
+        onPressed: () {
+          //code to execute on button press
+        },
+        child: Icon(Icons.send), //icon inside button
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

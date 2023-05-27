@@ -1,57 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
+import 'package:nanen/src/features/core/screens/misson/widgets/mission_list.dart';
+import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-import 'mission_list.dart';
-
 class ProgressPage extends StatefulWidget {
-  const ProgressPage({super.key});
+  const ProgressPage({
+    super.key,
+  });
 
   @override
   State<ProgressPage> createState() => _ProgressPageState();
 }
 
 class _ProgressPageState extends State<ProgressPage> {
-  int selectedIndex = 0;
-
-  void onClicked(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  List category = [
+    'Active',
+    'Creative',
+    'Calm',
+    'People',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: NavFootBar(selectedIndex: 1, onClicked: onClicked),
+      appBar: const CostumedAppBar(bartitle: 'Mission'),
       body: Column(
         children: [
           Stack(
             children: [
               Container(
                 width: double.maxFinite,
-                height: 50,
+                height: 150,
                 decoration: BoxDecoration(
                   color: Colors.deepPurple.shade200,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.menu),
-                      iconSize: 30,
-                    ),
-                    Expanded(child: Container()),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.settings),
-                      iconSize: 35,
-                    )
-                  ],
                 ),
               ),
               Positioned(
@@ -89,12 +70,7 @@ class _ProgressPageState extends State<ProgressPage> {
               barRadius: const Radius.circular(15),
             ),
           ),
-          Container(
-            child: const Column(children: [
-              MissionList(),
-              // MissionDetail(),
-            ]),
-          )
+          const Column(children: [MissionList()])
         ],
       ),
     );

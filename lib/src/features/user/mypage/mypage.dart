@@ -253,19 +253,19 @@ class _MyPageState extends State<MyPage> {
               const SizedBox(
                 height: 10,
               ),
-              //graph
-              SizedBox(
-                  height: 200, child: MyBarGraph(weeklySummary: dataSummary)),
-              const SizedBox(
-                height: 20,
-              ),
-
               //tab bar
               TabBar(
                 unselectedLabelColor: tPrimaryColor,
                 indicatorColor: tSeconddaryColor,
                 indicatorWeight: 2,
                 tabs: tabs,
+              ),
+
+              //graph
+              SizedBox(
+                  height: 200, child: MyBarGraph(weeklySummary: dataSummary)),
+              const SizedBox(
+                height: 20,
               ),
 
               //tab bar view

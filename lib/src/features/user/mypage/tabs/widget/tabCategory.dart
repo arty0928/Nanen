@@ -8,7 +8,7 @@ class TabCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late var tab;
+    late List tab;
 
     List calm = [tCalm1Image1, tCalm1Image2, tCalm1Image3];
     List active = [
