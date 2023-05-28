@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/data_string.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
+
+import 'widget/survey2.dart';
 
 class SurveyPage extends StatefulWidget {
   const SurveyPage({Key? key}) : super(key: key);
@@ -50,9 +53,8 @@ class _SurveyPageState extends State<SurveyPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size(300, 100),
-                  backgroundColor: isButtonPressed
-                      ? Colors.white
-                      : Colors.deepPurple.shade200,
+                  backgroundColor:
+                      isButtonPressed ? tSeconddaryColor : tWhiteColor,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   )),
@@ -73,7 +75,7 @@ class _SurveyPageState extends State<SurveyPage> {
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size(300, 100),
                   backgroundColor:
-                      isButtonPressed ? Colors.white : Colors.white,
+                      isButtonPressed ? tSeconddaryColor : tWhiteColor,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   )),
@@ -113,10 +115,10 @@ class _SurveyPageState extends State<SurveyPage> {
             ),
             IconButton(
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const Survey2Page()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Survey2Page()));
               },
               icon: const Icon(Icons.arrow_forward_ios_rounded),
             ),

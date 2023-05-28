@@ -12,6 +12,7 @@ const tDarkColor = Color(0xFF000000);
 const tOnBoardingPage1Color = Colors.white;
 const tOnBoardingPage2Color = Color(0xfffddcdf);
 const tOnBoardingPage3Color = Color(0xffffdcbd);
+const tOnBoardingPage4Color = Color(0xFFCDF7F5);
 
 // -- 동진 선배
 const textColor1 = Color(0xFF989acd);
