@@ -14,22 +14,43 @@ class SurveyPage extends StatefulWidget {
 }
 
 class _SurveyPageState extends State<SurveyPage> {
-  bool isButtonPressed = false;
-  void buttonPressed() {
+  List<bool> isButtonPressedList = [false, false];
+
+  void buttonPressed(int index) {
     setState(() {
-      if (isButtonPressed == false) {
-        isButtonPressed = true;
-      } else if (isButtonPressed == true) {
-        isButtonPressed = false;
-      }
+      isButtonPressedList[index] = !isButtonPressedList[index];
     });
+  }
+
+  Widget SurveyMultiButton(int currentIndex, int multichoiceIndex) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        elevation: 5,
+        backgroundColor:
+            isButtonPressedList[multichoiceIndex] ? tPrimaryColor : tWhiteColor,
+        minimumSize: const Size(250, 80),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+      ),
+      onPressed: () {
+        buttonPressed(multichoiceIndex);
+      },
+      child: Text(
+        surveyMultiChoices[currentIndex][multichoiceIndex],
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     var currentIndex = 1;
     return Scaffold(
-      //backgroundColor: Colors.deepPurple.shade100,
       appBar: const CostumedAppBar(bartitle: '나는'),
       body: Container(
         color: Colors.deepPurple.shade100,
@@ -38,57 +59,27 @@ class _SurveyPageState extends State<SurveyPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: 100,
+              height: 80,
             ),
-            Text(
-              surveyQuestion[currentIndex],
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40.0),
+              child: Text(
+                surveyQuestion[currentIndex],
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(
-              height: 100,
+              height: 70,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(300, 100),
-                  backgroundColor:
-                      isButtonPressed ? tSeconddaryColor : tWhiteColor,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                  )),
-              onPressed: buttonPressed,
-              child: Text(
-                surveyMultiChoices[currentIndex][0],
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            SurveyMultiButton(currentIndex, 0),
             const SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(300, 100),
-                  backgroundColor:
-                      isButtonPressed ? tSeconddaryColor : tWhiteColor,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                  )),
-              onPressed: buttonPressed,
-              child: Text(
-                surveyMultiChoices[currentIndex][1],
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            SurveyMultiButton(currentIndex, 1),
           ],
         ),
       ),
@@ -110,15 +101,15 @@ class _SurveyPageState extends State<SurveyPage> {
               icon: const Icon(Icons.arrow_back_ios_rounded),
             ),
             Text(
-              currentIndex.toString() + '/' + surveyQuestion.length.toString(),
+              '$currentIndex/${surveyQuestion.length}',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             IconButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Survey2Page()));
+                  context,
+                  MaterialPageRoute(builder: (context) => const Survey2Page()),
+                );
               },
               icon: const Icon(Icons.arrow_forward_ios_rounded),
             ),

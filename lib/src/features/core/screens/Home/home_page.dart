@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/features/core/screens/on_boarding/on_boadring_page.dart';
-import 'package:nanen/src/features/core/screens/on_boarding/screen/on_boarding_screen.dart';
 import 'package:nanen/src/features/core/screens/survey/survey.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 import 'package:nanen/src/utils/chart/graph/myBarGraph.dart';
@@ -24,10 +22,8 @@ class HomePage extends StatelessWidget {
         //Floating action button on Scaffold
         onPressed: () {
           //code to execute on button press
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const OnBoardingScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SurveyPage()));
         },
         child: const Icon(Icons.question_mark_outlined), //icon inside button
       ),
