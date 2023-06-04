@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/features/core/screens/survey/survey.dart';
+import 'package:nanen/src/features/core/screens/surveys/screen/survey_screen.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 import 'package:nanen/src/utils/chart/graph/myBarGraph.dart';
 
@@ -19,11 +19,13 @@ class HomePage extends StatelessWidget {
       appBar: const CostumedAppBar(bartitle: '나는'),
       backgroundColor: Colors.deepPurple[100],
       floatingActionButton: FloatingActionButton(
+        backgroundColor: tPrimaryColor,
+        splashColor: tAccentColor,
         //Floating action button on Scaffold
         onPressed: () {
           //code to execute on button press
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SurveyPage()));
+              MaterialPageRoute(builder: (context) => const QuizScreen()));
         },
         child: const Icon(Icons.question_mark_outlined), //icon inside button
       ),

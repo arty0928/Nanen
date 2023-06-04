@@ -4,7 +4,6 @@ import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 import '../../user/mypage/mypage.dart';
 import 'Home/home_page.dart';
 import 'calendar/calendar_main.dart';
-import 'misson/mission_main.dart';
 import 'misson/screen/mission_screen.dart';
 
 class MainPage extends StatefulWidget {

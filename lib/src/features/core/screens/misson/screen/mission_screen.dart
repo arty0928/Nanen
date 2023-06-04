@@ -37,10 +37,9 @@ class MissionScreen extends StatelessWidget {
                         builder: (context) => const ProgressPage()));
               },
               style: ElevatedButton.styleFrom(
-                side: const BorderSide(color: Colors.black26),
+                foregroundColor: Colors.white, side: const BorderSide(color: Colors.black26),
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(20),
-                onPrimary: Colors.white,
               ),
               child: Container(
                 padding: const EdgeInsets.all(20.0),
