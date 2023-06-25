@@ -3,6 +3,7 @@ import 'package:nanen/src/constants/data_string.dart';
 class Question {
   final String questionText;
   final List<Answer> answersList;
+  bool isSelected = false;
 
   Question(this.questionText, this.answersList);
 }

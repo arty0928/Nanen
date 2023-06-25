@@ -120,7 +120,7 @@ class _QuizScreenState extends State<QuizScreen> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (selectedAnswer == null) {
+          if (selectedAnswer != answer) {
             setState(() {
               selectedAnswer = answer;
               if (currentQuestionIndex < selectedAnswers.length) {
@@ -207,31 +207,5 @@ class _QuizScreenState extends State<QuizScreen> {
     print(selectedAnswer);
     print(selectedAnswers);
     print("~~~~~~~~~~~~~");
-    // bool isPassed = false;
-
-    // if (score >= questionList.length * 0.6) {
-    //   //pass if 60 %
-    //   isPassed = true;
-    // }
-    // String title = isPassed ? "Passed " : "Failed";
-
-    //   return AlertDialog(
-    //     title: Text(
-    //       title + " | Score is $score",
-    //       style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-    //     ),
-    //     content: ElevatedButton(
-    //       child: const Text("Restart"),
-    //       onPressed: () {
-    //         Navigator.pop(context);
-    //         setState(() {
-    //           currentQuestionIndex = 0;
-    //           score = 0;
-    //           selectedAnswer = null;
-    //         });
-    //       },
-    //     ),
-    //   );
-    // }
   }
 }
