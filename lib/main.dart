@@ -4,6 +4,7 @@ import 'package:nanen/src/utils/theme/theme.dart';
 
 import 'src/features/core/screens/mainPage.dart';
 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
