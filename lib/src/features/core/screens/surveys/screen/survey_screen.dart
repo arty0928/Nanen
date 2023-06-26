@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/data_string.dart';
-import 'package:nanen/src/features/core/screens/Home/home_page.dart';
 import 'package:nanen/src/features/core/screens/surveys/model/survey_model.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
