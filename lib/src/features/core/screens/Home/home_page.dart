@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
                         ),
                         child: const Center(
                             child: Text(
-                          'HomeText',
+                          'Home',
                           style: TextStyle(
                             color: Colors.white,
                           ),
