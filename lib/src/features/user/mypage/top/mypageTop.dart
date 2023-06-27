@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/image_strings.dart';
 
 import 'widget/myPageNumbers.dart';
 
@@ -8,21 +9,27 @@ class mypageTop extends StatelessWidget {
   });
 
   @override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          //Profile
+          // Profile
           Container(
             height: 100,
             width: 100,
-            decoration:
-                BoxDecoration(color: Colors.grey[300], shape: BoxShape.circle),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(tProfileImage),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
 
-          //number
+          // Number
           const MyPageNumbers(),
         ],
       ),
