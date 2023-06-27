@@ -24,6 +24,9 @@ const String tGoogleLogoImage = "assets/logo/google-logo.jpg";
 const String tForgetPasswordImage =
     "assets/images/forget_password/forget-password.jpg";
 
+// -- Login Images
+const String tLoginBackground = "assets/images/login/welcome_screen.png";
+
 // -- Dashboard Images
 const String tActiveImage = "assets/images/home/active.png";
 const String tCalmImage = "assets/images/home/calm.png";
@@ -53,3 +56,4 @@ const String tActiveImage1 = "assets/images/mission/active1.jpg";
 const String tActiveImage2 = "assets/images/mission/active2.jpg";
 const String tActiveImage3 = "assets/images/mission/active3.jpg";
 // C:\Users\82109\Projects\newNanen\Nanen\assets\images\mission\active1.jpg
+

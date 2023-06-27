@@ -30,3 +30,12 @@ const calmC = Color(0xff264653);
 const activeC = Color(0xff2A9D8F);
 const creativeC = Color(0xffF4A261);
 const peopleC = Color(0xffE76F51);
+
+//login
+const tIconColor = Color(0xFFB6C7D1);
+const tActiveColor = Color(0xFF09126C);
+const tTextColor1 = Color(0XFFA7BCC7);
+const tTextColor2 = Color(0XFF9BB3C0);
+const tFacebookColor = Color(0xFF3B5999);
+const tGoogleColor = Color(0xFFDE4B39);
+const tBackgroundColor = Color(0xFFECF3F9);

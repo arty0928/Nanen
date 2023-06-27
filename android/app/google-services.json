@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "305881957215",
+    "project_id": "nanuensnslogin",
+    "storage_bucket": "nanuensnslogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305881957215:android:4dd174ddf6517f9dd56cea",
+        "android_client_info": {
+          "package_name": "com.nanuen.snslogin.nanuen_sns_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305881957215-kb01274gu7uh8m36a7i349s4d1ioga4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nanuen.snslogin.nanuen_sns_login",
+            "certificate_hash": "3c6037e7ac24a56b98400fe88adae1c695bc28ed"
+          }
+        },
+        {
+          "client_id": "305881957215-kr343bnegslot7kr9s41mfs8h450nadm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_ddJhMv0Xgc8HQIktqAR7xYcJu9qR_p0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305881957215-kr343bnegslot7kr9s41mfs8h450nadm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
