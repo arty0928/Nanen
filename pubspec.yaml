@@ -18,16 +18,20 @@ dependencies:
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.0.1
 
-  cupertino_icons: ^1.0.2
   line_awesome_flutter : ^2.0.0
   google_fonts: ^4.0.3
   flutter_native_splash: ^2.2.19
   
   flutter_otp_text_field: ^1.1.1
 
+  ## login
+  cupertino_icons: ^1.0.2
   firebase_core: ^2.9.0
-  firebase_auth: ^4.4.0
-  cloud_firestore: ^4.2.0
+  firebase_auth: ^4.4.1
+  google_sign_in: ^5.4.4
+  kakao_flutter_sdk: ^1.4.3
+  http: ^0.13.6
+  cloud_firestore: ^4.8.0
 
 
   percent_indicator: ^4.0.1
@@ -47,6 +51,8 @@ dependencies:
 
   # state management
   provider: ^6.0.5
+  
+  url_launcher: ^6.0.9 
   
 dev_dependencies:
   flutter_test:
@@ -82,6 +88,8 @@ flutter:
     - assets/images/home/
     - assets/images/mission/
     - assets/images/profile/
+    - assets/images/login/
+
     # - assets/images/tabbarview/
     # - assets/images/tabbarview/active
     # - assets/images/tabbarview/calm
