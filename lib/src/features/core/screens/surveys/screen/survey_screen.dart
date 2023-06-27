@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/data_string.dart';
-import 'package:nanen/src/features/core/screens/Home/home_page.dart';
 import 'package:nanen/src/features/core/screens/surveys/model/survey_model.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
@@ -186,7 +185,7 @@ class _QuizScreenState extends State<QuizScreen> {
               _showScoreDialog(selectedAnswer);
 
               if (isLastQuestion) {
-                Navigator.pop(context);
+                Navigator.popUntil(context, (route) => route.isFirst);
                 _showScoreDialog(selectedAnswer);
                 print(selectedAnswers);
               } else {
