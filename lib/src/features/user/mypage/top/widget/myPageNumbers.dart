@@ -15,7 +15,7 @@ class MyPageNumbers extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Eunseopark',
+                'djdropthebeat',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),

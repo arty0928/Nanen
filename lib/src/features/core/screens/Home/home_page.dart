@@ -1,14 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/features/core/screens/surveys/screen/survey_screen.dart';
+import 'package:nanen/src/features/login/screen/main_screen.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 import 'package:nanen/src/utils/chart/graph/myBarGraph.dart';
 
 import 'widgets/graph/doctor_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  Widget _buildDoctorCard({
+    required String imagePath,
+    required String rating,
+    required String doctorName,
+    required String doctorProfession,
+    required String youtubeLink,
+  }) {
+    return GestureDetector(
+      onTap: () {
+        _launchYouTubeLink(youtubeLink);
+      },
+      child: DoctorCard(
+        doctorImagePath: imagePath,
+        rating: rating,
+        doctorName: doctorName,
+        doctorProfession: doctorProfession,
+      ),
+    );
+  }
+
+  void _launchYouTubeLink(String youtubeLink) async {
+    if (await canLaunch(youtubeLink)) {
+      await launch(youtubeLink);
+    } else {
+      throw 'Could not launch $youtubeLink';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +53,10 @@ class HomePage extends StatelessWidget {
         //Floating action button on Scaffold
         onPressed: () {
           //code to execute on button press
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const QuizScreen()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const LoginSignupScreen()));
         },
         child: const Icon(Icons.question_mark_outlined), //icon inside button
       ),
@@ -252,24 +283,27 @@ class HomePage extends StatelessWidget {
               height: 300,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: const [
-                  DoctorCard(
-                    doctorImagePath: tEmindyogaImage,
+                children: [
+                  _buildDoctorCard(
+                    imagePath: tEmindyogaImage,
                     rating: '4.8',
                     doctorName: 'tEmindYoga~',
                     doctorProfession: 'Yoga',
+                    youtubeLink: 'https://www.youtube.com/@emindyoga',
                   ),
-                  DoctorCard(
-                    doctorImagePath: tYangbroImage,
+                  _buildDoctorCard(
+                    imagePath: tYangbroImage,
                     rating: '',
                     doctorName: 'tYangbro~',
                     doctorProfession: 'Doctor',
+                    youtubeLink: 'https://www.youtube.com/@yangbro',
                   ),
-                  DoctorCard(
-                    doctorImagePath: tBrainrichImage,
+                  _buildDoctorCard(
+                    imagePath: tBrainrichImage,
                     rating: '4.9',
                     doctorName: 'tBrainrich~',
                     doctorProfession: 'Doctor',
+                    youtubeLink: 'https://www.youtube.com/@brainrich6',
                   ),
                 ],
               ),

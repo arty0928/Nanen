@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/constants/colors.dart';
-import 'package:nanuen_sns_login/screen/nanuen_main_screen.dart';
+// import 'package:nanuen_sns_login/screen/nanuen_main_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'nanuen_main_screen.dart';
+import 'package:nanen/src/constants/image_strings.dart';
+import 'package:nanen/src/features/core/screens/surveys/screen/survey_screen.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({super.key});
@@ -52,7 +52,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                 height: 300,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/welcome_screen.png'),
+                    image: AssetImage(tLoginBackground),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -529,7 +529,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return const NanuenMainScreen();
+                                return const QuizScreen();
                               }), //Navigator : 페이지 이동
                             );
                           }
@@ -557,7 +557,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return const NanuenMainScreen();
+                                return const QuizScreen();
                               }), //Navigator : 페이지 이동
                             );
                           }
@@ -570,8 +570,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Colors.orange,
-                            Colors.red,
+                            tAccentColor,
+                            tSeconddaryColor,
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,

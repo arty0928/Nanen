@@ -185,7 +185,7 @@ class _QuizScreenState extends State<QuizScreen> {
               _showScoreDialog(selectedAnswer);
 
               if (isLastQuestion) {
-                Navigator.pop(context);
+                Navigator.popUntil(context, (route) => route.isFirst);
                 _showScoreDialog(selectedAnswer);
                 print(selectedAnswers);
               } else {
