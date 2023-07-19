@@ -13,6 +13,9 @@ const String tFullName = "Full Name";
 const String tForgetPassword = "Forget Password";
 const String tSignInWithGoogle = "Sign-In with Google";
 
+// edit profile
+const String tID = "ID";
+
 // -- Splash Screen Text
 const String tAppName = ".appable/";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";

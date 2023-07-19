@@ -118,11 +118,8 @@ class HomePage extends StatelessWidget {
                         day.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                          fontSize: 20,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
                       ),
                       Container(
                         padding: const EdgeInsets.all(12),
@@ -144,7 +141,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 25,
+              height: 20,
             ),
             //search bar
             Padding(
