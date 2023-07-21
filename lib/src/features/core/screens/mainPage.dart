@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/fitness_app_home_screen.dart';
 import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 
 import '../../user/mypage/mypage.dart';
@@ -17,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
 
   List screens = [
-    const HomePage(),
+    const FitnessAppHomeScreen(),
     // const MissionHomePage(),
     const MissionScreen(),
     const CalendarPage(),
