@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
 
 import '../fitness_app_theme.dart';
 
@@ -52,7 +53,7 @@ class _AreaListViewState extends State<AreaListView>
               aspectRatio: 1.0,
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
-                child: GridView(
+                child: GridView.builder(
                   padding: const EdgeInsets.only(
                       left: 16, right: 16, top: 16, bottom: 16),
                   physics: const BouncingScrollPhysics(),
@@ -61,26 +62,50 @@ class _AreaListViewState extends State<AreaListView>
                     mainAxisSpacing: 24.0,
                     crossAxisSpacing: 24.0,
                   ),
-                  children: List<Widget>.generate(
-                    areaListData.length,
-                    (int index) {
-                      final int count = areaListData.length;
-                      final Animation<double> animation =
-                          Tween<double>(begin: 0.0, end: 1.0).animate(
-                        CurvedAnimation(
-                          parent: animationController,
-                          curve: Interval((1 / count) * index, 1.0,
-                              curve: Curves.fastOutSlowIn),
-                        ),
-                      );
-                      animationController.forward();
-                      return AreaView(
+                  itemCount: areaListData.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final int count = areaListData.length;
+                    final Animation<double> animation =
+                        Tween<double>(begin: 0.0, end: 1.0).animate(
+                      CurvedAnimation(
+                        parent: animationController,
+                        curve: Interval((1 / count) * index, 1.0,
+                            curve: Curves.fastOutSlowIn),
+                      ),
+                    );
+                    animationController.forward();
+                    return AreaView(
                         imagepath: areaListData[index],
                         animation: animation,
                         animationController: animationController,
-                      );
-                    },
-                  ),
+                        onTap: () {
+                          switch (index) {
+                            case 0:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MissionHomePage()));
+                              break;
+                            case 1:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MissionHomePage()));
+                              break;
+                            case 2:
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MissionHomePage()));
+                              break;
+                            default:
+                              break;
+                          }
+                        });
+                  },
                 ),
               ),
             ),
@@ -96,12 +121,14 @@ class AreaView extends StatelessWidget {
     required this.imagepath,
     required this.animationController,
     required this.animation,
-    super.key,
-  });
+    this.onTap, // onTap 콜백 추가
+    Key? key,
+  }) : super(key: key);
 
   final String imagepath;
   final AnimationController animationController;
   final Animation<double> animation;
+  final VoidCallback? onTap; // VoidCallback 타입으로 onTap 정의
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +163,7 @@ class AreaView extends StatelessWidget {
                   hoverColor: Colors.transparent,
                   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   splashColor: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
-                  onTap: () {},
+                  onTap: onTap,
                   child: Column(
                     children: <Widget>[
                       Padding(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/core/screens/calendar/calendar_main.dart';
+import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
 
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
@@ -77,7 +79,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
+            if (index == 0) {
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
@@ -87,7 +89,26 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 return;
               });
-            } else if (index == 1 || index == 3) {
+            }
+            if (index == 1) {
+              animationController.reverse().then<dynamic>((_) {
+                if (mounted) {
+                  setState(() {
+                    tabBody = const MissionHomePage();
+                  });
+                }
+                return;
+              });
+            } else if (index == 2) {
+              animationController.reverse().then<dynamic>((_) {
+                if (mounted) {
+                  setState(() {
+                    tabBody = const CalendarPage();
+                  });
+                }
+                return;
+              });
+            } else if (index == 3) {
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {

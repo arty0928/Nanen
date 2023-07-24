@@ -15,30 +15,26 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int selectedIndex = 0;
+  // int selectedIndex = 0;
 
-  List screens = [
-    const FitnessAppHomeScreen(),
-    // const MissionHomePage(),
-    const MissionScreen(),
-    const CalendarPage(),
-    const MyPage(),
-  ];
+  // List screens = [
+  //   const FitnessAppHomeScreen(),
+  //   // const MissionHomePage(),
+  //   const MissionScreen(),
+  //   const CalendarPage(),
+  //   const MyPage(),
+  // ];
 
-  void onClicked(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  // void onClicked(int index) {
+  //   setState(() {
+  //     selectedIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: screens.elementAt(selectedIndex),
-      ),
-      bottomNavigationBar:
-          NavFootBar(selectedIndex: selectedIndex, onClicked: onClicked),
-    );
+    return const FitnessAppHomeScreen();
+    // bottomNavigationBar:
+    //     NavFootBar(selectedIndex: selectedIndex, onClicked: onClicked),
   }
 }
