@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
+import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/fitness_app_home_screen.dart';
+// import 'package:nanen/src/utils/nav_foot_bar/nav_foot_bar.dart';
 
-import '../../user/mypage/mypage.dart';
-import 'Home/home_page.dart';
-import 'calendar/calendar_main.dart';
-import 'misson/screen/mission_screen.dart';
+// import '../../user/mypage/mypage.dart';
+// import 'Home/home_page.dart';
+// import 'calendar/calendar_main.dart';
+// import 'misson/screen/mission_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,30 +15,26 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int selectedIndex = 0;
+  // int selectedIndex = 0;
 
-  List screens = [
-    const HomePage(),
-    // const MissionHomePage(),
-    const MissionScreen(),
-    const CalendarPage(),
-    const MyPage(),
-  ];
+  // List screens = [
+  //   const FitnessAppHomeScreen(),
+  //   // const MissionHomePage(),
+  //   const MissionScreen(),
+  //   const CalendarPage(),
+  //   const MyPage(),
+  // ];
 
-  void onClicked(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  // void onClicked(int index) {
+  //   setState(() {
+  //     selectedIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: screens.elementAt(selectedIndex),
-      ),
-      bottomNavigationBar:
-          NavFootBar(selectedIndex: selectedIndex, onClicked: onClicked),
-    );
+    return const FitnessAppHomeScreen();
+    // bottomNavigationBar:
+    //     NavFootBar(selectedIndex: selectedIndex, onClicked: onClicked),
   }
 }
