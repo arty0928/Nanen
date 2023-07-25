@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/ui_view/area_list_view.dart';
 
 import '../fitness_app_theme.dart';
-import '../ui_view/body_measurement.dart';
-import '../ui_view/glass_view.dart';
 import '../ui_view/mediterranesn_diet_view.dart';
 import '../ui_view/title_view.dart';
-import 'meals_list_view.dart';
-import 'water_view.dart';
 import 'package:intl/intl.dart';
+
+import 'category_list_view.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({
@@ -123,28 +121,33 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
 
-    listViews.add(
-      TitleView(
-        titleTxt: 'Channel',
-        subTxt: 'more',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 2, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
+    // listViews.add(
+    //   TitleView(
+    //     titleTxt: 'Channel',
+    //     subTxt: 'more',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve: const Interval((1 / count) * 2, 1.0,
+    //             curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // );
 
-    listViews.add(
-      MealsListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController,
-                curve: const Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
+    // listViews.add(
+    //   MealsListView(
+    //     mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+    //         CurvedAnimation(
+    //             parent: widget.animationController,
+    //             curve: const Interval((1 / count) * 3, 1.0,
+    //                 curve: Curves.fastOutSlowIn))),
+    //     mainScreenAnimationController: widget.animationController,
+    //   ),
+    // );
+    CategoryListView(
+          callBack: () {
+            moveTo();
+          },
+        ),
 
     // listViews.add(
     //   TitleView(

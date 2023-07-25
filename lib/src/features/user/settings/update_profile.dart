@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:nanen/src/constants/colors.dart';
 import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/constants/sizes.dart';
 import 'package:nanen/src/constants/text_strings.dart';
-import 'package:nanen/src/features/user/settings/widget/settingCategory.dart';
-import 'package:nanen/src/features/user/mypage/top/mypageTop.dart';
 import 'package:nanen/src/features/user/mypage/widget/editProfileBtn.dart';
 import 'package:nanen/src/utils/appbar/costume_app_bar.dart';
 
