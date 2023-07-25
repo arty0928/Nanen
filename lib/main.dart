@@ -69,8 +69,9 @@ class MyApp extends StatelessWidget {
       ),
       //home: const App(),
       //home: const KakaoMain(),
-      //home: const LoginPage(),
-      home: const MainPage(),
+      // home: const LoginPage(),
+      home: MainPage(),
+      
     );
   }
 }
