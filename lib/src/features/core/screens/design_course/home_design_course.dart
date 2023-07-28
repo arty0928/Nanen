@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
 
 import 'category_list_view.dart';
 import 'course_info_screen.dart';
@@ -128,12 +129,35 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
   }
 
   void moveTo() {
-    Navigator.push<dynamic>(
-      context,
-      MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => const CourseInfoScreen(),
-      ),
-    );
+    // if (index == 0) {
+    //   Navigator.push<dynamic>(
+    //     context,
+    //     MaterialPageRoute<dynamic>(
+    //       builder: (BuildContext context) => const MissionHomePage(),
+    //     ),
+    //   );
+    // } else if (index == 1) {
+    //   Navigator.push<dynamic>(
+    //     context,
+    //     MaterialPageRoute<dynamic>(
+    //       builder: (BuildContext context) => const CourseInfoScreen(),
+    //     ),
+    //   );
+    // } else if (index == 2) {
+    //   Navigator.push<dynamic>(
+    //     context,
+    //     MaterialPageRoute<dynamic>(
+    //       builder: (BuildContext context) => const MissionHomePage(),
+    //     ),
+    //   );
+    // } else {
+    //   Navigator.push<dynamic>(
+    //     context,
+    //     MaterialPageRoute<dynamic>(
+    //       builder: (BuildContext context) => const CourseInfoScreen(),
+    //     ),
+    //   );
+    // }
   }
 
   Widget getButtonUI(CategoryType categoryTypeData, {bool isSelected = false}) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../fitness_app_theme.dart';
 import '../ui_view/area_list_view.dart';
@@ -182,6 +183,10 @@ class _TrainingScreenState extends State<TrainingScreen>
         AnimatedBuilder(
           animation: widget.animationController,
           builder: (BuildContext context, _) {
+            var now = DateTime.now();
+            var formatter = DateFormat('MMM d');
+            String formattedDate = formatter.format(now);
+
             return FadeTransition(
               opacity: topBarAnimation,
               child: Transform(
@@ -219,7 +224,7 @@ class _TrainingScreenState extends State<TrainingScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Training',
+                                  '나는',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -247,14 +252,14 @@ class _TrainingScreenState extends State<TrainingScreen>
                                 ),
                               ),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(
+                            Padding(
+                              padding: const EdgeInsets.only(
                                 left: 8,
                                 right: 8,
                               ),
                               child: Row(
                                 children: <Widget>[
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(right: 8),
                                     child: Icon(
                                       Icons.calendar_today,
@@ -263,9 +268,9 @@ class _TrainingScreenState extends State<TrainingScreen>
                                     ),
                                   ),
                                   Text(
-                                    '15 May',
+                                    formattedDate,
                                     textAlign: TextAlign.left,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontFamily: FitnessAppTheme.fontName,
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
