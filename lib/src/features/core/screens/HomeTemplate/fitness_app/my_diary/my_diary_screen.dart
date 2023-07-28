@@ -1,20 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/ui_view/area_list_view.dart';
+import 'package:nanen/src/features/core/screens/design_course/category_list_view.dart';
+import 'package:nanen/src/features/core/screens/design_course/course_info_screen.dart';
+import 'package:nanen/src/features/core/screens/design_course/design_course_app_theme.dart';
 
 import '../fitness_app_theme.dart';
-import '../ui_view/body_measurement.dart';
-import '../ui_view/glass_view.dart';
 import '../ui_view/mediterranesn_diet_view.dart';
 import '../ui_view/title_view.dart';
-import 'meals_list_view.dart';
-import 'water_view.dart';
 import 'package:intl/intl.dart';
+import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/my_diary/meals_list_view.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({
     required this.animationController,
-    super.key,
-  });
+    Key? key, // 'Key?' 타입으로 변경
+  }) : super(key: key); // 'super.key' 추가
 
   final AnimationController animationController;
 
@@ -24,11 +25,15 @@ class MyDiaryScreen extends StatefulWidget {
 
 class _MyDiaryScreenState extends State<MyDiaryScreen>
     with TickerProviderStateMixin {
+  late final ScrollController scrollController;
+
   List<Widget> listViews = <Widget>[];
+  late final Animation<double> topBarAnimation;
   double topBarOpacity = 0.0;
 
-  late final ScrollController scrollController;
-  late final Animation<double> topBarAnimation;
+  late Category category;
+  late AnimationController animationController;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -123,6 +128,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
 
+    // const CategoryListView();
+    // const CategoryListView();
+    // const CategoryListView();
+    // const CategoryListView();
+
     listViews.add(
       TitleView(
         titleTxt: 'Channel',
@@ -214,7 +224,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       child: Stack(
         children: <Widget>[
           getMainListViewUI(),
-          getAppBarUI(),
+          getAppBarUI(
+              widget: widget,
+              topBarAnimation: topBarAnimation,
+              topBarOpacity: topBarOpacity),
           SizedBox(
             height: MediaQuery.of(context).padding.bottom,
           )
@@ -249,7 +262,30 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     );
   }
 
-  Widget getAppBarUI() {
+  void moveTo() {
+    Navigator.push<dynamic>(
+      context,
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => const CourseInfoScreen(),
+      ),
+    );
+  }
+}
+
+class getAppBarUI extends StatelessWidget {
+  const getAppBarUI({
+    super.key,
+    required this.widget,
+    required this.topBarAnimation,
+    required this.topBarOpacity,
+  });
+
+  final MyDiaryScreen widget;
+  final Animation<double> topBarAnimation;
+  final double topBarOpacity;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         AnimatedBuilder(

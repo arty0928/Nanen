@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanen/src/features/core/screens/design_course/course_info_screen.dart';
 import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
 
 import '../fitness_app_theme.dart';
@@ -85,21 +86,22 @@ class _AreaListViewState extends State<AreaListView>
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const MissionHomePage()));
+                                          const CourseInfoScreen()));
                               break;
                             case 1:
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MissionHomePage()));
+                                      builder: (context) => MissionHomePage(
+                                          animationController:
+                                              animationController)));
                               break;
                             case 2:
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const MissionHomePage()));
+                                          const CourseInfoScreen()));
                               break;
                             default:
                               break;
