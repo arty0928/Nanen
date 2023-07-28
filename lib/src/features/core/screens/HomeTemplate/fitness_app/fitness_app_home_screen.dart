@@ -94,7 +94,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = const MissionHomePage();
+                    // tabBody = const MissionHomePage();
+                    tabBody = MissionHomePage(
+                        animationController: animationController);
                   });
                 }
                 return;

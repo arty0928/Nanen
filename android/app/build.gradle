@@ -48,8 +48,9 @@ android {
         applicationId "com.nanuen.snslogin.nanuen_sns_login"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 28
+        // targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 28
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
