@@ -32,6 +32,8 @@ const String tActiveImage = "assets/images/home/active.png";
 const String tCalmImage = "assets/images/home/calm.png";
 const String tCreativeImage = "assets/images/home/creative.png";
 const String tPeopleImage = "assets/images/home/people.png";
+
+// -- Youtuber
 const String tBaekjoonImage = "assets/images/home/baekjoon.png";
 const String tBrainrichImage = "assets/images/home/brainrich.jpg";
 const String tCocoImage = "assets/images/home/coco.jpg";
