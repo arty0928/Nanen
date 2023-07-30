@@ -288,9 +288,11 @@
 //     );
 //   }
 // }
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:nanen/src/constants/image_strings.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/fitness_app_theme.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/ui_view/area_list_view.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/ui_view/mediterranesn_diet_view.dart';
@@ -301,6 +303,7 @@ import 'package:nanen/src/features/core/screens/design_course/design_course_app_
 
 import 'package:intl/intl.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/my_diary/meals_list_view.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MissionHomePage extends StatefulWidget {
   const MissionHomePage({
@@ -327,12 +330,13 @@ class _MissionHomePageState extends State<MissionHomePage>
   late Animation<double> animation;
 
   //dots_indicator
-  final PageController pageController = PageController();
+  late PageController pageController = PageController();
   int currentPageIndex = 0;
 
   @override
   void initState() {
     super.initState();
+
     scrollController = ScrollController();
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
@@ -378,27 +382,27 @@ class _MissionHomePageState extends State<MissionHomePage>
   void addAllListData() {
     const int count = 6;
 
-    listViews.add(
-      TitleView(
-        titleTxt: 'My Diary',
-        subTxt: 'more',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 0, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
+    // listViews.add(
+    //   TitleView(
+    //     titleTxt: 'My Diary',
+    //     subTxt: 'more',
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve: const Interval((1 / count) * 0, 1.0,
+    //             curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // );
 
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 1, 1.0,
-                curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
-    );
+    // listViews.add(
+    //   MediterranesnDietView(
+    //     animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+    //         parent: widget.animationController,
+    //         curve: const Interval((1 / count) * 1, 1.0,
+    //             curve: Curves.fastOutSlowIn))),
+    //     animationController: widget.animationController,
+    //   ),
+    // );
   }
 
   Future<bool> getData() async {
@@ -412,88 +416,89 @@ class _MissionHomePageState extends State<MissionHomePage>
       color: FitnessAppTheme.background,
       child: Stack(
         children: <Widget>[
-          // getMainListViewUI(),
           getAppBarUI(
-              widget: widget,
-              topBarAnimation: topBarAnimation,
-              topBarOpacity: topBarOpacity),
-          PageView(
+            widget: widget,
+            topBarAnimation: topBarAnimation,
+            topBarOpacity: topBarOpacity,
+          ),
+          PageView.builder(
             controller: pageController,
             onPageChanged: (int index) {
               setState(() {
                 currentPageIndex = index;
               });
             },
-            children: <Widget>[
-              Container(
-                color: FitnessAppTheme.darkGrey,
-                alignment: Alignment.center,
-                child: const Text(
-                  '첫 번째 아이템',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                color: FitnessAppTheme.darkGrey,
-                alignment: Alignment.center,
-                child: const Text(
-                  '두 번째 아이템',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                color: FitnessAppTheme.darkGrey,
-                alignment: Alignment.center,
-                child: const Text(
-                  '세 번째 아이템',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                color: FitnessAppTheme.darkGrey,
-                alignment: Alignment.center,
-                child: const Text(
-                  '네 번째 아이템',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            itemCount: 10000,
+            itemBuilder: (BuildContext context, int index) {
+              int pageIndex = index % 4;
+              return Container(
+                  color: Colors.white,
+                  alignment: Alignment.center,
 
+                  // color: _getPageColor(pageIndex),
+                  child: Center(
+                    child: Image.asset(
+                      _getPageBackgroundImage(pageIndex),
+                      fit: BoxFit.contain,
+                    ),
+                  ));
+            },
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 60.0),
+              padding: const EdgeInsets.only(bottom: 110.0),
               child: DotsIndicator(
-                  dotsCount: 4,
-                  position: currentPageIndex.toDouble(),
-                  decorator: const DotsDecorator(
-                      activeColor: FitnessAppTheme.nearlyDarkBlue,
-                      color: FitnessAppTheme.darkGrey)),
+                dotsCount: 4,
+                position: currentPageIndex.toDouble() % 4,
+                decorator: DotsDecorator(
+                  size: const Size.square(9.0),
+                  activeSize: const Size(18.0, 9.0),
+                  activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  activeColor: FitnessAppTheme.nearlyDarkBlue,
+                  color: FitnessAppTheme.grey,
+                ),
+              ),
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).padding.bottom,
-          )
+          ),
         ],
       ),
     );
+  }
+
+  String _getPageBackgroundImage(int pageIndex) {
+    switch (pageIndex) {
+      case 0:
+        return 'assets/fitness_app/area1.png';
+      case 1:
+        return 'assets/fitness_app/area2.png';
+      case 2:
+        return 'assets/fitness_app/area3.png';
+      case 3:
+        return 'assets/fitness_app/area1.png';
+      default:
+        return '';
+    }
+  }
+
+  Color _getPageColor(int pageIndex) {
+    switch (pageIndex) {
+      case 0:
+        return FitnessAppTheme.darkGrey;
+      case 1:
+        return FitnessAppTheme.nearlyBlue;
+      case 2:
+        return FitnessAppTheme.nearlyDarkBlue;
+      case 3:
+        return FitnessAppTheme.grey;
+      default:
+        return Colors.transparent;
+    }
   }
 
   Widget getMainListViewUI() {
