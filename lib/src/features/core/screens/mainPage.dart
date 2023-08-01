@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/fitness_app_home_screen.dart';
-import 'package:nanen/src/features/core/screens/design_course/home_design_course.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

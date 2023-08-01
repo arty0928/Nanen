@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
 
 import 'category_list_view.dart';
-import 'course_info_screen.dart';
 import 'design_course_app_theme.dart';
 import 'popular_course_list_view.dart';
 

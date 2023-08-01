@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   
   ## mission
-  dots_indicator: ^2.1.1
+  dots_indicator: ^3.0.0
 
   ## STATE MANAGEMENT
   get: ^4.6.5
@@ -43,7 +43,7 @@ dependencies:
   cached_network_image: ^3.2.3
   syncfusion_flutter_charts: ^22.1.39
   masonry_grid: ^1.0.0
-  flutter_staggered_grid_view: ^0.6.2
+  flutter_staggered_grid_view: ^0.7.0
 
   image_picker: ^1.0.1
   path_provider: ^2.0.15
@@ -59,6 +59,10 @@ dependencies:
   # image upload
   image_cropper: ^5.0.0 
   flutter_image_compress: ^2.0.4
+  localization: ^2.1.0
+
+  # mission_slide
+  sliding_up_panel: ^2.0.0+1
 
 
   

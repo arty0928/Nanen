@@ -178,7 +178,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               padding: EdgeInsets.only(
                                   left: 16, right: 16, top: 8, bottom: 8),
                               child: Text(
-                                'Learn modern web design with gamification aspects. From your fundamentals all the way up to masterclass.',
+                                'Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects. From your fundamentals all the way up to masterclass.',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w200,

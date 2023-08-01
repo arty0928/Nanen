@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/calendar/calendar_main.dart';
 import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
+import 'package:nanen/src/features/core/screens/misson/test/mission_test1.dart';
 
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
@@ -94,9 +95,10 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    // tabBody = const MissionHomePage();
-                    tabBody = MissionHomePage(
-                        animationController: animationController);
+                    tabBody = const MissionTest1();
+
+                    // tabBody = MissionHomePage(
+                    // animationController: animationController);
                   });
                 }
                 return;
