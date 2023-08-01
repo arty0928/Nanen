@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/fitness_app_theme.dart';
+import 'package:nanen/src/features/core/screens/design_course/design_course_app_theme.dart';
+import 'package:nanen/src/utils/animations/customPageRoute.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class SliverTopBar extends StatefulWidget {
@@ -107,51 +109,54 @@ class MissionTest1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: DesignCourseAppTheme.nearlyWhite,
       child: GestureDetector(
-        // 드래그 이벤트를 처리하는 GestureDetector 위젯
         onVerticalDragUpdate: (details) {
           if (details.delta.dy < 0) {
             // 아래에서 위로 드래그하는 경우에만 새로운 페이지로 이동
             _navigateToNewPage(context);
           }
         },
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/fitness_app/area1.png', // 중앙에 위치할 이미지 경로 입력
-                width: 200, // 이미지의 너비
-                height: 200, // 이미지의 높이
-              ),
-              const SizedBox(height: 16),
-              Icon(
-                Icons.arrow_downward,
-                size: 36,
-                color: Colors.black,
-              ),
-              Padding(
-                padding:
-                    EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-                child: SizedBox(
-                  width: AppBar().preferredSize.height,
-                  height: AppBar().preferredSize.height,
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius:
-                          BorderRadius.circular(AppBar().preferredSize.height),
-                      onTap: () => Navigator.pop(context),
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        color: FitnessAppTheme.nearlyBlack,
-                      ),
+        child: Stack(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+              child: SizedBox(
+                width: AppBar().preferredSize.height,
+                height: AppBar().preferredSize.height,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius:
+                        BorderRadius.circular(AppBar().preferredSize.height),
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      color: DesignCourseAppTheme.nearlyBlack,
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/fitness_app/area1.png', // 중앙에 위치할 이미지 경로 입력
+                    width: 300, // 이미지의 너비
+                    height: 300, // 이미지의 높이
+                  ),
+                  const SizedBox(height: 30),
+                  const Icon(
+                    Icons.arrow_downward,
+                    size: 40,
+                    color: FitnessAppTheme.darkGrey,
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -159,9 +164,7 @@ class MissionTest1 extends StatelessWidget {
 
   void _navigateToNewPage(BuildContext context) => Navigator.push<dynamic>(
         context,
-        MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => const NewPage(),
-        ),
+        CustomPageRoute(AxisDirection.up, child: SliverTopBar()),
       );
 }
 
