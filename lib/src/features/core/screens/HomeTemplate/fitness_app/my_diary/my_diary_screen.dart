@@ -1,9 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanen/src/features/core/screens/HomeTemplate/fitness_app/ui_view/area_list_view.dart';
-import 'package:nanen/src/features/core/screens/design_course/category_list_view.dart';
 import 'package:nanen/src/features/core/screens/design_course/course_info_screen.dart';
-import 'package:nanen/src/features/core/screens/design_course/design_course_app_theme.dart';
 
 import '../fitness_app_theme.dart';
 import '../ui_view/mediterranesn_diet_view.dart';
