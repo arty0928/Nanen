@@ -11,7 +11,8 @@ Future<bool?> showModal(BuildContext context, {required Widget child}) async {
 }
 
 class LoadingModal extends StatelessWidget {
-  const LoadingModal({Key? key, this.title, this.msg, this.child}) : super(key: key);
+  const LoadingModal({Key? key, this.title, this.msg, this.child})
+      : super(key: key);
   final String? title;
   final String? msg;
   final Widget? child;
@@ -51,7 +52,8 @@ class OkModal extends StatelessWidget {
 }
 
 class OkCancelModal extends StatelessWidget {
-  const OkCancelModal({Key? key, this.title, this.msg, this.child}) : super(key: key);
+  const OkCancelModal({Key? key, this.title, this.msg, this.child})
+      : super(key: key);
   final String? title;
   final String? msg;
   final Widget? child;
@@ -69,7 +71,9 @@ class OkCancelModal extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(true)),
         Gap($styles.insets.xs),
         AppBtn.from(
-            text: $strings.appModalsButtonCancel, expand: true, onPressed: () => Navigator.of(context).pop(false)),
+            text: $strings.appModalsButtonCancel,
+            expand: true,
+            onPressed: () => Navigator.of(context).pop(false)),
       ],
       child: child,
     );
@@ -83,7 +87,9 @@ class _BaseContentModal extends StatelessWidget {
   final Widget? child;
   final List<Widget> buttons;
 
-  const _BaseContentModal({Key? key, this.title, this.msg, required this.buttons, this.child}) : super(key: key);
+  const _BaseContentModal(
+      {Key? key, this.title, this.msg, required this.buttons, this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

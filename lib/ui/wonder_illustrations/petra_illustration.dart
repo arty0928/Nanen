@@ -1,7 +1,6 @@
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/common/fade_color_transition.dart';
 import 'package:wonders/ui/wonder_illustrations/common/illustration_piece.dart';
-import 'package:wonders/ui/wonder_illustrations/common/paint_textures.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_builder.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_config.dart';
 
@@ -26,15 +25,15 @@ class PetraIllustration extends StatelessWidget {
   List<Widget> _buildBg(BuildContext context, Animation<double> anim) {
     return [
       FadeColorTransition(animation: anim, color: fgColor),
-      Positioned.fill(
-        child: IllustrationTexture(
-          ImagePaths.roller1,
-          color: WonderType.petra.bgColor,
-          flipX: true,
-          opacity: anim.drive(Tween(begin: 0, end: 1)),
-          scale: config.shortMode ? 4 : 1.15,
-        ),
-      ),
+      // Positioned.fill(
+      //   child: IllustrationTexture(
+      //     ImagePaths.roller1,
+      //     color: WonderType.petra.bgColor,
+      //     flipX: true,
+      //     opacity: anim.drive(Tween(begin: 0, end: 1)),
+      //     scale: config.shortMode ? 4 : 1.15,
+      //   ),
+      // ),
       IllustrationPiece(
         fileName: 'moon.png',
         initialOffset: Offset(0, -150),
@@ -51,7 +50,8 @@ class PetraIllustration extends StatelessWidget {
           heightFactor: config.shortMode ? 1 : .8,
           alignment: Alignment.bottomCenter,
           child: IllustrationPiece(
-            fileName: 'petra.png',
+            // fileName: 'petra.png',
+            fileName: 'area1.png',
             heightFactor: .65,
             minHeight: 500,
             zoomAmt: config.shortMode ? -0.1 : -1,

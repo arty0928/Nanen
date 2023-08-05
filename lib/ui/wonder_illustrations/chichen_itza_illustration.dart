@@ -1,7 +1,6 @@
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/common/fade_color_transition.dart';
 import 'package:wonders/ui/wonder_illustrations/common/illustration_piece.dart';
-import 'package:wonders/ui/wonder_illustrations/common/paint_textures.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_builder.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_config.dart';
 
@@ -24,15 +23,6 @@ class ChichenItzaIllustration extends StatelessWidget {
   List<Widget> _buildBg(BuildContext context, Animation<double> anim) {
     return [
       FadeColorTransition(animation: anim, color: fgColor),
-      Positioned.fill(
-        child: IllustrationTexture(
-          ImagePaths.roller2,
-          color: Color(0xffDC762A),
-          opacity: anim.drive(Tween(begin: 0, end: .5)),
-          flipY: true,
-          scale: config.shortMode ? 4 : 1.15,
-        ),
-      ),
       IllustrationPiece(
         fileName: 'sun.png',
         initialOffset: Offset(0, 50),
@@ -50,7 +40,8 @@ class ChichenItzaIllustration extends StatelessWidget {
       Transform.translate(
         offset: Offset(0, config.shortMode ? 70 : -30),
         child: IllustrationPiece(
-          fileName: 'chichen.png',
+          // fileName: 'chichen.png',
+          fileName: 'area1.png',
           heightFactor: .4,
           minHeight: 180,
           zoomAmt: -.1,

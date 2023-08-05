@@ -5,7 +5,6 @@ import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/common/platform_info.dart';
-import 'package:wonders/ui/common/modals/fullscreen_video_viewer.dart';
 import 'package:wonders/ui/common/utils/page_routes.dart';
 
 class AppLogic {
@@ -54,10 +53,7 @@ class AppLogic {
     wondersLogic.init();
 
     // Events
-    timelineLogic.init();
-
-    // Collectibles
-    await collectiblesLogic.load();
+    // timelineLogic.init();
 
     // Flag bootStrap as complete
     isBootstrapComplete = true;
@@ -71,7 +67,8 @@ class AppLogic {
     }
   }
 
-  Future<T?> showFullscreenDialogRoute<T>(BuildContext context, Widget child, {bool transparent = false}) async {
+  Future<T?> showFullscreenDialogRoute<T>(BuildContext context, Widget child,
+      {bool transparent = false}) async {
     return await Navigator.of(context).push<T>(
       PageRoutes.dialog<T>(child, duration: $styles.times.pageTransition),
     );
@@ -81,13 +78,15 @@ class AppLogic {
   void handleAppSizeChanged() {
     /// Disable landscape layout on smaller form factors
     bool isSmall = display.size.shortestSide / display.devicePixelRatio < 600;
-    supportedOrientations = isSmall ? [Axis.vertical] : [Axis.vertical, Axis.horizontal];
+    supportedOrientations =
+        isSmall ? [Axis.vertical] : [Axis.vertical, Axis.horizontal];
     _updateSystemOrientation();
   }
 
   Display get display => PlatformDispatcher.instance.displays.first;
 
-  bool shouldUseNavRail() => display.size.width > display.size.height && display.size.height > 250;
+  bool shouldUseNavRail() =>
+      display.size.width > display.size.height && display.size.height > 250;
 
   /// Enable landscape, portrait or both. Views can call this method to override the default settings.
   /// For example, the [FullscreenVideoViewer] always wants to enable both landscape and portrait.

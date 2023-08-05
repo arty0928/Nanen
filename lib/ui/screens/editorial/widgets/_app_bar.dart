@@ -1,7 +1,9 @@
 part of '../editorial_screen.dart';
 
 class _AppBar extends StatelessWidget {
-  _AppBar(this.wonderType, {Key? key, required this.sectionIndex, required this.scrollPos}) : super(key: key);
+  _AppBar(this.wonderType,
+      {Key? key, required this.sectionIndex, required this.scrollPos})
+      : super(key: key);
   final WonderType wonderType;
   final ValueNotifier<int> sectionIndex;
   final ValueNotifier<double> scrollPos;
@@ -21,20 +23,12 @@ class _AppBar extends StatelessWidget {
     switch (wonderType) {
       case WonderType.chichenItza:
         return ArchType.flatPyramid;
-      case WonderType.christRedeemer:
-        return ArchType.wideArch;
       case WonderType.colosseum:
         return ArchType.arch;
       case WonderType.greatWall:
         return ArchType.arch;
-      case WonderType.machuPicchu:
-        return ArchType.pyramid;
       case WonderType.petra:
         return ArchType.wideArch;
-      case WonderType.pyramidsGiza:
-        return ArchType.pyramid;
-      case WonderType.tajMahal:
-        return ArchType.spade;
     }
   }
 
@@ -55,7 +49,9 @@ class _AppBar extends StatelessWidget {
                 /// Masked image
                 BottomCenter(
                   child: SizedBox(
-                    width: showOverlay ? double.infinity : $styles.sizes.maxContentWidth1,
+                    width: showOverlay
+                        ? double.infinity
+                        : $styles.sizes.maxContentWidth1,
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 50),
                       child: ClipPath(
@@ -75,7 +71,9 @@ class _AppBar extends StatelessWidget {
                             );
                           },
                         ),
-                      ).animate(delay: $styles.times.pageTransition + 500.ms).fadeIn(duration: $styles.times.slow),
+                      )
+                          .animate(delay: $styles.times.pageTransition + 500.ms)
+                          .fadeIn(duration: $styles.times.slow),
                     ),
                   ),
                 ),

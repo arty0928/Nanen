@@ -20,7 +20,6 @@ class ImagePaths {
   static String common = 'assets/images/_common';
   static String cloud = '$common/cloud-white.png';
 
-  static String collectibles = '$root/collectibles';
   static String particle = '$common/particle-21x23.png';
   static String ribbonEnd = '$common/ribbon-end.png';
 
@@ -44,8 +43,6 @@ class SvgPaths {
 extension WonderAssetExtensions on WonderType {
   String get assetPath {
     switch (this) {
-      case WonderType.pyramidsGiza:
-        return '${ImagePaths.root}/pyramids';
       case WonderType.greatWall:
         return '${ImagePaths.root}/great_wall_of_china';
       case WonderType.petra:
@@ -54,19 +51,16 @@ extension WonderAssetExtensions on WonderType {
         return '${ImagePaths.root}/colosseum';
       case WonderType.chichenItza:
         return '${ImagePaths.root}/chichen_itza';
-      case WonderType.machuPicchu:
-        return '${ImagePaths.root}/machu_picchu';
-      case WonderType.tajMahal:
-        return '${ImagePaths.root}/taj_mahal';
-      case WonderType.christRedeemer:
-        return '${ImagePaths.root}/christ_the_redeemer';
     }
   }
 
-  String get homeBtn => '$assetPath/wonder-button.png';
+  // String get homeBtn => '$assetPath/wonder-button.png';
+  String get homeBtn => '$assetPath/area1.png';
   String get photo1 => '$assetPath/photo-1.jpg';
   String get photo2 => '$assetPath/photo-2.jpg';
   String get photo3 => '$assetPath/photo-3.jpg';
   String get photo4 => '$assetPath/photo-4.jpg';
-  String get flattened => '$assetPath/flattened.jpg';
+  // String get flattened => '$assetPath/flattened.jpg';
+  String get flattened => '$assetPath/area1.png';
+  // String get flattened => '${ImagePaths.root}/fitness_app/area1.png';
 }

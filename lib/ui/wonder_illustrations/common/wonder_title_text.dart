@@ -16,13 +16,14 @@ class WonderTitleText extends StatelessWidget {
     var textStyle = $styles.text.wonderTitle.copyWith(
       color: $styles.colors.offWhite,
     );
-    bool smallText = [WonderType.christRedeemer, WonderType.colosseum].contains(data.type);
+    bool smallText = [WonderType.chichenItza, WonderType.colosseum].contains(data.type);
     if (smallText) {
       textStyle = textStyle.copyWith(fontSize: 56 * $styles.scale);
     }
 
     // First, get a list like: ['the\n', 'great wall']
     final title = data.title.toLowerCase();
+
     // Split on spaces, later, add either a linebreak or a space back in.
     List<String> pieces = title.split(' ');
     // TextSpan builder, figures out whether to use small text, and adds linebreak or space (or nothing).

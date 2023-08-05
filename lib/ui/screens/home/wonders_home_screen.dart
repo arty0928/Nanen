@@ -1,13 +1,9 @@
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
-import 'package:wonders/ui/common/app_icons.dart';
-import 'package:wonders/ui/common/controls/app_header.dart';
 import 'package:wonders/ui/common/controls/app_page_indicator.dart';
 import 'package:wonders/ui/common/gradient_container.dart';
 import 'package:wonders/ui/common/themed_text.dart';
 import 'package:wonders/ui/common/utils/app_haptics.dart';
-import 'package:wonders/ui/screens/home_menu/home_menu.dart';
-import 'package:wonders/ui/wonder_illustrations/common/animated_clouds.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_config.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_title_text.dart';
@@ -24,7 +20,8 @@ class HomeScreen extends StatefulWidget with GetItStatefulWidgetMixin {
 
 /// Shows a horizontally scrollable list PageView sandwiched between Foreground and Background layers
 /// arranged in a parallax style.
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late final PageController _pageController;
   List<WonderData> get _wonders => wondersLogic.all;
   bool _isMenuOpen = false;
@@ -46,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   WonderData get currentWonder => _wonders[_wonderIndex];
 
-  late final _VerticalSwipeController _swipeController = _VerticalSwipeController(this, _showDetailsPage);
+  late final _VerticalSwipeController _swipeController =
+      _VerticalSwipeController(this, _showDetailsPage);
 
   bool _isSelected(WonderType t) => t == currentWonder.type;
 
@@ -56,7 +54,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     // Create page controller,
     // allow 'infinite' scrolling by starting at a very high page, or remember the previous value
     final initialPage = _numWonders * 9999;
-    _pageController = PageController(viewportFraction: 1, initialPage: initialPage);
+    _pageController =
+        PageController(viewportFraction: 1, initialPage: initialPage);
     _wonderIndex = initialPage % _numWonders;
   }
 
@@ -65,19 +64,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       _wonderIndex = value % _numWonders;
     });
     AppHaptics.lightImpact();
-  }
-
-  void _handleOpenMenuPressed() async {
-    setState(() => _isMenuOpen = true);
-    WonderType? pickedWonder = await appLogic.showFullscreenDialogRoute<WonderType>(
-      context,
-      HomeMenu(data: currentWonder),
-      transparent: true,
-    );
-    setState(() => _isMenuOpen = false);
-    if (pickedWonder != null) {
-      _setPageIndex(_wonders.indexWhere((w) => w.type == pickedWonder));
-    }
   }
 
   void _handleFadeAnimInit(AnimationController controller) {
@@ -90,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void _setPageIndex(int index) {
     if (index == _wonderIndex) return;
     // To support infinite scrolling, we can't jump directly to the pressed index. Instead, make it relative to our current position.
-    final pos = ((_pageController.page ?? 0) / _numWonders).floor() * _numWonders;
+    final pos =
+        ((_pageController.page ?? 0) / _numWonders).floor() * _numWonders;
     _pageController.jumpToPage(pos + index);
   }
 
@@ -180,21 +167,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return [
       // Background
       ..._wonders.map((e) {
-        final config = WonderIllustrationConfig.bg(isShowing: _isSelected(e.type));
+        final config =
+            WonderIllustrationConfig.bg(isShowing: _isSelected(e.type));
         return WonderIllustration(e.type, config: config);
       }).toList(),
-      // Clouds
-      FractionallySizedBox(
-        widthFactor: 1,
-        heightFactor: .5,
-        child: AnimatedClouds(wonderType: currentWonder.type, opacity: 1),
-      )
     ];
   }
 
   Widget _buildFgAndGradients() {
     Widget buildSwipeableBgGradient(Color fgColor) {
-      return _swipeController.buildListener(builder: (swipeAmt, isPointerDown, _) {
+      return _swipeController.buildListener(
+          builder: (swipeAmt, isPointerDown, _) {
         return IgnorePointer(
           child: FractionallySizedBox(
             heightFactor: .6,
@@ -205,7 +188,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   end: Alignment.bottomCenter,
                   colors: [
                     fgColor.withOpacity(0),
-                    fgColor.withOpacity(.5 + fgColor.opacity * .25 + (isPointerDown ? .05 : 0) + swipeAmt * .20),
+                    fgColor.withOpacity(.5 +
+                        fgColor.opacity * .25 +
+                        (isPointerDown ? .05 : 0) +
+                        swipeAmt * .20),
                   ],
                   stops: const [0, 1],
                 ),
@@ -233,7 +219,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           return Animate(
               effects: const [FadeEffect()],
               onPlay: _handleFadeAnimInit,
-              child: IgnorePointer(child: WonderIllustration(e.type, config: config)));
+              child: IgnorePointer(
+                  child: WonderIllustration(e.type, config: config)));
         });
       }).toList(),
 
@@ -276,7 +263,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               onDecrease: () => _setPageIndex(_wonderIndex - 1),
                               onTap: () => _showDetailsPage(),
                               // Hide the title when the menu is open for visual polish
-                              child: WonderTitleText(currentWonder, enableShadows: true),
+                              child: WonderTitleText(currentWonder,
+                                  enableShadows: true),
                             ),
                             Gap($styles.insets.md),
                             AppPageIndicator(
@@ -312,18 +300,24 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             return FractionallySizedBox(
                               alignment: Alignment.bottomCenter,
                               heightFactor: heightFactor,
-                              child: Opacity(opacity: swipeAmt * .5, child: child),
+                              child:
+                                  Opacity(opacity: swipeAmt * .5, child: child),
                             );
                           },
                           child: VtGradient(
-                            [$styles.colors.white.withOpacity(0), $styles.colors.white.withOpacity(1)],
+                            [
+                              $styles.colors.white.withOpacity(0),
+                              $styles.colors.white.withOpacity(1)
+                            ],
                             const [.3, 1],
                             borderRadius: BorderRadius.circular(99),
                           ),
                         )),
 
                         /// Arrow Btn that fades in and out
-                        _AnimatedArrowButton(onTap: _showDetailsPage, semanticTitle: currentWonder.title),
+                        _AnimatedArrowButton(
+                            onTap: _showDetailsPage,
+                            semanticTitle: currentWonder.title),
                       ],
                     ),
                   ),
@@ -336,18 +330,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
 
       /// Menu Btn
-      TopLeft(
-        child: AnimatedOpacity(
-          duration: $styles.times.fast,
-          opacity: _isMenuOpen ? 0 : 1,
-          child: AppHeader(
-            backIcon: AppIcons.menu,
-            backBtnSemantics: $strings.homeSemanticOpenMain,
-            onBack: _handleOpenMenuPressed,
-            isTransparent: true,
-          ),
-        ),
-      ),
+      // TopLeft(
+      //   child: AnimatedOpacity(
+      //     duration: $styles.times.fast,
+      //     opacity: _isMenuOpen ? 0 : 1,
+      //     child: AppHeader(
+      //       backIcon: AppIcons.menu,
+      //       backBtnSemantics: $strings.homeSemanticOpenMain,
+      //       onBack: _handleOpenMenuPressed,
+      //       isTransparent: true,
+      //     ),
+      //   ),
+      // ),
     ]);
   }
 }

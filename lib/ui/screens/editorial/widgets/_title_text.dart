@@ -46,19 +46,6 @@ class _TitleText extends StatelessWidget {
                   ),
                   Gap($styles.insets.md),
 
-                  /// Wonder title text
-                  Semantics(
-                    sortKey: OrdinalSortKey(0),
-                    child: AnimatedBuilder(
-                        animation: scroller,
-                        builder: (_, __) {
-                          final yPos = ContextUtils.getGlobalPos(context)?.dy ?? 0;
-                          bool enableHero = yPos > -100;
-                          return WonderTitleText(data, enableHero: enableHero);
-                        }),
-                  ),
-                  Gap($styles.insets.xs),
-
                   /// Region
                   Text(
                     data.regionTitle.toUpperCase(),
@@ -67,29 +54,14 @@ class _TitleText extends StatelessWidget {
                   ),
                   Gap($styles.insets.md),
 
-                  /// Compass divider
-                  ExcludeSemantics(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: $styles.insets.sm),
-                      child: AnimatedBuilder(
-                        animation: scroller,
-                        builder: (_, __) => CompassDivider(
-                          isExpanded: scroller.position.pixels <= 0,
-                          linesColor: data.type.fgColor,
-                          compassColor: $styles.colors.offWhite,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Gap($styles.insets.sm),
-
                   /// Date
-                  Text(
-                    $strings.titleLabelDate(StringUtils.formatYr(data.startYr), StringUtils.formatYr(data.endYr)),
-                    style: $styles.text.h4,
-                    textAlign: TextAlign.center,
-                  ),
-                  Gap($styles.insets.sm),
+                  // Text(
+                  //   $strings.titleLabelDate(StringUtils.formatYr(data.startYr),
+                  //       StringUtils.formatYr(data.endYr)),
+                  //   style: $styles.text.h4,
+                  //   textAlign: TextAlign.center,
+                  // ),
+                  // Gap($styles.insets.sm),
                 ],
               ),
             ),
