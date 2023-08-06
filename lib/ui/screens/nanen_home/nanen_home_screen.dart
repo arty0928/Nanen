@@ -12,8 +12,7 @@ class NanenHomeScreen extends StatefulWidget {
   State<NanenHomeScreen> createState() => _NanenHomeScreenState();
 }
 
-class _NanenHomeScreenState extends State<NanenHomeScreen>
-    with TickerProviderStateMixin {
+class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderStateMixin {
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
@@ -24,8 +23,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-        duration: const Duration(milliseconds: 600), vsync: this);
+    animationController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
     for (final TabIconData tab in tabIconsList) {
       tab.isSelected = false;
     }
@@ -80,8 +78,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody =
-                        MyDiaryScreen(animationController: animationController);
+                    tabBody = MyDiaryScreen(animationController: animationController);
                   });
                 }
                 return;
@@ -91,8 +88,11 @@ class _NanenHomeScreenState extends State<NanenHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = const MissionTest1();
-
+                    // tabBody = const MissionTest1();
+                    appRouter.go(ScreenPaths.home);
+                    // appRouter.go('/mission', extra: {
+                    //   'animationController': animationController,
+                    // });
                     // tabBody = MissionHomePage(
                     // animationController: animationController);
                   });

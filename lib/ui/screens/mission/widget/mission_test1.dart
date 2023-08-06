@@ -24,8 +24,7 @@ class MissionTest1 extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius:
-                        BorderRadius.circular(AppBar().preferredSize.height),
+                    borderRadius: BorderRadius.circular(AppBar().preferredSize.height),
                     onTap: () => Navigator.pop(context),
                     child: const Icon(
                       Icons.arrow_back_ios,
@@ -40,7 +39,7 @@ class MissionTest1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/fitness_app/area1.png', // 중앙에 위치할 이미지 경로 입력
+                    'assets/images/fitness_app/area1.png', // 중앙에 위치할 이미지 경로 입력
                     width: 300, // 이미지의 너비
                     height: 300, // 이미지의 높이
                   ),

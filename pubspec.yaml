@@ -102,6 +102,7 @@ flutter:
     - assets/images/colosseum/
     - assets/images/great_wall_of_china/
     - assets/images/petra/
+    - assets/images/fitness_app/
 
   fonts:
     - family: Cinzel

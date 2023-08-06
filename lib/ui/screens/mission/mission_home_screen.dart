@@ -16,8 +16,7 @@ class MissionHomePage extends StatefulWidget {
   State<MissionHomePage> createState() => _MissionHomePageState();
 }
 
-class _MissionHomePageState extends State<MissionHomePage>
-    with TickerProviderStateMixin {
+class _MissionHomePageState extends State<MissionHomePage> with TickerProviderStateMixin {
   late final ScrollController scrollController;
 
   List<Widget> listViews = <Widget>[];
@@ -37,10 +36,8 @@ class _MissionHomePageState extends State<MissionHomePage>
     super.initState();
 
     scrollController = ScrollController();
-    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+    topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        parent: widget.animationController, curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
     scrollController.addListener(() {
       if (scrollController.offset >= 24) {
@@ -51,8 +48,7 @@ class _MissionHomePageState extends State<MissionHomePage>
             });
           }
         }
-      } else if (scrollController.offset <= 24 &&
-          scrollController.offset >= 0) {
+      } else if (scrollController.offset <= 24 && scrollController.offset >= 0) {
         if (topBarOpacity != scrollController.offset / 24) {
           if (mounted) {
             setState(() {
@@ -142,13 +138,13 @@ class _MissionHomePageState extends State<MissionHomePage>
   String _getPageBackgroundImage(int pageIndex) {
     switch (pageIndex) {
       case 0:
-        return 'assets/fitness_app/area1.png';
+        return 'assets/images/fitness_app/area1.png';
       case 1:
-        return 'assets/fitness_app/area2.png';
+        return 'assets/images/fitness_app/area2.png';
       case 2:
-        return 'assets/fitness_app/area3.png';
+        return 'assets/images/fitness_app/area3.png';
       case 3:
-        return 'assets/fitness_app/area1.png';
+        return 'assets/images/fitness_app/area1.png';
       default:
         return '';
     }
@@ -179,9 +175,7 @@ class _MissionHomePageState extends State<MissionHomePage>
           return ListView.builder(
             controller: scrollController,
             padding: EdgeInsets.only(
-              top: AppBar().preferredSize.height +
-                  MediaQuery.of(context).padding.top +
-                  24,
+              top: AppBar().preferredSize.height + MediaQuery.of(context).padding.top + 24,
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
             itemCount: listViews.length,

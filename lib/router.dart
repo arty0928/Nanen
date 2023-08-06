@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
+import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
+import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 import 'package:wonders/ui/screens/wonder_details/wonders_details_screen.dart';
 
 /// Shared paths / urls used across the app
@@ -8,19 +10,17 @@ class ScreenPaths {
   static String splash = '/';
   static String intro = '/welcome';
   static String home = '/home';
+  static String mission = '/mission';
   static String settings = '/settings';
-  static String wonderDetails(WonderType type, {int tabIndex = 0}) =>
-      '/wonder/${type.name}?t=$tabIndex';
+  static String wonderDetails(WonderType type, {int tabIndex = 0}) => '/wonder/${type.name}?t=$tabIndex';
   static String video(String id) => '/video/$id';
   static String highlights(WonderType type) => '/highlights/${type.name}';
   static String search(WonderType type) => '/search/${type.name}';
   static String artifact(String id) => '/artifact/$id';
   static String collection(String id) => '/collection?id=$id';
   static String maps(WonderType type) => '/maps/${type.name}';
-  static String timeline(WonderType? type) =>
-      '/timeline?type=${type?.name ?? ''}';
-  static String wallpaperPhoto(WonderType type) =>
-      '/wallpaperPhoto/${type.name}';
+  static String timeline(WonderType? type) => '/timeline?type=${type?.name ?? ''}';
+  static String wallpaperPhoto(WonderType type) => '/wallpaperPhoto/${type.name}';
 }
 
 /// Routing table, matches string paths to UI Screens, optionally parses params from the paths
@@ -32,10 +32,8 @@ final appRouter = GoRouter(
           return WondersAppScaffold(child: navigator);
         },
         routes: [
-          AppRoute(
-              ScreenPaths.splash,
-              (_) => Container(
-                  color: $styles.colors.greyStrong)), // This will be hidden
+          AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
+          AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.home, (_) => HomeScreen()),
           AppRoute('/wonder/:type', (s) {
             int tab = int.tryParse(s.queryParams['t'] ?? '') ?? 0;
@@ -44,6 +42,12 @@ final appRouter = GoRouter(
               initialTabIndex: tab,
             );
           }, useFade: true),
+          AppRoute(
+            ScreenPaths.mission, // '/mission' 경로 추가
+            (_) => MissionHomePage(
+              animationController: _.extra as AnimationController,
+            ), // 'MissionHomeScreen'으로 이동
+          ),
           //
         ]),
   ],
@@ -65,8 +69,7 @@ class AppRoute extends GoRoute {
               return CustomTransitionPage(
                 key: state.pageKey,
                 child: pageContent,
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
               );
@@ -92,5 +95,4 @@ WonderType _parseWonderType(String? value) {
   return _tryParseWonderType(value) ?? fallback;
 }
 
-WonderType? _tryParseWonderType(String value) =>
-    WonderType.values.asNameMap()[value];
+WonderType? _tryParseWonderType(String value) => WonderType.values.asNameMap()[value];

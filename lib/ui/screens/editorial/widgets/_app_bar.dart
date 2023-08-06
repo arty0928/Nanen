@@ -1,17 +1,34 @@
 part of '../editorial_screen.dart';
 
 class _AppBar extends StatelessWidget {
-  _AppBar(this.wonderType,
-      {Key? key, required this.sectionIndex, required this.scrollPos})
-      : super(key: key);
+  String _getTitleValue(wonderType) {
+    switch (wonderType) {
+      case WonderType.greatWall:
+        return NanenCategory[0]; // Active
+      case WonderType.petra:
+        return NanenCategory[1]; // Calm
+      case WonderType.colosseum:
+        return NanenCategory[2]; // Careative
+      case WonderType.chichenItza:
+        return NanenCategory[3]; // People
+      default:
+        return ''; // 기본값은 빈 문자열로 처리
+    }
+  }
+
+  _AppBar(this.wonderType, {Key? key, required this.sectionIndex, required this.scrollPos}) : super(key: key);
   final WonderType wonderType;
   final ValueNotifier<int> sectionIndex;
   final ValueNotifier<double> scrollPos;
-  final _titleValues = [
-    $strings.appBarTitleFactsHistory,
-    $strings.appBarTitleConstruction,
-    $strings.appBarTitleLocation,
-  ];
+
+  // final _titleValues = [
+  //   // $strings.appBarTitleFactsHistory,
+  //   // 'C A L M',
+  //   // NanenCategory[widegt.sectionIndex.value],
+  //   $strings.appBarTitleFactsHistory,
+  //   $strings.appBarTitleConstruction,
+  //   $strings.appBarTitleLocation,
+  // ];
 
   final _iconValues = const [
     'history.png',
@@ -35,6 +52,8 @@ class _AppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final arch = _getArchType();
+    final index = _getTitleValue(wonderType);
+    final title = [index, index, index];
     return LayoutBuilder(builder: (_, constraints) {
       bool showOverlay = constraints.biggest.height < 300;
       return Stack(
@@ -49,9 +68,7 @@ class _AppBar extends StatelessWidget {
                 /// Masked image
                 BottomCenter(
                   child: SizedBox(
-                    width: showOverlay
-                        ? double.infinity
-                        : $styles.sizes.maxContentWidth1,
+                    width: showOverlay ? double.infinity : $styles.sizes.maxContentWidth1,
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 50),
                       child: ClipPath(
@@ -71,9 +88,7 @@ class _AppBar extends StatelessWidget {
                             );
                           },
                         ),
-                      )
-                          .animate(delay: $styles.times.pageTransition + 500.ms)
-                          .fadeIn(duration: $styles.times.slow),
+                      ).animate(delay: $styles.times.pageTransition + 500.ms).fadeIn(duration: $styles.times.slow),
                     ),
                   ),
                 ),
@@ -96,7 +111,7 @@ class _AppBar extends StatelessWidget {
               builder: (_, value, __) {
                 return _CircularTitleBar(
                   index: value,
-                  titles: _titleValues,
+                  titles: title,
                   icons: _iconValues,
                 );
               },

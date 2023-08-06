@@ -5,6 +5,7 @@ import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/locale_logic.dart';
 import 'package:wonders/logic/wallpaper_logic.dart';
 import 'package:wonders/logic/wonders_logic.dart';
+import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -32,8 +33,8 @@ class WondersApp extends StatelessWidget with GetItMixin {
       locale: locale == null ? null : Locale(locale),
       debugShowCheckedModeBanner: false,
       routerDelegate: appRouter.routerDelegate,
-      theme: ThemeData(
-          fontFamily: $styles.text.body.fontFamily, useMaterial3: true),
+      // routerDelegate: appRouter.routerDelegate.clone(initialRoutes: [NanenHomeScreen()]),
+      theme: ThemeData(fontFamily: $styles.text.body.fontFamily, useMaterial3: true),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
