@@ -16,7 +16,7 @@ class MyPageNumbers extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 'djdropthebeat',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ),
@@ -27,7 +27,7 @@ class MyPageNumbers extends StatelessWidget {
                 children: [
                   Text(
                     '10',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
                   Text('active')
                 ],
@@ -36,7 +36,7 @@ class MyPageNumbers extends StatelessWidget {
                 children: [
                   Text(
                     '14',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
                   Text('calm')
                 ],
@@ -45,7 +45,7 @@ class MyPageNumbers extends StatelessWidget {
                 children: [
                   Text(
                     '17',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
                   Text('creative')
                 ],
@@ -54,7 +54,7 @@ class MyPageNumbers extends StatelessWidget {
                 children: [
                   Text(
                     '9',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                   ),
                   Text('people')
                 ],

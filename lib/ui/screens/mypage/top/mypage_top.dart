@@ -13,12 +13,13 @@ class mypageTop extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Profile
           Container(
-            height: 100,
-            width: 100,
+            height: 70,
+            width: 70,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
@@ -29,7 +30,7 @@ class mypageTop extends StatelessWidget {
           ),
 
           // Number
-          const MyPageNumbers(),
+          Expanded(child: Container(height: 50, child: const MyPageNumbers())),
         ],
       ),
     );

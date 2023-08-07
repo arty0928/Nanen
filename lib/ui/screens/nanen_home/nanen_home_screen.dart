@@ -8,8 +8,7 @@ import 'package:wonders/ui/screens/mypage/update_profile_screen.dart';
 import 'package:wonders/utils/bottom_bar_view.dart';
 
 class NanenHomeScreen extends StatefulWidget {
-  final bodyColor;
-  const NanenHomeScreen({super.key, this.bodyColor});
+  const NanenHomeScreen({super.key});
 
   @override
   State<NanenHomeScreen> createState() => _NanenHomeScreenState();

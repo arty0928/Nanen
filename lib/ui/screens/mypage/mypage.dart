@@ -235,53 +235,31 @@ class _MyDiaryScreenState extends State<MyPageScreen> with TickerProviderStateMi
   void addAllListData() {
     const int count = 6;
 
-    listViews.add(
+    listViews.addAll([
       const Column(
         children: [
           mypageTop(),
         ],
       ),
-    );
-    listViews.add(
       EditProfileBtn(),
-    );
-
-    listViews.add(
       const SizedBox(
         height: 10,
       ),
-    );
-    listViews.add(
       //tab bar
-      TabBar(
-        unselectedLabelColor: tPrimaryColor,
-        indicatorColor: tSeconddaryColor,
-        indicatorWeight: 2,
-        tabs: tabs,
-      ),
-    );
-    listViews.add(
-      //graph
-      const SizedBox(height: 200, child: MyBarGraph()),
-    );
-    listViews.add(
+      // TabBar(
+      //   unselectedLabelColor: tPrimaryColor,
+      //   indicatorColor: tSeconddaryColor,
+      //   indicatorWeight: 2,
+      //   tabs: tabs,
+      // ),
+      //   //graph
+      const SizedBox(height: 150, child: MyBarGraph()),
       const SizedBox(
         height: 20,
       ),
-    );
-    listViews.add(
-      //tab bar view
-      SizedBox(height: 1000, child: TabBarView(children: tabBarViews)),
-    );
-
-    listViews.add(
-      MealsListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
-      ),
-    );
+      //   //tab bar view
+      //   SizedBox(height: 1000, child: TabBarView(children: tabBarViews)),
+    ]);
   }
 
   Future<bool> getData() async {
@@ -295,7 +273,10 @@ class _MyDiaryScreenState extends State<MyPageScreen> with TickerProviderStateMi
       color: NanenAppTheme.background,
       child: Stack(
         children: <Widget>[
-          getMainListViewUI(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: getMainListViewUI(),
+          ),
           getAppBarUI(widget: widget, topBarAnimation: topBarAnimation, topBarOpacity: topBarOpacity),
           SizedBox(
             height: MediaQuery.of(context).padding.bottom,
@@ -319,6 +300,8 @@ class _MyDiaryScreenState extends State<MyPageScreen> with TickerProviderStateMi
               bottom: 62 + MediaQuery.of(context).padding.bottom,
             ),
             itemCount: listViews.length,
+            shrinkWrap: true,
+            physics: AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               widget.animationController.forward();
               return listViews[index];
@@ -353,129 +336,131 @@ class getAppBarUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        AnimatedBuilder(
-          animation: widget.animationController,
-          builder: (BuildContext context, _) {
-            var now = DateTime.now();
-            var formatter = DateFormat('MMM d');
-            String formattedDate = formatter.format(now);
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          AnimatedBuilder(
+            animation: widget.animationController,
+            builder: (BuildContext context, _) {
+              var now = DateTime.now();
+              var formatter = DateFormat('MMM d');
+              String formattedDate = formatter.format(now);
 
-            return FadeTransition(
-              opacity: topBarAnimation,
-              child: Transform(
-                transform: Matrix4.translationValues(0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: NanenAppTheme.white.withOpacity(topBarOpacity),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(32.0),
-                    ),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: NanenAppTheme.grey.withOpacity(0.4 * topBarOpacity),
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 10.0),
-                    ],
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).padding.top,
+              return FadeTransition(
+                opacity: topBarAnimation,
+                child: Transform(
+                  transform: Matrix4.translationValues(0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: NanenAppTheme.white.withOpacity(topBarOpacity),
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(32.0),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 16, right: 16, top: 16 - 8.0 * topBarOpacity, bottom: 12 - 8.0 * topBarOpacity),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  '나는_',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: NanenAppTheme.fontName,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
-                                    letterSpacing: 1.2,
-                                    color: NanenAppTheme.darkerText,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                                onTap: () {},
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_left,
-                                    color: NanenAppTheme.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: NanenAppTheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    formattedDate,
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                            color: NanenAppTheme.grey.withOpacity(0.4 * topBarOpacity),
+                            offset: const Offset(1.1, 1.1),
+                            blurRadius: 10.0),
+                      ],
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: MediaQuery.of(context).padding.top,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 16, right: 16, top: 16 - 8.0 * topBarOpacity, bottom: 12 - 8.0 * topBarOpacity),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    '나는_',
                                     textAlign: TextAlign.left,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: NanenAppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 22 + 6 - 6 * topBarOpacity,
+                                      letterSpacing: 1.2,
                                       color: NanenAppTheme.darkerText,
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                                onTap: () {},
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: NanenAppTheme.grey,
+                              SizedBox(
+                                height: 38,
+                                width: 38,
+                                child: InkWell(
+                                  highlightColor: Colors.transparent,
+                                  borderRadius: const BorderRadius.all(Radius.circular(32.0)),
+                                  onTap: () {},
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.keyboard_arrow_left,
+                                      color: NanenAppTheme.grey,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                  right: 8,
+                                ),
+                                child: Row(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding: EdgeInsets.only(right: 8),
+                                      child: Icon(
+                                        Icons.calendar_today,
+                                        color: NanenAppTheme.grey,
+                                        size: 18,
+                                      ),
+                                    ),
+                                    Text(
+                                      formattedDate,
+                                      textAlign: TextAlign.left,
+                                      style: const TextStyle(
+                                        fontFamily: NanenAppTheme.fontName,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 18,
+                                        letterSpacing: -0.2,
+                                        color: NanenAppTheme.darkerText,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 38,
+                                width: 38,
+                                child: InkWell(
+                                  highlightColor: Colors.transparent,
+                                  borderRadius: const BorderRadius.all(Radius.circular(32.0)),
+                                  onTap: () {},
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.keyboard_arrow_right,
+                                      color: NanenAppTheme.grey,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
-        )
-      ],
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 }

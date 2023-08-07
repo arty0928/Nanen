@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
+import 'package:wonders/ui/screens/mypage/mypage.dart';
 import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 import 'package:wonders/ui/screens/wonder_details/wonders_details_screen.dart';
 
@@ -11,6 +12,7 @@ class ScreenPaths {
   static String intro = '/welcome';
   static String home = '/home';
   static String mission = '/mission';
+  static String mypage = '/mypage';
   static String settings = '/settings';
   static String wonderDetails(WonderType type, {int tabIndex = 0}) => '/wonder/${type.name}?t=$tabIndex';
   static String video(String id) => '/video/$id';
