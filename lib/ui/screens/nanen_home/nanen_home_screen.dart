@@ -3,10 +3,13 @@ import 'package:wonders/styles/tab_icon_data.dart';
 import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template.dart';
 import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
+import 'package:wonders/ui/screens/mypage/mypage.dart';
+import 'package:wonders/ui/screens/mypage/update_profile_screen.dart';
 import 'package:wonders/utils/bottom_bar_view.dart';
 
 class NanenHomeScreen extends StatefulWidget {
-  const NanenHomeScreen({super.key});
+  final bodyColor;
+  const NanenHomeScreen({super.key, this.bodyColor});
 
   @override
   State<NanenHomeScreen> createState() => _NanenHomeScreenState();
@@ -14,7 +17,6 @@ class NanenHomeScreen extends StatefulWidget {
 
 class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderStateMixin {
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
-
   Widget tabBody = Container(
     color: NanenAppTheme.background,
   );
@@ -89,7 +91,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
                 if (mounted) {
                   setState(() {
                     // tabBody = const MissionTest1();
-                    appRouter.go(ScreenPaths.home);
+                    appRouter.go(ScreenPaths.mission);
                     // appRouter.go('/mission', extra: {
                     //   'animationController': animationController,
                     // });
@@ -103,7 +105,8 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = const CalendarPage();
+                    tabBody = CalendarScreen(animationController: animationController);
+                    // tabBody = CalendarScreen(animationController: animationController);
                   });
                 }
                 return;
@@ -112,10 +115,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = const MissionTest1();
-
-                    // tabBody = TrainingScreen(
-                    //     animationController: animationController);
+                    tabBody = MyPageScreen(animationController: animationController);
                   });
                 }
                 return;

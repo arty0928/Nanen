@@ -56,10 +56,13 @@ dependencies:
   webview_flutter: ^4.0.2
   youtube_player_iframe: ^4.0.4
 
+
   #nanen
   syncfusion_flutter_calendar: ^22.2.7
   dots_indicator: ^3.0.0
   line_awesome_flutter : ^2.0.0
+  fl_chart: ^0.63.0
+
 
 
 dependency_overrides:
@@ -103,6 +106,9 @@ flutter:
     - assets/images/great_wall_of_china/
     - assets/images/petra/
     - assets/images/fitness_app/
+    - assets/images/mission/
+    - assets/images/profile/
+
 
   fonts:
     - family: Cinzel

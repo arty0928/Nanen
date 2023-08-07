@@ -45,5 +45,6 @@ enum AppIcons {
   timeline,
   wallpaper,
   zoom_in,
-  zoom_out
+  zoom_out,
+  home
 }

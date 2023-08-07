@@ -34,7 +34,7 @@ final appRouter = GoRouter(
         routes: [
           AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
-          AppRoute(ScreenPaths.home, (_) => HomeScreen()),
+          AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
           AppRoute('/wonder/:type', (s) {
             int tab = int.tryParse(s.queryParams['t'] ?? '') ?? 0;
             return WonderDetailsScreen(
@@ -42,12 +42,7 @@ final appRouter = GoRouter(
               initialTabIndex: tab,
             );
           }, useFade: true),
-          AppRoute(
-            ScreenPaths.mission, // '/mission' 경로 추가
-            (_) => MissionHomePage(
-              animationController: _.extra as AnimationController,
-            ), // 'MissionHomeScreen'으로 이동
-          ),
+
           //
         ]),
   ],
