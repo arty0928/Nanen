@@ -15,13 +15,21 @@ class TabCategory extends StatelessWidget {
       tActiveImage1,
       tActiveImage2,
       tActiveImage3,
+      tActiveImage1,
+      tActiveImage2,
+      tActiveImage3,
+      tCalm1Image1,
+      tCalm1Image2,
+      tCalm1Image3
     ];
 
     switch (tabCategory) {
       case 'calm':
         tab = calm;
+        break;
       case 'active':
         tab = active;
+        break;
       default:
         tab = calm;
     }
@@ -29,8 +37,8 @@ class TabCategory extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3.0),
       child: MasonryGridView.builder(
-        itemCount: 3,
-        physics: const NeverScrollableScrollPhysics(),
+        itemCount: tab.length,
+        // physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: ((context, index) => Padding(
               padding: const EdgeInsets.all(3.0),

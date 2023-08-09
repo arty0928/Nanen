@@ -11,7 +11,9 @@ class mypageTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      // padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +32,7 @@ class mypageTop extends StatelessWidget {
           ),
 
           // Number
-          Expanded(child: Container(height: 50, child: const MyPageNumbers())),
+          Expanded(child: MyPageNumbers())
         ],
       ),
     );
