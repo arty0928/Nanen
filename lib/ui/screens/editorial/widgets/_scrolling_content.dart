@@ -72,6 +72,17 @@ class _ScrollingContent extends StatelessWidget {
               child: SizedBox(
                 width: $styles.sizes.maxContentWidth1,
                 child: Column(children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 18),
+                  //   child: missionBox(),
+                  // ),
+                  ..._MissionBoxList([
+                    // missionBox(),
+                    missionBox(),
+                    missionBox(),
+                    missionBox(),
+                    missionBox(),
+                  ]),
                   ..._contentSection([
                     /// History 1
                     // buildDropCapText(data.historyInfo1),
@@ -94,6 +105,9 @@ class _ScrollingContent extends StatelessWidget {
 
                     /// Construction 2
                     buildText(data.constructionInfo2),
+
+                    buildText(data.constructionInfo2),
+
                     // _SectionDivider(scrollPos, sectionNotifier, index: 2),
 
                     /// Location
@@ -110,6 +124,33 @@ class _ScrollingContent extends StatelessWidget {
     );
   }
 
+  Container missionBox() {
+    return Container(
+        height: 100,
+        decoration: BoxDecoration(
+          color: NanenAppTheme.background,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: <BoxShadow>[
+            BoxShadow(color: NanenAppTheme.grey.withOpacity(0.4), offset: const Offset(0, 1.1), blurRadius: 5.0),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: [
+              Container(
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                  color: NanenAppTheme.grey.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              )
+            ],
+          ),
+        ));
+  }
+
   /// Helper widget to provide hz padding to multiple widgets. Keeps the layout of the scrolling content cleaner.
   List<Widget> _contentSection(List<Widget> children) {
     return [
@@ -118,13 +159,32 @@ class _ScrollingContent extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
           child: children[i],
         ),
-        Gap($styles.insets.md)
+        // Gap($styles.insets.md)
+        SizedBox(
+          height: 10,
+        ),
       ],
       // Padding(
       //   padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
       //   child: children.last,
       // ),
     ];
+  }
+
+  List<Widget> _MissionBoxList(List<Widget> children) {
+    List<Widget> result = [];
+
+    for (int i = 0; i < children.length; i++) {
+      result.add(
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 18),
+          child: children[i],
+        ),
+      );
+      result.add(SizedBox(height: 10));
+    }
+
+    return result;
   }
 }
 
