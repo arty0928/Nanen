@@ -78,10 +78,19 @@ class _ScrollingContent extends StatelessWidget {
                   // ),
                   ..._MissionBoxList([
                     // missionBox(),
-                    missionBox(),
-                    missionBox(),
-                    missionBox(),
-                    missionBox(),
+
+                    missionBox(
+                      data: data,
+                    ),
+                    missionBox(
+                      data: data,
+                    ),
+                    missionBox(
+                      data: data,
+                    ),
+                    missionBox(
+                      data: data,
+                    ),
                   ]),
                   ..._contentSection([
                     /// History 1
@@ -124,33 +133,6 @@ class _ScrollingContent extends StatelessWidget {
     );
   }
 
-  Container missionBox() {
-    return Container(
-        height: 100,
-        decoration: BoxDecoration(
-          color: NanenAppTheme.background,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: <BoxShadow>[
-            BoxShadow(color: NanenAppTheme.grey.withOpacity(0.4), offset: const Offset(0, 1.1), blurRadius: 5.0),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: [
-              Container(
-                height: 80,
-                width: 80,
-                decoration: BoxDecoration(
-                  color: NanenAppTheme.grey.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              )
-            ],
-          ),
-        ));
-  }
-
   /// Helper widget to provide hz padding to multiple widgets. Keeps the layout of the scrolling content cleaner.
   List<Widget> _contentSection(List<Widget> children) {
     return [
@@ -186,6 +168,108 @@ class _ScrollingContent extends StatelessWidget {
 
     return result;
   }
+}
+
+class missionBox extends StatelessWidget {
+  final WonderData data;
+
+  // final Text Title;
+  // final Text SubTitle;
+
+  const missionBox({
+    super.key,
+    required this.data,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: GestureDetector(
+        onTap: () {
+          _CallMissionDetail(context);
+        },
+        child: Center(
+          child: Column(
+            children: [
+              //listview of mission
+              Container(
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: NanenAppTheme.background,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: NanenAppTheme.grey.withOpacity(0.4), offset: const Offset(0, 1.1), blurRadius: 5.0),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                                padding: EdgeInsets.all(15),
+                                color: NanenAppTheme.grey.withOpacity(0.1),
+                                child: Icon(Icons.favorite)),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //title
+                              Text(
+                                data.title,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              //subtitle
+                              Text(
+                                data.subTitle,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: NanenAppTheme.darkGrey,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: const [
+                          Icon(Icons.more_horiz),
+                          SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void _CallMissionDetail(BuildContext context) {
+  Navigator.push<dynamic>(
+    context,
+    MaterialPageRoute<dynamic>(
+      builder: (BuildContext context) => const CourseInfoScreen(),
+    ),
+  );
 }
 
 class SliverBackgroundColor extends SingleChildRenderObjectWidget {
