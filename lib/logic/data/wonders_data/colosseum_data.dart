@@ -62,5 +62,13 @@ class ColosseumData extends WonderData {
           //   1829: $strings.colosseum1829ce,
           //   1990: $strings.colosseum1990ce,
           // },
+          missionTitle: {
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            // $strings.activeMissionTitle1:$strings.activeMissionSubtitle1,
+          },
         );
 }

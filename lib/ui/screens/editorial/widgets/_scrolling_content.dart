@@ -67,67 +67,18 @@ class _ScrollingContent extends StatelessWidget {
       sliver: SliverPadding(
         padding: EdgeInsets.symmetric(vertical: $styles.insets.md),
         sliver: SliverList(
-          delegate: SliverChildListDelegate.fixed([
-            Center(
-              child: SizedBox(
-                width: $styles.sizes.maxContentWidth1,
-                child: Column(children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(horizontal: 18),
-                  //   child: missionBox(),
-                  // ),
-                  ..._MissionBoxList([
-                    // missionBox(),
-
-                    missionBox(
-                      data: data,
-                    ),
-                    missionBox(
-                      data: data,
-                    ),
-                    missionBox(
-                      data: data,
-                    ),
-                    missionBox(
-                      data: data,
-                    ),
-                  ]),
-                  ..._contentSection([
-                    /// History 1
-                    // buildDropCapText(data.historyInfo1),
-
-                    /// Callout1
-                    // _Callout(text: data.callout1),
-
-                    /// History 2
-                    // buildText(data.historyInfo2),
-                    // _SectionDivider(scrollPos, sectionNotifier, index: 1),
-
-                    /// Construction 1
-                    // buildDropCapText(data.constructionInfo1),
-                  ]),
-                  Gap($styles.insets.md),
-                  ..._contentSection([
-                    /// Callout2
-                    Gap($styles.insets.xs),
-                    // _Callout(text: data.callout2),
-
-                    /// Construction 2
-                    buildText(data.constructionInfo2),
-
-                    buildText(data.constructionInfo2),
-
-                    // _SectionDivider(scrollPos, sectionNotifier, index: 2),
-
-                    /// Location
-                    // buildDropCapText(data.locationInfo1),
-                    buildText(data.locationInfo2),
-                  ]),
-                  Gap(150),
-                ]),
+          delegate: SliverChildListDelegate.fixed(
+            [
+              Center(
+                child: SizedBox(
+                  width: $styles.sizes.maxContentWidth1,
+                  child: Column(
+                    children: [_MissionBoxList(data, context)],
+                  ),
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );
@@ -146,115 +97,142 @@ class _ScrollingContent extends StatelessWidget {
           height: 10,
         ),
       ],
-      // Padding(
-      //   padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
-      //   child: children.last,
-      // ),
     ];
-  }
-
-  List<Widget> _MissionBoxList(List<Widget> children) {
-    List<Widget> result = [];
-
-    for (int i = 0; i < children.length; i++) {
-      result.add(
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18),
-          child: children[i],
-        ),
-      );
-      result.add(SizedBox(height: 10));
-    }
-
-    return result;
   }
 }
 
-class missionBox extends StatelessWidget {
+class _MissionBoxList extends StatelessWidget {
   final WonderData data;
+  final BuildContext context;
 
-  // final Text Title;
-  // final Text SubTitle;
-
-  const missionBox({
-    super.key,
-    required this.data,
-  });
+  const _MissionBoxList(this.data, this.context);
 
   @override
   Widget build(BuildContext context) {
+    final missionTitle = data.missionTitle;
+
+    return Column(
+      children: missionTitle.entries.map((entry) {
+        final title = _truncateString(entry.key, 20);
+        final subtitle = _truncateString(entry.value, 30);
+
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 18),
+          child: missionBox(data: data, context: context, title: title, subtitle: subtitle),
+        );
+      }).toList(),
+    );
+  }
+
+  String _truncateString(String text, int maxLength) {
+    return text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
+  }
+}
+//   List<Widget> _MissionBoxList(List<Widget> children) {
+//     List<Widget> result = [];
+
+//     for (int i = 0; i < children.length; i++) {
+//       result.add(
+//         Padding(
+//           padding: EdgeInsets.symmetric(horizontal: 18),
+//           child: children[i],
+//         ),
+//       );
+//       result.add(SizedBox(height: 10));
+//     }
+
+//     return result;
+//   }
+// }
+
+class missionBox extends StatelessWidget {
+  final WonderData data;
+  final BuildContext context;
+  final String title;
+  final String subtitle;
+
+  const missionBox({
+    Key? key,
+    required this.data,
+    required this.context,
+    required this.title,
+    required this.subtitle,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // ... Existing code ...
+
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
         onTap: () {
-          _CallMissionDetail(context);
+          callMissionDetail(context);
         },
         child: Center(
           child: Column(
             children: [
-              //listview of mission
               Container(
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: NanenAppTheme.background,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: NanenAppTheme.grey.withOpacity(0.4), offset: const Offset(0, 1.1), blurRadius: 5.0),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Container(
-                                padding: EdgeInsets.all(15),
-                                color: NanenAppTheme.grey.withOpacity(0.1),
-                                child: Icon(Icons.favorite)),
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: NanenAppTheme.background,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: NanenAppTheme.grey.withOpacity(0.4),
+                      offset: const Offset(0, 1.1),
+                      blurRadius: 5.0,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            padding: EdgeInsets.all(15),
+                            color: NanenAppTheme.grey.withOpacity(0.1),
+                            child: Icon(Icons.favorite),
                           ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              //title
-                              Text(
-                                data.title,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
+                        ),
+                        SizedBox(width: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              title,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
                               ),
-                              SizedBox(
-                                height: 5,
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              subtitle,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: NanenAppTheme.darkGrey,
+                                fontSize: 12,
                               ),
-                              //subtitle
-                              Text(
-                                data.subTitle,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: NanenAppTheme.darkGrey,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          Icon(Icons.more_horiz),
-                          SizedBox(
-                            width: 10,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ))
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        Icon(Icons.more_horiz),
+                        SizedBox(
+                          width: 10,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -263,13 +241,18 @@ class missionBox extends StatelessWidget {
   }
 }
 
-void _CallMissionDetail(BuildContext context) {
-  Navigator.push<dynamic>(
-    context,
-    MaterialPageRoute<dynamic>(
-      builder: (BuildContext context) => const CourseInfoScreen(),
-    ),
-  );
+// ... Rest of your code ...
+
+void callMissionDetail(BuildContext context) {
+  // appRouter.go(ScreenPaths.details);
+  Navigator.of(context).push(CustomPageRoute(AxisDirection.left, child: CourseInfoScreen()));
+
+  // Navigator.push(
+  //   context,
+  //   MaterialPageRoute(
+  //     builder: (BuildContext context) => const CourseInfoScreen(),
+  //   ),
+  // );
 }
 
 class SliverBackgroundColor extends SingleChildRenderObjectWidget {
@@ -322,3 +305,41 @@ class RenderSliverBackgroundColor extends RenderProxySliver {
     }
   }
 }
+                    // missionBox(data: data, context: context, index: null,),
+                    // missionBox(data: data, context: context, index: null,),
+                    // missionBox(data: data, context: context, index: null,),
+                    // missionBox(data: data, context: context, index: null,),
+                    // missionBox(data: data, context: context, index: null,),
+                  // ),
+
+                  // ..._contentSection([
+                  /// History 1
+                  // buildDropCapText(data.historyInfo1),
+
+                  /// Callout1
+                  // _Callout(text: data.callout1),
+
+                  /// History 2
+                  // buildText(data.historyInfo2),
+                  // _SectionDivider(scrollPos, sectionNotifier, index: 1),
+
+                  /// Construction 1
+                  // buildDropCapText(data.constructionInfo1),
+                  // ]),
+                  // Gap($styles.insets.md),
+                  // ..._contentSection([
+                  //   /// Callout2
+                  //   Gap($styles.insets.xs),
+                  //   // _Callout(text: data.callout2),
+
+                  //   /// Construction 2
+                  //   buildText(data.constructionInfo2),
+
+                  //   buildText(data.constructionInfo2),
+
+                  //   // _SectionDivider(scrollPos, sectionNotifier, index: 2),
+
+                  //   /// Location
+                  //   // buildDropCapText(data.locationInfo1),
+                  //   buildText(data.locationInfo2),
+                  // ]),

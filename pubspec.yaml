@@ -108,6 +108,8 @@ flutter:
     - assets/images/fitness_app/
     - assets/images/mission/
     - assets/images/profile/
+    - assets/images/design_course/
+
 
 
   fonts:

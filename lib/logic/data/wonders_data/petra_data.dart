@@ -40,21 +40,16 @@ class PetraData extends WonderData {
           constructionInfo2: $strings.petraConstructionInfo2,
           locationInfo1: $strings.petraLocationInfo1,
           locationInfo2: $strings.petraLocationInfo2,
-          // highlightArtifacts: const [
-          //   '325900',
-          //   '325902',
-          //   '325919',
-          //   '325884',
-          //   '325887',
-          //   '325891',
-          // ],
-          // hiddenArtifacts: const [
-          //   '322592',
-          //   '325918',
-          //   '326243',
-          // ],
+          missionTitle: {
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            // $strings.activeMissionTitle1:$strings.activeMissionSubtitle1,
+          },
           // events: {
-          //   -1200: $strings.petra1200bce,
+          //   // -1200: $strings.active,
           //   -106: $strings.petra106bce,
           //   551: $strings.petra551ce,
           //   1812: $strings.petra1812ce,
@@ -63,3 +58,5 @@ class PetraData extends WonderData {
           // },
         );
 }
+
+mixin activeMissionTitle1 {}

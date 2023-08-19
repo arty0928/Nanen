@@ -62,5 +62,13 @@ class GreatWallData extends WonderData {
           //   618: $strings.greatWall618ce,
           //   1487: $strings.greatWall1487ce,
           // },
+          missionTitle: {
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            $strings.petra551ce: $strings.petra1812ce,
+            // $strings.activeMissionTitle1:$strings.activeMissionSubtitle1,
+          },
         );
 }
