@@ -41,12 +41,9 @@ class PetraData extends WonderData {
           locationInfo1: $strings.petraLocationInfo1,
           locationInfo2: $strings.petraLocationInfo2,
           missionTitle: {
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            // $strings.activeMissionTitle1:$strings.activeMissionSubtitle1,
+            $strings.peopleMissionTitle1: $strings.peopleMissionSubtitle1,
+            $strings.peopleMissionTitle2: $strings.peopleMissionSubtitle2,
+            $strings.peopleMissionTitle3: $strings.peopleMissionSubtitle3,
           },
           // events: {
           //   // -1200: $strings.active,

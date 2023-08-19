@@ -26,12 +26,9 @@ class ChichenItzaData extends WonderData {
           locationInfo1: $strings.chichenItzaLocationInfo1,
           locationInfo2: $strings.chichenItzaLocationInfo2,
           missionTitle: {
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            $strings.petra551ce: $strings.petra1812ce,
-            // $strings.activeMissionTitle1:$strings.activeMissionSubtitle1,
+            $strings.activeMissionTitle1: $strings.activeMissionSubtitle1,
+            $strings.activeMissionTitle2: $strings.activeMissionSubtitle2,
+            $strings.activeMissionTitle3: $strings.activeMissionSubtitle3,
           },
         );
 }

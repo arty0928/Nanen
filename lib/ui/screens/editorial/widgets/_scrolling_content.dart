@@ -73,7 +73,7 @@ class _ScrollingContent extends StatelessWidget {
                 child: SizedBox(
                   width: $styles.sizes.maxContentWidth1,
                   child: Column(
-                    children: [_MissionBoxList(data, context)],
+                    children: _MissionBoxList(data, context),
                   ),
                 ),
               ),
@@ -99,29 +99,22 @@ class _ScrollingContent extends StatelessWidget {
       ],
     ];
   }
-}
 
-class _MissionBoxList extends StatelessWidget {
-  final WonderData data;
-  final BuildContext context;
-
-  const _MissionBoxList(this.data, this.context);
-
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> _MissionBoxList(WonderData data, BuildContext context) {
     final missionTitle = data.missionTitle;
 
-    return Column(
-      children: missionTitle.entries.map((entry) {
-        final title = _truncateString(entry.key, 20);
-        final subtitle = _truncateString(entry.value, 30);
+    return missionTitle.entries.map((entry) {
+      final title = _truncateString(entry.key, 20);
+      final subtitle = _truncateString(entry.value, 30);
+      print(missionTitle.length);
 
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18),
-          child: missionBox(data: data, context: context, title: title, subtitle: subtitle),
-        );
-      }).toList(),
-    );
+      return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 18),
+        child: missionBox(data: data, context: context, title: title, subtitle: subtitle),
+      );
+    })
+        // .expand((widget) => [widget, SizedBox(height: 10)])
+        .toList();
   }
 
   String _truncateString(String text, int maxLength) {
@@ -246,13 +239,6 @@ class missionBox extends StatelessWidget {
 void callMissionDetail(BuildContext context) {
   // appRouter.go(ScreenPaths.details);
   Navigator.of(context).push(CustomPageRoute(AxisDirection.left, child: CourseInfoScreen()));
-
-  // Navigator.push(
-  //   context,
-  //   MaterialPageRoute(
-  //     builder: (BuildContext context) => const CourseInfoScreen(),
-  //   ),
-  // );
 }
 
 class SliverBackgroundColor extends SingleChildRenderObjectWidget {
