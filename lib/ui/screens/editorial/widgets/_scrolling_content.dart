@@ -101,42 +101,28 @@ class _ScrollingContent extends StatelessWidget {
   }
 
   List<Widget> _MissionBoxList(WonderData data, BuildContext context) {
-    final missionTitle = data.missionTitle;
+    final missionLists = MissionLists().getMissionList(data.type);
 
-    return missionTitle.entries.map((entry) {
-      final title = _truncateString(entry.key, 20);
-      final subtitle = _truncateString(entry.value, 30);
-      print(missionTitle.length);
+    return missionLists.map((mission) {
+      final title = _truncateString(mission.missionTitle, 20);
+      final subtitle = _truncateString(mission.missionSubTitle, 30);
 
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: 18),
-        child: missionBox(data: data, context: context, title: title, subtitle: subtitle),
+        child: missionBox(
+          data: data,
+          context: context,
+          title: title,
+          subtitle: subtitle,
+        ),
       );
-    })
-        // .expand((widget) => [widget, SizedBox(height: 10)])
-        .toList();
+    }).toList();
   }
 
   String _truncateString(String text, int maxLength) {
     return text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
   }
 }
-//   List<Widget> _MissionBoxList(List<Widget> children) {
-//     List<Widget> result = [];
-
-//     for (int i = 0; i < children.length; i++) {
-//       result.add(
-//         Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 18),
-//           child: children[i],
-//         ),
-//       );
-//       result.add(SizedBox(height: 10));
-//     }
-
-//     return result;
-//   }
-// }
 
 class missionBox extends StatelessWidget {
   final WonderData data;
@@ -191,7 +177,7 @@ class missionBox extends StatelessWidget {
                             child: Icon(Icons.favorite),
                           ),
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 13),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -199,7 +185,7 @@ class missionBox extends StatelessWidget {
                               title,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 12,
                               ),
                             ),
                             SizedBox(height: 5),
@@ -208,7 +194,7 @@ class missionBox extends StatelessWidget {
                               style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 color: NanenAppTheme.darkGrey,
-                                fontSize: 12,
+                                fontSize: 10,
                               ),
                             ),
                           ],

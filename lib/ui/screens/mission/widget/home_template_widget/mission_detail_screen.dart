@@ -84,175 +84,173 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 8, right: 8),
-                child: SingleChildScrollView(
-                  child: Container(
-                    constraints: BoxConstraints(
-                        minHeight: infoHeight, maxHeight: tempHeight > infoHeight ? tempHeight : infoHeight),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.only(top: 32.0, left: 18, right: 16),
-                          child: Text(
-                            'Web Design\nCourse',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 22,
-                              letterSpacing: 0.27,
-                              color: NanenAppTheme.darkerText,
+                child: Container(
+                  constraints: BoxConstraints(
+                      minHeight: infoHeight, maxHeight: tempHeight > infoHeight ? tempHeight : infoHeight),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.only(top: 32.0, left: 18, right: 16),
+                        child: Text(
+                          'Web Design\nCourse',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                            letterSpacing: 0.27,
+                            color: NanenAppTheme.darkerText,
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              '\$28.99',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w200,
+                                fontSize: 22,
+                                letterSpacing: 0.27,
+                                color: NanenAppTheme.nearlyBlue,
+                              ),
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Text(
+                                  '4.3',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w200,
+                                    fontSize: 22,
+                                    letterSpacing: 0.27,
+                                    color: NanenAppTheme.grey,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: NanenAppTheme.nearlyBlue,
+                                  size: 24,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      // AnimatedOpacity(
+                      //   duration: const Duration(milliseconds: 500),
+                      //   opacity: opacity1,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(8),
+                      //     child: Row(
+                      //       children: <Widget>[
+                      //         getTimeBoxUI('24', 'Classes'),
+                      //         getTimeBoxUI('2hours', 'Time'),
+                      //         getTimeBoxUI('24', 'Seat'),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+                      Expanded(
+                        child: AnimatedOpacity(
+                          duration: const Duration(milliseconds: 500),
+                          opacity: opacity2,
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                            child: Text(
+                              'Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects. From your fundamentals all the way up to masterclass.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w200,
+                                fontSize: 14,
+                                letterSpacing: 0.27,
+                                color: NanenAppTheme.grey,
+                              ),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 16),
+                      ),
+                      AnimatedOpacity(
+                        duration: const Duration(milliseconds: 500),
+                        opacity: opacity3,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 16, bottom: 16, right: 16),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
-                                '\$28.99',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w200,
-                                  fontSize: 22,
-                                  letterSpacing: 0.27,
-                                  color: NanenAppTheme.nearlyBlue,
+                              Container(
+                                width: 62,
+                                height: 48,
+                                decoration: BoxDecoration(
+                                  color: NanenAppTheme.nearlyWhite,
+                                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                                  border: Border.all(color: NanenAppTheme.grey.withOpacity(0.2)),
+                                ),
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Icon(
+                                    Icons.add,
+                                    color: NanenAppTheme.nearlyBlue,
+                                    size: 28,
+                                  ),
                                 ),
                               ),
-                              Row(
-                                children: <Widget>[
-                                  Text(
-                                    '4.3',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w200,
-                                      fontSize: 22,
-                                      letterSpacing: 0.27,
-                                      color: NanenAppTheme.grey,
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Container(
+                                  height: 48,
+                                  decoration: BoxDecoration(
+                                    color: NanenAppTheme.nearlyBlue,
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(16.0),
+                                    ),
+                                    boxShadow: <BoxShadow>[
+                                      BoxShadow(
+                                          color: NanenAppTheme.nearlyBlue.withOpacity(0.5),
+                                          offset: const Offset(1.1, 1.1),
+                                          blurRadius: 10.0),
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: TextButton(
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(16.0),
+                                        ),
+                                        minimumSize: const Size(1000, 48),
+                                      ),
+                                      onPressed: () {},
+                                      child: const Text(
+                                        'AI Diary',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18,
+                                          letterSpacing: 0.0,
+                                          color: NanenAppTheme.nearlyWhite,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                  Icon(
-                                    Icons.star,
-                                    color: NanenAppTheme.nearlyBlue,
-                                    size: 24,
-                                  ),
-                                ],
-                              ),
+                                ),
+                              )
                             ],
                           ),
                         ),
-                        AnimatedOpacity(
-                          duration: const Duration(milliseconds: 500),
-                          opacity: opacity1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Row(
-                              children: <Widget>[
-                                getTimeBoxUI('24', 'Classes'),
-                                getTimeBoxUI('2hours', 'Time'),
-                                getTimeBoxUI('24', 'Seat'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: AnimatedOpacity(
-                            duration: const Duration(milliseconds: 500),
-                            opacity: opacity2,
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                              child: Text(
-                                'Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects. From your fundamentals all the way up to masterclass.',
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w200,
-                                  fontSize: 14,
-                                  letterSpacing: 0.27,
-                                  color: NanenAppTheme.grey,
-                                ),
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ),
-                        ),
-                        AnimatedOpacity(
-                          duration: const Duration(milliseconds: 500),
-                          opacity: opacity3,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16, bottom: 16, right: 16),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  width: 62,
-                                  height: 48,
-                                  decoration: BoxDecoration(
-                                    color: NanenAppTheme.nearlyWhite,
-                                    borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                                    border: Border.all(color: NanenAppTheme.grey.withOpacity(0.2)),
-                                  ),
-                                  child: TextButton(
-                                    style: TextButton.styleFrom(
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-                                    ),
-                                    onPressed: () {},
-                                    child: const Icon(
-                                      Icons.add,
-                                      color: NanenAppTheme.nearlyBlue,
-                                      size: 28,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                Expanded(
-                                  child: Container(
-                                    height: 48,
-                                    decoration: BoxDecoration(
-                                      color: NanenAppTheme.nearlyBlue,
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(16.0),
-                                      ),
-                                      boxShadow: <BoxShadow>[
-                                        BoxShadow(
-                                            color: NanenAppTheme.nearlyBlue.withOpacity(0.5),
-                                            offset: const Offset(1.1, 1.1),
-                                            blurRadius: 10.0),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: TextButton(
-                                        style: TextButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(16.0),
-                                          ),
-                                          minimumSize: const Size(1000, 48),
-                                        ),
-                                        onPressed: () {},
-                                        child: const Text(
-                                          'Join Course',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 18,
-                                            letterSpacing: 0.0,
-                                            color: NanenAppTheme.nearlyWhite,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).padding.bottom,
-                        )
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.bottom,
+                      )
+                    ],
                   ),
                 ),
               ),

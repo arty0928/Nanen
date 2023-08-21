@@ -8,38 +8,38 @@ class MissionList {
 
 class MissionLists {
   List<MissionList> getMissionList(WonderType type) {
-    if (type == WonderType.chichenItza) {
+    if (type == WonderType.greatWall) {
       return activeMissionLists;
     } else if (type == WonderType.colosseum) {
-      return calmMissionLists;
-    } else if (type == WonderType.greatWall) {
       return creativeMissionLists;
-    } else {
+    } else if (type == WonderType.chichenItza) {
       return peopleMissionLists;
+    } else {
+      return calmMissionLists;
     }
   }
 
   final activeMissionLists = [
-    MissionList($strings.activeMissionTitle1, $strings.activeMissionSubTitle1),
-    MissionList($strings.activeMissionTitle2, $strings.activeMissionSubTitle2),
-    MissionList($strings.activeMissionTitle3, $strings.activeMissionSubTitle3),
+    MissionList($strings.activeMissionTitle1, $strings.activeMissionSubtitle1),
+    MissionList($strings.activeMissionTitle2, $strings.activeMissionSubtitle2),
+    MissionList($strings.activeMissionTitle3, $strings.activeMissionSubtitle3),
   ];
 
   final calmMissionLists = [
-    MissionList($strings.calmMissionTitle1, $strings.calmMissionsSubTitle1),
-    MissionList($strings.calmMissionTitle2, $strings.calmMissionsSubTitle2),
-    MissionList($strings.calmMissionTitle3, $strings.calmMissionsSubTitle3),
+    MissionList($strings.calmMissionTitle1, $strings.calmMissionSubtitle1),
+    MissionList($strings.calmMissionTitle2, $strings.calmMissionSubtitle2),
+    MissionList($strings.calmMissionTitle3, $strings.calmMissionSubtitle3),
   ];
 
   final creativeMissionLists = [
-    MissionList($strings.activeMissionTitle1, $strings.activeMissionSubTitle1),
-    MissionList($strings.activeMissionTitle2, $strings.activeMissionSubTitle2),
-    MissionList($strings.activeMissionTitle3, $strings.activeMissionSubTitle3),
+    MissionList($strings.creativeMissionTitle1, $strings.creativeMissionSubtitle1),
+    MissionList($strings.creativeMissionTitle2, $strings.creativeMissionSubtitle2),
+    MissionList($strings.creativeMissionTitle3, $strings.creativeMissionSubtitle3),
   ];
 
   final peopleMissionLists = [
-    MissionList($strings.peopleMissionTitle1, $strings.peopleMissionSubTitle1),
-    MissionList($strings.peopleMissionTitle2, $strings.peopleMissionSubTitle2),
-    MissionList($strings.peopleMissionTitle3, $strings.peopleMissionSubTitle3),
+    MissionList($strings.peopleMissionTitle1, $strings.peopleMissionSubtitle1),
+    MissionList($strings.peopleMissionTitle2, $strings.peopleMissionSubtitle2),
+    MissionList($strings.peopleMissionTitle3, $strings.peopleMissionSubtitle3),
   ];
 }
