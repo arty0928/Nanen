@@ -3,6 +3,16 @@ import 'package:wonders/logic/common/color_utils.dart';
 
 export 'wonders_color_extensions.dart';
 
+const tActiveColor = Color.fromRGBO(107, 94, 194, 1);
+const tCalmColor = Color.fromRGBO(41, 96, 115, 1);
+const tCreativeColor = Color.fromRGBO(53, 108, 181, 1);
+const tPeopleColor = Color.fromRGBO(173, 197, 207, 1);
+
+const tActiveFgColor = Color.fromRGBO(253, 247, 255, 1);
+const tCalmFgColor = Color.fromRGBO(174, 149, 215, 1);
+const tCreativeFgColor = Color.fromRGBO(213, 202, 189, 1);
+const tPeopleFgColor = Color.fromRGBO(155, 137, 179, 1);
+
 ////nanen
 const tPrimaryColor = Color(0xFFC1B0DC);
 const tSeconddaryColor = Color(0xFF7E57C2);
@@ -31,7 +41,7 @@ const creativeC = Color(0xffF4A261);
 const peopleC = Color(0xffE76F51);
 //login
 const tIconColor = Color(0xFFB6C7D1);
-const tActiveColor = Color(0xFF09126C);
+// const tActiveColor = Color(0xFF09126C);
 const tTextColor1 = Color(0XFFA7BCC7);
 const tTextColor2 = Color(0XFF9BB3C0);
 const tFacebookColor = Color(0xFF3B5999);

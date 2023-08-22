@@ -5,8 +5,7 @@ import 'package:wonders/ui/screens/editorial/editorial_screen.dart';
 import 'wonder_details_tab_menu.dart';
 
 class WonderDetailsScreen extends StatefulWidget with GetItStatefulWidgetMixin {
-  WonderDetailsScreen({Key? key, required this.type, this.initialTabIndex = 0})
-      : super(key: key);
+  WonderDetailsScreen({Key? key, required this.type, this.initialTabIndex = 0}) : super(key: key);
   final WonderType type;
   final int initialTabIndex;
 
@@ -39,8 +38,7 @@ class _WonderDetailsScreenState extends State<WonderDetailsScreen>
 
   void _handleTabMenuSized(Size size) {
     setState(() {
-      _tabBarSize = (_useNavRail ? size.width : size.height) -
-          WonderDetailsTabMenu.buttonInset;
+      _tabBarSize = (_useNavRail ? size.width : size.height) - WonderDetailsTabMenu.buttonInset;
     });
   }
 
@@ -52,9 +50,7 @@ class _WonderDetailsScreenState extends State<WonderDetailsScreen>
     int tabIndex = _tabController.index;
     bool showTabBarBg = tabIndex != 1;
     final tabBarSize = _tabBarSize ?? 0;
-    final menuPadding = _useNavRail
-        ? EdgeInsets.only(left: tabBarSize)
-        : EdgeInsets.only(bottom: tabBarSize);
+    final menuPadding = _useNavRail ? EdgeInsets.only(left: tabBarSize) : EdgeInsets.only(bottom: tabBarSize);
     return ColoredBox(
       color: Colors.black,
       child: Stack(
@@ -62,19 +58,19 @@ class _WonderDetailsScreenState extends State<WonderDetailsScreen>
           /// Fullscreen tab views
           WonderEditorialScreen(wonder, contentPadding: menuPadding),
 
-          /// Tab menu
-          Align(
-            alignment:
-                _useNavRail ? Alignment.centerLeft : Alignment.bottomCenter,
-            child: MeasurableWidget(
-              onChange: _handleTabMenuSized,
-              child: WonderDetailsTabMenu(
-                  tabController: _tabController,
-                  wonderType: wonder.type,
-                  showBg: showTabBarBg,
-                  axis: _useNavRail ? Axis.vertical : Axis.horizontal),
-            ),
-          ),
+          /// mission detail 아래 bottom bar
+          // Align(
+          //   alignment:
+          //       _useNavRail ? Alignment.centerLeft : Alignment.bottomCenter,
+          //   child: MeasurableWidget(
+          //     onChange: _handleTabMenuSized,
+          //     child: WonderDetailsTabMenu(
+          //         tabController: _tabController,
+          //         wonderType: wonder.type,
+          //         showBg: showTabBarBg,
+          //         axis: _useNavRail ? Axis.vertical : Axis.horizontal),
+          //   ),
+          // ),
         ],
       ),
     );
