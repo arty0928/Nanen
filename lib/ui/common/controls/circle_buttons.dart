@@ -1,5 +1,8 @@
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/common/app_icons.dart';
+import 'package:wonders/ui/screens/mission/widget/home_template_widget/custom_page_route.dart';
+import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
+import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 
 class CircleBtn extends StatelessWidget {
   const CircleBtn({
@@ -109,7 +112,14 @@ class BackBtn extends StatelessWidget {
       icon: icon,
       bgColor: bgColor,
       color: iconColor,
-      onPressed: onPressed ?? () => Navigator.pop(context),
+      onPressed: onPressed ??
+          () {
+            try {
+              Navigator.pop(context);
+            } catch (e) {
+              Navigator.pushReplacementNamed(context, ScreenPaths.home);
+            }
+          },
       semanticLabel: semanticLabel ?? $strings.circleButtonsSemanticBack,
     );
   }

@@ -76,7 +76,8 @@ class _AreaListViewState extends State<AreaListView> with TickerProviderStateMix
                         onTap: () {
                           switch (index) {
                             case 0:
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const MissionTest1()));
+                              appRouter.go(ScreenPaths.wonderDetails(WonderType.petra, tabIndex: 0));
+                              // Navigator.push(context, MaterialPageRoute(builder: (context) => const MissionTest1()));
                               break;
                             case 1:
                               Navigator.of(context).push(CustomPageRoute(AxisDirection.left, child: MissionTest1()));
