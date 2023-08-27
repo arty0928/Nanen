@@ -20,48 +20,6 @@ class _ScrollingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buildText(String value) => Focus(child: Text(_fixNewlines(value), style: $styles.text.body));
-
-    Widget buildDropCapText(String value) {
-      final TextStyle dropStyle = $styles.text.dropCase;
-      final TextStyle bodyStyle = $styles.text.body;
-      final String dropChar = value.substring(0, 1);
-      final textScale = MediaQuery.of(context).textScaleFactor;
-      final double dropCapWidth = StringUtils.measure(dropChar, dropStyle).width * textScale;
-      final bool skipCaps = !localeLogic.isEnglish;
-      return Semantics(
-        label: value,
-        child: ExcludeSemantics(
-          child: !skipCaps
-              ? DropCapText(
-                  _fixNewlines(value).substring(1),
-                  dropCap: DropCap(
-                    width: dropCapWidth,
-                    height: $styles.text.body.fontSize! * $styles.text.body.height! * 2,
-                    child: Transform.translate(
-                      offset: Offset(0, bodyStyle.fontSize! * (bodyStyle.height! - 1) - 2),
-                      child: Text(
-                        dropChar,
-                        overflow: TextOverflow.visible,
-                        style: $styles.text.dropCase.copyWith(
-                          color: $styles.colors.accent1,
-                          height: 1,
-                        ),
-                      ),
-                    ),
-                  ),
-                  style: $styles.text.body,
-                  dropCapPadding: EdgeInsets.only(right: 6),
-                  dropCapStyle: $styles.text.dropCase.copyWith(
-                    color: $styles.colors.accent1,
-                    height: 1,
-                  ),
-                )
-              : Text(value, style: bodyStyle),
-        ),
-      );
-    }
-
     return SliverBackgroundColor(
       color: $styles.colors.offWhite,
       sliver: SliverPadding(
@@ -84,28 +42,16 @@ class _ScrollingContent extends StatelessWidget {
     );
   }
 
-  /// Helper widget to provide hz padding to multiple widgets. Keeps the layout of the scrolling content cleaner.
-  List<Widget> _contentSection(List<Widget> children) {
-    return [
-      for (int i = 0; i < children.length - 1; i++) ...[
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $styles.insets.md),
-          child: children[i],
-        ),
-        // Gap($styles.insets.md)
-        SizedBox(
-          height: 10,
-        ),
-      ],
-    ];
-  }
-
   List<Widget> _MissionBoxList(WonderData data, BuildContext context) {
     final missionLists = MissionLists().getMissionList(data.type);
 
     return missionLists.map((mission) {
       final title = _truncateString(mission.missionTitle, 20);
       final subtitle = _truncateString(mission.missionSubTitle, 30);
+      String missionPic = mission.missionPic;
+      bool missionPicIsDone = mission.missionPicIsDone;
+      String aiDiary = mission.aiDiary;
+      bool aiDiaryIsDone = mission.aiDiaryIsDone;
 
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: 18),
@@ -114,6 +60,10 @@ class _ScrollingContent extends StatelessWidget {
           context: context,
           title: title,
           subtitle: subtitle,
+          missionPic: missionPic,
+          missionPicIsDone: missionPicIsDone,
+          aiDiary: aiDiary,
+          aiDiaryIsDone: aiDiaryIsDone,
         ),
       );
     }).toList();
@@ -129,13 +79,21 @@ class missionBox extends StatelessWidget {
   final BuildContext context;
   final String title;
   final String subtitle;
+  String missionPic = '';
+  bool missionPicIsDone = false;
+  String aiDiary = '';
+  bool aiDiaryIsDone = false;
 
-  const missionBox({
+  missionBox({
     Key? key,
     required this.data,
     required this.context,
     required this.title,
     required this.subtitle,
+    required this.missionPic,
+    required this.missionPicIsDone,
+    required this.aiDiary,
+    required this.aiDiaryIsDone,
   }) : super(key: key);
 
   @override
@@ -146,7 +104,11 @@ class missionBox extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: GestureDetector(
         onTap: () {
-          callMissionDetail(context);
+          Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
+              child: MissionDetailScreen(
+                  data: data,
+                  selectedMission:
+                      MissionList(title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone))));
         },
         child: Center(
           child: Column(
@@ -220,13 +182,6 @@ class missionBox extends StatelessWidget {
   }
 }
 
-// ... Rest of your code ...
-
-void callMissionDetail(BuildContext context) {
-  // appRouter.go(ScreenPaths.details);
-  Navigator.of(context).push(CustomPageRoute(AxisDirection.left, child: CourseInfoScreen()));
-}
-
 class SliverBackgroundColor extends SingleChildRenderObjectWidget {
   const SliverBackgroundColor({
     Key? key,
@@ -277,41 +232,3 @@ class RenderSliverBackgroundColor extends RenderProxySliver {
     }
   }
 }
-                    // missionBox(data: data, context: context, index: null,),
-                    // missionBox(data: data, context: context, index: null,),
-                    // missionBox(data: data, context: context, index: null,),
-                    // missionBox(data: data, context: context, index: null,),
-                    // missionBox(data: data, context: context, index: null,),
-                  // ),
-
-                  // ..._contentSection([
-                  /// History 1
-                  // buildDropCapText(data.historyInfo1),
-
-                  /// Callout1
-                  // _Callout(text: data.callout1),
-
-                  /// History 2
-                  // buildText(data.historyInfo2),
-                  // _SectionDivider(scrollPos, sectionNotifier, index: 1),
-
-                  /// Construction 1
-                  // buildDropCapText(data.constructionInfo1),
-                  // ]),
-                  // Gap($styles.insets.md),
-                  // ..._contentSection([
-                  //   /// Callout2
-                  //   Gap($styles.insets.xs),
-                  //   // _Callout(text: data.callout2),
-
-                  //   /// Construction 2
-                  //   buildText(data.constructionInfo2),
-
-                  //   buildText(data.constructionInfo2),
-
-                  //   // _SectionDivider(scrollPos, sectionNotifier, index: 2),
-
-                  //   /// Location
-                  //   // buildDropCapText(data.locationInfo1),
-                  //   buildText(data.locationInfo2),
-                  // ]),

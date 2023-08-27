@@ -41,7 +41,7 @@ final appRouter = GoRouter(
           AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
-          AppRoute(ScreenPaths.details, (_) => CourseInfoScreen()),
+          // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
             int tab = int.tryParse(s.queryParams['t'] ?? '') ?? 0;
             return WonderDetailsScreen(

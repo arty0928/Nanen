@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
+import 'package:wonders/logic/data/mission_data.dart';
+import 'package:wonders/logic/data/wonder_data.dart';
 
-class CourseInfoScreen extends StatefulWidget {
-  const CourseInfoScreen({super.key});
+class MissionDetailScreen extends StatefulWidget {
+  final MissionList selectedMission;
+  final WonderData data;
+  const MissionDetailScreen({super.key, required this.selectedMission, required this.data});
 
   @override
-  State<CourseInfoScreen> createState() => _CourseInfoScreenState();
+  State<MissionDetailScreen> createState() => _MissionDetailScreenState();
 }
 
-class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProviderStateMixin {
+class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerProviderStateMixin {
   final double infoHeight = 364.0;
   double opacity1 = 0.0;
   double opacity2 = 0.0;
@@ -91,32 +95,31 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Padding(
-                        padding: EdgeInsets.only(top: 32.0, left: 18, right: 16),
+                      Padding(
+                        padding: EdgeInsets.only(top: 32.0, left: 18, right: 10),
                         child: Text(
-                          'Web Design\nCourse',
+                          widget.selectedMission.missionTitle,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 22,
-                            letterSpacing: 0.27,
-                            color: NanenAppTheme.darkerText,
-                          ),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 22,
+                              letterSpacing: 0.27,
+                              color: widget.data.type.bgColor),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 16),
+                      Padding(
+                        padding: EdgeInsets.only(left: 16, right: 16, bottom: 3, top: 16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              '\$28.99',
+                              '40분동안 스트레칭을 해보세요!',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w200,
-                                fontSize: 22,
+                                fontSize: 10,
                                 letterSpacing: 0.27,
-                                color: NanenAppTheme.nearlyBlue,
+                                color: widget.data.type.bgColor,
                               ),
                             ),
                             Row(
@@ -126,35 +129,35 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
-                                    fontSize: 22,
+                                    fontSize: 15,
                                     letterSpacing: 0.27,
                                     color: NanenAppTheme.grey,
                                   ),
                                 ),
                                 Icon(
                                   Icons.star,
-                                  color: NanenAppTheme.nearlyBlue,
-                                  size: 24,
+                                  color: widget.data.type.bgColor,
+                                  size: 20,
                                 ),
                               ],
                             ),
                           ],
                         ),
                       ),
-                      // AnimatedOpacity(
-                      //   duration: const Duration(milliseconds: 500),
-                      //   opacity: opacity1,
-                      //   child: Padding(
-                      //     padding: const EdgeInsets.all(8),
-                      //     child: Row(
-                      //       children: <Widget>[
-                      //         getTimeBoxUI('24', 'Classes'),
-                      //         getTimeBoxUI('2hours', 'Time'),
-                      //         getTimeBoxUI('24', 'Seat'),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
+                      AnimatedOpacity(
+                        duration: const Duration(milliseconds: 500),
+                        opacity: opacity1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            children: <Widget>[
+                              getTimeBoxUI('24', 'Classes'),
+                              getTimeBoxUI('2hours', 'Time'),
+                              getTimeBoxUI('24', 'Seat'),
+                            ],
+                          ),
+                        ),
+                      ),
                       Expanded(
                         child: AnimatedOpacity(
                           duration: const Duration(milliseconds: 500),
@@ -196,10 +199,13 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
                                   style: TextButton.styleFrom(
                                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                                   ),
-                                  onPressed: () {},
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: NanenAppTheme.nearlyBlue,
+                                  onPressed: () {
+                                    upLoadMissionPic();
+                                  },
+                                  child: Icon(
+                                    Icons.camera_alt_outlined,
+                                    // color: NanenAppTheme.nearlyBlue,
+                                    color: widget.data.type.bgColor,
                                     size: 28,
                                   ),
                                 ),
@@ -209,13 +215,13 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
                                 child: Container(
                                   height: 48,
                                   decoration: BoxDecoration(
-                                    color: NanenAppTheme.nearlyBlue,
+                                    color: widget.data.type.bgColor,
                                     borderRadius: const BorderRadius.all(
                                       Radius.circular(16.0),
                                     ),
                                     boxShadow: <BoxShadow>[
                                       BoxShadow(
-                                          color: NanenAppTheme.nearlyBlue.withOpacity(0.5),
+                                          color: widget.data.type.bgColor.withOpacity(0.5),
                                           offset: const Offset(1.1, 1.1),
                                           blurRadius: 10.0),
                                     ],
@@ -262,7 +268,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
             child: ScaleTransition(
               scale: CurvedAnimation(parent: animationController, curve: Curves.fastOutSlowIn),
               child: Card(
-                color: NanenAppTheme.nearlyBlue,
+                color: widget.data.type.bgColor,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
                 elevation: 10.0,
                 child: SizedBox(
@@ -353,4 +359,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen> with TickerProvider
       ),
     );
   }
+}
+
+void upLoadMissionPic() {
+  print("upload");
 }

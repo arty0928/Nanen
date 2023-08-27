@@ -55,5 +55,3 @@ class PetraData extends WonderData {
           // },
         );
 }
-
-mixin activeMissionTitle1 {}

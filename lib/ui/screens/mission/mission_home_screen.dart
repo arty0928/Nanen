@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wonders/styles/colors.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
+import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
 
 class MissionHomePage extends StatefulWidget {
   const MissionHomePage({
@@ -193,7 +194,7 @@ class _MissionHomePageState extends State<MissionHomePage> with TickerProviderSt
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => const CourseInfoScreen(),
+        builder: (BuildContext context) => const MissionTest1(),
       ),
     );
   }
