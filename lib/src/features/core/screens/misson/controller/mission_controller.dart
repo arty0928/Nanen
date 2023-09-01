@@ -1,10 +1,4 @@
 import 'package:get/get.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:nanen/src/constants/colors.dart';
-import 'package:nanen/src/constants/image_strings.dart';
-import 'package:nanen/src/constants/text_strings.dart';
-import 'package:nanen/src/features/core/screens/misson/mission_page.dart';
-import 'package:nanen/src/features/core/screens/on_boarding/model/on_boarding_model.dart';
 
 class MissionController extends GetxController {
   final controller = LiquidController();
@@ -55,6 +49,5 @@ class MissionController extends GetxController {
     controller.animateToPage(page: nextPage);
   }
 
-  onPageChangedCallback(int activePageIndex) =>
-      currentPage.value = activePageIndex;
+  onPageChangedCallback(int activePageIndex) => currentPage.value = activePageIndex;
 }
