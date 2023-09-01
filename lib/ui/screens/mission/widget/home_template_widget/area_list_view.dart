@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
-import 'package:wonders/ui/screens/mission/widget/home_template_widget/custom_page_route.dart';
-import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
-import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
 
 class AreaListView extends StatefulWidget {
   const AreaListView({
