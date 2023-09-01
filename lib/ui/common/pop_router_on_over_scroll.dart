@@ -42,9 +42,35 @@ class _PopRouterOnOverScrollState extends State<PopRouterOnOverScroll> {
     final px = widget.controller.position.pixels;
     if (px < -_scrollToPopThreshold) {
       if (_isPointerDown) {
-        context.pop();
-        widget.controller.removeListener(_handleScrollChanged);
+        // context.pop();
+        if (Navigator.of(context).canPop()) {
+          context.pop();
+          widget.controller.removeListener(_handleScrollChanged);
+        } else {
+          appRouter.go(ScreenPaths.home);
+        }
       }
     }
   }
+  // void _handleScrollChanged() {
+  //   final px = widget.controller.position.pixels;
+  //   if (px < -_scrollToPopThreshold) {
+  //     if (_isPointerDown) {
+  //       if (Navigator.of(context).canPop()) {
+  //         // If there are routes to pop, pop the current route.
+  //         Navigator.of(context).pop();
+  //       } else {
+  //         // If there are no routes to pop, navigate to the home screen.
+  //         // Navigator.of(context).pushReplacement(
+  //         //   CustomPageRoute(
+  //         //     axisDirection: AxisDirection.down,
+  //         //     child: HomeScreen(),
+  //         //   ),
+  //         // );
+  //         appRouter.go(ScreenPaths.home);
+  //       }
+  //       widget.controller.removeListener(() => _handleScrollChanged(context));
+  //     }
+  //   }
+  // }
 }

@@ -94,8 +94,6 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
                     // appRouter.go('/mission', extra: {
                     //   'animationController': animationController,
                     // });
-                    // tabBody = MissionHomePage(
-                    // animationController: animationController);
                   });
                 }
                 return;
@@ -105,7 +103,6 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
                 if (mounted) {
                   setState(() {
                     tabBody = CalendarScreen(animationController: animationController);
-                    // tabBody = CalendarScreen(animationController: animationController);
                   });
                 }
                 return;
@@ -114,7 +111,6 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    // tabBody = MyPageScreen(animationController: animationController);
                     tabBody = MyPageScreen();
                   });
                 }

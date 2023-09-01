@@ -76,18 +76,20 @@ class _AreaListViewState extends State<AreaListView> with TickerProviderStateMix
                         onTap: () {
                           switch (index) {
                             case 0:
-                              appRouter.go(ScreenPaths.wonderDetails(WonderType.petra, tabIndex: 0));
+                              appRouter.go(ScreenPaths.wonderDetails(WonderType.greatWall, tabIndex: 0));
                               // Navigator.push(context, MaterialPageRoute(builder: (context) => const MissionTest1()));
                               break;
                             case 1:
-                              Navigator.of(context).push(CustomPageRoute(AxisDirection.left, child: MissionTest1()));
+                              appRouter.go(ScreenPaths.wonderDetails(WonderType.petra, tabIndex: 1));
                               // Navigator.of(context).pushNamed('/Mission2');
-
                               break;
                             case 2:
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const MissionTest1()));
+                              appRouter.go(ScreenPaths.wonderDetails(WonderType.colosseum, tabIndex: 2));
+
                               break;
                             default:
+                              appRouter.go(ScreenPaths.wonderDetails(WonderType.chichenItza, tabIndex: 3));
+
                               break;
                           }
                         });

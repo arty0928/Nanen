@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
+import 'package:wonders/ui/screens/mission/widget/home_template_widget/upload_image.dart';
 
 class MissionDetailScreen extends StatefulWidget {
   final MissionList selectedMission;
@@ -65,10 +66,11 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
       child: Stack(
         children: <Widget>[
           Column(
-            children: <Widget>[
+            children: const <Widget>[
               AspectRatio(
                 aspectRatio: 1.2,
-                child: Image.asset('assets/images/design_course/webInterFace.png'),
+                // child: Image.asset('assets/images/design_course/webInterFace.png'),
+                child: UploadImage(),
               ),
             ],
           ),
@@ -113,7 +115,8 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              '40분동안 스트레칭을 해보세요!',
+                              // '40분동안 스트레칭을 해보세요!',
+                              widget.data.subTitle,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w200,
@@ -122,25 +125,26 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                                 color: widget.data.type.bgColor,
                               ),
                             ),
-                            Row(
-                              children: <Widget>[
-                                Text(
-                                  '4.3',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    fontSize: 15,
-                                    letterSpacing: 0.27,
-                                    color: NanenAppTheme.grey,
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: widget.data.type.bgColor,
-                                  size: 20,
-                                ),
-                              ],
-                            ),
+                            //별 score
+                            // Row(
+                            //   children: <Widget>[
+                            //     Text(
+                            //       '4.3',
+                            //       textAlign: TextAlign.left,
+                            //       style: TextStyle(
+                            //         fontWeight: FontWeight.w200,
+                            //         fontSize: 15,
+                            //         letterSpacing: 0.27,
+                            //         color: NanenAppTheme.grey,
+                            //       ),
+                            //     ),
+                            //     Icon(
+                            //       Icons.star,
+                            //       color: widget.data.type.bgColor,
+                            //       size: 20,
+                            //     ),
+                            //   ],
+                            // ),
                           ],
                         ),
                       ),
@@ -200,7 +204,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                                   ),
                                   onPressed: () {
-                                    upLoadMissionPic();
+                                    // upLoadMissionPic();
                                   },
                                   child: Icon(
                                     Icons.camera_alt_outlined,
