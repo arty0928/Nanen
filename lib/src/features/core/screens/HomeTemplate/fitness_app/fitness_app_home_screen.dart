@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanen/src/features/core/screens/calendar/calendar_main.dart';
-import 'package:nanen/src/features/core/screens/misson/mission_main.dart';
-import 'package:nanen/src/features/core/screens/misson/test/mission_test1.dart';
+import 'package:wonders/src/features/core/screens/calendar/calendar_main.dart';
+import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
 
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
@@ -16,8 +15,7 @@ class FitnessAppHomeScreen extends StatefulWidget {
   State<FitnessAppHomeScreen> createState() => _FitnessAppHomeScreenState();
 }
 
-class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
-    with TickerProviderStateMixin {
+class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen> with TickerProviderStateMixin {
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
@@ -28,8 +26,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-        duration: const Duration(milliseconds: 600), vsync: this);
+    animationController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
     for (final TabIconData tab in tabIconsList) {
       tab.isSelected = false;
     }
@@ -84,8 +81,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody =
-                        MyDiaryScreen(animationController: animationController);
+                    tabBody = MyDiaryScreen(animationController: animationController);
                   });
                 }
                 return;
@@ -116,8 +112,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = TrainingScreen(
-                        animationController: animationController);
+                    tabBody = TrainingScreen(animationController: animationController);
                   });
                 }
                 return;
