@@ -3,6 +3,7 @@ import 'package:wonders/common_libs.dart';
 class MissionList {
   MissionList(this.missionTitle, this.missionSubTitle, this.missionPic, this.missionPicIsDone, this.aiDiary,
       this.aiDiaryIsDone);
+
   final String missionTitle;
   final String missionSubTitle;
   String missionPic;

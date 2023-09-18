@@ -290,7 +290,7 @@ class MediterranesnDietView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 const Text(
-                                  'Carbs',
+                                  'Active',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: NanenAppTheme.fontName,
@@ -351,7 +351,7 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     const Text(
-                                      'Protein',
+                                      'Calm',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: NanenAppTheme.fontName,
@@ -414,7 +414,69 @@ class MediterranesnDietView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     const Text(
-                                      'Fat',
+                                      'Creative',
+                                      style: TextStyle(
+                                        fontFamily: NanenAppTheme.fontName,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                        letterSpacing: -0.2,
+                                        color: NanenAppTheme.darkText,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 4),
+                                      child: Container(
+                                        height: 4,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFF1B440).withOpacity(0.2),
+                                          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+                                        ),
+                                        child: Row(
+                                          children: <Widget>[
+                                            Container(
+                                              width: (70 / 2.5) * animationController.value,
+                                              height: 4,
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(colors: <Color>[
+                                                  const Color(0xFFF1B440).withOpacity(0.1),
+                                                  const Color(0xFFF1B440),
+                                                ]),
+                                                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 6),
+                                      child: Text(
+                                        '10g left',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontFamily: NanenAppTheme.fontName,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          color: NanenAppTheme.grey.withOpacity(0.5),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Text(
+                                      'People',
                                       style: TextStyle(
                                         fontFamily: NanenAppTheme.fontName,
                                         fontWeight: FontWeight.w500,

@@ -66,7 +66,11 @@ class NanenAppTheme {
   static const Color deactivatedText = Color(0xFF767676);
   static const Color dismissibleBackground = Color(0xFF364A54);
   static const Color spacer = Color(0xFFF2F2F2);
-  static const String fontName = 'Roboto';
+  // static const String fontName = 'Roboto';
+  static const String fontName = 'writerFont';
+
+  //font
+  static const String writerFont = 'writerFont';
 
   static const TextTheme textTheme = TextTheme(
     headlineMedium: display1,

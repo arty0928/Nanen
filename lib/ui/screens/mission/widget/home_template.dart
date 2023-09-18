@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:wonders/common_libs.dart';
 
 import 'package:intl/intl.dart';
+import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/area_list_view.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/diet_view.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/meals_list_view.dart';
@@ -85,6 +86,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
             parent: widget.animationController,
             curve: const Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
+        index: 1,
       ),
     );
 
@@ -105,6 +107,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
             parent: widget.animationController,
             curve: const Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
+        index: 2,
       ),
     );
 
@@ -120,11 +123,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
     listViews.add(
       TitleView(
         titleTxt: 'Channel',
-        subTxt: 'more',
+        subTxt: '',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController,
+        index: 2,
       ),
     );
 
@@ -251,7 +255,8 @@ class getAppBarUI extends StatelessWidget {
                                   '나는_',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontFamily: NanenAppTheme.fontName,
+                                    // fontFamily: NanenAppTheme.fontName,
+                                    fontFamily: 'writerFont',
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,

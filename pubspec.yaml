@@ -55,7 +55,7 @@ dependencies:
   unsplash_client: ^2.1.0+3
   webview_flutter: ^4.0.2
   youtube_player_iframe: ^4.0.4
-
+  url_launcher: ^6.0.9
 
   #nanen
   syncfusion_flutter_calendar: ^22.2.7
@@ -111,6 +111,8 @@ flutter:
     - assets/images/mission/
     - assets/images/profile/
     - assets/images/design_course/
+    - assets/uploadImage/
+    - assets/images/home/
 
 
 
@@ -143,3 +145,7 @@ flutter:
     - family: B612Mono
       fonts:
         - asset: assets/fonts/B612Mono-Regular.ttf
+    - family : writerFont
+      fonts:
+        - asset: assets/fonts/오뮤_다예쁨체.ttf
+        # - asset:assets/fonts/오뮤_다예쁨체.ttf

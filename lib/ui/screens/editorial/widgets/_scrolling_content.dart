@@ -45,7 +45,9 @@ class _ScrollingContent extends StatelessWidget {
   List<Widget> _MissionBoxList(WonderData data, BuildContext context) {
     final missionLists = MissionLists().getMissionList(data.type);
 
-    return missionLists.map((mission) {
+    return missionLists.asMap().entries.map((entry) {
+      final int missionIndex = entry.key;
+      final mission = entry.value;
       final title = _truncateString(mission.missionTitle, 20);
       final subtitle = _truncateString(mission.missionSubTitle, 30);
       String missionPic = mission.missionPic;
@@ -56,6 +58,7 @@ class _ScrollingContent extends StatelessWidget {
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: 18),
         child: missionBox(
+          missionIndex: missionIndex,
           data: data,
           context: context,
           title: title,
@@ -75,6 +78,7 @@ class _ScrollingContent extends StatelessWidget {
 }
 
 class missionBox extends StatelessWidget {
+  final int missionIndex;
   final WonderData data;
   final BuildContext context;
   final String title;
@@ -84,17 +88,18 @@ class missionBox extends StatelessWidget {
   String aiDiary = '';
   bool aiDiaryIsDone = false;
 
-  missionBox({
-    Key? key,
-    required this.data,
-    required this.context,
-    required this.title,
-    required this.subtitle,
-    required this.missionPic,
-    required this.missionPicIsDone,
-    required this.aiDiary,
-    required this.aiDiaryIsDone,
-  }) : super(key: key);
+  missionBox(
+      {Key? key,
+      required this.missionIndex,
+      required this.data,
+      required this.context,
+      required this.title,
+      required this.subtitle,
+      required this.missionPic,
+      required this.missionPicIsDone,
+      required this.aiDiary,
+      required this.aiDiaryIsDone})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +111,7 @@ class missionBox extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
               child: MissionDetailScreen(
+                  missionIndex: missionIndex,
                   data: data,
                   selectedMission:
                       MissionList(title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone))));
@@ -146,8 +152,9 @@ class missionBox extends StatelessWidget {
                             Text(
                               title,
                               style: TextStyle(
+                                fontFamily: 'writerFont',
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12,
+                                fontSize: 14,
                               ),
                             ),
                             SizedBox(height: 5),

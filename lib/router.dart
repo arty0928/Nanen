@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:wonders/common_libs.dart';
+import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
@@ -41,6 +42,7 @@ final appRouter = GoRouter(
           AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
+
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
             int tab = int.tryParse(s.queryParams['t'] ?? '') ?? 0;

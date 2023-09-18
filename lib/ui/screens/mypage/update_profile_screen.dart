@@ -18,6 +18,7 @@ class UpdateProfileScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
+          color: NanenAppTheme.background,
           padding: const EdgeInsets.all(tDefaultSize),
           child: Column(
             children: [
@@ -31,8 +32,7 @@ class UpdateProfileScreen extends StatelessWidget {
                         height: 100,
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(200),
-                            child:
-                                const Image(image: AssetImage(tProfileImage))),
+                            child: const Image(image: AssetImage(tProfileImage))),
                       ),
                       Positioned(
                         bottom: 0,
@@ -41,8 +41,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           width: 35,
                           height: 35,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              color: tPrimaryColor.withOpacity(0.8)),
+                              borderRadius: BorderRadius.circular(100), color: tPrimaryColor.withOpacity(0.8)),
                           child: const Icon(
                             LineAwesomeIcons.camera,
                             size: 20,
@@ -56,7 +55,15 @@ class UpdateProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const EditAIProfileAIBtn(),
+              // const EditAIProfileAIBtn(),
+
+              EditBtn(
+                btnTitle: 'Edit Profile AI',
+                newwidth: 400.0,
+                backgroundStartColor: const Color(0xFFFE95B6),
+                backgroundEndColor: const Color(0xFFFF5287),
+                path: null,
+              ),
               const SizedBox(
                 height: 10,
               ),
@@ -65,9 +72,7 @@ class UpdateProfileScreen extends StatelessWidget {
                   children: [
                     TextFormField(
                       decoration: const InputDecoration(
-                          label: Text(tEmail),
-                          iconColor: tSeconddaryColor,
-                          prefixIcon: Icon(Icons.email_outlined)),
+                          label: Text(tEmail), iconColor: tSeconddaryColor, prefixIcon: Icon(Icons.email_outlined)),
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
@@ -77,7 +82,13 @@ class UpdateProfileScreen extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                          label: Text(tPassword),
+                          prefixIconColor: Color(0xFF1E1466),
+                          suffixIconColor: Color(0xFF1E1466),
+                          fillColor: Color(0xFF1E1466),
+                          label: Text(
+                            tPassword,
+                            style: TextStyle(color: Color(0xFF1E1466)),
+                          ),
                           iconColor: tSeconddaryColor,
                           prefixIcon: Icon(Icons.password_outlined)),
                     ),
@@ -85,8 +96,26 @@ class UpdateProfileScreen extends StatelessWidget {
                       height: tFormHeight,
                     ),
 
+                    Container(
+                      color: Color(0xFF1E1466),
+                    ),
+
                     /// - Form Submit Button
-                    const SaveEditProfileBtn(),
+                    EditBtn(
+                      btnTitle: 'Save Profile',
+                      newwidth: 400.0,
+                      backgroundStartColor: Color(0xFF6F72CA),
+                      backgroundEndColor: Color(0xFF1E1466),
+                      path: null,
+                    ),
+                    // const SaveEditProfileBtn(),
+                    // EditBtn(
+                    //   btnTitle: 'Save Profile',
+                    //   // const Color(0xFF6F72CA),
+                    //   // endColor: const Color(0xFF1E1466),
+                    //   backgroundStartColor: Color(0xFF6F72CA),
+                    //   backgroundEndColor: Color(0xFF1E1466),
+                    // ),
                   ],
                 ),
               ),

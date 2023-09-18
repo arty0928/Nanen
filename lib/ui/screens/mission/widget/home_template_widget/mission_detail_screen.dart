@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
+import 'package:wonders/ui/screens/editorial/editorial_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/upload_image.dart';
 
 class MissionDetailScreen extends StatefulWidget {
+  final int missionIndex;
   final MissionList selectedMission;
   final WonderData data;
-  const MissionDetailScreen({super.key, required this.selectedMission, required this.data});
+  const MissionDetailScreen({super.key, required this.selectedMission, required this.data, required this.missionIndex});
 
   @override
   State<MissionDetailScreen> createState() => _MissionDetailScreenState();
@@ -66,11 +68,15 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
       child: Stack(
         children: <Widget>[
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               AspectRatio(
                 aspectRatio: 1.2,
                 // child: Image.asset('assets/images/design_course/webInterFace.png'),
-                child: UploadImage(),
+                child: UploadImage(
+                  missionIndex: widget.missionIndex,
+                  selectedMission: widget.selectedMission,
+                  data: widget.data,
+                ),
               ),
             ],
           ),
