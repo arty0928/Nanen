@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
+import 'package:wonders/ui/screens/login/loginScreen.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
 import 'package:wonders/ui/screens/mypage/mypage.dart';
@@ -16,6 +17,7 @@ class ScreenPaths {
   static String mission = '/mission';
   static String mypage = '/mypage';
   static String settings = '/settings';
+  static String login = '/login';
 
   static String details = '/details';
 
@@ -42,6 +44,7 @@ final appRouter = GoRouter(
           AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
+          AppRoute(ScreenPaths.login, (_) => loginScreen()),
 
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
