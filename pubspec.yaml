@@ -15,7 +15,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  collection: ^1.18.0
+  # collection: ^1.18.0
+  collection: ^1.17.2
   desktop_window: ^0.4.0
   drop_cap_text: ^1.1.3
 
@@ -64,6 +65,7 @@ dependencies:
   fl_chart: ^0.63.0
   image_picker: ^1.0.4
   path: ^1.8.3
+  # cloud_firestore: ^3.2.0
 
 
 
@@ -111,8 +113,9 @@ flutter:
     - assets/images/mission/
     - assets/images/profile/
     - assets/images/design_course/
-    - assets/uploadImage/
     - assets/images/home/
+    - assets/logo/
+    - assets/images/welcome_images/
 
 
 

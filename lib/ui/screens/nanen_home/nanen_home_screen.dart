@@ -76,10 +76,10 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
         BottomBarView(
           tabIconsList: tabIconsList,
           addClick: () {
-            // appRouter.go(ScreenPaths.login);
-            Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
-                // child: UpdateProfileScreen()
-                child: loginScreen()));
+            appRouter.go(ScreenPaths.login);
+            // Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
+            //     // child: UpdateProfileScreen()
+            //     child: loginScreen()));
           },
           changeIndex: (int index) {
             if (index == 0) {

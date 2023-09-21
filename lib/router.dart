@@ -3,6 +3,7 @@ import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
 import 'package:wonders/ui/screens/login/loginScreen.dart';
+import 'package:wonders/ui/screens/login/login_1.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
 import 'package:wonders/ui/screens/mypage/mypage.dart';
@@ -41,10 +42,11 @@ final appRouter = GoRouter(
           return WondersAppScaffold(child: navigator);
         },
         routes: [
-          AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
+          // AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
-          AppRoute(ScreenPaths.login, (_) => loginScreen()),
+          AppRoute(ScreenPaths.login, (_) => LoginSignupScreen()),
+          AppRoute(ScreenPaths.mypage, (_) => MyPageScreen()),
 
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
@@ -90,9 +92,9 @@ class AppRoute extends GoRoute {
 String? _handleRedirect(BuildContext context, GoRouterState state) {
   // Prevent anyone from navigating away from `/` if app is starting up.
 
-  if (!appLogic.isBootstrapComplete && state.location != ScreenPaths.splash) {
-    return ScreenPaths.splash;
-  }
+  // if (!appLogic.isBootstrapComplete && state.location != ScreenPaths.splash) {
+  //   return ScreenPaths.splash;
+  // }
 
   // Check if the match list is empty and redirect to /home
   debugPrint('Navigate to: ${state.location}');

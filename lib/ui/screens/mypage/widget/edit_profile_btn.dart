@@ -13,8 +13,8 @@ class EditBtn extends StatelessWidget {
   const EditBtn(
       {super.key,
       required this.btnTitle,
-      required this.backgroundStartColor,
-      required this.backgroundEndColor,
+      this.backgroundStartColor = const Color(0xFF738AE6),
+      this.backgroundEndColor = const Color(0xFF5C5EDD),
       this.newwidth = 100,
       required this.path});
 

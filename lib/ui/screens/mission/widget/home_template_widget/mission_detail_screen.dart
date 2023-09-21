@@ -304,6 +304,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
               ),
             ),
           ),
+          //이전으로 가기 버튼
           Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
             child: SizedBox(

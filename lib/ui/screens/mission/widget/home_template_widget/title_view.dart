@@ -3,6 +3,7 @@ import 'package:wonders/common_libs.dart';
 import 'package:wonders/ui/screens/calendar/calendar_screen.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/custom_page_route.dart';
+import 'package:wonders/ui/screens/mypage/mypage.dart';
 
 class TitleView extends StatelessWidget {
   const TitleView({
@@ -27,10 +28,10 @@ class TitleView extends StatelessWidget {
     // Determine the destination page based on the index
     switch (index) {
       case 1:
-        destinationPage = ScreenPaths.mission;
+        destinationPage = ScreenPaths.mypage;
         break;
       case 2:
-        destinationPage = CalendarScreen(animationController: animationController);
+        destinationPage = ScreenPaths.mission;
         break;
       case 3:
         destinationPage = '';

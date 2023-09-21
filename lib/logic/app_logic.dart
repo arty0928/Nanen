@@ -61,14 +61,14 @@ class AppLogic {
     // Load initial view (replace empty initial view which is covered by a native splash screen)
     bool showIntro = settingsLogic.hasCompletedOnboarding.value == false;
     if (showIntro) {
-      appRouter.go(ScreenPaths.intro);
+      // appRouter.go(ScreenPaths.intro);
+      appRouter.go(ScreenPaths.home);
     } else {
       appRouter.go(ScreenPaths.home);
     }
   }
 
-  Future<T?> showFullscreenDialogRoute<T>(BuildContext context, Widget child,
-      {bool transparent = false}) async {
+  Future<T?> showFullscreenDialogRoute<T>(BuildContext context, Widget child, {bool transparent = false}) async {
     return await Navigator.of(context).push<T>(
       PageRoutes.dialog<T>(child, duration: $styles.times.pageTransition),
     );
@@ -78,15 +78,13 @@ class AppLogic {
   void handleAppSizeChanged() {
     /// Disable landscape layout on smaller form factors
     bool isSmall = display.size.shortestSide / display.devicePixelRatio < 600;
-    supportedOrientations =
-        isSmall ? [Axis.vertical] : [Axis.vertical, Axis.horizontal];
+    supportedOrientations = isSmall ? [Axis.vertical] : [Axis.vertical, Axis.horizontal];
     _updateSystemOrientation();
   }
 
   Display get display => PlatformDispatcher.instance.displays.first;
 
-  bool shouldUseNavRail() =>
-      display.size.width > display.size.height && display.size.height > 250;
+  bool shouldUseNavRail() => display.size.width > display.size.height && display.size.height > 250;
 
   /// Enable landscape, portrait or both. Views can call this method to override the default settings.
   /// For example, the [FullscreenVideoViewer] always wants to enable both landscape and portrait.
