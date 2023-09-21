@@ -1,134 +1,154 @@
-name: nanen
-description: A new Flutter project.
-
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
-
-version: 1.0.0+1
+name: wonders
+description: Explore the famous wonders of the world.
+publish_to: "none"
+version: 2.0.17+6
 
 environment:
+  # sdk: ">=2.17.0 <3.0.0"
   sdk: ">=3.0.0-362.0.dev <4.0.0"
+
+
 dependencies:
   flutter:
     sdk: flutter
-  
-  ## mission
-  dots_indicator: ^3.0.0
 
-  ## STATE MANAGEMENT
-  get: ^4.6.5
+  flutter_localizations:
+    sdk: flutter
 
-  ## ONBOARDING PACKAGE
-  liquid_swipe: ^3.1.0
-  smooth_page_indicator: ^1.1.0
+  # collection: ^1.18.0
+  collection: ^1.17.2
+  desktop_window: ^0.4.0
+  drop_cap_text: ^1.1.3
 
-  line_awesome_flutter : ^2.0.0
-  google_fonts: ^5.1.0
-  flutter_native_splash: ^2.2.19
-  
-  flutter_otp_text_field: ^1.1.1
-
-  ## login
-  cupertino_icons: ^1.0.2
-  firebase_core: ^2.9.0
-  firebase_auth: ^4.4.1
-  google_sign_in: ^6.1.4
-  kakao_flutter_sdk: ^1.4.3
-  http: ^1.1.0
-  cloud_firestore: ^4.8.0
-
-  percent_indicator: ^4.0.1
-  carousel_slider: ^4.2.1
-  fl_chart: ^0.63.0
-  collection: ^1.17.1
-  cached_network_image: ^3.2.3
-  syncfusion_flutter_charts: ^22.1.39
-  masonry_grid: ^1.0.0
-  flutter_staggered_grid_view: ^0.7.0
-
-  image_picker: ^1.0.1
-  path_provider: ^2.0.15
-  syncfusion_flutter_calendar: ^22.1.39
-    # handle dates
+  equatable: ^2.0.5
+  extra_alignments: ^1.0.0+1
+  flextras: ^1.0.0
+  flutter_animate: ^1.0.0
+  flutter_circular_text: ^0.3.1
+  flutter_displaymode: ^0.5.0
+  flutter_native_splash: ^2.2.17
+  flutter_staggered_grid_view: ^0.6.2
+  flutter_svg: ^2.0.1
+  gap:
+    git:
+      url: https://github.com/esDotDev/gap.git
+      ref: dc980bf
+  get_it: ^7.2.0
+  get_it_mixin: ^3.1.4
+  google_maps_flutter: ^2.2.3
+  google_maps_flutter_web: ^0.4.0+5
+  go_router: ^6.5.5
+  http: ^0.13.5
+  image_fade: ^0.6.2
+  image_gallery_saver: ^1.7.1
+  internet_connection_checker: ^1.0.0+1
   intl: ^0.18.1
-
-  # state management
+  package_info_plus: ^3.0.3
+  particle_field: ^0.0.1
+  path_provider: ^2.0.12
   provider: ^6.0.5
-  
+  rnd: ^0.2.0
+  share_plus: ^6.3.1
+  shared_preferences: ^2.0.17
+  simple_rich_text: ^2.0.49
+  sized_context: ^1.0.0+1
+  smooth_page_indicator: ^1.0.1
+  unsplash_client: ^2.1.0+3
+  webview_flutter: ^4.0.2
+  youtube_player_iframe: ^4.0.4
   url_launcher: ^6.0.9
 
-  # image upload
-  image_cropper: ^5.0.0 
-  flutter_image_compress: ^2.0.4
-  localization: ^2.1.0
+  #nanen
+  syncfusion_flutter_calendar: ^22.2.7
+  dots_indicator: ^3.0.0
+  line_awesome_flutter : ^2.0.0
+  fl_chart: ^0.63.0
+  image_picker: ^1.0.4
+  path: ^1.8.3
+  # cloud_firestore: ^3.2.0
 
-  # mission_slide
-  sliding_up_panel: ^2.0.0+1
 
 
-  
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
-  font_awesome_flutter: ^10.5.0
+dependency_overrides:
   intl: ^0.18.1
-  url_launcher: ^6.1.12
-  vector_math: ^2.1.4
 
-flutter_native_splash:
-  color: "#f7f6f1"
-  color_dark: "#272727"
-  image: assets/images/mini.jpg
-  image_dark: assets/images/mini.jpg
-  android: true
+dev_dependencies:
+  build_runner: ^2.2.0
+  copy_with_extension_gen: ^4.0.3
+  icons_launcher: ^2.0.1
+  flutter_lints: ^2.0.1
+  json_serializable: ^6.3.1
+  dart_code_metrics: ^4.17.1
+  dependency_validator: ^3.0.0
+
+icons_launcher:
+  image_path: "assets/marketing/app-icon-1024.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+    macos:
+      enable: true
+
+flutter_icons:
   ios: true
-
-  android_12:
-    image: assets/images/mini.jpg
-    icon_background_color: "#f7f6f1"
-    image_dark: assets/images/mini.jpg
-    icon_background_color_dark: "#272727"
+  android: true
+  image_path: "assets/marketing/app-icon-1024.png"
 
 flutter:
   uses-material-design: true
 
+  generate: true
+
   assets:
-    - assets/logo/
-    - assets/images/
-    - assets/images/splash_images/
-    - assets/images/on_boarding_images/
-    - assets/images/welcome_images/
-    - assets/images/forget_password/
-    - assets/
-    - assets/images/dashboard/
-    - assets/images/home/
+    - assets/images/_common/
+    - assets/images/_common/icons/
+    - assets/images/_common/texture/
+    - assets/images/chichen_itza/
+    - assets/images/colosseum/
+    - assets/images/great_wall_of_china/
+    - assets/images/petra/
+    - assets/images/fitness_app/
     - assets/images/mission/
     - assets/images/profile/
-    - assets/images/login/
-    - assets/fitness_app/
-    - assets/design_course/
-
-
-
-    # - assets/images/tabbarview/
-    # - assets/images/tabbarview/active
-    # - assets/images/tabbarview/calm
+    - assets/images/design_course/
+    - assets/images/home/
+    - assets/logo/
+    - assets/images/welcome_images/
 
 
 
   fonts:
-    - family: WorkSans
+    - family: Cinzel
       fonts:
-        - asset: assets/fonts/WorkSans-Regular.ttf
-        - asset: assets/fonts/WorkSans-Medium.ttf
+        - asset: assets/fonts/CinzelDecorative-Regular.ttf
+        - asset: assets/fonts/CinzelDecorative-Black.ttf
+        - asset: assets/fonts/CinzelDecorative-Bold.ttf
+    - family: Yeseva
+      fonts:
+        - asset: assets/fonts/YesevaOne-Regular.ttf
+    - family: Tenor
+      fonts:
+        - asset: assets/fonts/TenorSans-Regular.ttf
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+        - asset: assets/fonts/Raleway-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Raleway-Medium.ttf
           weight: 500
-        - asset: assets/fonts/WorkSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/WorkSans-Bold.ttf
+        - asset: assets/fonts/Raleway-Bold.ttf
           weight: 700
-    - family: Roboto
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+          weight: 800
+    - family: MaShanZheng
       fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Medium.ttf
-          weight: 400
+        - asset: assets/fonts/MaShanZheng-Regular.ttf
+    - family: B612Mono
+      fonts:
+        - asset: assets/fonts/B612Mono-Regular.ttf
+    - family : writerFont
+      fonts:
+        - asset: assets/fonts/오뮤_다예쁨체.ttf
+        # - asset:assets/fonts/오뮤_다예쁨체.ttf

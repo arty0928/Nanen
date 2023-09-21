@@ -1,76 +1,73 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:nanen/src/utils/theme/theme.dart';
-
-// import 'src/features/core/screens/mainPage.dart';
-
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:kakao_flutter_sdk/kakao_flutter_sdk_user.dart';
-
-// void main() => runApp(const MyApp());
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//         theme: TAppTheme.lightTheme,
-//         darkTheme: TAppTheme.dartTheme,
-//         themeMode: ThemeMode.system,
-//         debugShowCheckedModeBanner: false,
-//         defaultTransition: Transition.leftToRightWithFade,
-//         transitionDuration: const Duration(milliseconds: 500),
-//         // home: const OnBoardingScreen(),
-//         // home: const SplashScreen(),
-//         // home: const CircularProgressIndicator(),
-//         // home: const MissionHomePage());
-//         home: const MainPage());
-//   }
-// }
-
-// class AppHome extends StatelessWidget {
-//   const AppHome({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text("나는_")),
-//       body: const Center(child: Text("Home page")),
-//     );
-//   }
-// }
-
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:kakao_flutter_sdk/kakao_flutter_sdk_user.dart';
-import 'package:nanen/src/features/core/screens/mainPage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:wonders/common_libs.dart';
+import 'package:wonders/logic/locale_logic.dart';
+import 'package:wonders/logic/wallpaper_logic.dart';
+import 'package:wonders/logic/wonders_logic.dart';
+import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 
 void main() async {
-  KakaoSdk.init(nativeAppKey: '76e93a7e6dad66a0b2d3f68f72ae66e7');
-  WidgetsFlutterBinding.ensureInitialized(); //flutter 코어 엔진 초기화
-  await Firebase.initializeApp();
-  runApp(const MyApp());
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // Keep native splash screen up until app is finished bootstrapping
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // Start app
+  registerSingletons();
+  runApp(WondersApp());
+  await appLogic.bootstrap();
+
+  // Remove splash screen when bootstrap is complete
+  FlutterNativeSplash.remove();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override //alt + shift + f => 코드 정리(format document)
+/// Creates an app using the [MaterialApp.router] constructor and the global `appRouter`, an instance of [GoRouter].
+class WondersApp extends StatelessWidget with GetItMixin {
+  WondersApp({Key? key}) : super(key: key);
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final locale = watchX((SettingsLogic s) => s.currentLocale);
+    return MaterialApp.router(
+      routeInformationProvider: appRouter.routeInformationProvider,
+      routeInformationParser: appRouter.routeInformationParser,
+      locale: locale == null ? null : Locale(locale),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      //home: const App(),
-      //home: const KakaoMain(),
-      //home: const LoginPage(),
-      home: const MainPage(),
+      routerDelegate: appRouter.routerDelegate,
+      // routerDelegate: appRouter.routerDelegate.clone(initialRoutes: [NanenHomeScreen()]),
+      theme: ThemeData(fontFamily: $styles.text.body.fontFamily, useMaterial3: true),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
+
+/// Create singletons (logic and services) that can be shared across the app.
+void registerSingletons() {
+  //Home
+  // GetIt.I.registerLazySingleton<HomeLogic>(() => HomeLogic());
+
+  // Top level app controller
+  GetIt.I.registerLazySingleton<AppLogic>(() => AppLogic());
+  // Wonders
+  GetIt.I.registerLazySingleton<WondersLogic>(() => WondersLogic());
+  GetIt.I.registerLazySingleton<SettingsLogic>(() => SettingsLogic());
+  // Localizations
+  GetIt.I.registerLazySingleton<LocaleLogic>(() => LocaleLogic());
+}
+
+/// Add syntax sugar for quickly accessing the main "logic" controllers in the app
+/// We deliberately do not create shortcuts for services, to discourage their use directly in the view/widget layer.
+AppLogic get appLogic => GetIt.I.get<AppLogic>();
+WondersLogic get wondersLogic => GetIt.I.get<WondersLogic>();
+SettingsLogic get settingsLogic => GetIt.I.get<SettingsLogic>();
+WallPaperLogic get wallpaperLogic => GetIt.I.get<WallPaperLogic>();
+LocaleLogic get localeLogic => GetIt.I.get<LocaleLogic>();
+
+/// Global helpers for readability
+AppLocalizations get $strings => localeLogic.strings;
+AppStyle get $styles => WondersAppScaffold.style;
