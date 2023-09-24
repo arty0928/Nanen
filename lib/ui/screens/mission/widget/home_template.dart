@@ -197,7 +197,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
   }
 }
 
-class getAppBarUI extends StatelessWidget {
+class getAppBarUI extends StatefulWidget {
   const getAppBarUI({
     super.key,
     required this.widget,
@@ -210,29 +210,47 @@ class getAppBarUI extends StatelessWidget {
   final double topBarOpacity;
 
   @override
+  State<getAppBarUI> createState() => _getAppBarUIState();
+}
+
+class _getAppBarUIState extends State<getAppBarUI> {
+  late DateTime currentDate;
+  late String formattedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    currentDate = DateTime.now();
+    formattedDate = DateFormat('MMM d').format(currentDate);
+  }
+
+  void updateFormattedDate() {
+    setState(() {
+      formattedDate = DateFormat('MMM d').format(currentDate);
+      print(formattedDate);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         AnimatedBuilder(
-          animation: widget.animationController,
+          animation: widget.widget.animationController,
           builder: (BuildContext context, _) {
-            var now = DateTime.now();
-            var formatter = DateFormat('MMM d');
-            String formattedDate = formatter.format(now);
-
             return FadeTransition(
-              opacity: topBarAnimation,
+              opacity: widget.topBarAnimation,
               child: Transform(
-                transform: Matrix4.translationValues(0.0, 30 * (1.0 - topBarAnimation.value), 0.0),
+                transform: Matrix4.translationValues(0.0, 30 * (1.0 - widget.topBarAnimation.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: NanenAppTheme.white.withOpacity(topBarOpacity),
+                    color: NanenAppTheme.white.withOpacity(widget.topBarOpacity),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: NanenAppTheme.grey.withOpacity(0.4 * topBarOpacity),
+                          color: NanenAppTheme.grey.withOpacity(0.4 * widget.topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -244,7 +262,10 @@ class getAppBarUI extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            left: 16, right: 16, top: 16 - 8.0 * topBarOpacity, bottom: 12 - 8.0 * topBarOpacity),
+                            left: 16,
+                            right: 16,
+                            top: 16 - 8.0 * widget.topBarOpacity,
+                            bottom: 12 - 8.0 * widget.topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -258,7 +279,7 @@ class getAppBarUI extends StatelessWidget {
                                     // fontFamily: NanenAppTheme.fontName,
                                     fontFamily: 'writerFont',
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 22 + 6 - 6 * topBarOpacity,
+                                    fontSize: 22 + 6 - 6 * widget.topBarOpacity,
                                     letterSpacing: 1.2,
                                     color: NanenAppTheme.darkerText,
                                   ),
@@ -271,7 +292,13 @@ class getAppBarUI extends StatelessWidget {
                               child: InkWell(
                                 highlightColor: Colors.transparent,
                                 borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    currentDate = currentDate.subtract(Duration(days: 1));
+                                    updateFormattedDate();
+                                    print(formattedDate);
+                                  });
+                                },
                                 child: const Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_left,
@@ -315,7 +342,12 @@ class getAppBarUI extends StatelessWidget {
                               child: InkWell(
                                 highlightColor: Colors.transparent,
                                 borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    currentDate = currentDate.add(Duration(days: 1));
+                                    updateFormattedDate();
+                                  });
+                                },
                                 child: const Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_right,
