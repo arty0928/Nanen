@@ -7,6 +7,7 @@ import 'package:wonders/ui/screens/login/login_1.dart';
 import 'package:wonders/ui/screens/mission/mission_home_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
 import 'package:wonders/ui/screens/mypage/mypage.dart';
+import 'package:wonders/ui/screens/mypage/update_profile_screen.dart';
 import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
 import 'package:wonders/ui/screens/wonder_details/wonders_details_screen.dart';
 
@@ -19,6 +20,7 @@ class ScreenPaths {
   static String mypage = '/mypage';
   static String settings = '/settings';
   static String login = '/login';
+  static String editProfile = '/editProfile';
 
   static String details = '/details';
 
@@ -47,6 +49,7 @@ final appRouter = GoRouter(
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
           AppRoute(ScreenPaths.login, (_) => LoginSignupScreen()),
           AppRoute(ScreenPaths.mypage, (_) => MyPageScreen()),
+          AppRoute(ScreenPaths.editProfile, (_) => UpdateProfileScreen()),
 
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
