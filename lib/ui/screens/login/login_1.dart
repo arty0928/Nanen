@@ -110,7 +110,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
           Positioned(
             // duration: const Duration(milliseconds: 500),
             // curve: Curves.easeIn,
-            top: 180,
+            top: MediaQuery.of(context).size.height - 530,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 500),
               curve: Curves.easeIn,
@@ -346,7 +346,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
 
           //전송버튼
           Positioned(
-              top: MediaQuery.of(context).size.height - 200,
+              top: MediaQuery.of(context).size.height - 230,
               left: 0,
               right: 0,
 

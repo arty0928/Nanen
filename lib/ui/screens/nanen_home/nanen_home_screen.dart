@@ -118,7 +118,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
               animationController.reverse().then<dynamic>((_) {
                 if (mounted) {
                   setState(() {
-                    tabBody = MyPageScreen();
+                    tabBody = MyPageScreen(animationController: animationController);
                   });
                 }
                 return;
