@@ -48,7 +48,6 @@ final appRouter = GoRouter(
           AppRoute(ScreenPaths.home, (_) => NanenHomeScreen()),
           AppRoute(ScreenPaths.mission, (_) => HomeScreen()),
           AppRoute(ScreenPaths.login, (_) => LoginSignupScreen()),
-          // AppRoute(ScreenPaths.mypage, (_) => MyPageScreen()),
           AppRoute(ScreenPaths.editProfile, (_) => UpdateProfileScreen()),
 
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wonders/common_libs.dart';
 
 class MyPageNumbers extends StatelessWidget {
   const MyPageNumbers({
@@ -11,12 +12,12 @@ class MyPageNumbers extends StatelessWidget {
       children: const [
         Padding(
           // padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(horizontal: 25),
           child: Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.topLeft,
             child: Text(
               'djdropthebeat',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, fontFamily: NanenAppTheme.fontName),
             ),
           ),
         ),
@@ -30,36 +31,48 @@ class MyPageNumbers extends StatelessWidget {
               children: [
                 Text(
                   '10',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
-                Text('active')
+                Text(
+                  'active',
+                  style: TextStyle(fontFamily: NanenAppTheme.fontName),
+                )
               ],
             ),
             Column(
               children: [
                 Text(
                   '14',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
-                Text('calm')
+                Text(
+                  'calm',
+                  style: TextStyle(fontFamily: NanenAppTheme.fontName),
+                )
               ],
             ),
             Column(
               children: [
                 Text(
                   '17',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
-                Text('creative')
+                Text(
+                  'creative',
+                  style: TextStyle(fontFamily: NanenAppTheme.fontName),
+                )
               ],
             ),
             Column(
               children: [
                 Text(
                   '9',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
-                Text('people')
+                Text(
+                  'people',
+                  style: TextStyle(fontFamily: NanenAppTheme.fontName),
+                )
               ],
             ),
           ],

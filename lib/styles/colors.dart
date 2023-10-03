@@ -68,6 +68,7 @@ class NanenAppTheme {
   static const Color spacer = Color(0xFFF2F2F2);
   // static const String fontName = 'Roboto';
   static const String fontName = 'writerFont';
+  static const String fontBirc = 'Tenor';
 
   //font
   static const String writerFont = 'writerFont';

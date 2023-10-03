@@ -108,8 +108,6 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
           // ),
           //배경
           Positioned(
-            // duration: const Duration(milliseconds: 500),
-            // curve: Curves.easeIn,
             top: MediaQuery.of(context).size.height - 530,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 500),
@@ -138,11 +136,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               Text(
                                 'LOGIN',
                                 style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: !isSignupScreen ? tActiveColor : tTextColor1,
-                                  //isSignUpScreen일 경우 activeColor, 아닐경우 textColor1 - 삼항조건 연산자
-                                ),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: !isSignupScreen ? tActiveColor : tTextColor1,
+                                    fontFamily: NanenAppTheme.fontName
+                                    //isSignUpScreen일 경우 activeColor, 아닐경우 textColor1 - 삼항조건 연산자
+                                    ),
                               ),
                               if (!isSignupScreen) //inline if
                                 Container(
@@ -165,10 +164,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               Text(
                                 'SIGN UP',
                                 style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: isSignupScreen ? tActiveColor : tTextColor1,
-                                ),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: isSignupScreen ? tActiveColor : tTextColor1,
+                                    fontFamily: NanenAppTheme.fontName),
                               ),
                               if (isSignupScreen)
                                 Container(
@@ -223,7 +222,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 onChanged: (value) {
                                   userEmail = value;
                                 },
-                                decoration: CustomeInputDeco(Icons.email, 'Email'),
+                                decoration: CustomeInputDeco(
+                                  Icons.email,
+                                  'Email',
+                                ),
                               ),
                               const SizedBox(
                                 height: 8,
@@ -396,10 +398,7 @@ InputDecoration CustomeInputDeco(IconData customeIcon, String Title) {
       ),
     ),
     hintText: Title,
-    hintStyle: TextStyle(
-      fontSize: 14,
-      color: tTextColor1,
-    ),
+    hintStyle: TextStyle(fontSize: 14, color: tTextColor1, fontFamily: NanenAppTheme.fontName),
     contentPadding: EdgeInsets.all(10),
   );
 }

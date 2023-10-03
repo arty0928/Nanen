@@ -180,27 +180,16 @@ class MealsView extends StatelessWidget {
                                           color: NanenAppTheme.white,
                                         ),
                                       ),
-                                      // SizedBox(
-                                      //   height: 10,
-                                      // ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
-                                          Text(
-                                            mealsListData.star,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                              fontFamily: 'writerFont',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13,
-                                              letterSpacing: 0.27,
-                                              color: NanenAppTheme.white,
-                                            ),
-                                          ),
                                           Icon(
-                                            Icons.star,
-                                            color: NanenAppTheme.nearlyDarkBlue,
-                                            size: 15,
+                                            Icons.keyboard_double_arrow_right,
+                                            color: NanenAppTheme.nearlyWhite,
+                                            size: 20,
                                           ),
                                         ],
                                       ),

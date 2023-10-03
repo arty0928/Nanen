@@ -64,10 +64,71 @@ class MediterranesnDietView extends StatelessWidget {
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
+                                            //
+                                            //                   Expanded(
+                                            //   child: Column(
+                                            //     mainAxisAlignment: MainAxisAlignment.center,
+                                            //     crossAxisAlignment: CrossAxisAlignment.start,
+                                            //     children: <Widget>[
+                                            //       const Text(
+                                            //         'Active',
+                                            //         textAlign: TextAlign.center,
+                                            //         style: TextStyle(
+                                            //           fontFamily: NanenAppTheme.fontName,
+                                            //           fontWeight: FontWeight.w500,
+                                            //           fontSize: 16,
+                                            //           letterSpacing: -0.2,
+                                            //           color: NanenAppTheme.darkText,
+                                            //         ),
+                                            //       ),
+                                            //       Padding(
+                                            //         padding: const EdgeInsets.only(top: 4),
+                                            //         child: Container(
+                                            //           height: 4,
+                                            //           width: 70,
+                                            //           decoration: BoxDecoration(
+                                            //             color: const Color(0xFF87A0E5).withOpacity(0.2),
+                                            //             borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+                                            //           ),
+                                            //           child: Row(
+                                            //             children: <Widget>[
+                                            //               Container(
+                                            //                 width: (70 / 1.2) * animation.value,
+                                            //                 height: 4,
+                                            //                 decoration: BoxDecoration(
+                                            //                   gradient: LinearGradient(colors: <Color>[
+                                            //                     const Color(0xFF87A0E5),
+                                            //                     const Color(0xFF87A0E5).withOpacity(0.5),
+                                            //                   ]),
+                                            //                   borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+                                            //                 ),
+                                            //               )
+                                            //             ],
+                                            //           ),
+                                            //         ),
+                                            //       ),
+                                            //       Padding(
+                                            //         padding: const EdgeInsets.only(top: 6),
+                                            //         child: Text(
+                                            //           '12g left',
+                                            //           textAlign: TextAlign.center,
+                                            //           style: TextStyle(
+                                            //             fontFamily: NanenAppTheme.fontName,
+                                            //             fontWeight: FontWeight.w600,
+                                            //             fontSize: 12,
+                                            //             color: NanenAppTheme.grey.withOpacity(0.5),
+                                            //           ),
+                                            //         ),
+                                            //       ),
+                                            //     ],
+                                            //   ),
+                                            // ),
+                                            //
+
                                             Padding(
                                               padding: const EdgeInsets.only(left: 4, bottom: 2),
                                               child: Text(
-                                                'Eaten',
+                                                'Active',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily: NanenAppTheme.fontName,

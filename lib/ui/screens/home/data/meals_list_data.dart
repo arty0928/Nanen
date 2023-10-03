@@ -24,21 +24,21 @@ class MealsListData {
         titleTxt: '뇌부자',
         startColor: const Color(0xFFFE95B6),
         endColor: const Color(0xFFFF5287),
-        star: '4.3',
+        // star: '4.3',
         url: tYoutuberURL1),
     MealsListData(
         imagePath: tYoutuber2,
         titleTxt: '에일린 \nmind Yoga',
         startColor: const Color(0xFF738AE6),
         endColor: const Color(0xFF5C5EDD),
-        star: '4.5',
+        // star: '4.5',
         url: tYoutuberURL2),
     MealsListData(
         imagePath: tYoutuber3,
         titleTxt: '양브로의 \n정신세계',
         startColor: const Color(0xFFFA7D82),
         endColor: const Color(0xFFFFB295),
-        star: '4.3',
+        // star: '4.3',
         url: tYoutuberURL3),
 
     // MealsListData(

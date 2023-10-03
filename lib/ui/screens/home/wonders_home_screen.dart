@@ -74,16 +74,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     setState(() {
       appRouter.go(ScreenPaths.home);
     });
-    // setState(() => _isMenuOpen = true);
-    // WonderType? pickedWonder = await appLogic.showFullscreenDialogRoute<WonderType>(
-    //   context,
-    //   HomeMenu(data: currentWonder),
-    //   transparent: true,
-    // );
-    // setState(() => _isMenuOpen = false);
-    // if (pickedWonder != null) {
-    //   _setPageIndex(_wonders.indexWhere((w) => w.type == pickedWonder));
-    // }
   }
 
   void _handlePageIndicatorDotPressed(int index) => _setPageIndex(index);
@@ -277,8 +267,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             AppPageIndicator(
                               count: _numWonders,
                               controller: _pageController,
-                              color: $styles.colors.white,
-                              dotSize: 8,
+                              color: const Color(0xFF738AE6),
+                              dotSize: 10,
                               onDotPressed: _handlePageIndicatorDotPressed,
                               semanticPageTitle: $strings.homeSemanticWonder,
                             ),
@@ -311,7 +301,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             );
                           },
                           child: VtGradient(
-                            [$styles.colors.white.withOpacity(0), $styles.colors.white.withOpacity(1)],
+                            // [$styles.colors.white.withOpacity(0), $styles.colors.white.withOpacity(1)],
+                            [NanenAppTheme.darkGrey.withOpacity(0), NanenAppTheme.darkGrey.withOpacity(1)],
                             const [.3, 1],
                             borderRadius: BorderRadius.circular(99),
                           ),
