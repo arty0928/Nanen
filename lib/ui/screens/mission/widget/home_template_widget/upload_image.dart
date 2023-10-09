@@ -23,10 +23,10 @@ class _UploadImageState extends State<UploadImage> {
     print("saveFilePermanently");
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);
-    final savedIamge = File('${directory.path}/$name');
-    print(savedIamge);
+    final savedImage = File('${directory.path}/$name');
+    print(savedImage);
 
-    return File(imagePath).copy(savedIamge.path);
+    return File(imagePath).copy(savedImage.path);
   }
 
   Future<void> selectImage() async {
@@ -42,7 +42,8 @@ class _UploadImageState extends State<UploadImage> {
 
         widget.selectedMission.missionPic = savedImagePath.path;
         widget.selectedMission.missionPicIsDone = true;
-        print(widget.selectedMission.missionPic);
+        // imageUrl 설정
+        widget.data.imageUrl[widget.missionIndex] = savedImagePath.path;
         setState(() {});
       }
     });

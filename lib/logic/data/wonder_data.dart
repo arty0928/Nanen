@@ -3,26 +3,26 @@ import 'package:wonders/logic/data/wonder_type.dart';
 import 'package:wonders/logic/data/wonders_data/search/search_data.dart';
 
 class WonderData extends Equatable {
-  const WonderData({
-    required this.missionTitle,
-    required this.type,
-    required this.title,
-    required this.subTitle,
-    required this.regionTitle,
-    this.lat = 0,
-    this.lng = 0,
-    this.imageIds = const [],
-    required this.unsplashCollectionId,
-    this.callout1 = '',
-    this.callout2 = '',
-    this.facts = const [],
-    required this.constructionInfo1,
-    required this.constructionInfo2,
-    required this.locationInfo1,
-    required this.locationInfo2,
-    this.searchData = const [],
-    this.searchSuggestions = const [],
-  });
+  WonderData(
+      {required this.missionTitle,
+      required this.type,
+      required this.title,
+      required this.subTitle,
+      required this.regionTitle,
+      this.lat = 0,
+      this.lng = 0,
+      this.imageIds = const [],
+      required this.unsplashCollectionId,
+      this.callout1 = '',
+      this.callout2 = '',
+      this.facts = const [],
+      required this.constructionInfo1,
+      required this.constructionInfo2,
+      required this.locationInfo1,
+      required this.locationInfo2,
+      this.searchData = const [],
+      this.searchSuggestions = const [],
+      required this.imageUrl});
 
   final WonderType type;
   final String title;
@@ -39,6 +39,7 @@ class WonderData extends Equatable {
   final List<String> facts;
   final double lat;
   final double lng;
+  List<String> imageUrl = ['', '', '', '', '', ''];
 
   final Map<String, String> missionTitle;
   // final List<String> missionSubTitle;

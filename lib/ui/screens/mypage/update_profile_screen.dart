@@ -96,6 +96,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       backgroundStartColor: const Color(0xFFFE95B6),
                       backgroundEndColor: const Color(0xFFFF5287),
                       path: null,
+                      onPressed: () {},
                     ),
                     const SizedBox(
                       height: 50,
@@ -140,6 +141,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                           backgroundStartColor: Color(0xFF6F72CA),
                           backgroundEndColor: Color(0xFF1E1466),
                           path: null,
+                          onPressed: () {},
                         ),
                         // const SaveEditProfileBtn(),
                         // EditBtn(

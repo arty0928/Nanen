@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
@@ -72,11 +74,23 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
               AspectRatio(
                 aspectRatio: 1.2,
                 // child: Image.asset('assets/images/design_course/webInterFace.png'),
-                child: UploadImage(
-                  missionIndex: widget.missionIndex,
-                  selectedMission: widget.selectedMission,
-                  data: widget.data,
-                ),
+                child:
+                    // UploadImage(
+                    //   missionIndex: widget.missionIndex,
+                    //   selectedMission: widget.selectedMission,
+                    //   data: widget.data,
+                    // ),
+                    widget.data.imageUrl[widget.missionIndex].isEmpty
+                        ? UploadImage(
+                            missionIndex: widget.missionIndex,
+                            selectedMission: widget.selectedMission,
+                            data: widget.data)
+                        : Image.file(
+                            File(widget.data.imageUrl[widget.missionIndex]),
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
               ),
             ],
           ),

@@ -81,7 +81,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
     listViews.add(
       TitleView(
         titleTxt: 'My Diary',
-        subTxt: 'more',
+        // subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController,
             curve: const Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),

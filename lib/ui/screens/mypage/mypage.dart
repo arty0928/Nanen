@@ -268,6 +268,7 @@ class _MyPageBodyState extends State<MyPageBody> with TickerProviderStateMixin {
                         backgroundEndColor: Color(0xFF5C5EDD),
                         path: UpdateProfileScreen(),
                         newwidth: 400,
+                        onPressed: () {},
                       ),
                       const SizedBox(
                         height: 10,

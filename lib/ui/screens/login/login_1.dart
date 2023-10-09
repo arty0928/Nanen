@@ -22,9 +22,20 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String passwordCheck = '';
 
   void _tryValidation() {
-    final isValid = _formKey.currentState!.validate(); //모든 텍스트 폼필드의 validator 작동 가능
+    final isValid = _formKey.currentState!.validate();
     if (isValid) {
       _formKey.currentState!.save();
+      if (isSignupScreen) {
+        // 회원가입 화면일 때
+        print('Username: $userName');
+        print('Email: $userEmail');
+        print('Password: $userPassword');
+        print('Password Check: $passwordCheck');
+      } else {
+        // 로그인 화면일 때
+        print('Email: $userEmail');
+        print('Password: $userPassword');
+      }
     }
   }
 
@@ -108,7 +119,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
           // ),
           //배경
           Positioned(
-            top: MediaQuery.of(context).size.height - 530,
+            top: MediaQuery.of(context).size.height - 580,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 500),
               curve: Curves.easeIn,
@@ -348,15 +359,20 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
 
           //전송버튼
           Positioned(
-              top: MediaQuery.of(context).size.height - 230,
-              left: 0,
-              right: 0,
+            top: MediaQuery.of(context).size.height - 230,
+            left: 0,
+            right: 0,
 
-              // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: EditBtn(btnTitle: '+Google', path: HomeScreen()),
-              )),
+            // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: EditBtn(
+                btnTitle: 'Submit',
+                path: HomeScreen(),
+                onPressed: _tryValidation,
+              ),
+            ),
+          ),
           // Positioned(
           //   top: MediaQuery.of(context).size.height - 170,
           //   // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
