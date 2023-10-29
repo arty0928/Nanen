@@ -16,10 +16,10 @@ class AreaListView extends StatefulWidget {
 
 class _AreaListViewState extends State<AreaListView> with TickerProviderStateMixin {
   List<String> areaListData = <String>[
-    'assets/images/fitness_app/area2.png',
-    'assets/images/fitness_app/area3.png',
-    'assets/images/fitness_app/area1.png',
-    'assets/images/fitness_app/area1.png',
+    'assets/images/fitness_app/active2.png',
+    'assets/images/fitness_app/calm2.png',
+    'assets/images/fitness_app/creative2.png',
+    'assets/images/fitness_app/people2.png',
   ];
 
   late final AnimationController animationController;

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
@@ -22,6 +23,9 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
   double opacity1 = 0.0;
   double opacity2 = 0.0;
   double opacity3 = 0.0;
+
+  XFile? image;
+  final ImagePicker picker = ImagePicker();
 
   late final AnimationController animationController;
   late final Animation<double> animation;
@@ -69,31 +73,79 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
       color: NanenAppTheme.nearlyWhite,
       child: Stack(
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1.2,
-                // child: Image.asset('assets/images/design_course/webInterFace.png'),
-                child:
+          // 사진 업로드
+          Container(
+            decoration: BoxDecoration(
+              //이미지를 배경으로 설정
+              image: image != null
+                  ? DecorationImage(
+                      image: FileImage(File(image!.path)),
+                      fit: BoxFit.cover,
+                    )
+                  : null,
+            ),
+            child: Column(
+              children: [
+                AspectRatio(
+                    aspectRatio: 1.2,
+                    // child: Image.asset('assets/images/design_course/webInterFace.png'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            foregroundColor: widget.data.type.bgColor,
+                            surfaceTintColor: tActiveColor, // TextButton의 텍스트 색상 설정
+                          ),
+                          onPressed: () async {
+                            // 갤러리에서 이미지를 선택하고 선택한 이미지를 변수에 저장
+                            var img = await picker.pickImage(source: ImageSource.gallery);
+                            setState(() {
+                              image = img;
+                            });
+                          },
+                          child: Text('Upload Photo'),
+                        ),
+
+                        // image ! = null
+                        //   ? Padding(padding: EdgeInsets.symmetric(horizontal: 20),
+                        //   child: ClipRRect(
+                        //     borderRadius: BorderRadius.circular(8),
+                        //     child: Image.file(
+                        //       File(image!.path),
+                        //       fit:BoxFit.cover,
+                        //       width: MediaQuery.of(context).size.width,
+                        //       height:
+                        //       300,
+                        //     ),
+                        //   ),
+                        //   )
+                        //   : Text("No Image",style: TextStyle(fontSize: 20),)
+                      ],
+                    )
                     // UploadImage(
                     //   missionIndex: widget.missionIndex,
                     //   selectedMission: widget.selectedMission,
                     //   data: widget.data,
                     // ),
-                    widget.data.imageUrl[widget.missionIndex].isEmpty
-                        ? UploadImage(
-                            missionIndex: widget.missionIndex,
-                            selectedMission: widget.selectedMission,
-                            data: widget.data)
-                        : Image.file(
-                            File(widget.data.imageUrl[widget.missionIndex]),
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-              ),
-            ],
+
+                    // widget.data.imageUrl[widget.missionIndex].isEmpty
+                    //     ? UploadImage(
+                    //         missionIndex: widget.missionIndex,
+                    //         selectedMission: widget.selectedMission,
+                    //         data: widget.data)
+                    //     : Image.file(
+                    //         File(widget.data.imageUrl[widget.missionIndex]),
+                    //         width: double.infinity,
+                    //         height: double.infinity,
+                    //         fit: BoxFit.cover,
+                    //       ),
+
+                    ),
+              ],
+            ),
           ),
+
           Positioned(
             top: (MediaQuery.of(context).size.width / 1.2) - 24.0,
             bottom: 0,
@@ -211,37 +263,37 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Container(
-                                width: 62,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  color: NanenAppTheme.nearlyWhite,
-                                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                                  border: Border.all(color: NanenAppTheme.grey.withOpacity(0.2)),
-                                ),
-                                child: TextButton(
-                                  style: TextButton.styleFrom(
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-                                  ),
-                                  onPressed: () {
-                                    // upLoadMissionPic();
-                                  },
-                                  child: Icon(
-                                    Icons.camera_alt_outlined,
-                                    // color: NanenAppTheme.nearlyBlue,
-                                    color: widget.data.type.bgColor,
-                                    size: 28,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 16),
+                              // Container(
+                              //   width: 62,
+                              //   height: 48,
+                              //   decoration: BoxDecoration(
+                              //     color: NanenAppTheme.nearlyWhite,
+                              //     borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                              //     border: Border.all(color: NanenAppTheme.grey.withOpacity(0.2)),
+                              //   ),
+                              //   child: TextButton(
+                              //     style: TextButton.styleFrom(
+                              //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+                              //     ),
+                              //     onPressed: () {
+                              //       // upLoadMissionPic();
+                              //     },
+                              //     child: Icon(
+                              //       Icons.camera_alt_outlined,
+                              //       // color: NanenAppTheme.nearlyBlue,
+                              //       color: widget.data.type.bgColor,
+                              //       size: 28,
+                              //     ),
+                              //   ),
+                              // ),
+                              // const SizedBox(width: 16),
                               Expanded(
                                 child: Container(
                                   height: 48,
                                   decoration: BoxDecoration(
                                     color: widget.data.type.bgColor,
                                     borderRadius: const BorderRadius.all(
-                                      Radius.circular(16.0),
+                                      Radius.circular(12.0),
                                     ),
                                     boxShadow: <BoxShadow>[
                                       BoxShadow(
@@ -286,13 +338,16 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
               ),
             ),
           ),
+          //heart
           Positioned(
             top: (MediaQuery.of(context).size.width / 1.2) - 24.0 - 35,
             right: 35,
             child: ScaleTransition(
               scale: CurvedAnimation(parent: animationController, curve: Curves.fastOutSlowIn),
-              child: Card(
-                color: widget.data.type.bgColor,
+              child:
+                  //card heart background
+                  Card(
+                color: image != null ? widget.data.type.bgColor : Colors.grey,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
                 elevation: 10.0,
                 child: SizedBox(
@@ -387,5 +442,5 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 }
 
 void upLoadMissionPic() {
-  print("upload");
+  print('upload');
 }

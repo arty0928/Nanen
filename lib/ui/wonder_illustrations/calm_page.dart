@@ -47,14 +47,14 @@ class PetraIllustration extends StatelessWidget {
 
   List<Widget> _buildMg(BuildContext context, Animation<double> anim) => [
         FractionallySizedBox(
-          heightFactor: config.shortMode ? 1 : .8,
+          heightFactor: config.shortMode ? 1 : .9,
           alignment: Alignment.bottomCenter,
           child: IllustrationPiece(
-            // fileName: 'petra.png',
-            fileName: 'area1.png',
-            heightFactor: .65,
-            minHeight: 500,
-            zoomAmt: config.shortMode ? -0.1 : -1,
+            fileName: 'yoga_man.png',
+            //fileName: 'area1.png',
+            heightFactor: .16,
+            minHeight: 130,
+            zoomAmt: config.shortMode ? -0.1 : -0.5,
             enableHero: true,
             fractionalOffset: Offset(0, config.shortMode ? .025 : 0),
           ),
@@ -64,11 +64,12 @@ class PetraIllustration extends StatelessWidget {
   List<Widget> _buildFg(BuildContext context, Animation<double> anim) {
     return [
       IllustrationPiece(
-        fileName: 'foreground-left.png',
+        //fileName: 'foreground-left.png',
+        fileName: 'winter_house.png',
         alignment: Alignment.bottomCenter,
         initialOffset: Offset(-80, 0),
-        heightFactor: 1,
-        fractionalOffset: Offset(-.6, 0),
+        heightFactor: 0.6,
+        fractionalOffset: Offset(-.25, 0.1),
         zoomAmt: .03,
         dynamicHzOffset: -130,
         bottom: (_) {
@@ -83,10 +84,11 @@ class PetraIllustration extends StatelessWidget {
         },
       ),
       IllustrationPiece(
-        fileName: 'foreground-right.png',
+        //fileName: 'foreground-right.png',
+        fileName: 'snowman.png',
         alignment: Alignment.bottomCenter,
         initialOffset: Offset(80, 00),
-        heightFactor: 1,
+        heightFactor: 0.4,
         fractionalOffset: Offset(.55, 0),
         zoomAmt: .12,
         dynamicHzOffset: 130,

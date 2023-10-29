@@ -46,11 +46,11 @@ class ColosseumIllustration extends StatelessWidget {
   List<Widget> _buildMg(BuildContext context, Animation<double> anim) {
     return [
       IllustrationPiece(
-        // fileName: 'colosseum.png',
-        fileName: 'area1.png',
+        fileName: 'creative_man.png',
+        //fileName: 'area1.png',
         enableHero: true,
-        heightFactor: .6,
-        minHeight: 200,
+        heightFactor: .3,
+        minHeight: 100,
         zoomAmt: .15,
         fractionalOffset: Offset(0, config.shortMode ? .10 : -.1),
       )

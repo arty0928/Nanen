@@ -73,6 +73,7 @@ class _MyDiaryScreenState extends State<CalendarScreen> with TickerProviderState
       }
     });
   }
+  
 
   @override
   void dispose() {

@@ -49,9 +49,9 @@ class GreatWallIllustration extends StatelessWidget {
     return [
       IllustrationPiece(
         // fileName: 'great-wall.png',
-        fileName: 'area1.png',
-        heightFactor: config.shortMode ? .45 : .65,
-        minHeight: 250,
+        fileName: 'happy_man.png',
+        heightFactor: config.shortMode ? .45 : .3,
+        minHeight: 50,
         zoomAmt: .05,
         enableHero: true,
         fractionalOffset: Offset(0, config.shortMode ? .15 : -.15),
