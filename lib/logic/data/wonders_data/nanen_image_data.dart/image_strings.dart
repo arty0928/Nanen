@@ -36,7 +36,7 @@ const String tYoutuberURL2 = 'https://www.youtube.com/@emindyoga';
 const String tYoutuberURL3 = 'https://www.youtube.com/@yangbro';
 
 // -- Profile Images
-const String tProfileImage = 'assets/images/profile/profile-pic.jpg';
+const String tProfileImage = 'assets/images/profile/profile_default.png';
 
 // -- Mission Images
 const String tActiveBackgroundImage = 'assets/images/mission/active.jpg';

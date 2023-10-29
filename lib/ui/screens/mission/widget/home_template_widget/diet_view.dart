@@ -1,7 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:wonders/logic/data/wonders_data/nanen_image_data.dart/image_strings.dart';
 import 'package:wonders/styles/styles.dart';
+import 'package:wonders/ui/screens/mypage/update_profile_screen.dart';
 
 class MediterranesnDietView extends StatelessWidget {
   const MediterranesnDietView({
@@ -128,7 +130,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             Padding(
                                               padding: const EdgeInsets.only(left: 4, bottom: 2),
                                               child: Text(
-                                                'Active',
+                                                'User Info',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily: NanenAppTheme.fontName,
@@ -144,34 +146,21 @@ class MediterranesnDietView extends StatelessWidget {
                                               crossAxisAlignment: CrossAxisAlignment.end,
                                               children: <Widget>[
                                                 SizedBox(
-                                                  width: 28,
-                                                  height: 28,
-                                                  child: Image.asset('assets/images/fitness_app/eaten.png'),
+                                                  width: 24,
+                                                  height: 24,
+                                                  child: Image.asset('assets/logo/logo.png'),
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsets.only(left: 4, bottom: 3),
                                                   child: Text(
-                                                    '${(1127 * animation.value).toInt()}',
+                                                    // '${(1127 * animation.value).toInt()}',
+                                                    'djdropthebeat',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
                                                       fontFamily: NanenAppTheme.fontName,
                                                       fontWeight: FontWeight.w600,
-                                                      fontSize: 16,
+                                                      fontSize: 18,
                                                       color: NanenAppTheme.darkerText,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 4, bottom: 3),
-                                                  child: Text(
-                                                    'Kcal',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontFamily: NanenAppTheme.fontName,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 12,
-                                                      letterSpacing: -0.2,
-                                                      color: NanenAppTheme.grey.withOpacity(0.5),
                                                     ),
                                                   ),
                                                 ),
@@ -204,7 +193,7 @@ class MediterranesnDietView extends StatelessWidget {
                                             Padding(
                                               padding: const EdgeInsets.only(left: 4, bottom: 2),
                                               child: Text(
-                                                'Burned',
+                                                'Welcome',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily: NanenAppTheme.fontName,
@@ -218,39 +207,40 @@ class MediterranesnDietView extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               crossAxisAlignment: CrossAxisAlignment.end,
-                                              children: <Widget>[
-                                                SizedBox(
-                                                  width: 28,
-                                                  height: 28,
-                                                  child: Image.asset('assets/images/fitness_app/burned.png'),
-                                                ),
+                                              children: const <Widget>[
+                                                // SizedBox(
+                                                //   width: 28,
+                                                //   height: 28,
+                                                //   child: Image.asset('assets/images/fitness_app/burned.png'),
+                                                // ),
                                                 Padding(
                                                   padding: const EdgeInsets.only(left: 4, bottom: 3),
                                                   child: Text(
-                                                    '${(102 * animation.value).toInt()}',
+                                                    // '${(102 * animation.value).toInt()}',
+                                                    '오늘 하루를 기록해보세요!',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
                                                       fontFamily: NanenAppTheme.fontName,
                                                       fontWeight: FontWeight.w600,
-                                                      fontSize: 16,
+                                                      fontSize: 18,
                                                       color: NanenAppTheme.darkerText,
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 8, bottom: 3),
-                                                  child: Text(
-                                                    'Kcal',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontFamily: NanenAppTheme.fontName,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 12,
-                                                      letterSpacing: -0.2,
-                                                      color: NanenAppTheme.grey.withOpacity(0.5),
-                                                    ),
-                                                  ),
-                                                ),
+                                                // Padding(
+                                                //   padding: const EdgeInsets.only(left: 8, bottom: 3),
+                                                //   child: Text(
+                                                //     'Kcal',
+                                                //     textAlign: TextAlign.center,
+                                                //     style: TextStyle(
+                                                //       fontFamily: NanenAppTheme.fontName,
+                                                //       fontWeight: FontWeight.w600,
+                                                //       fontSize: 12,
+                                                //       letterSpacing: -0.2,
+                                                //       color: NanenAppTheme.grey.withOpacity(0.5),
+                                                //     ),
+                                                //   ),
+                                                // ),
                                               ],
                                             )
                                           ],
@@ -262,72 +252,96 @@ class MediterranesnDietView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16),
-                            child: Center(
-                              child: Stack(
-                                clipBehavior: Clip.antiAlias,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color: NanenAppTheme.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(100.0),
-                                        ),
-                                        border:
-                                            Border.all(width: 4, color: NanenAppTheme.nearlyDarkBlue.withOpacity(0.2)),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          Text(
-                                            '${(1503 * animation.value).toInt()}',
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              fontFamily: NanenAppTheme.fontName,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 24,
-                                              letterSpacing: 0.0,
-                                              color: NanenAppTheme.nearlyDarkBlue,
-                                            ),
-                                          ),
-                                          Text(
-                                            'Kcal left',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: NanenAppTheme.fontName,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 12,
-                                              letterSpacing: 0.0,
-                                              color: NanenAppTheme.grey.withOpacity(0.5),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                          //profile 사진
+                          InkWell(
+                            onTap: () {
+                              // Profile 이미지를 클릭했을 때 EditMypageScreen로 이동
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => UpdateProfileScreen(),
+                              ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/images/profile/profile_default.png'),
+                                    fit: BoxFit.cover,
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: CustomPaint(
-                                      painter: CurvePainter(colors: <Color>[
-                                        NanenAppTheme.nearlyDarkBlue,
-                                        const Color(0xFF8A98E8),
-                                        const Color(0xFF8A98E8)
-                                      ], angle: 140 + (360 - 140) * (1.0 - animation.value)),
-                                      child: const SizedBox(
-                                        width: 108,
-                                        height: 108,
-                                      ),
-                                    ),
-                                  )
-                                ],
+                                ),
                               ),
                             ),
-                          )
+                          ),
+
+                          // Padding(
+                          //   padding: const EdgeInsets.only(right: 16),
+                          //   child: Center(
+                          //     child: Stack(
+                          //       clipBehavior: Clip.antiAlias,
+                          //       children: <Widget>[
+                          //         Padding(
+                          //           padding: const EdgeInsets.all(8.0),
+                          //           child: Container(
+                          //             width: 100,
+                          //             height: 100,
+                          //             decoration: BoxDecoration(
+                          //               color: NanenAppTheme.white,
+                          //               borderRadius: const BorderRadius.all(
+                          //                 Radius.circular(100.0),
+                          //               ),
+                          //               border:
+                          //                   Border.all(width: 4, color: NanenAppTheme.nearlyDarkBlue.withOpacity(0.2)),
+                          //             ),
+                          //             child: Column(
+                          //               mainAxisAlignment: MainAxisAlignment.center,
+                          //               children: <Widget>[
+                          //                 Text(
+                          //                   '${(1503 * animation.value).toInt()}',
+                          //                   textAlign: TextAlign.center,
+                          //                   style: const TextStyle(
+                          //                     fontFamily: NanenAppTheme.fontName,
+                          //                     fontWeight: FontWeight.normal,
+                          //                     fontSize: 24,
+                          //                     letterSpacing: 0.0,
+                          //                     color: NanenAppTheme.nearlyDarkBlue,
+                          //                   ),
+                          //                 ),
+                          //                 Text(
+                          //                   'Kcal left',
+                          //                   textAlign: TextAlign.center,
+                          //                   style: TextStyle(
+                          //                     fontFamily: NanenAppTheme.fontName,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontSize: 12,
+                          //                     letterSpacing: 0.0,
+                          //                     color: NanenAppTheme.grey.withOpacity(0.5),
+                          //                   ),
+                          //                 ),
+                          //               ],
+                          //             ),
+                          //           ),
+                          //         ),
+                          //         Padding(
+                          //           padding: const EdgeInsets.all(4.0),
+                          //           child: CustomPaint(
+                          //             painter: CurvePainter(colors: <Color>[
+                          //               NanenAppTheme.nearlyDarkBlue,
+                          //               const Color(0xFF8A98E8),
+                          //               const Color(0xFF8A98E8)
+                          //             ], angle: 140 + (360 - 140) * (1.0 - animation.value)),
+                          //             child: const SizedBox(
+                          //               width: 108,
+                          //               height: 108,
+                          //             ),
+                          //           ),
+                          //         )
+                          //       ],
+                          //     ),
+                          //   ),
+                          // )
                         ],
                       ),
                     ),

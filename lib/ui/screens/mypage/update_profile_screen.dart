@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -10,6 +11,7 @@ import 'package:wonders/styles/sizes.dart';
 import 'package:wonders/ui/screens/login/login_1.dart';
 import 'package:wonders/ui/screens/mypage/widget/edit_profile_btn.dart';
 import 'package:wonders/utils/appbar/costume_app_bar.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -19,6 +21,9 @@ class UpdateProfileScreen extends StatefulWidget {
 }
 
 class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
+  XFile? image;
+  final ImagePicker picker = ImagePicker();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -56,51 +61,66 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 padding: EdgeInsets.all(tDefaultSize),
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    //profile
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Stack(
-                          children: [
-                            SizedBox(
-                              width: 100,
-                              height: 100,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(200),
-                                child: const Image(image: AssetImage(tProfileImage)),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 0,
-                              right: 0,
-                              child: Container(
-                                width: 35,
-                                height: 35,
+                        GestureDetector(
+                          onTap: () async {
+                            var img = await picker.pickImage(source: ImageSource.gallery);
+                            setState(() {
+                              image = img;
+                            });
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(100), color: tPrimaryColor.withOpacity(0.8)),
-                                child: const Icon(
-                                  LineAwesomeIcons.camera,
-                                  size: 20,
+                                    shape: BoxShape.circle,
+                                    image: image != null
+                                        ? DecorationImage(image: FileImage(File(image!.path)), fit: BoxFit.cover)
+                                        : DecorationImage(
+                                            image: AssetImage('assets/images/profile/profile_default.png'),
+                                            fit: BoxFit.cover)),
+                                width: 100,
+                                height: 100,
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  width: 35,
+                                  height: 35,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100), color: tDarkColor.withOpacity(0.1)),
+                                  child: const Icon(
+                                    LineAwesomeIcons.camera,
+                                    size: 20,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
                     const SizedBox(
-                      height: 15,
-                    ),
-                    EditBtn(
-                      btnTitle: 'Edit Profile AI',
-                      newwidth: 400.0,
-                      backgroundStartColor: const Color(0xFFFE95B6),
-                      backgroundEndColor: const Color(0xFFFF5287),
-                      path: null,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
                       height: 50,
                     ),
+                    // EditBtn(
+                    //   btnTitle: 'Edit Profile AI',
+                    //   newwidth: 400.0,
+                    //   backgroundStartColor: const Color(0xFFFE95B6),
+                    //   backgroundEndColor: const Color(0xFFFF5287),
+                    //   path: null,
+                    //   onPressed: () {},
+                    // ),
+                    // const SizedBox(
+                    //   height: 50,
+                    // ),
                     Form(
                         child: Column(
                       children: [

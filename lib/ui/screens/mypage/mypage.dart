@@ -261,7 +261,7 @@ class _MyPageBodyState extends State<MyPageBody> with TickerProviderStateMixin {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     children: [
-                      mypageTop(),
+                      MyPageTop(),
                       EditBtn(
                         btnTitle: 'Edit Profile',
                         backgroundStartColor: Color(0xFF738AE6),

@@ -16,16 +16,18 @@ class EditBtn extends StatelessWidget {
       this.backgroundStartColor = const Color(0xFF738AE6),
       this.backgroundEndColor = const Color(0xFF5C5EDD),
       this.newwidth = 100,
-      required this.path,
+      this.path,
       required void Function() onPressed});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
-            // child: UpdateProfileScreen()
-            child: path));
+        if (path != null) {
+          Navigator.of(context).push(CustomPageRoute(AxisDirection.left,
+              // child: UpdateProfileScreen()
+              child: path));
+        }
       },
       child: SizedBox(
         // width: 100,

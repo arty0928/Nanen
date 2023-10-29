@@ -52,9 +52,9 @@ final appRouter = GoRouter(
 
           // AppRoute(ScreenPaths.details, (_) => MissionTest1()),
           AppRoute('/wonder/:type', (s) {
-            int tab = int.tryParse(s.queryParams['t'] ?? '') ?? 0;
+            int tab = int.tryParse(s.pathParameters['t'] ?? '') ?? 0;
             return WonderDetailsScreen(
-              type: _parseWonderType(s.params['type']),
+              type: _parseWonderType(s.pathParameters['type']),
               initialTabIndex: tab,
             );
           }, useFade: true),
@@ -99,7 +99,7 @@ String? _handleRedirect(BuildContext context, GoRouterState state) {
   // }
 
   // Check if the match list is empty and redirect to /home
-  debugPrint('Navigate to: ${state.location}');
+  debugPrint('Navigate to: ${state.matchedLocation}');
   return null; // do nothing
 }
 

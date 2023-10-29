@@ -97,6 +97,7 @@ class _NanenHomeScreenState extends State<NanenHomeScreen> with TickerProviderSt
                 if (mounted) {
                   setState(() {
                     // tabBody = const MissionTest1();
+                    print("미션 탭으로");
                     appRouter.go(ScreenPaths.mission);
                     // appRouter.go('/mission', extra: {
                     //   'animationController': animationController,
