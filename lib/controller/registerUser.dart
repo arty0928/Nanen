@@ -5,6 +5,7 @@ import 'package:wonders/controller/login.dart';
 import 'dart:convert';
 import 'package:wonders/model/model.dart';
 import 'package:wonders/common_libs.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class ApiEndPoints {
   static final String baseUrl = "https://0c55-222-109-27-193.ngrok-free.app";
@@ -20,7 +21,7 @@ Future<void> registerUser(String userName, String userPassword, String userEmail
     String userPasswordCheck, BuildContext context) async {
   print("signup");
   var headers = {'Content-Type': 'application/json'};
-  var url = Uri.parse("https://0c55-222-109-27-193.ngrok-free.app/members/sign-up");
+  var url = Uri.parse("https://113a-220-85-140-6.ngrok-free.app/members/sign-up");
 
   Map body = {
     "email": userEmail.trim(),
@@ -47,7 +48,7 @@ Future<void> registerUser(String userName, String userPassword, String userEmail
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Text('회원가입 성공'),
-                content: Text('로그인을 진행해주세요.'),
+                content: Text('회원가입에 성공하였습니다.'),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () {
@@ -59,29 +60,38 @@ Future<void> registerUser(String userName, String userPassword, String userEmail
               );
             },
           );
+
+          Provider.of<UserInfoProvider>(context, listen: false).setUserInfo(userName: userName, isLoggedIn: true);
+
+          // UserInfoProvider의 정보 출력
+          print(Provider.of<UserInfoProvider>(context, listen: false).getUserInfo());
+
+          // appRouter.go(ScreenPaths.home);
+          Navigator.pop(context);
+
           // loginUser(userEmail, userPassword, context);
         } else {
           throw jsonDecode(response.body)['message'] ?? "알 수 없는 오류가 발생했습니다.";
         }
       } catch (error) {
         print(error);
-        // await showDialog<String>(
-        //   context: context,
-        //   builder: (BuildContext context) {
-        //     return AlertDialog(
-        //       title: Text('회원가입 실패'),
-        //       content: Text('로그인에 실패했습니다.'),
-        //       actions: <Widget>[
-        //         TextButton(
-        //           onPressed: () {
-        //             Navigator.pop(context, 'OK');
-        //           },
-        //           child: const Text('Okay'),
-        //         ),
-        //       ],
-        //     );
-        //   },
-        // );
+        await showDialog<String>(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('회원가입 실패'),
+              content: Text('회원가입에 실패했습니다.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context, 'OK');
+                  },
+                  child: const Text('Okay'),
+                ),
+              ],
+            );
+          },
+        );
       }
     } else {
       await showDialog<String>(

@@ -6,6 +6,7 @@ import 'package:wonders/logic/locale_logic.dart';
 import 'package:wonders/logic/wallpaper_logic.dart';
 import 'package:wonders/logic/wonders_logic.dart';
 import 'package:wonders/ui/screens/nanen_home/nanen_home_screen.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +15,16 @@ void main() async {
 
   // Start app
   registerSingletons();
-  runApp(WondersApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserInfoProvider(),
+      child: WondersApp(),
+    ),
+  );
+
+  // Initialize UserInfoProvider
+  appLogic.userInfoProvider = GetIt.I.get<UserInfoProvider>();
+
   await appLogic.bootstrap();
 
   // Remove splash screen when bootstrap is complete
@@ -58,6 +68,9 @@ void registerSingletons() {
   GetIt.I.registerLazySingleton<SettingsLogic>(() => SettingsLogic());
   // Localizations
   GetIt.I.registerLazySingleton<LocaleLogic>(() => LocaleLogic());
+
+  //Login
+  GetIt.I.registerLazySingleton<UserInfoProvider>(() => UserInfoProvider());
 }
 
 /// Add syntax sugar for quickly accessing the main "logic" controllers in the app

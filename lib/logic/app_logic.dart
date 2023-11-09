@@ -6,11 +6,18 @@ import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/common/platform_info.dart';
 import 'package:wonders/ui/common/utils/page_routes.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class AppLogic {
   /// Indicates to the rest of the app that bootstrap has not completed.
   /// The router will use this to prevent redirects while bootstrapping.
   bool isBootstrapComplete = false;
+  UserInfoProvider? _userInfoProvider;
+
+  UserInfoProvider get userInfoProvider => _userInfoProvider!;
+  set userInfoProvider(UserInfoProvider value) {
+    _userInfoProvider = value;
+  }
 
   /// Indicates which orientations the app will allow be default. Affects Android/iOS devices only.
   /// Defaults to both landscape (hz) and portrait (vt)

@@ -1,22 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
-class MyPageNumbers extends StatelessWidget {
+class MyPageNumbers extends StatefulWidget {
   const MyPageNumbers({
     super.key,
   });
 
   @override
+  State<MyPageNumbers> createState() => _MyPageNumbersState();
+}
+
+class _MyPageNumbersState extends State<MyPageNumbers> {
+  late UserInfoProvider userInfoProvider;
+
+  void initState() {
+    super.initState();
+    print("여기는 마이페이지");
+
+    userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
+
+    // userInfo의 변화를 감지하여 화면 업데이트
+    // userInfo의 변화를 감지하여 화면 업데이트
+    userInfoProvider.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+
+    userInfoProvider.getUserInfo();
+  }
+
+  @override
+  void dispose() {
+    // dispose에서 listener를 제거해야 합니다.
+    userInfoProvider.removeListener(() {});
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      children: [
         Padding(
           // padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           padding: EdgeInsets.symmetric(horizontal: 25),
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              'djdropthebeat',
+              userInfoProvider.userName.toString(),
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, fontFamily: NanenAppTheme.fontName),
             ),
           ),

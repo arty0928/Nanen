@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
@@ -36,12 +37,104 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
     animation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: animationController, curve: const Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
     setData();
+    checkImageIsExist();
   }
 
   @override
   void dispose() {
     animationController.dispose();
     super.dispose();
+  }
+
+  Future<void> uploadAndSaveImage() async {
+    // 갤러리에서 이미지를 선택하고 선택한 이미지를 변수에 저장
+    var img = await picker.pickImage(source: ImageSource.gallery);
+
+    if (img != null) {
+      setState(() {
+        image = img;
+      });
+
+      // 이미지를 저장
+      await saveImage(File(image!.path), widget.data);
+    }
+  }
+
+  Future<void> checkImageIsExist() async {
+    Directory appDocDir = await getApplicationDocumentsDirectory();
+    Directory assetsDir = Directory(
+      '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}${widget.missionIndex}',
+    );
+
+    final String imagePath =
+        '${assetsDir.path}${Platform.pathSeparator}${widget.data.title}${widget.selectedMission.missionTitle}.png';
+
+    final File imageFile = File(imagePath);
+
+    if (imageFile.existsSync()) {
+      setState(() {
+        image = XFile(imagePath);
+      });
+    } else {
+      setState(() {
+        image = null;
+      });
+    }
+  }
+
+  Future<void> saveImage(File image, WonderData data) async {
+    // 애플리케이션 문서 디렉토리를 얻어옵니다.
+    Directory appDocDir = await getApplicationDocumentsDirectory();
+    print(appDocDir);
+
+    // assets 폴더가 없다면 생성합니다.
+    Directory assetsDir = Directory(
+        '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}${widget.missionIndex}');
+    // print("widget.selectedMission");
+    // print(widget.selectedMission);
+
+    // print("widget.data.title");
+    // print(widget.data.title);
+
+    print(assetsDir);
+
+    if (!assetsDir.existsSync()) {
+      assetsDir.createSync(recursive: true);
+    }
+
+    // 이미지를 저장할 경로를 설정합니다.
+    final String imagePath =
+        '${assetsDir.path}${Platform.pathSeparator}${widget.data.title}${widget.selectedMission.missionTitle}.png';
+    print("imagePath");
+    print(imagePath);
+
+    // 이미지를 지정된 경로에 복사합니다.
+    await image.copy(imagePath);
+
+    print('Image saved: $imagePath');
+  }
+
+  Future<void> loadImage(WonderData data) async {
+    final Directory directory = await getApplicationDocumentsDirectory();
+    print(directory);
+    final String path = directory.path;
+    final String fileName = '${widget.data.type}.png';
+    final File localImage = File('$path/$fileName');
+
+    print("localImage");
+    print(localImage);
+
+    if (localImage.existsSync()) {
+      // 저장된 이미지가 존재하면 해당 파일을 반환합니다.
+      setState(() {
+        image = XFile(localImage.path);
+      });
+    } else {
+      // 저장된 이미지가 없으면 null을 반환합니다.
+      setState(() {
+        image = null;
+      });
+    }
   }
 
   Future<void> setData() async {
@@ -87,61 +180,36 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
             child: Column(
               children: [
                 AspectRatio(
-                    aspectRatio: 1.2,
-                    // child: Image.asset('assets/images/design_course/webInterFace.png'),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            surfaceTintColor: tActiveColor,
-                            primary: widget.data.type.bgColor, // TextButton의 텍스트 색상 설정
-                          ),
-                          onPressed: () async {
-                            // 갤러리에서 이미지를 선택하고 선택한 이미지를 변수에 저장
-                            var img = await picker.pickImage(source: ImageSource.gallery);
-                            setState(() {
-                              image = img;
-                            });
-                          },
-                          child: Text('Upload Photo'),
+                  aspectRatio: 1.2,
+                  // child: Image.asset('assets/images/design_course/webInterFace.png'),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          surfaceTintColor: tActiveColor,
+                          primary: widget.data.type.bgColor, // TextButton의 텍스트 색상 설정
                         ),
-
-                        // image ! = null
-                        //   ? Padding(padding: EdgeInsets.symmetric(horizontal: 20),
-                        //   child: ClipRRect(
-                        //     borderRadius: BorderRadius.circular(8),
-                        //     child: Image.file(
-                        //       File(image!.path),
-                        //       fit:BoxFit.cover,
-                        //       width: MediaQuery.of(context).size.width,
-                        //       height:
-                        //       300,
-                        //     ),
-                        //   ),
-                        //   )
-                        //   : Text("No Image",style: TextStyle(fontSize: 20),)
-                      ],
-                    )
-                    // UploadImage(
-                    //   missionIndex: widget.missionIndex,
-                    //   selectedMission: widget.selectedMission,
-                    //   data: widget.data,
-                    // ),
-
-                    // widget.data.imageUrl[widget.missionIndex].isEmpty
-                    //     ? UploadImage(
-                    //         missionIndex: widget.missionIndex,
-                    //         selectedMission: widget.selectedMission,
-                    //         data: widget.data)
-                    //     : Image.file(
-                    //         File(widget.data.imageUrl[widget.missionIndex]),
-                    //         width: double.infinity,
-                    //         height: double.infinity,
-                    //         fit: BoxFit.cover,
-                    //       ),
-
-                    ),
+                        onPressed: () async {
+                          // 갤러리에서 이미지를 선택하고 선택한 이미지를 변수에 저장
+                          // var img = await picker.pickImage(source: ImageSource.gallery);
+                          // setState(() {
+                          //   image = img;
+                          // });
+                          await uploadAndSaveImage();
+                        },
+                        child: Text('Upload Photo'),
+                      ),
+                    ],
+                  ),
+                ),
+                if (image != null)
+                  Image(
+                    image: FileImage(File(image!.path)),
+                    fit: BoxFit.cover,
+                    width: 100, // 이미지의 폭을 조절할 수 있어
+                    height: 100, // 이미지의 높이를 조절할 수 있어
+                  ),
               ],
             ),
           ),
@@ -197,26 +265,6 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                                 color: widget.data.type.bgColor,
                               ),
                             ),
-                            //별 score
-                            // Row(
-                            //   children: <Widget>[
-                            //     Text(
-                            //       '4.3',
-                            //       textAlign: TextAlign.left,
-                            //       style: TextStyle(
-                            //         fontWeight: FontWeight.w200,
-                            //         fontSize: 15,
-                            //         letterSpacing: 0.27,
-                            //         color: NanenAppTheme.grey,
-                            //       ),
-                            //     ),
-                            //     Icon(
-                            //       Icons.star,
-                            //       color: widget.data.type.bgColor,
-                            //       size: 20,
-                            //     ),
-                            //   ],
-                            // ),
                           ],
                         ),
                       ),
@@ -263,30 +311,6 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              // Container(
-                              //   width: 62,
-                              //   height: 48,
-                              //   decoration: BoxDecoration(
-                              //     color: NanenAppTheme.nearlyWhite,
-                              //     borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                              //     border: Border.all(color: NanenAppTheme.grey.withOpacity(0.2)),
-                              //   ),
-                              //   child: TextButton(
-                              //     style: TextButton.styleFrom(
-                              //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-                              //     ),
-                              //     onPressed: () {
-                              //       // upLoadMissionPic();
-                              //     },
-                              //     child: Icon(
-                              //       Icons.camera_alt_outlined,
-                              //       // color: NanenAppTheme.nearlyBlue,
-                              //       color: widget.data.type.bgColor,
-                              //       size: 28,
-                              //     ),
-                              //   ),
-                              // ),
-                              // const SizedBox(width: 16),
                               Expanded(
                                 child: Container(
                                   height: 48,

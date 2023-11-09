@@ -1,12 +1,15 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/wonders_data/nanen_image_data.dart/image_strings.dart';
 import 'package:wonders/styles/styles.dart';
+import 'package:wonders/ui/screens/login/login_1.dart';
 import 'package:wonders/ui/screens/mypage/update_profile_screen.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
-class MediterranesnDietView extends StatelessWidget {
-  const MediterranesnDietView({
+class MediterranesnDietView extends StatefulWidget {
+  MediterranesnDietView({
     required this.animationController,
     required this.animation,
     super.key,
@@ -16,14 +19,47 @@ class MediterranesnDietView extends StatelessWidget {
   final Animation<double> animation;
 
   @override
+  State<MediterranesnDietView> createState() => _MediterranesnDietViewState();
+}
+
+class _MediterranesnDietViewState extends State<MediterranesnDietView> {
+  late UserInfoProvider userInfoProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    print("홈화면 바뀜");
+
+    userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
+
+    // userInfo의 변화를 감지하여 화면 업데이트
+    // userInfo의 변화를 감지하여 화면 업데이트
+    userInfoProvider.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+
+    userInfoProvider.getUserInfo();
+  }
+
+  @override
+  void dispose() {
+    // dispose에서 listener를 제거해야 합니다.
+    userInfoProvider.removeListener(() {});
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController,
+      animation: widget.animationController,
       builder: (BuildContext context, _) {
         return FadeTransition(
-          opacity: animation,
+          opacity: widget.animation,
           child: Transform(
-            transform: Matrix4.translationValues(0.0, 30 * (1.0 - animation.value), 0.0),
+            transform: Matrix4.translationValues(0.0, 30 * (1.0 - widget.animation.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 18),
               child: Container(
@@ -41,310 +77,195 @@ class MediterranesnDietView extends StatelessWidget {
                 ),
                 child: Column(
                   children: <Widget>[
+                    //다시 호출
                     Padding(
                       padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8, right: 8, top: 4),
-                              child: Column(
-                                children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        height: 48,
-                                        width: 2,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF87A0E5).withOpacity(0.5),
-                                          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                      child: userInfoProvider.isLoggedIn
+                          ? Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8, right: 8, top: 4),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Row(
                                           children: <Widget>[
-                                            //
-                                            //                   Expanded(
-                                            //   child: Column(
-                                            //     mainAxisAlignment: MainAxisAlignment.center,
-                                            //     crossAxisAlignment: CrossAxisAlignment.start,
-                                            //     children: <Widget>[
-                                            //       const Text(
-                                            //         'Active',
-                                            //         textAlign: TextAlign.center,
-                                            //         style: TextStyle(
-                                            //           fontFamily: NanenAppTheme.fontName,
-                                            //           fontWeight: FontWeight.w500,
-                                            //           fontSize: 16,
-                                            //           letterSpacing: -0.2,
-                                            //           color: NanenAppTheme.darkText,
-                                            //         ),
-                                            //       ),
-                                            //       Padding(
-                                            //         padding: const EdgeInsets.only(top: 4),
-                                            //         child: Container(
-                                            //           height: 4,
-                                            //           width: 70,
-                                            //           decoration: BoxDecoration(
-                                            //             color: const Color(0xFF87A0E5).withOpacity(0.2),
-                                            //             borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                                            //           ),
-                                            //           child: Row(
-                                            //             children: <Widget>[
-                                            //               Container(
-                                            //                 width: (70 / 1.2) * animation.value,
-                                            //                 height: 4,
-                                            //                 decoration: BoxDecoration(
-                                            //                   gradient: LinearGradient(colors: <Color>[
-                                            //                     const Color(0xFF87A0E5),
-                                            //                     const Color(0xFF87A0E5).withOpacity(0.5),
-                                            //                   ]),
-                                            //                   borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                                            //                 ),
-                                            //               )
-                                            //             ],
-                                            //           ),
-                                            //         ),
-                                            //       ),
-                                            //       Padding(
-                                            //         padding: const EdgeInsets.only(top: 6),
-                                            //         child: Text(
-                                            //           '12g left',
-                                            //           textAlign: TextAlign.center,
-                                            //           style: TextStyle(
-                                            //             fontFamily: NanenAppTheme.fontName,
-                                            //             fontWeight: FontWeight.w600,
-                                            //             fontSize: 12,
-                                            //             color: NanenAppTheme.grey.withOpacity(0.5),
-                                            //           ),
-                                            //         ),
-                                            //       ),
-                                            //     ],
-                                            //   ),
-                                            // ),
-                                            //
-
-                                            Padding(
-                                              padding: const EdgeInsets.only(left: 4, bottom: 2),
-                                              child: Text(
-                                                'User Info',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontFamily: NanenAppTheme.fontName,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
-                                                  letterSpacing: -0.1,
-                                                  color: NanenAppTheme.grey.withOpacity(0.5),
-                                                ),
+                                            Container(
+                                              height: 48,
+                                              width: 2,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFF87A0E5).withOpacity(0.5),
+                                                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                                               ),
                                             ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              crossAxisAlignment: CrossAxisAlignment.end,
-                                              children: <Widget>[
-                                                SizedBox(
-                                                  width: 24,
-                                                  height: 24,
-                                                  child: Image.asset('assets/logo/logo.png'),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 4, bottom: 3),
-                                                  child: Text(
-                                                    // '${(1127 * animation.value).toInt()}',
-                                                    'djdropthebeat',
-                                                    textAlign: TextAlign.center,
-                                                    style: const TextStyle(
-                                                      fontFamily: NanenAppTheme.fontName,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 18,
-                                                      color: NanenAppTheme.darkerText,
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left: 4, bottom: 2),
+                                                    child: Text(
+                                                      'User Info',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontFamily: NanenAppTheme.fontName,
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 16,
+                                                        letterSpacing: -0.1,
+                                                        color: NanenAppTheme.grey.withOpacity(0.5),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                                    children: <Widget>[
+                                                      SizedBox(
+                                                        width: 24,
+                                                        height: 24,
+                                                        child: Image.asset('assets/logo/logo.png'),
+                                                      ),
+                                                      Padding(
+                                                        padding: const EdgeInsets.only(left: 4, bottom: 3),
+                                                        child: Text(
+                                                          userInfoProvider.userName.toString(),
+                                                          textAlign: TextAlign.center,
+                                                          style: const TextStyle(
+                                                            fontFamily: NanenAppTheme.fontName,
+                                                            fontWeight: FontWeight.w600,
+                                                            fontSize: 18,
+                                                            color: NanenAppTheme.darkerText,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
                                             )
                                           ],
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        height: 48,
-                                        width: 2,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFFF56E98).withOpacity(0.5),
-                                          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+                                        const SizedBox(
+                                          height: 8,
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                        Row(
                                           children: <Widget>[
-                                            Padding(
-                                              padding: const EdgeInsets.only(left: 4, bottom: 2),
-                                              child: Text(
-                                                'Welcome',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontFamily: NanenAppTheme.fontName,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
-                                                  letterSpacing: -0.1,
-                                                  color: NanenAppTheme.grey.withOpacity(0.5),
-                                                ),
+                                            Container(
+                                              height: 48,
+                                              width: 2,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFFF56E98).withOpacity(0.5),
+                                                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                                               ),
                                             ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              crossAxisAlignment: CrossAxisAlignment.end,
-                                              children: const <Widget>[
-                                                // SizedBox(
-                                                //   width: 28,
-                                                //   height: 28,
-                                                //   child: Image.asset('assets/images/fitness_app/burned.png'),
-                                                // ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 4, bottom: 3),
-                                                  child: Text(
-                                                    // '${(102 * animation.value).toInt()}',
-                                                    '오늘 하루를 기록해보세요!',
-                                                    textAlign: TextAlign.center,
-                                                    style: const TextStyle(
-                                                      fontFamily: NanenAppTheme.fontName,
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: 18,
-                                                      color: NanenAppTheme.darkerText,
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left: 4, bottom: 2),
+                                                    child: Text(
+                                                      'Welcome',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontFamily: NanenAppTheme.fontName,
+                                                        fontWeight: FontWeight.w500,
+                                                        fontSize: 16,
+                                                        letterSpacing: -0.1,
+                                                        color: NanenAppTheme.grey.withOpacity(0.5),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                // Padding(
-                                                //   padding: const EdgeInsets.only(left: 8, bottom: 3),
-                                                //   child: Text(
-                                                //     'Kcal',
-                                                //     textAlign: TextAlign.center,
-                                                //     style: TextStyle(
-                                                //       fontFamily: NanenAppTheme.fontName,
-                                                //       fontWeight: FontWeight.w600,
-                                                //       fontSize: 12,
-                                                //       letterSpacing: -0.2,
-                                                //       color: NanenAppTheme.grey.withOpacity(0.5),
-                                                //     ),
-                                                //   ),
-                                                // ),
-                                              ],
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                                    children: const <Widget>[
+                                                      Padding(
+                                                        padding: const EdgeInsets.only(left: 4, bottom: 3),
+                                                        child: Text(
+                                                          '오늘 하루를 기록해보세요!',
+                                                          textAlign: TextAlign.center,
+                                                          style: const TextStyle(
+                                                            fontFamily: NanenAppTheme.fontName,
+                                                            fontWeight: FontWeight.w600,
+                                                            fontSize: 18,
+                                                            color: NanenAppTheme.darkerText,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
                                             )
                                           ],
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          //profile 사진
-                          InkWell(
-                            onTap: () {
-                              // Profile 이미지를 클릭했을 때 EditMypageScreen로 이동
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UpdateProfileScreen(),
-                              ));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: Container(
-                                height: 100,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/images/profile/profile_default.png'),
-                                    fit: BoxFit.cover,
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => UpdateProfileScreen(),
+                                    ));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: Container(
+                                      height: 100,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage('assets/images/profile/profile_default.png'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push<dynamic>(
+                                        context,
+                                        MaterialPageRoute<dynamic>(
+                                          builder: (BuildContext context) => const LoginSignupScreen(),
+                                        ),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        '로그인을 진행해 주세요!',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-
-                          // Padding(
-                          //   padding: const EdgeInsets.only(right: 16),
-                          //   child: Center(
-                          //     child: Stack(
-                          //       clipBehavior: Clip.antiAlias,
-                          //       children: <Widget>[
-                          //         Padding(
-                          //           padding: const EdgeInsets.all(8.0),
-                          //           child: Container(
-                          //             width: 100,
-                          //             height: 100,
-                          //             decoration: BoxDecoration(
-                          //               color: NanenAppTheme.white,
-                          //               borderRadius: const BorderRadius.all(
-                          //                 Radius.circular(100.0),
-                          //               ),
-                          //               border:
-                          //                   Border.all(width: 4, color: NanenAppTheme.nearlyDarkBlue.withOpacity(0.2)),
-                          //             ),
-                          //             child: Column(
-                          //               mainAxisAlignment: MainAxisAlignment.center,
-                          //               children: <Widget>[
-                          //                 Text(
-                          //                   '${(1503 * animation.value).toInt()}',
-                          //                   textAlign: TextAlign.center,
-                          //                   style: const TextStyle(
-                          //                     fontFamily: NanenAppTheme.fontName,
-                          //                     fontWeight: FontWeight.normal,
-                          //                     fontSize: 24,
-                          //                     letterSpacing: 0.0,
-                          //                     color: NanenAppTheme.nearlyDarkBlue,
-                          //                   ),
-                          //                 ),
-                          //                 Text(
-                          //                   'Kcal left',
-                          //                   textAlign: TextAlign.center,
-                          //                   style: TextStyle(
-                          //                     fontFamily: NanenAppTheme.fontName,
-                          //                     fontWeight: FontWeight.bold,
-                          //                     fontSize: 12,
-                          //                     letterSpacing: 0.0,
-                          //                     color: NanenAppTheme.grey.withOpacity(0.5),
-                          //                   ),
-                          //                 ),
-                          //               ],
-                          //             ),
-                          //           ),
-                          //         ),
-                          //         Padding(
-                          //           padding: const EdgeInsets.all(4.0),
-                          //           child: CustomPaint(
-                          //             painter: CurvePainter(colors: <Color>[
-                          //               NanenAppTheme.nearlyDarkBlue,
-                          //               const Color(0xFF8A98E8),
-                          //               const Color(0xFF8A98E8)
-                          //             ], angle: 140 + (360 - 140) * (1.0 - animation.value)),
-                          //             child: const SizedBox(
-                          //               width: 108,
-                          //               height: 108,
-                          //             ),
-                          //           ),
-                          //         )
-                          //       ],
-                          //     ),
-                          //   ),
-                          // )
-                        ],
-                      ),
                     ),
+
                     Padding(
                       padding: const EdgeInsets.only(left: 24, right: 24, top: 8, bottom: 8),
                       child: Container(
@@ -387,7 +308,7 @@ class MediterranesnDietView extends StatelessWidget {
                                     child: Row(
                                       children: <Widget>[
                                         Container(
-                                          width: (70 / 1.2) * animation.value,
+                                          width: (70 / 1.2) * widget.animation.value,
                                           height: 4,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(colors: <Color>[
@@ -448,7 +369,7 @@ class MediterranesnDietView extends StatelessWidget {
                                         child: Row(
                                           children: <Widget>[
                                             Container(
-                                              width: (70 / 2) * animationController.value,
+                                              width: (70 / 2) * widget.animationController.value,
                                               height: 4,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(colors: <Color>[
@@ -510,7 +431,7 @@ class MediterranesnDietView extends StatelessWidget {
                                         child: Row(
                                           children: <Widget>[
                                             Container(
-                                              width: (70 / 2.5) * animationController.value,
+                                              width: (70 / 2.5) * widget.animationController.value,
                                               height: 4,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(colors: <Color>[
@@ -572,7 +493,7 @@ class MediterranesnDietView extends StatelessWidget {
                                         child: Row(
                                           children: <Widget>[
                                             Container(
-                                              width: (70 / 2.5) * animationController.value,
+                                              width: (70 / 2.5) * widget.animationController.value,
                                               height: 4,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(colors: <Color>[

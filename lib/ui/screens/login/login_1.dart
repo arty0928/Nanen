@@ -60,57 +60,24 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
           ),
-          // Positioned(
-          //   top: 0,
-          //   right: 0,
-          //   left: 0,
-          //   child: Container(
-          //     padding: const EdgeInsets.only(top: 90),
-          //     height: 300,
-          //     decoration: const BoxDecoration(
-          //       image: DecorationImage(
-          //         image: AssetImage(tCalmImage),
-          //         fit: BoxFit.fill,
-          //       ),
-          //     ),
-          //     child: Column(
-          //       crossAxisAlignment: CrossAxisAlignment.center,
-          //       children: [
-          //         RichText(
-          //           text: TextSpan(
-          //             text: 'Welcome',
-          //             style: const TextStyle(
-          //               letterSpacing: 1.0,
-          //               fontSize: 25,
-          //               color: Colors.white,
-          //             ),
-          //             children: [
-          //               TextSpan(
-          //                 text: isSignupScreen ? ' to 나는_' : ' back',
-          //                 style: const TextStyle(
-          //                   letterSpacing: 1.0,
-          //                   fontSize: 25,
-          //                   color: Colors.white,
-          //                   fontWeight: FontWeight.bold,
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //         const SizedBox(
-          //           height: 5.0,
-          //         ),
-          //         Text(
-          //           isSignupScreen ? 'Signup to continue' : 'Signin to continue',
-          //           style: const TextStyle(
-          //             letterSpacing: 1.0,
-          //             color: Colors.white,
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          Positioned(
+            top: 0,
+            right: 0,
+            left: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 70),
+              child: Container(
+                padding: const EdgeInsets.only(top: 90),
+                height: 130,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/marketing/app-icon-512.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ),
+          ),
           //배경
           Positioned(
             top: MediaQuery.of(context).size.height - 580,
@@ -360,37 +327,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
             right: 0,
 
             // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
-            child:
-                // EditBtn(
-                //   btnTitle: 'Submit',
-                //   backgroundStartColor: Color(0xFF738AE6),
-                //   backgroundEndColor: Color(0xFF5C5EDD),
-                //   newwidth: 400,
-                //   onPressed: () {
-                //     String userName = usernameController.text;
-                //     String userNickName = userNickNameController.text;
-                //     String userEmail = emailController.text;
-                //     String userPassword = passwordController.text;
-                //     String userPasswordCheck = passwordCheckController.text;
-
-                //     registerUser(userName, userPassword, userEmail, userNickName, userPasswordCheck, context);
-                //     // if (isSignupScreen) {
-                //     //   String userName = usernameController.text;
-                //     //   String userNickName = userNickNameController.text;
-                //     //   String userEmail = emailController.text;
-                //     //   String userPassword = passwordController.text;
-                //     //   String userPasswordCheck = passwordCheckController.text;
-
-                //     //   registerUser(userName, userPassword, userEmail, userNickName, userPasswordCheck, context);
-                //     // } else {
-                //     //   String userEmail = emailController.text;
-                //     //   String userPassword = passwordController.text;
-
-                //     //   loginUser(userEmail, userPassword, context);
-                //     // }
-                //   },
-                // ),
-                Padding(
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(

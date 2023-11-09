@@ -119,6 +119,11 @@ flutter:
     - assets/logo/
     - assets/images/welcome_images/
     - assets/marketing/
+    - assets/mission/1/
+    - assets/mission/2/
+    - assets/mission/3/
+    - assets/mission/4/
+
 
   fonts:
     - family: Cinzel

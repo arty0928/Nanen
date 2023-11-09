@@ -6,10 +6,11 @@ import 'package:wonders/common_libs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 Future<void> loginUser(String userEmail, String userPassword, BuildContext context) async {
   var headers = {'Content-Type': 'application/json'};
-  var url = Uri.parse("https://0c55-222-109-27-193.ngrok-free.app/members/login");
+  var url = Uri.parse("https://113a-220-85-140-6.ngrok-free.app/members/login");
 
   Map body = {
     "email": userEmail.trim(),

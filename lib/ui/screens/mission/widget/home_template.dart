@@ -9,6 +9,7 @@ import 'package:wonders/ui/screens/mission/widget/home_template_widget/meals_lis
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/mission_detail_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/title_view.dart';
 import 'package:wonders/ui/screens/mission/widget/mission_test1.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({
@@ -92,11 +93,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> with TickerProviderStateM
 
     listViews.add(
       MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController,
-            curve: const Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController,
-      ),
+          animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+              parent: widget.animationController,
+              curve: const Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+          animationController: widget.animationController),
     );
 
     listViews.add(
@@ -294,6 +294,12 @@ class _getAppBarUIState extends State<getAppBarUI> {
                                 borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                                 onTap: () {
                                   setState(() {
+                                    // Provider.of<UserInfoProvider>(context, listen: false)
+                                    // .setUserInfo(userName: userName, isLoggedIn: true);
+
+                                    // UserInfoProvider의 정보 출력
+                                    print(Provider.of<UserInfoProvider>(context, listen: false).getUserInfo());
+
                                     currentDate = currentDate.subtract(Duration(days: 1));
                                     updateFormattedDate();
                                     print(formattedDate);
