@@ -1,14 +1,13 @@
 import 'package:wonders/common_libs.dart';
-import 'package:wonders/ui/wonder_illustrations/chichen_itza_illustration.dart';
+import 'package:wonders/ui/wonder_illustrations/people_page.dart';
 import 'package:wonders/ui/wonder_illustrations/colosseum_illustration.dart';
 import 'package:wonders/ui/wonder_illustrations/common/wonder_illustration_config.dart';
 import 'package:wonders/ui/wonder_illustrations/great_wall_illustration.dart';
-import 'package:wonders/ui/wonder_illustrations/petra_illustration.dart';
+import 'package:wonders/ui/wonder_illustrations/calm_page.dart';
 
 /// Convenience class for showing an illustration when all you have is the type.
 class WonderIllustration extends StatelessWidget {
-  const WonderIllustration(this.type, {Key? key, required this.config})
-      : super(key: key);
+  const WonderIllustration(this.type, {Key? key, required this.config}) : super(key: key);
   final WonderIllustrationConfig config;
   final WonderType type;
 

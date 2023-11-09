@@ -347,7 +347,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
               child:
                   //card heart background
                   Card(
-                color: image != null ? widget.data.type.bgColor : Colors.grey,
+                color: image != null ? widget.data.type.bgColor : Colors.grey.withOpacity(0.5),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
                 elevation: 10.0,
                 child: SizedBox(

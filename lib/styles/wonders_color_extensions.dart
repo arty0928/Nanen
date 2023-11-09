@@ -5,7 +5,7 @@ extension WonderColorExtensions on WonderType {
     switch (this) {
       case WonderType.greatWall:
         // return const Color(0xFF642828);
-        return Color(0xFF1E1466);
+        return Color(0xFFBCAAA4);
       case WonderType.petra:
         // return const Color(0xFF444B9B);
         return tCalmColor;
