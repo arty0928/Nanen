@@ -69,7 +69,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 
     Directory appDocDir = await getApplicationDocumentsDirectory();
     Directory assetsDir = Directory(
-      '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}${widget.missionIndex}',
+      '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}',
     );
 
     final String imagePath =
@@ -99,12 +99,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 
     // assets 폴더가 없다면 생성합니다.
     Directory assetsDir = Directory(
-        '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}${widget.missionIndex}');
-    // print("widget.selectedMission");
-    // print(widget.selectedMission);
-
-    // print("widget.data.title");
-    // print(widget.data.title);
+        '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}');
 
     print(assetsDir);
 
@@ -115,7 +110,6 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
     // 이미지를 저장할 경로를 설정합니다.
     final String imagePath =
         '${assetsDir.path}${Platform.pathSeparator}${userInfoProvider.userName}${widget.data.title}${widget.selectedMission.missionTitle}.png';
-
     print("imagePath");
     print(imagePath);
 
@@ -297,10 +291,10 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                         child: AnimatedOpacity(
                           duration: const Duration(milliseconds: 500),
                           opacity: opacity2,
-                          child: const Padding(
+                          child: Padding(
                             padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
                             child: Text(
-                              'Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects.Learn modern web design with gamification aspects. From your fundamentals all the way up to masterclass.',
+                              widget.selectedMission.missionSubTitleText,
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontWeight: FontWeight.w200,

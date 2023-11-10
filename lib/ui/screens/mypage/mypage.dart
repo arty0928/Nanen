@@ -136,43 +136,6 @@ class _MyPageState extends State<MyPageScreen> with TickerProviderStateMixin {
   }
 }
 
-// Widget body() {
-//     return DefaultTabController(
-//       length: 4,
-//       child: Material(
-//         color: NanenAppTheme.background,
-//         child: Stack(
-//           children: [
-//             SizedBox(
-//               height: 200,
-//             ),
-//             Padding(
-//               padding: EdgeInsets.all(8.0),
-//               child: ListView(
-//                 children: const [
-//                   Column(
-//                     children: [
-//                       mypageTop(),
-//                     ],
-//                   ),
-//                   EditBtn(
-//                     btnTitle: 'Edit Profile',
-//                     backgroundStartColor: Color(0xFF738AE6),
-//                     backgroundEndColor: Color(0xFF5C5EDD),
-//                     path: UpdateProfileScreen(),
-//                   ),
-//                   const SizedBox(
-//                     height: 10,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
 class MyPageBody extends StatefulWidget {
   const MyPageBody({super.key, required this.animationController, required this.animation});
 
@@ -231,16 +194,16 @@ class _MyPageBodyState extends State<MyPageBody> with TickerProviderStateMixin {
   // tab bar views
   final List<Widget> tabBarViews = const [
     TabCategory(
-      tabCategory: 'active',
+      tabCategory: 'Active',
     ),
     TabCategory(
-      tabCategory: 'calm',
+      tabCategory: 'Calm',
     ),
     TabCategory(
-      tabCategory: 'active',
+      tabCategory: 'Creative',
     ),
     TabCategory(
-      tabCategory: 'calm',
+      tabCategory: 'People',
     ),
   ];
 

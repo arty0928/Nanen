@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:wonders/common_libs.dart';
+import 'package:wonders/ui/screens/mypage/top/widget/image_count.dart';
 import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class MyPageNumbers extends StatefulWidget {
@@ -16,7 +19,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
 
   void initState() {
     super.initState();
-    print("여기는 마이페이지");
+    print("여기는 마이페이지 넘버");
 
     userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
 
@@ -29,6 +32,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
     });
 
     userInfoProvider.getUserInfo();
+    userInfoProvider.getImageCount();
   }
 
   @override
@@ -63,7 +67,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
             Column(
               children: [
                 Text(
-                  '10',
+                  userInfoProvider.activeCount.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
                 Text(
@@ -75,7 +79,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
             Column(
               children: [
                 Text(
-                  '14',
+                  userInfoProvider.calmCount.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
                 Text(
@@ -87,7 +91,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
             Column(
               children: [
                 Text(
-                  '17',
+                  userInfoProvider.creativeCount.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
                 Text(
@@ -99,7 +103,7 @@ class _MyPageNumbersState extends State<MyPageNumbers> {
             Column(
               children: [
                 Text(
-                  '9',
+                  userInfoProvider.peopleCount.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: NanenAppTheme.fontName),
                 ),
                 Text(

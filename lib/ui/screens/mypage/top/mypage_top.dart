@@ -3,9 +3,16 @@ import 'package:wonders/logic/data/wonders_data/nanen_image_data.dart/image_stri
 import 'package:wonders/ui/screens/mypage/top/widget/mypage_numbers.dart';
 import 'package:wonders/ui/screens/mypage/update_profile_screen.dart'; // EditMypageScreen을 import 해주세요
 
-class MyPageTop extends StatelessWidget {
-  const MyPageTop({super.key});
+class MyPageTop extends StatefulWidget {
+  const MyPageTop({
+    super.key,
+  });
 
+  @override
+  State<MyPageTop> createState() => _MyPageTopState();
+}
+
+class _MyPageTopState extends State<MyPageTop> {
   @override
   Widget build(BuildContext context) {
     return Padding(

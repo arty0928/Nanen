@@ -70,6 +70,14 @@ class GreatWallData extends WonderData {
               $strings.activeMissionTitle5: $strings.activeMissionSubtitle5,
               $strings.activeMissionTitle6: $strings.activeMissionSubtitle6,
             },
+            subTitleText: [
+              $strings.creativeMissionSubtitleText1,
+              $strings.creativeMissionSubtitleText2,
+              $strings.creativeMissionSubtitleText3,
+              $strings.creativeMissionSubtitleText4,
+              $strings.creativeMissionSubtitleText5,
+              $strings.creativeMissionSubtitleText6
+            ],
             imageUrl: [
               '',
               '',

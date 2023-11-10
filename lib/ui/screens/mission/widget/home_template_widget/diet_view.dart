@@ -41,6 +41,7 @@ class _MediterranesnDietViewState extends State<MediterranesnDietView> {
     });
 
     userInfoProvider.getUserInfo();
+    userInfoProvider.getImageCount();
   }
 
   @override
@@ -325,7 +326,7 @@ class _MediterranesnDietViewState extends State<MediterranesnDietView> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    '12g left',
+                                    '${userInfoProvider.activeCount.toString()} done',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: NanenAppTheme.fontName,
@@ -386,7 +387,7 @@ class _MediterranesnDietViewState extends State<MediterranesnDietView> {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '30g left',
+                                        '${userInfoProvider.calmCount.toString()} done',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: NanenAppTheme.fontName,
@@ -448,7 +449,7 @@ class _MediterranesnDietViewState extends State<MediterranesnDietView> {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '10g left',
+                                        '${userInfoProvider.creativeCount.toString()} done',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: NanenAppTheme.fontName,
@@ -510,7 +511,7 @@ class _MediterranesnDietViewState extends State<MediterranesnDietView> {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '10g left',
+                                        '${userInfoProvider.peopleCount.toString()} done',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: NanenAppTheme.fontName,

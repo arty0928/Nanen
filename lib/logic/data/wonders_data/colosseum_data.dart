@@ -70,6 +70,14 @@ class ColosseumData extends WonderData {
               $strings.calmMissionTitle5: $strings.calmMissionSubtitle5,
               $strings.calmMissionTitle6: $strings.calmMissionSubtitle6,
             },
+            subTitleText: [
+              $strings.calmMissionSubtitleText1,
+              $strings.calmMissionSubtitleText2,
+              $strings.calmMissionSubtitleText3,
+              $strings.calmMissionSubtitleText4,
+              $strings.calmMissionSubtitleText5,
+              $strings.calmMissionSubtitleText6
+            ],
             imageUrl: [
               '',
               '',

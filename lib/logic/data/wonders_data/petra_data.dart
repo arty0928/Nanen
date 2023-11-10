@@ -48,6 +48,14 @@ class PetraData extends WonderData {
               $strings.peopleMissionTitle5: $strings.peopleMissionSubtitle5,
               $strings.peopleMissionTitle6: $strings.peopleMissionSubtitle6,
             },
+            subTitleText: [
+              $strings.peopleMissionSubtitleText1,
+              $strings.peopleMissionSubtitleText2,
+              $strings.peopleMissionSubtitleText3,
+              $strings.peopleMissionSubtitleText4,
+              $strings.peopleMissionSubtitleText5,
+              $strings.peopleMissionSubtitleText6
+            ],
             imageUrl: [
               '',
               '',

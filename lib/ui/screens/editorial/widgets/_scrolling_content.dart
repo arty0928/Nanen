@@ -50,6 +50,7 @@ class _ScrollingContent extends StatelessWidget {
       final mission = entry.value;
       final title = _truncateString(mission.missionTitle, 20);
       final subtitle = _truncateString(mission.missionSubTitle, 30);
+      final subTitleText = _truncateString(mission.missionSubTitleText, 80);
       String missionPic = mission.missionPic;
       bool missionPicIsDone = mission.missionPicIsDone;
       String aiDiary = mission.aiDiary;
@@ -67,6 +68,7 @@ class _ScrollingContent extends StatelessWidget {
           missionPicIsDone: missionPicIsDone,
           aiDiary: aiDiary,
           aiDiaryIsDone: aiDiaryIsDone,
+          subTitleText: subTitleText,
         ),
       );
     }).toList();
@@ -83,6 +85,7 @@ class missionBox extends StatelessWidget {
   final BuildContext context;
   final String title;
   final String subtitle;
+  final String subTitleText;
   String missionPic = '';
   bool missionPicIsDone = false;
   String aiDiary = '';
@@ -98,7 +101,8 @@ class missionBox extends StatelessWidget {
       required this.missionPic,
       required this.missionPicIsDone,
       required this.aiDiary,
-      required this.aiDiaryIsDone})
+      required this.aiDiaryIsDone,
+      required this.subTitleText})
       : super(key: key);
 
   @override
@@ -113,8 +117,8 @@ class missionBox extends StatelessWidget {
               child: MissionDetailScreen(
                   missionIndex: missionIndex,
                   data: data,
-                  selectedMission:
-                      MissionList(title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone))));
+                  selectedMission: MissionList(
+                      title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone, subTitleText))));
         },
         child: Center(
           child: Column(

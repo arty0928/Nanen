@@ -61,7 +61,7 @@ Future<void> registerUser(String userName, String userPassword, String userEmail
             },
           );
 
-          Provider.of<UserInfoProvider>(context, listen: false).setUserInfo(userName: userName, isLoggedIn: true);
+          Provider.of<UserInfoProvider>(context, listen: false).setUserInfo(userName: userName);
 
           // UserInfoProvider의 정보 출력
           print(Provider.of<UserInfoProvider>(context, listen: false).getUserInfo());
