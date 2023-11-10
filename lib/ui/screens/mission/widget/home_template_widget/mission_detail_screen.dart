@@ -8,6 +8,7 @@ import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
 import 'package:wonders/ui/screens/editorial/editorial_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/upload_image.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class MissionDetailScreen extends StatefulWidget {
   final int missionIndex;
@@ -20,6 +21,8 @@ class MissionDetailScreen extends StatefulWidget {
 }
 
 class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerProviderStateMixin {
+  late UserInfoProvider userInfoProvider;
+
   final double infoHeight = 364.0;
   double opacity1 = 0.0;
   double opacity2 = 0.0;
@@ -61,13 +64,16 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
   }
 
   Future<void> checkImageIsExist() async {
+    userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
+    userInfoProvider.getUserInfo();
+
     Directory appDocDir = await getApplicationDocumentsDirectory();
     Directory assetsDir = Directory(
       '${appDocDir.path}${Platform.pathSeparator}assets${Platform.pathSeparator}mission${Platform.pathSeparator}${widget.missionIndex}',
     );
 
     final String imagePath =
-        '${assetsDir.path}${Platform.pathSeparator}${widget.data.title}${widget.selectedMission.missionTitle}.png';
+        '${assetsDir.path}${Platform.pathSeparator}${userInfoProvider.userName}${widget.data.title}${widget.selectedMission.missionTitle}.png';
 
     final File imageFile = File(imagePath);
 
@@ -84,6 +90,10 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 
   Future<void> saveImage(File image, WonderData data) async {
     // 애플리케이션 문서 디렉토리를 얻어옵니다.
+
+    userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
+    userInfoProvider.getUserInfo();
+
     Directory appDocDir = await getApplicationDocumentsDirectory();
     print(appDocDir);
 
@@ -104,7 +114,8 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 
     // 이미지를 저장할 경로를 설정합니다.
     final String imagePath =
-        '${assetsDir.path}${Platform.pathSeparator}${widget.data.title}${widget.selectedMission.missionTitle}.png';
+        '${assetsDir.path}${Platform.pathSeparator}${userInfoProvider.userName}${widget.data.title}${widget.selectedMission.missionTitle}.png';
+
     print("imagePath");
     print(imagePath);
 
