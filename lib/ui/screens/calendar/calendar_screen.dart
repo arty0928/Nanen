@@ -4,6 +4,7 @@ import 'package:wonders/common_libs.dart';
 
 import 'package:intl/intl.dart';
 import 'package:wonders/ui/screens/calendar/widget/calendar_form.dart';
+import 'package:wonders/ui/screens/calendar/widget/calendar_screen.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/title_view.dart';
 
 class CalendarScreen extends StatefulWidget {
@@ -73,7 +74,6 @@ class _MyDiaryScreenState extends State<CalendarScreen> with TickerProviderState
       }
     });
   }
-  
 
   @override
   void dispose() {
@@ -84,16 +84,18 @@ class _MyDiaryScreenState extends State<CalendarScreen> with TickerProviderState
   void addAllListData() {
     // const int count = 6;
 
-    listViews.add(
-      SfCalendar(
-        view: CalendarView.month,
-        dataSource: MeetingDataSource(_getDataSource()),
+    // listViews.add(
+    //   SfCalendar(
+    //     view: CalendarView.month,
+    //     dataSource: MeetingDataSource(_getDataSource()),
 
-        // 수정 x
-        initialSelectedDate: DateTime.now(),
-        cellBorderColor: Colors.transparent,
-      ),
-    );
+    //     // 수정 x
+    //     initialSelectedDate: DateTime.now(),
+    //     cellBorderColor: Colors.transparent,
+    //   ),
+    // );
+    listViews.add(MyCalandarScreen());
+
     // listViews.add(
     //   MealsListView(
     //     mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(

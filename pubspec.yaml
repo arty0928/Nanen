@@ -67,6 +67,9 @@ dependencies:
   path: ^1.8.3
   # cloud_firestore: ^3.2.0
 
+  #calandar
+  flutter_heatmap_calendar: ^1.0.5
+
 
 
 dependency_overrides:
@@ -123,6 +126,7 @@ flutter:
     - assets/mission/2/
     - assets/mission/3/
     - assets/mission/4/
+    - lib/images/
 
 
   fonts:
