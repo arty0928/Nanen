@@ -7,6 +7,7 @@ import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/data/mission_data.dart';
 import 'package:wonders/logic/data/wonder_data.dart';
 import 'package:wonders/ui/screens/editorial/editorial_screen.dart';
+import 'package:wonders/ui/screens/mission/widget/home_template_widget/aidiary.dart';
 import 'package:wonders/ui/screens/mission/widget/home_template_widget/upload_image.dart';
 import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
@@ -339,7 +340,12 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                                         ),
                                         minimumSize: const Size(1000, 48),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => AIScreen()),
+                                        );
+                                      },
                                       child: const Text(
                                         'AI Diary',
                                         textAlign: TextAlign.left,
