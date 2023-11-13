@@ -34,6 +34,17 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
 
   late final AnimationController animationController;
   late final Animation<double> animation;
+  late String titleText1_bold;
+  late String titleText1_plain;
+
+  late String titleText2_bold;
+  late String titleText2_plain;
+
+  late String titleText3_bold;
+  late String titleText3_plain;
+
+  late String titleText4_bold;
+  late String titleText4_plain;
   @override
   void initState() {
     super.initState();
@@ -42,6 +53,34 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
         CurvedAnimation(parent: animationController, curve: const Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
     setData();
     checkImageIsExist();
+
+    final Map<String, String> subtitleParts = splitSubtitleText(widget.selectedMission.missionSubTitleText);
+    titleText1_bold = subtitleParts['bold']!;
+    titleText1_plain = subtitleParts['plain']!;
+    print("title1");
+    print(titleText1_bold);
+    print(titleText1_plain);
+
+    final Map<String, String> subtitleParts2 = splitSubtitleText(widget.selectedMission.missionSubTitleText2);
+    titleText2_bold = subtitleParts2['bold']!;
+    titleText2_plain = subtitleParts2['plain']!;
+    print("title2");
+    print(titleText2_bold);
+    print(titleText2_plain);
+
+    final Map<String, String> subtitleParts3 = splitSubtitleText(widget.selectedMission.missionSubTitleText3);
+    titleText3_bold = subtitleParts3['bold']!;
+    titleText3_plain = subtitleParts3['plain']!;
+    print("title3");
+    print(titleText3_bold);
+    print(titleText3_plain);
+
+    final Map<String, String> subtitleParts4 = splitSubtitleText(widget.selectedMission.missionSubTitleText4);
+    titleText4_bold = subtitleParts4['bold']!;
+    titleText4_plain = subtitleParts4['plain']!;
+    print("title4");
+    print(titleText4_bold);
+    print(titleText4_plain);
   }
 
   @override
@@ -62,6 +101,21 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
       // 이미지를 저장
       await saveImage(File(image!.path), widget.data);
     }
+  }
+
+  Map<String, String> splitSubtitleText(String argumentText) {
+    String bold = "";
+    String plain = argumentText;
+
+    if (argumentText.contains(":")) {
+      List<String> split = argumentText.split(":");
+      print(split);
+      print(split[0]);
+      bold = split[0];
+      plain = split[1];
+    }
+
+    return {'bold': bold, 'plain': plain};
   }
 
   Future<void> checkImageIsExist() async {
@@ -165,6 +219,41 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
     }
   }
 
+  Widget _buildTextWithBullet(String bold, String plain) {
+    return Padding(
+      padding: EdgeInsets.only(top: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center, // 상단에 정렬
+        children: [
+          Container(
+            width: 8, // 동그라미 너비
+            height: 8, // 동그라미 높이
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: widget.data.type.bgColor, // 동그라미 색상
+            ),
+          ),
+          SizedBox(width: 8), // 동그라미와 텍스트 사이의 간격
+          Expanded(
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 14,
+                  letterSpacing: 0.27,
+                  color: NanenAppTheme.grey,
+                ),
+                children: <TextSpan>[
+                  TextSpan(text: bold, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  TextSpan(text: plain),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final double tempHeight = MediaQuery.of(context).size.height - (MediaQuery.of(context).size.width / 1.2) + 24.0;
@@ -237,14 +326,14 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
               child: Padding(
                 padding: const EdgeInsets.only(left: 8, right: 8),
                 child: Container(
-                  constraints: BoxConstraints(
-                      minHeight: infoHeight, maxHeight: tempHeight > infoHeight ? tempHeight : infoHeight),
+                  // constraints: BoxConstraints(
+                  // minHeight: infoHeight, maxHeight: tempHeight > infoHeight ? tempHeight : infoHeight),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(top: 32.0, left: 18, right: 10),
+                        padding: EdgeInsets.only(left: 18, right: 10, top: 25),
                         child: Text(
                           widget.selectedMission.missionTitle,
                           textAlign: TextAlign.left,
@@ -255,25 +344,26 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                               color: widget.data.type.bgColor),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 16, right: 16, bottom: 3, top: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              // '40분동안 스트레칭을 해보세요!',
-                              widget.data.subTitle,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w200,
-                                fontSize: 10,
-                                letterSpacing: 0.27,
-                                color: widget.data.type.bgColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsets.only(left: 16, right: 16, bottom: 3, top: 5),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     children: <Widget>[
+                      //       Text(
+                      //         // '40분동안 스트레칭을 해보세요!',
+                      //         widget.data.subTitle,
+                      //         textAlign: TextAlign.left,
+                      //         style: TextStyle(
+                      //           fontWeight: FontWeight.w200,
+                      //           fontSize: 10,
+                      //           letterSpacing: 0.27,
+                      //           color: widget.data.type.bgColor,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+
                       AnimatedOpacity(
                         duration: const Duration(milliseconds: 500),
                         opacity: opacity1,
@@ -288,27 +378,119 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: AnimatedOpacity(
-                          duration: const Duration(milliseconds: 500),
-                          opacity: opacity2,
+
+                      //text 4개를 scroll vi
+                      // AnimatedOpacity(
+                      //   duration: const Duration(milliseconds: 500),
+                      //   opacity: opacity2,
+                      //   child: Padding(
+                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                      //       child: Stack(
+                      //         children: [
+                      //           Text(
+                      //             widget.selectedMission.missionSubTitleText,
+                      //             textAlign: TextAlign.justify,
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w200,
+                      //               fontSize: 14,
+                      //               letterSpacing: 0.27,
+                      //               color: NanenAppTheme.grey,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       )),
+                      // ),
+                      // AnimatedOpacity(
+                      //   duration: const Duration(milliseconds: 500),
+                      //   opacity: opacity2,
+                      //   child: Padding(
+                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                      //       child: Stack(
+                      //         children: [
+                      //           Text(
+                      //             widget.selectedMission.missionSubTitleText2,
+                      //             textAlign: TextAlign.justify,
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w200,
+                      //               fontSize: 14,
+                      //               letterSpacing: 0.27,
+                      //               color: NanenAppTheme.grey,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       )),
+                      // ),
+                      // AnimatedOpacity(
+                      //   duration: const Duration(milliseconds: 500),
+                      //   opacity: opacity2,
+                      //   child: Padding(
+                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                      //       child: Stack(
+                      //         children: [
+                      //           Text(
+                      //             widget.selectedMission.missionSubTitleText3,
+                      //             textAlign: TextAlign.justify,
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w200,
+                      //               fontSize: 14,
+                      //               letterSpacing: 0.27,
+                      //               color: NanenAppTheme.grey,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       )),
+                      // ),
+                      // AnimatedOpacity(
+                      //   duration: const Duration(milliseconds: 500),
+                      //   opacity: opacity2,
+                      //   child: Padding(
+                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+                      //       child: Stack(
+                      //         children: [
+                      //           Text(
+                      //             widget.selectedMission.missionSubTitleText4,
+                      //             textAlign: TextAlign.justify,
+                      //             style: TextStyle(
+                      //               fontWeight: FontWeight.w200,
+                      //               fontSize: 14,
+                      //               letterSpacing: 0.27,
+                      //               color: NanenAppTheme.grey,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       )),
+                      // ),
+
+                      // TODO : 사이즈를 220으로 정하고 넘치면 사이즈가 220인 박스 내에서 스크롤 할 수 있도록 해줘
+                      SingleChildScrollView(
+                        child: SizedBox(
+                          height: 250,
                           child: Padding(
-                            padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                            child: Text(
-                              widget.selectedMission.missionSubTitleText,
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w200,
-                                fontSize: 14,
-                                letterSpacing: 0.27,
-                                color: NanenAppTheme.grey,
-                              ),
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
+                            padding: EdgeInsets.only(left: 16, right: 16),
+                            child: Column(
+                              children: [
+                                _buildTextWithBullet(titleText1_bold, titleText1_plain),
+                                SizedBox(
+                                  height: 6,
+                                ),
+                                _buildTextWithBullet(titleText2_bold, titleText2_plain),
+                                SizedBox(
+                                  height: 6,
+                                ),
+                                _buildTextWithBullet(titleText3_bold, titleText3_plain),
+                                SizedBox(
+                                  height: 6,
+                                ),
+                                _buildTextWithBullet(titleText4_bold, titleText4_plain),
+                                SizedBox(
+                                  height: 6,
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
+
                       AnimatedOpacity(
                         duration: const Duration(milliseconds: 500),
                         opacity: opacity3,

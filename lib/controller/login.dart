@@ -28,6 +28,13 @@ Future<void> loginUser(String userEmail, String userPassword, BuildContext conte
       Map<String, dynamic> result = jsonDecode(response.body)['result'];
       print(result);
 
+      var userName = userEmail.split('@')[0];
+
+      Provider.of<UserInfoProvider>(context, listen: false).setUserInfo(userName: userName);
+
+      // UserInfoProvider의 정보 출력
+      print(Provider.of<UserInfoProvider>(context, listen: false).getUserInfo());
+
       appRouter.go(ScreenPaths.home);
     } else {
       // 로그인 실패 처리

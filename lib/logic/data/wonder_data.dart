@@ -24,6 +24,9 @@ class WonderData extends Equatable {
     this.searchData = const [],
     this.searchSuggestions = const [],
     required this.imageUrl,
+    required List<String> subTitleText_2,
+    required List<String> subTitleText_3,
+    required List<String> subTitleText_4,
   });
 
   final WonderType type;

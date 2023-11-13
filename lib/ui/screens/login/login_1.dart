@@ -5,6 +5,7 @@ import 'package:wonders/logic/data/wonders_data/nanen_image_data.dart/image_stri
 import 'package:wonders/model/model.dart';
 import 'package:wonders/ui/screens/home/wonders_home_screen.dart';
 import 'package:wonders/ui/screens/mypage/widget/edit_profile_btn.dart';
+import 'package:wonders/ui/userInfo/userInfoProvider.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({super.key});
@@ -26,6 +27,35 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   final TextEditingController emailController = TextEditingController();
 
   late UserModel user;
+
+  late UserInfoProvider userInfoProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    print("홈화면 바뀜");
+
+    userInfoProvider = Provider.of<UserInfoProvider>(context, listen: false);
+
+    // userInfo의 변화를 감지하여 화면 업데이트
+    // userInfo의 변화를 감지하여 화면 업데이트
+    userInfoProvider.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+
+    userInfoProvider.getUserInfo();
+    userInfoProvider.getImageCount();
+  }
+
+  @override
+  void dispose() {
+    // dispose에서 listener를 제거해야 합니다.
+    userInfoProvider.removeListener(() {});
+
+    super.dispose();
+  }
 
 // 이메일 형식이 유효한지 확인하는 함수
   bool isEmailValid(String email) {
@@ -79,280 +109,317 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
             ),
           ),
           //배경
-          Positioned(
-            top: MediaQuery.of(context).size.height - 580,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeIn,
-              padding: const EdgeInsets.all(20),
-              // height: isSignupScreen ? 280 : 250,
-              height: 380,
-              width: MediaQuery.of(context).size.width - 40,
-              margin: const EdgeInsets.symmetric(horizontal: 20.0),
-
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+          userInfoProvider.isLoggedIn
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isSignupScreen = false;
-                          });
-                        },
-                        child: Column(
-                          children: [
-                            Text(
-                              'LOGIN',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: !isSignupScreen ? tActiveColor : tTextColor1,
-                                  fontFamily: NanenAppTheme.fontName
-                                  //isSignUpScreen일 경우 activeColor, 아닐경우 textColor1 - 삼항조건 연산자
-                                  ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            userInfoProvider.logout();
+                            appRouter.go(ScreenPaths.home);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
-                            if (!isSignupScreen) //inline if
-                              Container(
-                                margin: const EdgeInsets.only(top: 3),
-                                height: 2,
-                                width: 55,
-                                color: NanenAppTheme.nearlyDarkBlue,
-                              ),
-                          ],
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isSignupScreen = true;
-                          });
-                        },
-                        child: Column(
-                          children: [
-                            Text(
-                              'SIGN UP',
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              '로그 아웃',
                               style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: isSignupScreen ? tActiveColor : tTextColor1,
-                                  fontFamily: NanenAppTheme.fontName),
-                            ),
-                            if (isSignupScreen)
-                              Container(
-                                margin: const EdgeInsets.only(top: 3),
-                                height: 2,
-                                width: 55,
-                                color: NanenAppTheme.nearlyDarkBlue,
+                                color: Colors.white,
                               ),
-                          ],
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  if (isSignupScreen)
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      child: Form(
-                        // key: _formKey,
+                )
+              : Stack(
+                  children: [
+                    Positioned(
+                      top: MediaQuery.of(context).size.height - 580,
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn,
+                        padding: const EdgeInsets.all(20),
+                        // height: isSignupScreen ? 280 : 250,
+                        height: 380,
+                        width: MediaQuery.of(context).size.width - 40,
+                        margin: const EdgeInsets.symmetric(horizontal: 20.0),
+
                         child: Column(
                           children: [
-                            //Nickname
-                            TextFormField(
-                              key: const ValueKey(1),
-                              controller: userNickNameController,
-                              validator: (value) {
-                                if (value!.isEmpty || value.length < 4) {
-                                  return 'Please enter at least 4 characters';
-                                }
-                                return null;
-                              },
-                              decoration: CustomeInputDeco(Icons.account_circle_rounded, 'Nickname'),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      isSignupScreen = false;
+                                    });
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'LOGIN',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: !isSignupScreen ? tActiveColor : tTextColor1,
+                                            fontFamily: NanenAppTheme.fontName
+                                            //isSignUpScreen일 경우 activeColor, 아닐경우 textColor1 - 삼항조건 연산자
+                                            ),
+                                      ),
+                                      if (!isSignupScreen) //inline if
+                                        Container(
+                                          margin: const EdgeInsets.only(top: 3),
+                                          height: 2,
+                                          width: 55,
+                                          color: NanenAppTheme.nearlyDarkBlue,
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      isSignupScreen = true;
+                                    });
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'SIGN UP',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: isSignupScreen ? tActiveColor : tTextColor1,
+                                            fontFamily: NanenAppTheme.fontName),
+                                      ),
+                                      if (isSignupScreen)
+                                        Container(
+                                          margin: const EdgeInsets.only(top: 3),
+                                          height: 2,
+                                          width: 55,
+                                          color: NanenAppTheme.nearlyDarkBlue,
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            // // User name
-                            TextFormField(
-                              key: const ValueKey(2),
-                              controller: usernameController,
-                              validator: (value) {
-                                if (value!.isEmpty || value.length < 4) {
-                                  return 'Please enter at least 4 characters';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userName = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userName = value;
-                              // },
-                              decoration: CustomeInputDeco(Icons.account_circle, 'Username'),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            //User email
-                            TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              controller: emailController,
-                              key: const ValueKey(3),
-                              validator: (value) {
-                                if (value!.isEmpty || !value.contains('@')) {
-                                  return 'Please enter a valid email address.';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userEmail = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userEmail = value;
-                              // },
-                              decoration: CustomeInputDeco(
-                                Icons.email,
-                                'Email',
+                            if (isSignupScreen)
+                              Container(
+                                margin: const EdgeInsets.only(top: 20),
+                                child: Form(
+                                  // key: _formKey,
+                                  child: Column(
+                                    children: [
+                                      //Nickname
+                                      TextFormField(
+                                        key: const ValueKey(1),
+                                        controller: userNickNameController,
+                                        validator: (value) {
+                                          if (value!.isEmpty || value.length < 4) {
+                                            return 'Please enter at least 4 characters';
+                                          }
+                                          return null;
+                                        },
+                                        decoration: CustomeInputDeco(Icons.account_circle_rounded, 'Nickname'),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      // // User name
+                                      TextFormField(
+                                        key: const ValueKey(2),
+                                        controller: usernameController,
+                                        validator: (value) {
+                                          if (value!.isEmpty || value.length < 4) {
+                                            return 'Please enter at least 4 characters';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userName = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userName = value;
+                                        // },
+                                        decoration: CustomeInputDeco(Icons.account_circle, 'Username'),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      //User email
+                                      TextFormField(
+                                        keyboardType: TextInputType.emailAddress,
+                                        controller: emailController,
+                                        key: const ValueKey(3),
+                                        validator: (value) {
+                                          if (value!.isEmpty || !value.contains('@')) {
+                                            return 'Please enter a valid email address.';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userEmail = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userEmail = value;
+                                        // },
+                                        decoration: CustomeInputDeco(
+                                          Icons.email,
+                                          'Email',
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      //password
+                                      TextFormField(
+                                        controller: passwordController,
+                                        obscureText: true,
+                                        key: const ValueKey(4),
+                                        validator: (value) {
+                                          //firebase인증 사용할 시 패스워드 길이 반드시 6자 이상이여야 함!(그렇지 않으면 오류발생)
+                                          if (value!.isEmpty || value.length < 6) {
+                                            return 'Password must be at least 7 characters long.';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userPassword = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userPassword = value;
+                                        // },
+                                        decoration: CustomeInputDeco(Icons.lock, 'Password'),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      //passwordcheck
+                                      TextFormField(
+                                        controller: passwordCheckController,
+                                        obscureText: true,
+                                        key: const ValueKey(5),
+                                        validator: (value) {
+                                          //firebase인증 사용할 시 패스워드 길이 반드시 6자 이상이여야 함!(그렇지 않으면 오류발생)
+                                          if (value!.isEmpty) {
+                                            return 'Password isn\'t correct.';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userPassword = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userPassword = value;
+                                        // },
+                                        decoration: CustomeInputDeco(Icons.lock, 'Password check'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            //password
-                            TextFormField(
-                              controller: passwordController,
-                              obscureText: true,
-                              key: const ValueKey(4),
-                              validator: (value) {
-                                //firebase인증 사용할 시 패스워드 길이 반드시 6자 이상이여야 함!(그렇지 않으면 오류발생)
-                                if (value!.isEmpty || value.length < 6) {
-                                  return 'Password must be at least 7 characters long.';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userPassword = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userPassword = value;
-                              // },
-                              decoration: CustomeInputDeco(Icons.lock, 'Password'),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            //passwordcheck
-                            TextFormField(
-                              controller: passwordCheckController,
-                              obscureText: true,
-                              key: const ValueKey(5),
-                              validator: (value) {
-                                //firebase인증 사용할 시 패스워드 길이 반드시 6자 이상이여야 함!(그렇지 않으면 오류발생)
-                                if (value!.isEmpty) {
-                                  return 'Password isn\'t correct.';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userPassword = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userPassword = value;
-                              // },
-                              decoration: CustomeInputDeco(Icons.lock, 'Password check'),
-                            ),
+                            if (!isSignupScreen)
+                              Container(
+                                margin: const EdgeInsets.only(top: 20),
+                                child: Form(
+                                  // key: _formKey,
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        controller: emailController,
+                                        key: const ValueKey(3),
+                                        validator: (value) {
+                                          if (value!.isEmpty || !value.contains('@')) {
+                                            return 'Please enter a valid email address.';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userEmail = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userEmail = value;
+                                        // },
+                                        decoration: CustomeInputDeco(Icons.email, 'Email'),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      TextFormField(
+                                        controller: passwordController,
+                                        obscureText: true,
+                                        key: const ValueKey(4),
+                                        validator: (value) {
+                                          if (value!.isEmpty || value.length < 6) {
+                                            return 'Password must be at least 7 characters long.';
+                                          }
+                                          return null;
+                                        },
+                                        // onSaved: (value) {
+                                        //   userPassword = value!;
+                                        // },
+                                        // onChanged: (value) {
+                                        //   userPassword = value;
+                                        // },
+                                        decoration: CustomeInputDeco(Icons.password, 'Password'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                           ],
                         ),
                       ),
                     ),
-                  if (!isSignupScreen)
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      child: Form(
-                        // key: _formKey,
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              controller: emailController,
-                              key: const ValueKey(3),
-                              validator: (value) {
-                                if (value!.isEmpty || !value.contains('@')) {
-                                  return 'Please enter a valid email address.';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userEmail = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userEmail = value;
-                              // },
-                              decoration: CustomeInputDeco(Icons.email, 'Email'),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            TextFormField(
-                              controller: passwordController,
-                              obscureText: true,
-                              key: const ValueKey(4),
-                              validator: (value) {
-                                if (value!.isEmpty || value.length < 6) {
-                                  return 'Password must be at least 7 characters long.';
-                                }
-                                return null;
-                              },
-                              // onSaved: (value) {
-                              //   userPassword = value!;
-                              // },
-                              // onChanged: (value) {
-                              //   userPassword = value;
-                              // },
-                              decoration: CustomeInputDeco(Icons.password, 'Password'),
-                            ),
-                          ],
+
+                    //전송버튼
+                    Positioned(
+                      top: MediaQuery.of(context).size.height - 230,
+                      left: 0,
+                      right: 0,
+
+                      // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF738AE6),
+                          ),
+                          child: Text('Submit'),
+                          onPressed: () async {
+                            if (isSignupScreen) {
+                              String userName = usernameController.text;
+                              String userNickName = userNickNameController.text;
+                              String userEmail = emailController.text;
+                              String userPassword = passwordController.text;
+                              String userPasswordCheck = passwordCheckController.text;
+
+                              registerUser(userName, userPassword, userEmail, userNickName, userPasswordCheck, context);
+                            } else {
+                              String userEmail = emailController.text;
+                              String userPassword = passwordController.text;
+
+                              loginUser(userEmail, userPassword, context);
+                            }
+                          },
                         ),
                       ),
                     ),
-                ],
-              ),
-            ),
-          ),
-
-          //전송버튼
-          Positioned(
-            top: MediaQuery.of(context).size.height - 230,
-            left: 0,
-            right: 0,
-
-            // top: isSignupScreen ? MediaQuery.of(context).size.height - 125 : MediaQuery.of(context).size.height - 165,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF738AE6),
-                ),
-                child: Text('Submit'),
-                onPressed: () async {
-                  if (isSignupScreen) {
-                    String userName = usernameController.text;
-                    String userNickName = userNickNameController.text;
-                    String userEmail = emailController.text;
-                    String userPassword = passwordController.text;
-                    String userPasswordCheck = passwordCheckController.text;
-
-                    registerUser(userName, userPassword, userEmail, userNickName, userPasswordCheck, context);
-                  } else {
-                    String userEmail = emailController.text;
-                    String userPassword = passwordController.text;
-
-                    loginUser(userEmail, userPassword, context);
-                  }
-                },
-              ),
-            ),
-          ),
+                  ],
+                )
         ],
       ),
     );

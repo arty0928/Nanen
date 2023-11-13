@@ -41,6 +41,30 @@ class ChichenItzaData extends WonderData {
               $strings.activeMissionSubtitleText5,
               $strings.activeMissionSubtitleText6
             ],
+            subTitleText_2: [
+              $strings.activeMissionSubtitleText1_2,
+              $strings.activeMissionSubtitleText2_2,
+              $strings.activeMissionSubtitleText3_2,
+              $strings.activeMissionSubtitleText4_2,
+              $strings.activeMissionSubtitleText5_2,
+              $strings.activeMissionSubtitleText6_2
+            ],
+            subTitleText_3: [
+              $strings.activeMissionSubtitleText1_3,
+              $strings.activeMissionSubtitleText2_3,
+              $strings.activeMissionSubtitleText3_3,
+              $strings.activeMissionSubtitleText4_3,
+              $strings.activeMissionSubtitleText5_3,
+              $strings.activeMissionSubtitleText6_3
+            ],
+            subTitleText_4: [
+              $strings.activeMissionSubtitleText1_4,
+              $strings.activeMissionSubtitleText2_4,
+              $strings.activeMissionSubtitleText3_4,
+              $strings.activeMissionSubtitleText4_4,
+              $strings.activeMissionSubtitleText5_4,
+              $strings.activeMissionSubtitleText6_4
+            ],
             imageUrl: [
               '',
               '',

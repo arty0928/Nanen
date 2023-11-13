@@ -406,105 +406,198 @@
 	"timelineEvent1969ce": "阿波罗11号在月球着陆",
 	"privacyPolicy": "隐私政策",
 	"privacyStatement": "gskinner 非常重视对用户隐私的保护，正如{privacyUrl}里所诉，gskinner 不会收集您的个人信息。",
-	
-	"activeMissionTitle1":"30분 산책하기",
-	"activeMissionSubtitle1":"active",
-	"activeMissionSubtitleText1":"이건 미션 1 active",
-
-	"activeMissionTitle2":"40분 산책하기",
-	"activeMissionSubtitle2":"active",
-	"activeMissionSubtitleText2":"이건 미션 2 active",
-
-	"activeMissionTitle3":"50분 산책하기",
-	"activeMissionSubtitle3":"active",
-	"activeMissionSubtitleText3":"이건 미션 3 active",
-
-	"activeMissionTitle4":"보름달 사진 찍기",
-	"activeMissionSubtitle4":"active",
-	"activeMissionSubtitleText4":"이건 미션 4 active",
-
-	"activeMissionTitle5":"한 정거장 전에 내리기",
-    "activeMissionSubtitle5":"active",
-	"activeMissionSubtitleText5":"이건 미션 5 active",
-
-    "activeMissionTitle6":"전시회 가기",
-     "activeMissionSubtitle6":"active",
-	"activeMissionSubtitleText6":"이건 미션 6 active",
-
-
-	"calmMissionTitle1":"20분 스트레칭하기",
-	"calmMissionSubtitle1":"calm",
-	"calmMissionSubtitleText1":"이건 미션 1 calm",
-
-	"calmMissionTitle2":"30분 스트레칭하기",
-	"calmMissionSubtitle2":"calm",
-	"calmMissionSubtitleText2":"이건 미션 2 calm",
-
-	"calmMissionTitle3":"40분 스트레칭하기",
-	"calmMissionSubtitle3":"calm",
-	"calmMissionSubtitleText3":"이건 미션 3 calm",
-
-	"calmMissionTitle4":"즐겨 듣는 음악 공유하기",
-    "calmMissionSubtitle4":"calm",
-	"calmMissionSubtitleText4":"이건 미션 4 calm",
-
-    "calmMissionTitle5":"반신욕하기",
-    "calmMissionSubtitle5":"calm",
-	"calmMissionSubtitleText5":"이건 미션 5 calm",
-
-    "calmMissionTitle6":"거주 공간 청소하기",
-    "calmMissionSubtitle6":"calm",
-	"calmMissionSubtitleText6":"이건 미션 6 calm",
+	"activeMissionTitle1":"산책하기",
+	"activeMissionSubtitle1":"More active more better",
+	"activeMissionSubtitleText1":"목표 시간 : 최소 30분의 시간을 산책에 투자해보세요.",
+	"activeMissionSubtitleText1_2":"장소 : 주변 동네, 공원, 또는 자연을 느낄 수 있는 아름다운 곳을 선택해보세요.",
+	"activeMissionSubtitleText1_3":"‘30분 산책하기’ 미션을 통해 걷기의 즐거움과 건강에 대한 책임감을 함께 느껴보아요! ",
+	"activeMissionSubtitleText1_4":"미션 수행 후에는 미션 수행 사진을 찍고 업로드하여 나만의 미션 모음집을 만들어보는 것은 어떨까요?",
 
 
 
-	"creativeMissionTitle1":"제일 좋아하는 옷 사진찍기",
-	"creativeMissionSubtitle1":"creative",
-	"creativeMissionSubtitleText1":"이건 미션 1 creative",
+	"activeMissionTitle2":"달 사진찍기",
+	"activeMissionSubtitle2":"More active more better",
+	"activeMissionSubtitleText2":"적절한 장소 선택 : 주변에 어두운 곳을 찾아, 가능한 한 빛이 적은 장소를 선택하세요.",
+	"activeMissionSubtitleText2_2":"카메라 설정 : 달 사진을 이쁘게 찍기 위해 카메라 각도와 구도를 연구해보는 것은 어떨까요?‘달 사진 찍기’ 미션을 통해 달의 아름다움을 몸소 느껴보고, 창의적인 사진을 통해 그 순간을 기록해보세요! 보름달의 행운을 빕니다.",
+	"activeMissionSubtitleText2_3":"‘달 사진 찍기’ 미션을 통해 달의 아름다움을 몸소 느껴보고, 창의적인 사진을 통해 그 순간을 기록해보세요! 보름달의 행운을 빕니다.",
+	"activeMissionSubtitleText2_4":"",
+
+
+	"activeMissionTitle3":"힐링 음악과 함께 요가하기",
+	"activeMissionSubtitle3":"More active more better",
+	"activeMissionSubtitleText3":"음악 선택 : 좋아하는 힐링 음악을 골라주세요. 뉴에이지, 자연 소리, 또는 명상 음악 중에서 마음에 드는 것을 선택해보세요.",
+	"activeMissionSubtitleText3_2":"평화로운 공간 조성 : 가능하면 조용하고 평화로운 공간을 조성하세요. 촛불이나 향초 등을 사용해 분위기를 더해보세요.",
+	"activeMissionSubtitleText3_3":"요가 매트 준비 : 편안한 옷을 입고 요가 매트 위에 앉아주세요. 시작 전에 몸을 펴고 간단한 스트레칭을 하세요.",
+	"activeMissionSubtitleText3_4":"‘힐링 음악과 함께 요가하기’ 미션을 통해 몸과 마음을 풀어보고, 힐링 음악과 함께하는 요가로 일상의 스트레스를 해소해보세요.",
+
+
+	"activeMissionTitle4":"전시회 가기",
+	"activeMissionSubtitle4":"More active more better",
+	"activeMissionSubtitleText4":"전시회 선택 : 흥미가 있거나 자신이 좋아하는 테마와 작가를 선택해보세요",
+	"activeMissionSubtitleText4_2":"감상 일지 작성 : 전시회를 돌아다니며 본인이 마주한 작품들에 대한 감상을 일지에 기록하세요.",
+	"activeMissionSubtitleText4_3":"전시회 현장에서 사진 찍기 : 전시회에서 허락이 된다면 몇 장의 사진을 찍어 추억으로 남겨보세요.",
+	"activeMissionSubtitleText4_4":"‘전시회 가기’ 예술의 다양성을 경험하고, 작품과 작가들과 소통하며 새로운 영감을 받아보세요. 또 사진을 통해 자신이 느꼈던 감정을 기록해보는 것은 어떨까요?",
+
+
+	"activeMissionTitle5":"야외 스포츠 참여",
+    "activeMissionSubtitle5":"More active more better",
+	"activeMissionSubtitleText5":"좋아하는 스포츠 선택 : 하고 싶은 운동 종목을 선택해보세요.(혼자 하는 운동도 괜찮고, 같이 하는 운동도 좋습니다.)",
+	"activeMissionSubtitleText5_2":"친구와 함께 : 이번 기회에 친구와 함께 야외 운동에 도전해 보는 것은 어떨까요?",
+	"activeMissionSubtitleText5_3":"운동 완료 후 공유 : 운동 완료 후 해시태그(#미션성공)와 함께 활동한 모습이나 감정을 사진과 함께 소셜 미디어에 공유해보세요.",
+	"activeMissionSubtitleText5_4":"‘야외 스포츠 참여’ 미션을 통해 즐거운 운동으로 몸과 마음을 활기차게 만들어보세요. 운동 후 열심히 운동 한 자신에게 칭찬과 함께 사진을 남긴다면 Best!",
+
+
+    "activeMissionTitle6":"한 정거장 전에 내리기",
+     "activeMissionSubtitle6":"More active more better",
+	"activeMissionSubtitleText6":"목표 설정 : 통상적으로 내리는 지하철, 버스 등의 대중 교통수단에서 한 정거장 전에 내리는 것이 목표입니다.",
+	"activeMissionSubtitleText6_2":"새로운 지역 탐험 : 한 정거장 전에 내리면서 기존에 경험하지 못한 새로운 지역을 탐험해보세요.",
+	"activeMissionSubtitleText6_3":"걷거나 자전거 이용 : 내린 후, 목적지까지 걸어가거나 자전거를 이용하여 새로운 경로로 이동해보세요.",
+	"activeMissionSubtitleText6_4":"‘한 정거장 전에 내리기’ 미션을 통해 일상에서 벗어나 새로운 경험을 즐기며, 예상치 못한 재미와 흥미를 찾아보세요. 집으로 걸어오는 동안 새롭게 마주하는 것들에 대해 사진을 찍어 공유해주세요!",
+
+
+
+	"calmMissionTitle1":"반신욕 하기",
+	"calmMissionSubtitle1":"Look inside your heart",
+	"calmMissionSubtitleText1":"편안한 공간 조성 : 집안의 조용하고 편안한 공간을 찾아 반신욕을 즐길 수 있는 환경을 조성하세요.",
+	"calmMissionSubtitleText1_2":"따뜻한 물 준비 : 자신이 원하는 편안한 온도의 물을 준비해주세요.",
+	"calmMissionSubtitleText1_3":"편안한 음악 선택 : 편안한 음악과 함께 반신욕을 즐겨보는 것은 어떨까요? ",
+	"calmMissionSubtitleText1_4":"‘반신욕 하기’ 미션을 통해 일상의 소소한 휴식을 챙기며 몸과 마음을 기분 좋게 만들어보세요. 반신욕 후 마시는 시원한 물 한잔을 찍어 업로드 해보는 것은 어떨까요?",
+
+
+	"calmMissionTitle2":"명상하기",
+	"calmMissionSubtitle2":"Look inside your heart",
+	"calmMissionSubtitleText2":"목표 시간 : 매일 아침이나 저녁, 적어도 5분 이상의 시간을 명상에 투자해보세요.",
+	"calmMissionSubtitleText2_2":"편안한 자세 : 편한 자세로 앉거나 누워 명상에 집중하세요. 등을 곧게 펴고, 손을 편안하게 배 위에 얹어두세요.",
+	"calmMissionSubtitleText2_3":"마음의 관찰 : 마음의 움직임에 집중하고, 감정이나 떠오르는 생각을 관찰해보세요.",
+	"calmMissionSubtitleText2_4":"매일 짧은 시간이라도 ‘명상 하기’ 미션에 시간을 투자하여 내면의 평화를 찾아보는 것은 어떨까요? 명상 후 가장 먼저 눈에 들어오는 사물이나 공간을 사진으로 찍어 공유해주세요!",
+
+
+	"calmMissionTitle3":"나만의 힐링 음악 찾기",
+	"calmMissionSubtitle3":"Look inside your heart",
+	"calmMissionSubtitleText3":"목표 시간 : 나만의 힐링 음악을 찾기 위해 매일 적어도 15분 동안 여유롭게 음악 감상에 시간을 투자해보세요.",
+	"calmMissionSubtitleText3_2":"장르 탐색 : 다양한 음악 장르 중 여러분이 좋아할 만한 장르를 탐색해보세요. (뉴 에이지, 클래식, 자연 소리 등)",
+	"calmMissionSubtitleText3_3":"나만의 재생 목록 만들기 : 좋아하는 음악을 나만의 재생 목록에 추가하여 나만의 힐링 음악 라이브러리를 만들어보세요.",
+	"calmMissionSubtitleText3_4":"‘나만의 힐링 음악 찾기’ 미션을 통해 나에게 맞는 힐링 음악을 찾아보고, 여러분만의 힐링 음악 플레이리스트를 만들어 사진을 찍어 공유해주세요!",
+
+
+	"calmMissionTitle4":"거주 공간 청소하기",
+    "calmMissionSubtitle4":"Look inside your heart",
+	"calmMissionSubtitleText4":"목표 설정 : 거주하는 공간 중 하나를 선택하여 깨끗하게 정리하고 청소하는 것이 목표입니다.",
+	"calmMissionSubtitleText4_2":"물품 정리 : 불필요한 물품들을 정리하고, 필요한 물품들은 적절한 위치에 배치하세요.",
+	"calmMissionSubtitleText4_3":"먼지 제거 : 가구, 진열장, 책상 등에서 먼지를 청소하고, 바닥도 청소기나 걸레로 깨끗이 닦아보세요.",
+	"calmMissionSubtitleText4_4":"‘거주 공간 청소하기’ 미션을 통해 정돈된 환경에서 생활함으로써 마음에도 평화를 가져다 줄 수 있습니다. 청소가 완료된 후 사진을 찍어 업로드 하는 것도 잊지 마세요!",
+
+    "calmMissionTitle5":"일기 쓰기",
+    "calmMissionSubtitle5":"Look inside your heart",
+	"calmMissionSubtitleText5":"목표 설정 : 매일 정해진 시간에, 적어도 10분 이상 일기를 쓰는 것이 목표입니다.",
+	"calmMissionSubtitleText5_2":"자유로운 표현 : 어떤 주제든 자유롭게 표현해보세요.",
+	"calmMissionSubtitleText5_3":"긍정적인 사건 강조 : 일기에는 긍정적인 사건이나 감사한 순간들을 강조하며 기록해보세요!",
+	"calmMissionSubtitleText5_4":"‘일기 쓰기’ 미션을 통해 일기 쓰기 습관을 만들면서 자아 발견과 감정의 표현에 도움을 주게 될 것입니다. 집중해서 자신이 일기를 쓰는 모습이나, 작성된 일기를 사진 찍어 공유해주세요!",
+
+
+    "calmMissionTitle6":"좋아하는 책 읽기",
+    "calmMissionSubtitle6":"Look inside your heart",
+	"calmMissionSubtitleText6":"책 선택 : 가장 마음에 드는 혹은 오랜만에 다시 읽고 싶은 책을 선택하세요. 장르와 상관없이 당신이 좋아하는 이야기를 찾아보세요.",
+	"calmMissionSubtitleText6_2":"독서 환경 조성 : 편안한 읽기 환경을 조성하세요. 차 한잔이나 간식을 준비하고, 조용한 공간에서 편안한 자세로 책에 몰입하세요.",
+	"calmMissionSubtitleText6_3":"독서 일기 작성 : 독서 중에 떠오르는 생각이나 감정을 독서 일기에 기록하세요. 어떤 구절이 마음에 남았는지, 이 책을 통해 느낀 것은 무엇인지 적어보세요.",
+	"calmMissionSubtitleText6_4":"‘좋아하는 책 읽기’ 미션을 통해 당신만의 독서 시간을 즐기며, 동시에 독서 커뮤니티와 소통하면서 책의 매력을 나눠 보는 것은 어떨까요? 독서로부터 온 즐거움을 타인과 공유해보세요!",
+
+
+	"creativeMissionTitle1":"제일 좋아하는 옷 사진 찍기",
+	"creativeMissionSubtitle1":"Make creative your Life",
+	"creativeMissionSubtitleText1":"옷 선정하기 : 자신이 가지고 있는 옷 중 자신에게 가장 잘 어울린다고 생각되는 옷, 또는 자신을 가장 잘 표현할 수 있는 옷을 선택해주세요.",
+	"creativeMissionSubtitleText1_2":"어울리는 배경 찾기 : 착용한 옷에 어울리는 배경을 찾아보세요. 실내, 실외, 또는 특별한 장소 중 어디든 좋아요.",
+	"creativeMissionSubtitleText1_3":"포즈와 표정 : 포즈와 표정을 통해 자신만의 스타일을 표현해보세요.",
+	"creativeMissionSubtitleText1_4":"‘제일 좋아하는 옷 사진 찍기’ 미션을 통해 자신만의 옷 스타일을 발견하고, 좋아하는 옷에 어울리는 포즈와 분위기를 찾아보세요!",
+
 
 	"creativeMissionTitle2":"제일 좋아하는 꽃 사진찍기",
-	"creativeMissionSubtitle2":"creative",
-	"creativeMissionSubtitleText2":"이건 미션 2 creative",
+	"creativeMissionSubtitle2":"Make creative your Life",
+	"creativeMissionSubtitleText2":"좋아하는 꽃 선정하기 : 자신이 가장 좋아하는 꽃이 무엇일지 고민하고 찾아보는 시간을 가져보세요.",
+	"creativeMissionSubtitleText2_2":"꽃 찾기 : 자신이 좋아하는 꽃을 집 주변에서 찾아보세요!",
+	"creativeMissionSubtitleText2_3":"포즈와 표정 : 포즈와 표정을 통해 자신만의 스타일을 표현해보세요.",
+	"creativeMissionSubtitleText2_4":"‘제일 좋아하는 옷 사진 찍기’ 미션을 통해 자신만의 옷 스타일을 발견하고, 좋아하는 옷에 어울리는 포즈와 분위기를 찾아보세요!",
 
-	"creativeMissionTitle3":"제일 좋아하는 이모티콘 따라하기",
-	"creativeMissionSubtitle3":"creative",
-	"creativeMissionSubtitleText3":"이건 미션 3 creative",
 
-	"creativeMissionTitle4":"저녁 직접 만들기",
-    "creativeMissionSubtitle4":"creative",
-	"creativeMissionSubtitleText4":"이건 미션 4 creative",
+	"creativeMissionTitle3":"저녁 식사 직접 만들기",
+	"creativeMissionSubtitle3":"Make creative your Life",
+	"creativeMissionSubtitleText3":"요리 계획 : 오늘 저녁에 무엇을 요리할지 계획을 세워보세요. 선호하는 요리나 도전해보고 싶은 새로운 레시피를 선택해도 좋습니다.",
+	"creativeMissionSubtitleText3_2":"식재료 준비 : 선택한 레시피에 필요한 식재료를 구매하고, 주방에서 필요한 도구들을 정리하세요. ",
+	"creativeMissionSubtitleText3_3":"테이블 세팅 : 요리가 끝나면 아름다운 식탁을 세팅해보세요. 소품이나 색다른 식기로 분위기를 연출하면 더욱 특별한 식사가 될 것입니다.",
+	"creativeMissionSubtitleText3_4":"‘저녁 식사 직접 만들기’ 미션을 통해 직접 만든 음식의 만족감과 공유의 기쁨을 느껴보세요. 요리하는 과정과 함께 완성된 음식을 사진 찍어 해스태그와 함께 SNS에 공유도 해보세요!",
 
-    "creativeMissionTitle5":"좋아하는 옷 기록하기",
-    "creativeMissionSubtitle5":"creative",
-	"creativeMissionSubtitleText5":"이건 미션 5 creative",
 
-    "creativeMissionTitle6":"오늘 가장 기억에 남는 순간 그림으로 그리기",
-    "creativeMissionSubtitle6":"creative",
-	"creativeMissionSubtitleText6":"이건 미션 6 creative",
+
+	"creativeMissionTitle4":"오늘 가장 기억에 남는 순간 그림 그리기",
+    "creativeMissionSubtitle4":"Make creative your Life",
+	"creativeMissionSubtitleText4":"기억에 남는 순간 선택 : 오늘 있었던 순간 중에서 특별하게 기억에 남는 한 장면을 선택하세요. 어떤 감정이나 특별한 경험을 담은 순간이 좋습니다.",
+	"creativeMissionSubtitleText4_2":"감정 표현 : 선택한 순간이 담고 있는 감정을 그림으로 표현해보세요. 감정의 표정, 주변의 풍경, 색감 등을 활용하여 그림을 완성해나가 보세요. ",
+	"creativeMissionSubtitleText4_3":"작품 완성 : 당신이 원하는 자유로운 스타일로 작품을 완성해보세요. 완성된 그림이 감정을 잘 표현하고 오늘의 순간을 잘 담아냈는지 확인해보세요.",
+	"creativeMissionSubtitleText4_4":"‘오늘 가장 기억에 남는 순간 그림으로 그려보기’ 미션을 통해 자신의 창의성을 발휘하면서 오늘의 특별한 순간을 그림으로 기록해보세요. 작품을 통해 감정과 경험을 나누는 것은 더욱 풍요로운 하루로 이어질 것입니다.",
+
+
+
+    "creativeMissionTitle5":"이모티콘 따라하기",
+    "creativeMissionSubtitle5":"Make creative your Life",
+	"creativeMissionSubtitleText5":"이모티콘 선택 : 다양한 이모티콘 중에서 하나를 선택하세요. 기쁨, 슬픔, 놀람, 화남 등 다양한 감정을 담은 이모티콘 중 하나를 골라보세요.",
+	"creativeMissionSubtitleText5_2":"이모티콘 따라하기 : 선택한 이모티콘을 자신만의 스타일로 재해석하여 따라해보세요.",
+	"creativeMissionSubtitleText5_3":"‘이모티콘 따라하기’ 미션을 통해 자신의 감정을 이모티콘으로 솔직하게 풀어내보고 창의성을 발휘하여 다양한 방식으로 표현해보세요. 또 표현한 자신의 모습을 사진을 찍어 업로드 해주세요.",
+	"creativeMissionSubtitleText5_4":"",
+
+
+    "creativeMissionTitle6":"일주일 계획 짜보기",
+    "creativeMissionSubtitle6":"Make creative your Life",
+	"creativeMissionSubtitleText6":"목표 설정 : 이번 주에 달성하고 싶은 목표를 명확하게 설정하세요. 업무, 개인적인 목표 등을 고려하여 일주일 동안 달성하고 싶은 것들을 적어보세요.",
+	"creativeMissionSubtitleText6_2":"우선순위 정하기 : 목표들을 우선순위에 따라 나열하세요. 어떤 일을 먼저 처리해야 할지 생각하면서 계획을 세워보세요.",
+	"creativeMissionSubtitleText6_3":"여유 시간 확보 : 각 날짜의 계획에 여유 시간을 두어 예상치 못한 상황에 대비하세요. 계획이 조금씩 밀리더라도 대처할 수 있는 여유를 만들어두는 것이 중요합니다!  ",
+	"creativeMissionSubtitleText6_4":"‘일주일 계획 짜보기’ 미션을 통해 효율적인 일주일을 보내면서 목표를 달성하는 즐거움을 느껴보세요. 계획에 따라 움직이면서 성취감도 느끼고 설정한 목표에 한 걸음 더 다가가보세요.",
 
 
 	"peopleMissionTitle1":"긍정적인 말 10개하기",
-	"peopleMissionSubtitle1":"people",
+	"peopleMissionSubtitle1":"Share with your Memory",
 	"peopleMissionSubtitleText1":"이건 미션 1 people",
+	"peopleMissionSubtitleText1_2":"이건 미션 1 people",
+	"peopleMissionSubtitleText1_3":"이건 미션 1 people",
+	"peopleMissionSubtitleText1_4":"이건 미션 1 people",
 
-	"peopleMissionTitle2":"좋아하는 단어 5개 말하기",
-	"peopleMissionSubtitle2":"people",
+
+	"peopleMissionTitle2":"자기 칭찬 3개 하기",
+	"peopleMissionSubtitle2":"Share with your Memory",
 	"peopleMissionSubtitleText2":"이건 미션 2 people",
+	"peopleMissionSubtitleText2_2":"이건 미션 2 people",
+	"peopleMissionSubtitleText2_3":"이건 미션 2 people",
+	"peopleMissionSubtitleText2_4":"이건 미션 2 people",
 
-	"peopleMissionTitle3":"자기 칭찬 3번 하기",
-	"peopleMissionSubtitle3":"people",
+
+	"peopleMissionTitle3":"가족에게 안부 전화하기",
+	"peopleMissionSubtitle3":"Share with your Memory",
 	"peopleMissionSubtitleText3":"이건 미션 3 people",
+	"peopleMissionSubtitleText3_2":"이건 미션 3 people",
+	"peopleMissionSubtitleText3_3":"이건 미션 3 people",
+	"peopleMissionSubtitleText3_4":"이건 미션 3 people",
 
-	"peopleMissionTitle4":"가족에게 안부 전화하기",
-    "peopleMissionSubtitle4":"people",
+
+	"peopleMissionTitle4":"친구들과 기념 사진 찍기",
+    "peopleMissionSubtitle4":"Share with your Memory",
 	"peopleMissionSubtitleText4":"이건 미션 4 people",
+	"peopleMissionSubtitleText4_2":"이건 미션 4 people",
+	"peopleMissionSubtitleText4_3":"이건 미션 4 people",
+	"peopleMissionSubtitleText4_4":"이건 미션 4 people",
 
-    "peopleMissionTitle5":"친구들과 기념 사진찍기",
-    "peopleMissionSubtitle5":"people",
+
+    "peopleMissionTitle5":"가족들에게 감사 편지 써보기",
+    "peopleMissionSubtitle5":"Share with your Memory",
 	"peopleMissionSubtitleText5":"이건 미션 5 people",
+	"peopleMissionSubtitleText5_2":"이건 미션 5 people",
+	"peopleMissionSubtitleText5_3":"이건 미션 5 people",
+	"peopleMissionSubtitleText5_4":"이건 미션 5 people",
 
-    "peopleMissionTitle6":"소중한 사람과 사진 찍기",
-    "peopleMissionSubtitle6":"people",
-	"peopleMissionSubtitleText6":"이건 미션 6 people"
+
+    "peopleMissionTitle6":"백화점 구경가기",
+    "peopleMissionSubtitle6":"Share with your Memory",
+	"peopleMissionSubtitleText6":"이건 미션 5 people",
+	"peopleMissionSubtitleText6_2":"이건 미션 5 people",
+	"peopleMissionSubtitleText6_3":"이건 미션 5 people",
+	"peopleMissionSubtitleText6_4":"이건 미션 5 people"
 
 }

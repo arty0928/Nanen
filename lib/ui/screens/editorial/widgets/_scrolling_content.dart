@@ -48,9 +48,17 @@ class _ScrollingContent extends StatelessWidget {
     return missionLists.asMap().entries.map((entry) {
       final int missionIndex = entry.key;
       final mission = entry.value;
-      final title = _truncateString(mission.missionTitle, 20);
-      final subtitle = _truncateString(mission.missionSubTitle, 30);
-      final subTitleText = _truncateString(mission.missionSubTitleText, 80);
+      final title = mission.missionTitle;
+      // final title = _truncateString(mission.missionTitle, 20);
+      final subtitle = mission.missionSubTitle;
+      // final subtitle = _truncateString(mission.missionSubTitle, 30);
+
+      // final subTitleText = _truncateString(mission.missionSubTitleText, 200);
+      final subTitleText = mission.missionSubTitleText;
+      final subTitleText_2 = mission.missionSubTitleText2;
+      final subTitleText_3 = mission.missionSubTitleText3;
+      final subTitleText_4 = mission.missionSubTitleText4;
+
       String missionPic = mission.missionPic;
       bool missionPicIsDone = mission.missionPicIsDone;
       String aiDiary = mission.aiDiary;
@@ -69,6 +77,9 @@ class _ScrollingContent extends StatelessWidget {
           aiDiary: aiDiary,
           aiDiaryIsDone: aiDiaryIsDone,
           subTitleText: subTitleText,
+          subTitleText_2: subTitleText_2,
+          subTitleText_3: subTitleText_3,
+          subTitleText_4: subTitleText_4,
         ),
       );
     }).toList();
@@ -86,6 +97,10 @@ class missionBox extends StatelessWidget {
   final String title;
   final String subtitle;
   final String subTitleText;
+  final String subTitleText_2;
+  final String subTitleText_3;
+  final String subTitleText_4;
+
   String missionPic = '';
   bool missionPicIsDone = false;
   String aiDiary = '';
@@ -102,7 +117,10 @@ class missionBox extends StatelessWidget {
       required this.missionPicIsDone,
       required this.aiDiary,
       required this.aiDiaryIsDone,
-      required this.subTitleText})
+      required this.subTitleText,
+      required this.subTitleText_2,
+      required this.subTitleText_3,
+      required this.subTitleText_4})
       : super(key: key);
 
   @override
@@ -117,8 +135,8 @@ class missionBox extends StatelessWidget {
               child: MissionDetailScreen(
                   missionIndex: missionIndex,
                   data: data,
-                  selectedMission: MissionList(
-                      title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone, subTitleText))));
+                  selectedMission: MissionList(title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone,
+                      subTitleText, subTitleText_2, subTitleText_3, subTitleText_4))));
         },
         child: Center(
           child: Column(
