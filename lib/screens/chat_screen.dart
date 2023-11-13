@@ -51,13 +51,14 @@ class _ChatScreenState extends State<ChatScreen> {
     final chatProvider = Provider.of<ChatProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        elevation: 2,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(AssetsManager.openaiLogo),
-        ),
+        // elevation: 2,
+        // leading: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Image.asset(AssetsManager.openaiLogo),
+        // ),
+        centerTitle: true,
         title: TextWidget(
-          label: 'Naneun AI Chat',
+          label: 'Naneun AI Diary',
           fontSize: 25,
         ),
         actions: [
@@ -81,6 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: SafeArea(
         child: Column(children: [
+          ChatWidget(msg: '당신의 오늘 하루를 말해주세요', chatIndex: 1),
           Expanded(
             child: ListView.builder(
                 controller: _listScrollController,

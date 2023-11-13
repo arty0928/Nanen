@@ -14,6 +14,7 @@ class ChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMe = chatIndex == 0;
     return Column(
       children: [
         Material(
@@ -21,7 +22,7 @@ class ChatWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: !isMe ? MainAxisAlignment.start : MainAxisAlignment.end,
               children: [
                 Image.asset(
                   chatIndex == 0 ? AssetsManager.userImage : AssetsManager.botImage,
