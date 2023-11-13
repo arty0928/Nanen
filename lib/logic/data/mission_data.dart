@@ -2,22 +2,30 @@ import 'package:wonders/common_libs.dart';
 
 class MissionList {
   MissionList(
-      this.missionTitle,
-      this.missionSubTitle,
-      this.missionPic,
-      this.missionPicIsDone,
-      this.aiDiary,
-      this.aiDiaryIsDone,
-      this.missionSubTitleText,
-      this.missionSubTitleText2,
-      this.missionSubTitleText3,
-      this.missionSubTitleText4);
+    this.missionTitle,
+    this.missionSubTitle,
+    this.missionPic,
+    this.missionPicIsDone,
+    this.aiDiary,
+    this.aiDiaryIsDone,
+    this.missionSubTitleText,
+    this.missionSubTitleText2,
+    this.missionSubTitleText3,
+    this.missionSubTitleText4,
+    this.missionHashTag1,
+    this.missionHashTag2,
+    this.missionHashTag3,
+  );
   final String missionTitle;
   final String missionSubTitle;
   final String missionSubTitleText;
   final String missionSubTitleText2;
   final String missionSubTitleText3;
   final String missionSubTitleText4;
+
+  final String missionHashTag1;
+  final String missionHashTag2;
+  final String missionHashTag3;
 
   String missionPic;
   bool missionPicIsDone = false;
@@ -49,7 +57,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText1,
         $strings.activeMissionSubtitleText1_2,
         $strings.activeMissionSubtitleText1_3,
-        $strings.activeMissionSubtitleText1_4),
+        $strings.activeMissionSubtitleText1_4,
+        $strings.activeHashtag1_1,
+        $strings.activeHashtag1_2,
+        $strings.activeHashtag1_3),
     MissionList(
         $strings.activeMissionTitle2,
         $strings.activeMissionSubtitle2,
@@ -60,7 +71,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText2,
         $strings.activeMissionSubtitleText2_2,
         $strings.activeMissionSubtitleText2_3,
-        $strings.activeMissionSubtitleText2_4),
+        $strings.activeMissionSubtitleText2_4,
+        $strings.activeHashtag2_1,
+        $strings.activeHashtag2_2,
+        $strings.activeHashtag2_3),
     MissionList(
         $strings.activeMissionTitle3,
         $strings.activeMissionSubtitle3,
@@ -71,7 +85,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText3,
         $strings.activeMissionSubtitleText3_2,
         $strings.activeMissionSubtitleText3_3,
-        $strings.activeMissionSubtitleText3_4),
+        $strings.activeMissionSubtitleText3_4,
+        $strings.activeHashtag3_1,
+        $strings.activeHashtag3_2,
+        $strings.activeHashtag3_3),
     MissionList(
         $strings.activeMissionTitle4,
         $strings.activeMissionSubtitle4,
@@ -82,7 +99,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText4,
         $strings.activeMissionSubtitleText4_2,
         $strings.activeMissionSubtitleText4_3,
-        $strings.activeMissionSubtitleText4_4),
+        $strings.activeMissionSubtitleText4_4,
+        $strings.activeHashtag4_1,
+        $strings.activeHashtag4_2,
+        $strings.activeHashtag4_3),
     MissionList(
         $strings.activeMissionTitle5,
         $strings.activeMissionSubtitle5,
@@ -93,7 +113,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText5,
         $strings.activeMissionSubtitleText5_2,
         $strings.activeMissionSubtitleText5_3,
-        $strings.activeMissionSubtitleText5_4),
+        $strings.activeMissionSubtitleText5_4,
+        $strings.activeHashtag5_1,
+        $strings.activeHashtag5_2,
+        $strings.activeHashtag5_3),
     MissionList(
         $strings.activeMissionTitle6,
         $strings.activeMissionSubtitle6,
@@ -104,7 +127,10 @@ class MissionLists {
         $strings.activeMissionSubtitleText6,
         $strings.activeMissionSubtitleText6_2,
         $strings.activeMissionSubtitleText6_3,
-        $strings.activeMissionSubtitleText6_4),
+        $strings.activeMissionSubtitleText6_4,
+        $strings.activeHashtag6_1,
+        $strings.activeHashtag6_2,
+        $strings.activeHashtag6_3),
   ];
 
   final calmMissionLists = [
@@ -118,7 +144,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText1,
         $strings.calmMissionSubtitleText1_2,
         $strings.calmMissionSubtitleText1_3,
-        $strings.calmMissionSubtitleText1_4),
+        $strings.calmMissionSubtitleText1_4,
+        $strings.calmHashtag1_1,
+        $strings.calmHashtag1_2,
+        $strings.calmHashtag1_3),
     MissionList(
         $strings.calmMissionTitle2,
         $strings.calmMissionSubtitle2,
@@ -129,7 +158,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText2,
         $strings.calmMissionSubtitleText2_2,
         $strings.calmMissionSubtitleText2_3,
-        $strings.calmMissionSubtitleText2_4),
+        $strings.calmMissionSubtitleText2_4,
+        $strings.calmHashtag2_1,
+        $strings.calmHashtag2_2,
+        $strings.calmHashtag2_3),
     MissionList(
         $strings.calmMissionTitle3,
         $strings.calmMissionSubtitle3,
@@ -140,7 +172,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText3,
         $strings.calmMissionSubtitleText3_2,
         $strings.calmMissionSubtitleText3_3,
-        $strings.calmMissionSubtitleText3_4),
+        $strings.calmMissionSubtitleText3_4,
+        $strings.calmHashtag3_1,
+        $strings.calmHashtag3_2,
+        $strings.calmHashtag3_3),
     MissionList(
         $strings.calmMissionTitle4,
         $strings.calmMissionSubtitle4,
@@ -151,7 +186,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText4,
         $strings.calmMissionSubtitleText4_2,
         $strings.calmMissionSubtitleText4_3,
-        $strings.calmMissionSubtitleText4_4),
+        $strings.calmMissionSubtitleText4_4,
+        $strings.calmHashtag4_1,
+        $strings.calmHashtag4_2,
+        $strings.calmHashtag4_3),
     MissionList(
         $strings.calmMissionTitle5,
         $strings.calmMissionSubtitle5,
@@ -162,7 +200,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText5,
         $strings.calmMissionSubtitleText5_2,
         $strings.calmMissionSubtitleText5_3,
-        $strings.calmMissionSubtitleText5_4),
+        $strings.calmMissionSubtitleText5_4,
+        $strings.calmHashtag5_1,
+        $strings.calmHashtag5_2,
+        $strings.calmHashtag5_3),
     MissionList(
         $strings.calmMissionTitle6,
         $strings.calmMissionSubtitle6,
@@ -173,7 +214,10 @@ class MissionLists {
         $strings.calmMissionSubtitleText6,
         $strings.calmMissionSubtitleText6_2,
         $strings.calmMissionSubtitleText6_3,
-        $strings.calmMissionSubtitleText6_4),
+        $strings.calmMissionSubtitleText6_4,
+        $strings.calmHashtag6_1,
+        $strings.calmHashtag6_2,
+        $strings.calmHashtag6_3),
   ];
 
   final creativeMissionLists = [
@@ -187,7 +231,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText1,
         $strings.creativeMissionSubtitleText1_2,
         $strings.creativeMissionSubtitleText1_3,
-        $strings.creativeMissionSubtitleText1_4),
+        $strings.creativeMissionSubtitleText1_4,
+        $strings.creativeHashtag1_1,
+        $strings.creativeHashtag1_2,
+        $strings.creativeHashtag1_3),
     MissionList(
         $strings.creativeMissionTitle2,
         $strings.creativeMissionSubtitle2,
@@ -198,7 +245,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText2,
         $strings.creativeMissionSubtitleText2_2,
         $strings.creativeMissionSubtitleText2_3,
-        $strings.creativeMissionSubtitleText2_4),
+        $strings.creativeMissionSubtitleText2_4,
+        $strings.creativeHashtag2_1,
+        $strings.creativeHashtag2_2,
+        $strings.creativeHashtag2_3),
     MissionList(
         $strings.creativeMissionTitle3,
         $strings.creativeMissionSubtitle3,
@@ -209,7 +259,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText3,
         $strings.creativeMissionSubtitleText3_2,
         $strings.creativeMissionSubtitleText3_3,
-        $strings.creativeMissionSubtitleText3_4),
+        $strings.creativeMissionSubtitleText3_4,
+        $strings.creativeHashtag3_1,
+        $strings.creativeHashtag3_2,
+        $strings.creativeHashtag3_3),
     MissionList(
         $strings.creativeMissionTitle4,
         $strings.creativeMissionSubtitle4,
@@ -220,7 +273,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText4,
         $strings.creativeMissionSubtitleText4_2,
         $strings.creativeMissionSubtitleText4_3,
-        $strings.creativeMissionSubtitleText4_4),
+        $strings.creativeMissionSubtitleText4_4,
+        $strings.creativeHashtag4_1,
+        $strings.creativeHashtag4_2,
+        $strings.creativeHashtag4_3),
     MissionList(
         $strings.creativeMissionTitle5,
         $strings.creativeMissionSubtitle5,
@@ -231,7 +287,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText5,
         $strings.creativeMissionSubtitleText5_2,
         $strings.creativeMissionSubtitleText5_3,
-        $strings.creativeMissionSubtitleText5_4),
+        $strings.creativeMissionSubtitleText5_4,
+        $strings.creativeHashtag5_1,
+        $strings.creativeHashtag5_2,
+        $strings.creativeHashtag5_3),
     MissionList(
         $strings.creativeMissionTitle6,
         $strings.creativeMissionSubtitle6,
@@ -242,7 +301,10 @@ class MissionLists {
         $strings.creativeMissionSubtitleText6,
         $strings.creativeMissionSubtitleText6_2,
         $strings.creativeMissionSubtitleText6_3,
-        $strings.creativeMissionSubtitleText6_4),
+        $strings.creativeMissionSubtitleText6_4,
+        $strings.creativeHashtag6_1,
+        $strings.creativeHashtag6_2,
+        $strings.creativeHashtag6_3),
   ];
 
   final peopleMissionLists = [
@@ -256,7 +318,10 @@ class MissionLists {
         $strings.peopleMissionSubtitleText1,
         $strings.peopleMissionSubtitleText1_2,
         $strings.peopleMissionSubtitleText1_3,
-        $strings.peopleMissionSubtitleText1_4),
+        $strings.peopleMissionSubtitleText1_4,
+        $strings.peopleHashtag1_1,
+        $strings.peopleHashtag1_2,
+        $strings.peopleHashtag1_3),
     MissionList(
         $strings.peopleMissionTitle2,
         $strings.peopleMissionSubtitle2,
@@ -267,7 +332,10 @@ class MissionLists {
         $strings.peopleMissionSubtitleText2,
         $strings.peopleMissionSubtitleText2_2,
         $strings.peopleMissionSubtitleText2_3,
-        $strings.peopleMissionSubtitleText2_4),
+        $strings.peopleMissionSubtitleText2_4,
+        $strings.peopleHashtag2_1,
+        $strings.peopleHashtag2_2,
+        $strings.peopleHashtag2_3),
     MissionList(
         $strings.peopleMissionTitle3,
         $strings.peopleMissionSubtitle3,
@@ -278,7 +346,10 @@ class MissionLists {
         $strings.peopleMissionSubtitleText3,
         $strings.peopleMissionSubtitleText3_2,
         $strings.peopleMissionSubtitleText3_3,
-        $strings.peopleMissionSubtitleText3_4),
+        $strings.peopleMissionSubtitleText3_4,
+        $strings.peopleHashtag3_1,
+        $strings.peopleHashtag3_2,
+        $strings.peopleHashtag3_3),
     MissionList(
         $strings.peopleMissionTitle4,
         $strings.peopleMissionSubtitle4,
@@ -289,7 +360,10 @@ class MissionLists {
         $strings.peopleMissionSubtitleText4,
         $strings.peopleMissionSubtitleText4_2,
         $strings.peopleMissionSubtitleText4_3,
-        $strings.peopleMissionSubtitleText4_4),
+        $strings.peopleMissionSubtitleText4_4,
+        $strings.peopleHashtag4_1,
+        $strings.peopleHashtag4_2,
+        $strings.peopleHashtag4_3),
     MissionList(
         $strings.peopleMissionTitle5,
         $strings.peopleMissionSubtitle5,
@@ -300,7 +374,10 @@ class MissionLists {
         $strings.peopleMissionSubtitleText5,
         $strings.peopleMissionSubtitleText5_2,
         $strings.peopleMissionSubtitleText5_3,
-        $strings.peopleMissionSubtitleText5_4),
+        $strings.peopleMissionSubtitleText5_4,
+        $strings.peopleHashtag5_1,
+        $strings.peopleHashtag5_2,
+        $strings.peopleHashtag5_3),
     MissionList(
         $strings.peopleMissionTitle6,
         $strings.peopleMissionSubtitle6,
@@ -311,6 +388,9 @@ class MissionLists {
         $strings.peopleMissionSubtitleText6,
         $strings.peopleMissionSubtitleText6_2,
         $strings.peopleMissionSubtitleText6_3,
-        $strings.peopleMissionSubtitleText6_4),
+        $strings.peopleMissionSubtitleText6_4,
+        $strings.peopleHashtag6_1,
+        $strings.peopleHashtag6_2,
+        $strings.peopleHashtag6_3),
   ];
 }

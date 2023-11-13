@@ -102,6 +102,30 @@ class ColosseumData extends WonderData {
               $strings.calmMissionSubtitleText5_4,
               $strings.calmMissionSubtitleText6_4
             ],
+            hashTag1: [
+              $strings.calmHashtag1_1,
+              $strings.calmHashtag2_1,
+              $strings.calmHashtag3_1,
+              $strings.calmHashtag4_1,
+              $strings.calmHashtag5_1,
+              $strings.calmHashtag6_1
+            ],
+            hastTag2: [
+              $strings.calmHashtag1_2,
+              $strings.calmHashtag2_2,
+              $strings.calmHashtag3_2,
+              $strings.calmHashtag4_2,
+              $strings.calmHashtag5_2,
+              $strings.calmHashtag6_2
+            ],
+            hashTag3: [
+              $strings.calmHashtag1_3,
+              $strings.calmHashtag2_3,
+              $strings.calmHashtag3_3,
+              $strings.calmHashtag4_3,
+              $strings.calmHashtag5_3,
+              $strings.calmHashtag6_3
+            ],
             imageUrl: [
               '',
               '',

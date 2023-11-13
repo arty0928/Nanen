@@ -65,6 +65,30 @@ class ChichenItzaData extends WonderData {
               $strings.activeMissionSubtitleText5_4,
               $strings.activeMissionSubtitleText6_4
             ],
+            hashTag1: [
+              $strings.activeHashtag1_1,
+              $strings.activeHashtag2_1,
+              $strings.activeHashtag3_1,
+              $strings.activeHashtag4_1,
+              $strings.activeHashtag5_1,
+              $strings.activeHashtag6_1
+            ],
+            hastTag2: [
+              $strings.activeHashtag1_2,
+              $strings.activeHashtag2_2,
+              $strings.activeHashtag3_2,
+              $strings.activeHashtag4_2,
+              $strings.activeHashtag5_2,
+              $strings.activeHashtag6_2
+            ],
+            hashTag3: [
+              $strings.activeHashtag1_3,
+              $strings.activeHashtag2_3,
+              $strings.activeHashtag3_3,
+              $strings.activeHashtag4_3,
+              $strings.activeHashtag5_3,
+              $strings.activeHashtag6_3
+            ],
             imageUrl: [
               '',
               '',

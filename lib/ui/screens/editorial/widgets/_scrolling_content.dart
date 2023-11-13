@@ -59,6 +59,10 @@ class _ScrollingContent extends StatelessWidget {
       final subTitleText_3 = mission.missionSubTitleText3;
       final subTitleText_4 = mission.missionSubTitleText4;
 
+      final hashTag1 = mission.missionHashTag1;
+      final hashTag2 = mission.missionHashTag2;
+      final hashTag3 = mission.missionHashTag3;
+
       String missionPic = mission.missionPic;
       bool missionPicIsDone = mission.missionPicIsDone;
       String aiDiary = mission.aiDiary;
@@ -80,6 +84,9 @@ class _ScrollingContent extends StatelessWidget {
           subTitleText_2: subTitleText_2,
           subTitleText_3: subTitleText_3,
           subTitleText_4: subTitleText_4,
+          hashTag1: hashTag1,
+          hashTag2: hashTag2,
+          hashTag3: hashTag3,
         ),
       );
     }).toList();
@@ -100,6 +107,9 @@ class missionBox extends StatelessWidget {
   final String subTitleText_2;
   final String subTitleText_3;
   final String subTitleText_4;
+  final String hashTag1;
+  final String hashTag2;
+  final String hashTag3;
 
   String missionPic = '';
   bool missionPicIsDone = false;
@@ -120,7 +130,10 @@ class missionBox extends StatelessWidget {
       required this.subTitleText,
       required this.subTitleText_2,
       required this.subTitleText_3,
-      required this.subTitleText_4})
+      required this.subTitleText_4,
+      required this.hashTag1,
+      required this.hashTag2,
+      required this.hashTag3})
       : super(key: key);
 
   @override
@@ -136,7 +149,7 @@ class missionBox extends StatelessWidget {
                   missionIndex: missionIndex,
                   data: data,
                   selectedMission: MissionList(title, subtitle, missionPic, missionPicIsDone, aiDiary, aiDiaryIsDone,
-                      subTitleText, subTitleText_2, subTitleText_3, subTitleText_4))));
+                      subTitleText, subTitleText_2, subTitleText_3, subTitleText_4, hashTag1, hashTag2, hashTag3))));
         },
         child: Center(
           child: Column(

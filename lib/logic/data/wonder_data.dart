@@ -27,6 +27,9 @@ class WonderData extends Equatable {
     required List<String> subTitleText_2,
     required List<String> subTitleText_3,
     required List<String> subTitleText_4,
+    required List hashTag1,
+    required List hastTag2,
+    required List hashTag3,
   });
 
   final WonderType type;

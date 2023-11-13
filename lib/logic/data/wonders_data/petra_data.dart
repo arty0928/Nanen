@@ -80,6 +80,30 @@ class PetraData extends WonderData {
               $strings.peopleMissionSubtitleText5_4,
               $strings.peopleMissionSubtitleText6_4
             ],
+            hashTag1: [
+              $strings.peopleHashtag1_1,
+              $strings.peopleHashtag2_1,
+              $strings.peopleHashtag3_1,
+              $strings.peopleHashtag4_1,
+              $strings.peopleHashtag5_1,
+              $strings.peopleHashtag6_1
+            ],
+            hastTag2: [
+              $strings.peopleHashtag1_2,
+              $strings.peopleHashtag2_2,
+              $strings.peopleHashtag3_2,
+              $strings.peopleHashtag4_2,
+              $strings.peopleHashtag5_2,
+              $strings.peopleHashtag6_2
+            ],
+            hashTag3: [
+              $strings.peopleHashtag1_3,
+              $strings.peopleHashtag2_3,
+              $strings.peopleHashtag3_3,
+              $strings.peopleHashtag4_3,
+              $strings.peopleHashtag5_3,
+              $strings.peopleHashtag6_3
+            ],
             imageUrl: [
               '',
               '',

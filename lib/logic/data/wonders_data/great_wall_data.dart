@@ -102,6 +102,30 @@ class GreatWallData extends WonderData {
               $strings.creativeMissionSubtitleText5_4,
               $strings.creativeMissionSubtitleText6_4
             ],
+            hashTag1: [
+              $strings.creativeHashtag1_1,
+              $strings.creativeHashtag2_1,
+              $strings.creativeHashtag3_1,
+              $strings.creativeHashtag4_1,
+              $strings.creativeHashtag5_1,
+              $strings.creativeHashtag6_1
+            ],
+            hastTag2: [
+              $strings.creativeHashtag1_2,
+              $strings.creativeHashtag2_2,
+              $strings.creativeHashtag3_2,
+              $strings.creativeHashtag4_2,
+              $strings.creativeHashtag5_2,
+              $strings.creativeHashtag6_2
+            ],
+            hashTag3: [
+              $strings.creativeHashtag1_3,
+              $strings.creativeHashtag2_3,
+              $strings.creativeHashtag3_3,
+              $strings.creativeHashtag4_3,
+              $strings.creativeHashtag5_3,
+              $strings.creativeHashtag6_3
+            ],
             imageUrl: [
               '',
               '',

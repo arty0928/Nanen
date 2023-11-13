@@ -243,7 +243,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                   color: NanenAppTheme.grey,
                 ),
                 children: <TextSpan>[
-                  TextSpan(text: bold, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  TextSpan(text: bold, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   TextSpan(text: plain),
                 ],
               ),
@@ -333,7 +333,7 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(left: 18, right: 10, top: 25),
+                        padding: EdgeInsets.only(left: 18, right: 10, top: 25, bottom: 10),
                         child: Text(
                           widget.selectedMission.missionTitle,
                           textAlign: TextAlign.left,
@@ -371,100 +371,18 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
                           padding: const EdgeInsets.all(8),
                           child: Row(
                             children: <Widget>[
-                              getTimeBoxUI('24', 'Classes'),
-                              getTimeBoxUI('2hours', 'Time'),
-                              getTimeBoxUI('24', 'Seat'),
+                              getTimeBoxUI(widget.selectedMission.missionHashTag1),
+                              getTimeBoxUI(widget.selectedMission.missionHashTag2),
+                              getTimeBoxUI(widget.selectedMission.missionHashTag3),
                             ],
                           ),
                         ),
                       ),
 
-                      //text 4개를 scroll vi
-                      // AnimatedOpacity(
-                      //   duration: const Duration(milliseconds: 500),
-                      //   opacity: opacity2,
-                      //   child: Padding(
-                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                      //       child: Stack(
-                      //         children: [
-                      //           Text(
-                      //             widget.selectedMission.missionSubTitleText,
-                      //             textAlign: TextAlign.justify,
-                      //             style: TextStyle(
-                      //               fontWeight: FontWeight.w200,
-                      //               fontSize: 14,
-                      //               letterSpacing: 0.27,
-                      //               color: NanenAppTheme.grey,
-                      //             ),
-                      //           ),
-                      //         ],
-                      //       )),
-                      // ),
-                      // AnimatedOpacity(
-                      //   duration: const Duration(milliseconds: 500),
-                      //   opacity: opacity2,
-                      //   child: Padding(
-                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                      //       child: Stack(
-                      //         children: [
-                      //           Text(
-                      //             widget.selectedMission.missionSubTitleText2,
-                      //             textAlign: TextAlign.justify,
-                      //             style: TextStyle(
-                      //               fontWeight: FontWeight.w200,
-                      //               fontSize: 14,
-                      //               letterSpacing: 0.27,
-                      //               color: NanenAppTheme.grey,
-                      //             ),
-                      //           ),
-                      //         ],
-                      //       )),
-                      // ),
-                      // AnimatedOpacity(
-                      //   duration: const Duration(milliseconds: 500),
-                      //   opacity: opacity2,
-                      //   child: Padding(
-                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                      //       child: Stack(
-                      //         children: [
-                      //           Text(
-                      //             widget.selectedMission.missionSubTitleText3,
-                      //             textAlign: TextAlign.justify,
-                      //             style: TextStyle(
-                      //               fontWeight: FontWeight.w200,
-                      //               fontSize: 14,
-                      //               letterSpacing: 0.27,
-                      //               color: NanenAppTheme.grey,
-                      //             ),
-                      //           ),
-                      //         ],
-                      //       )),
-                      // ),
-                      // AnimatedOpacity(
-                      //   duration: const Duration(milliseconds: 500),
-                      //   opacity: opacity2,
-                      //   child: Padding(
-                      //       padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-                      //       child: Stack(
-                      //         children: [
-                      //           Text(
-                      //             widget.selectedMission.missionSubTitleText4,
-                      //             textAlign: TextAlign.justify,
-                      //             style: TextStyle(
-                      //               fontWeight: FontWeight.w200,
-                      //               fontSize: 14,
-                      //               letterSpacing: 0.27,
-                      //               color: NanenAppTheme.grey,
-                      //             ),
-                      //           ),
-                      //         ],
-                      //       )),
-                      // ),
-
                       // TODO : 사이즈를 220으로 정하고 넘치면 사이즈가 220인 박스 내에서 스크롤 할 수 있도록 해줘
                       SingleChildScrollView(
                         child: SizedBox(
-                          height: 250,
+                          height: 270,
                           child: Padding(
                             padding: EdgeInsets.only(left: 16, right: 16),
                             child: Column(
@@ -614,43 +532,37 @@ class _MissionDetailScreenState extends State<MissionDetailScreen> with TickerPr
     );
   }
 
-  Widget getTimeBoxUI(String text1, String txt2) {
+  Widget getTimeBoxUI(String txt2) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: Container(
         decoration: BoxDecoration(
           color: NanenAppTheme.nearlyWhite,
-          borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(13.0)),
           boxShadow: <BoxShadow>[
             BoxShadow(color: NanenAppTheme.grey.withOpacity(0.2), offset: const Offset(1.1, 1.1), blurRadius: 8.0),
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 18.0, right: 18.0, top: 12.0, bottom: 12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                text1,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                  letterSpacing: 0.27,
-                  color: NanenAppTheme.nearlyBlue,
+          padding: const EdgeInsets.only(left: 7.0, right: 7.0, top: 7.0, bottom: 7.0),
+          child: SingleChildScrollView(
+            // 스크롤 가능하도록 추가
+            scrollDirection: Axis.horizontal, // 수평 스크롤
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  txt2,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 12,
+                    letterSpacing: 0.27,
+                    color: widget.data.type.bgColor,
+                  ),
                 ),
-              ),
-              Text(
-                txt2,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w200,
-                  fontSize: 14,
-                  letterSpacing: 0.27,
-                  color: NanenAppTheme.grey,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
